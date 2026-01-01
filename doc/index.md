@@ -30,6 +30,7 @@ hero_media           : hero media wrapper class (`.hero_media`)
 how                  : `index.html` section id (`#how`)
 index_html           : `index.html`
 layout_max_width     : CSS custom property (`--layout_max_width`)
+layout_side_padding  : CSS custom property (`--layout_side_padding`)
 legal                : `index.html` section id (`#legal`)
 legal_meta           : CSS class (`.legal_meta`)
 line_color           : CSS custom property (`--line_color`)
