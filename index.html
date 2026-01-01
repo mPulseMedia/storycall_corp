@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall turns messages from Instagram, texts, and other apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
-  <title>StoryCall — Keep in touch by phone</title>
+  <meta name="description" content="StoryCall turns messages from Instagram, text, and other apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
+  <title>StoryCall — Exchange messages by phone</title>
   <style>
     :root{
       --bg1:#fff7ef;
@@ -35,7 +35,6 @@
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-    /* Top bar */
     header{
       position:sticky; top:0; z-index:10;
       background: rgba(255,255,255,.72);
@@ -99,7 +98,6 @@
       border-color: rgba(107,76,255,.36) !important;
     }
 
-    /* Hero */
     main{padding:44px 0 26px}
     h1{
       margin:0 0 14px;
@@ -111,7 +109,7 @@
       margin:0 0 18px;
       font-size:22px;
       color:var(--muted);
-      max-width: 62ch;
+      max-width: 64ch;
     }
     .note{
       margin:0 0 22px;
@@ -140,12 +138,16 @@
       background: linear-gradient(135deg, rgba(107,76,255,.18), rgba(0,183,255,.12));
     }
 
-    /* Simple sections */
     section{padding:30px 0}
     h2{
       margin:0 0 12px;
       font-size:30px;
       letter-spacing:-.3px;
+    }
+    h3{
+      margin:18px 0 10px;
+      font-size:22px;
+      letter-spacing:-.2px;
     }
     .box{
       border:1px solid var(--line);
@@ -162,11 +164,7 @@
       color: var(--muted);
     }
 
-    /* Details (FAQ + Legal) */
-    .details-wrap{
-      display:grid;
-      gap:12px;
-    }
+    .details-wrap{display:grid; gap:12px}
     details{
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -203,18 +201,24 @@
     details .content p{margin:10px 0}
     details .content ul{margin:10px 0; padding-left: 22px}
     details .content li{font-size:18px; margin:8px 0}
-
-    /* Help */
-    form{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
-    label{
-      font-weight:900;
+    details .content .small{font-size:16px; color: var(--muted)}
+    .legal-meta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:10px;
       font-size:16px;
-      color: var(--text);
+      color: var(--muted);
     }
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.6);
+      font-weight:800;
+    }
+
+    form{display:grid; gap:12px; margin-top:12px}
+    label{font-weight:900; font-size:16px; color: var(--text)}
     input, textarea{
       width:100%;
       padding:14px 14px;
@@ -226,21 +230,10 @@
       outline:none;
     }
     textarea{min-height:120px; resize:vertical}
-    .help-row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 780px){
-      .help-row{grid-template-columns: 1fr}
-    }
-    .small{
-      font-size:16px;
-      color: var(--muted);
-      margin-top:8px;
-    }
+    .help-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 780px){ .help-row{grid-template-columns: 1fr} }
+    .small{font-size:16px; color: var(--muted); margin-top:8px}
 
-    /* Footer */
     footer{
       border-top:1px solid var(--line);
       padding:26px 0 40px;
@@ -250,13 +243,8 @@
       display:flex; align-items:flex-start; justify-content:space-between;
       gap:18px; flex-wrap:wrap;
     }
-    .copy{
-      color: var(--muted);
-      font-size:18px;
-    }
-    .links{
-      display:flex; gap:12px; flex-wrap:wrap;
-    }
+    .copy{color: var(--muted); font-size:18px}
+    .links{display:flex; gap:12px; flex-wrap:wrap}
     .links a{
       color: var(--muted);
       text-decoration:none;
@@ -267,6 +255,7 @@
       background: rgba(255,255,255,.70);
     }
     .links a:hover{color:var(--text); background: rgba(255,255,255,.90)}
+
     @media (max-width: 700px){
       h1{font-size:42px}
       p.lead{font-size:20px}
@@ -294,18 +283,21 @@
           <a href="#help">Help</a>
           <a href="#faq">FAQ</a>
           <a href="#legal">Privacy & Terms</a>
+          <a href="#about">About</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <h1>Stay close—without asking Grandma to “get the app.”</h1>
+    <h1>Exchange messages with anyone—by phone.</h1>
     <p class="lead">
       StoryCall turns messages from Instagram, text, and other apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
     </p>
     <p class="note">
       <b>Opt-out anytime:</b> the phone recipient can stop future calls by texting <b>STOP</b>.
+      <br />
+      A common use case is helping grandchildren and grandparents stay in touch—without changing anyone’s habits.
     </p>
 
     <div class="buttons">
@@ -320,10 +312,10 @@
         <ol>
           <li>You send a message (IG / SMS / apps).</li>
           <li>StoryCall schedules a phone call and plays it.</li>
-          <li>Your grandparent replies by speaking.</li>
+          <li>The phone user replies by speaking.</li>
           <li>The reply returns as audio (optionally transcript).</li>
         </ol>
-        <div class="mini">Simple for them. Familiar for you.</div>
+        <div class="mini">Simple for them. Familiar for you. Helpful for everyone.</div>
       </div>
     </section>
 
@@ -334,7 +326,7 @@
           Send a help request and it will be emailed to <b>Paul</b> at <b>paul@storycall.org</b>.
         </div>
 
-        <!-- Sends via the user's email client; no backend required -->
+        <!-- mailto: opens the user's email client; no backend required -->
         <form action="mailto:paul@storycall.org" method="post" enctype="text/plain">
           <div class="help-row">
             <div>
@@ -349,12 +341,12 @@
 
           <div class="help-row">
             <div>
-              <label for="phone">Grandparent phone (optional)</label>
-              <input id="phone" name="grandparent_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
+              <label for="phone">Recipient phone (optional)</label>
+              <input id="phone" name="recipient_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
             </div>
             <div>
               <label for="topic">Topic</label>
-              <input id="topic" name="topic" placeholder="Billing / Setup / Scheduling / Something else" />
+              <input id="topic" name="topic" placeholder="Setup / Scheduling / Billing / Other" />
             </div>
           </div>
 
@@ -366,7 +358,7 @@
           <button class="btn primary" type="submit">Send help request</button>
 
           <div class="small">
-            Tip: If the phone recipient texts <b>STOP</b>, they won’t receive future StoryCall calls.
+            Opt-out: the phone recipient can stop future calls by texting <b>STOP</b>.
           </div>
         </form>
       </div>
@@ -381,7 +373,7 @@
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <p>No. They receive a normal phone call, listen, and reply by speaking after the prompt.</p>
+            <p>No. They receive a normal phone call, listen, and reply by speaking.</p>
           </div>
         </details>
 
@@ -420,45 +412,295 @@
     <section id="legal">
       <h2>Privacy & Terms</h2>
       <div class="details-wrap">
+
+        <!-- PRIVACY POLICY -->
         <details>
           <summary>
-            Privacy Policy
+            Privacy Policy (Full Text)
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <p><b>In plain English:</b> We collect only what we need to deliver calls and message replies.</p>
+            <div class="legal-meta">
+              <span class="pill">Effective: <span id="privacyEffective"></span></span>
+              <span class="pill">Contact: paul@storycall.org</span>
+            </div>
+
+            <p><b>1. Overview</b></p>
+            <p>
+              StoryCall (“StoryCall,” “we,” “us”) provides a service that relays messages from messaging platforms (such as
+              Instagram, SMS/text, and other apps) into scheduled telephone calls, and returns voice replies back to the originating
+              thread. This Privacy Policy explains what we collect, how we use it, and the choices you have.
+            </p>
+            <p>
+              We aim to be conservative with data: collect the minimum necessary, avoid selling or sharing for advertising,
+              and give you control. If anything here is unclear, email <b>paul@storycall.org</b>.
+            </p>
+
+            <p><b>2. Definitions</b></p>
             <ul>
-              <li><b>Data you provide:</b> names, phone numbers, and the messages/audio you choose to send.</li>
-              <li><b>How we use it:</b> to deliver scheduled calls, record replies, and return them to the message thread.</li>
-              <li><b>Sharing:</b> we don’t sell personal data. We may use service providers to operate the system (telephony, storage, etc.).</li>
-              <li><b>Retention:</b> you can request deletion of your account and associated content.</li>
-              <li><b>Security:</b> we use reasonable safeguards, but no system is perfect.</li>
-              <li><b>Opt-out:</b> the phone recipient can stop future calls by texting <b>STOP</b>.</li>
-              <li><b>Contact:</b> privacy questions can be sent via the Help form or email <b>paul@storycall.org</b>.</li>
+              <li><b>“User”</b> means someone who uses the StoryCall app or website to send or manage messages/calls.</li>
+              <li><b>“Recipient”</b> means someone who receives StoryCall phone calls.</li>
+              <li><b>“Content”</b> means messages, audio recordings, transcripts, and related metadata.</li>
             </ul>
-            <p class="small">This is a friendly summary. Replace with your final policy language when ready.</p>
+
+            <p><b>3. Information We Collect</b></p>
+            <p><b>3.1 Information you provide</b></p>
+            <ul>
+              <li><b>Account info:</b> name, email, and login identifiers (if you create an account).</li>
+              <li><b>Contact info:</b> phone numbers and names for Recipients (as provided by you).</li>
+              <li><b>Support info:</b> information you submit in help requests or emails to us.</li>
+            </ul>
+
+            <p><b>3.2 Content processed to provide the service</b></p>
+            <ul>
+              <li><b>Incoming messages:</b> text and/or voice notes you choose to route through StoryCall.</li>
+              <li><b>Outbound call audio:</b> the audio we play to the Recipient during scheduled calls.</li>
+              <li><b>Recipient replies:</b> recorded voice replies, and optional transcripts if enabled.</li>
+            </ul>
+
+            <p><b>3.3 Usage and device information</b></p>
+            <ul>
+              <li><b>Basic logs:</b> timestamps, delivery status, call duration, and error reports.</li>
+              <li><b>Web data:</b> limited analytics needed to run and secure the site (e.g., IP address, browser type).</li>
+            </ul>
+
+            <p><b>3.4 What we do not collect (by default)</b></p>
+            <ul>
+              <li>We do not sell personal information.</li>
+              <li>We do not share personal information for third-party advertising.</li>
+              <li>We do not collect precise location data.</li>
+              <li>We do not intentionally collect sensitive data beyond what you choose to send as Content.</li>
+            </ul>
+
+            <p><b>4. How We Use Information</b></p>
+            <ul>
+              <li><b>Provide the service:</b> schedule calls, play messages, record replies, and deliver them back.</li>
+              <li><b>Safety and security:</b> prevent abuse, detect fraud, and protect accounts and systems.</li>
+              <li><b>Support:</b> respond to help requests and troubleshoot issues.</li>
+              <li><b>Service improvement:</b> fix bugs, improve reliability, and enhance features.</li>
+            </ul>
+
+            <p><b>5. Legal Bases (Where Applicable)</b></p>
+            <ul>
+              <li><b>Contract:</b> to provide StoryCall as requested by Users.</li>
+              <li><b>Legitimate interests:</b> to secure, maintain, and improve the service.</li>
+              <li><b>Consent:</b> where required (e.g., certain notifications or optional features).</li>
+              <li><b>Legal obligation:</b> where we must comply with law or lawful requests.</li>
+            </ul>
+
+            <p><b>6. Sharing and Disclosure</b></p>
+            <p>
+              We share information only as needed to run StoryCall, and we limit that sharing as much as possible.
+            </p>
+            <p><b>6.1 Service providers</b></p>
+            <ul>
+              <li>
+                We use vetted service providers to operate key functions (e.g., telephony, hosting, storage, email delivery).
+                They are permitted to process data only to provide services to StoryCall and must protect it.
+              </li>
+            </ul>
+
+            <p><b>6.2 Legal and safety</b></p>
+            <ul>
+              <li>
+                We may disclose information if we believe it is reasonably necessary to comply with law,
+                enforce our terms, or protect rights, safety, and security.
+              </li>
+            </ul>
+
+            <p><b>6.3 No sale of personal information</b></p>
+            <p>
+              We do not sell personal information and do not share it for cross-context behavioral advertising.
+            </p>
+
+            <p><b>7. Retention</b></p>
+            <p>
+              We retain information only as long as necessary to provide the service and for legitimate business and legal needs.
+              You can request deletion (see “Your Choices”). Some data may be retained for limited periods for fraud prevention,
+              billing, dispute resolution, or legal compliance.
+            </p>
+
+            <p><b>8. Your Choices and Rights</b></p>
+            <ul>
+              <li><b>Opt-out (Recipients):</b> Recipients can stop future calls by texting <b>STOP</b> at any time.</li>
+              <li><b>Access/correction:</b> You can request access to or correction of your account information.</li>
+              <li><b>Deletion:</b> You can request deletion of your account and associated Content, subject to retention needs.</li>
+              <li><b>Export:</b> You can request an export of your Content where feasible.</li>
+              <li><b>Consent controls:</b> You can disable optional features (like transcription) if offered.</li>
+            </ul>
+            <p class="small">
+              To make a request, email <b>paul@storycall.org</b>. We may need to verify your identity before fulfilling requests.
+            </p>
+
+            <p><b>9. Security</b></p>
+            <p>
+              We use reasonable administrative, technical, and physical safeguards designed to protect data. No system can be
+              guaranteed 100% secure; if you believe your account has been compromised, contact us promptly.
+            </p>
+
+            <p><b>10. Children</b></p>
+            <p>
+              StoryCall is not directed to children under 13. If you believe a child has provided personal information to us,
+              contact <b>paul@storycall.org</b> so we can address it.
+            </p>
+
+            <p><b>11. International Users</b></p>
+            <p>
+              If you access StoryCall from outside the United States, your information may be processed in the United States
+              or other locations where our service providers operate.
+            </p>
+
+            <p><b>12. Changes to This Policy</b></p>
+            <p>
+              We may update this policy from time to time. If changes are material, we will provide a prominent notice or other
+              appropriate communication. The “Effective” date above indicates when this policy was last updated.
+            </p>
+
+            <p><b>13. Contact</b></p>
+            <p>
+              Questions or requests: <b>paul@storycall.org</b>.
+            </p>
           </div>
         </details>
 
+        <!-- TERMS -->
         <details>
           <summary>
-            Terms & Conditions
+            Terms & Conditions (Full Text)
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <p><b>In plain English:</b> Use StoryCall responsibly, and you keep ownership of your content.</p>
+            <div class="legal-meta">
+              <span class="pill">Effective: <span id="termsEffective"></span></span>
+              <span class="pill">Contact: paul@storycall.org</span>
+            </div>
+
+            <p><b>1. Acceptance</b></p>
+            <p>
+              These Terms & Conditions (“Terms”) govern your use of StoryCall’s website, app, and services (collectively, the “Service”).
+              By using the Service, you agree to these Terms. If you do not agree, do not use the Service.
+            </p>
+
+            <p><b>2. What StoryCall Does</b></p>
+            <p>
+              StoryCall relays messages from messaging platforms (such as Instagram, SMS/text, and other apps) into scheduled telephone calls,
+              and returns voice replies to the originating thread. The Service may include optional transcription and other features.
+            </p>
+
+            <p><b>3. Safety and Consent</b></p>
+            <p><b>3.1 Permission to contact</b></p>
             <ul>
-              <li><b>Eligibility:</b> you must have permission to message/call the recipient.</li>
-              <li><b>Your content:</b> you own your messages and recordings; you grant StoryCall permission to process them to provide the service.</li>
-              <li><b>Prohibited use:</b> no harassment, spam, fraud, or illegal content.</li>
-              <li><b>Availability:</b> we aim for reliability, but service may be interrupted.</li>
-              <li><b>Costs:</b> standard carrier charges may apply depending on your plan.</li>
-              <li><b>Stopping:</b> the phone recipient can opt out anytime by texting <b>STOP</b>.</li>
-              <li><b>Liability:</b> limited to the maximum extent permitted by law.</li>
+              <li>You represent and warrant that you have permission to contact any Recipient you add or message through StoryCall.</li>
+              <li>You will not use the Service for harassment, spam, deception, or unlawful purposes.</li>
             </ul>
-            <p class="small">This is a friendly summary. Replace with your final terms when ready.</p>
+
+            <p><b>3.2 Recipient opt-out</b></p>
+            <ul>
+              <li>
+                Recipients can stop future calls by texting <b>STOP</b> at any time. You agree not to attempt to override or circumvent opt-out.
+              </li>
+            </ul>
+
+            <p><b>4. Accounts</b></p>
+            <ul>
+              <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+              <li>You are responsible for activity that occurs under your account.</li>
+              <li>You agree to provide accurate information and to keep it up to date.</li>
+            </ul>
+
+            <p><b>5. Your Content and Our License (Minimal, Service-Only)</b></p>
+            <p>
+              You retain ownership of your Content. To provide the Service, you grant StoryCall a limited, non-exclusive license to host,
+              process, transmit, and display your Content solely as necessary to operate and improve the Service, troubleshoot issues,
+              and maintain safety and security. We do not claim ownership of your Content.
+            </p>
+
+            <p><b>6. Prohibited Uses</b></p>
+            <ul>
+              <li>Harassment, threats, hate, or abusive conduct.</li>
+              <li>Spam, robocalling abuse, or sending unsolicited bulk messages.</li>
+              <li>Impersonation, fraud, or deceptive practices.</li>
+              <li>Illegal content or use that violates laws or third-party rights.</li>
+              <li>Attempts to probe, scan, or breach security; or reverse engineer the Service where prohibited.</li>
+            </ul>
+
+            <p><b>7. Third-Party Services</b></p>
+            <p>
+              The Service may interact with third-party platforms and providers (e.g., messaging platforms, telecom carriers).
+              Your use of those services is governed by their terms and policies. StoryCall is not responsible for outages, policy changes,
+              or actions by third parties.
+            </p>
+
+            <p><b>8. Availability, Changes, and Support</b></p>
+            <ul>
+              <li>We aim to provide a reliable Service, but we do not guarantee uninterrupted availability.</li>
+              <li>We may modify or discontinue features to improve the Service or for safety, legal, or operational reasons.</li>
+              <li>Support requests can be sent to <b>paul@storycall.org</b> or via the help form on this site.</li>
+            </ul>
+
+            <p><b>9. Fees and Carrier Charges</b></p>
+            <p>
+              Fees (if any) will be disclosed in the app experience. Standard carrier charges may apply for calls or texts depending on
+              your or the Recipient’s plan. StoryCall is not responsible for carrier fees.
+            </p>
+
+            <p><b>10. Termination</b></p>
+            <ul>
+              <li>You can stop using the Service at any time.</li>
+              <li>We may suspend or terminate access if we reasonably believe you violate these Terms or pose risk to others or the Service.</li>
+              <li>Recipients can opt out by texting <b>STOP</b> at any time.</li>
+            </ul>
+
+            <p><b>11. Disclaimers</b></p>
+            <p>
+              The Service is provided “as is” and “as available.” To the maximum extent permitted by law, StoryCall disclaims all warranties,
+              including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+            </p>
+
+            <p><b>12. Limitation of Liability</b></p>
+            <p>
+              To the maximum extent permitted by law, StoryCall will not be liable for indirect, incidental, special, consequential,
+              or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly. In all cases, StoryCall’s
+              total liability for any claim will not exceed the amount you paid to StoryCall for the Service in the 12 months prior to the event
+              giving rise to the claim (or, if you paid nothing, US $100).
+            </p>
+
+            <p><b>13. Indemnity</b></p>
+            <p>
+              You agree to indemnify and hold harmless StoryCall from and against any claims, liabilities, damages, losses, and expenses
+              arising out of your use of the Service or your violation of these Terms, including your Content and your communications with Recipients.
+            </p>
+
+            <p><b>14. Governing Law and Venue</b></p>
+            <p>
+              These Terms are governed by the laws of the State of California, without regard to conflict of law principles.
+              Exclusive venue for disputes will be in state or federal courts located in San Francisco County, California,
+              except where prohibited by law.
+            </p>
+
+            <p><b>15. Changes to Terms</b></p>
+            <p>
+              We may update these Terms from time to time. If changes are material, we will provide notice in the Service or by other
+              reasonable means. Continued use after the effective date means you accept the updated Terms.
+            </p>
+
+            <p><b>16. Contact</b></p>
+            <p>
+              Questions: <b>paul@storycall.org</b>.
+            </p>
           </div>
         </details>
+
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="box">
+        <p style="margin:0; font-size:20px; color:var(--muted);">
+          StoryCall is based in <b>San Francisco</b>. The founder, <b>Paul</b>, built it to help his nieces and nephews connect with
+          other family members who didn’t use social media and text messages—by making the phone feel like part of the conversation.
+        </p>
       </div>
     </section>
   </main>
@@ -473,6 +715,7 @@
           <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Open App</a>
           <a href="#help">Help</a>
           <a href="#legal">Privacy & Terms</a>
+          <a href="#about">About</a>
         </div>
       </div>
     </div>
@@ -480,6 +723,17 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Default "effective date" = today's date (local)
+    (function(){
+      var d = new Date();
+      var opts = { year:"numeric", month:"long", day:"numeric" };
+      var pretty = d.toLocaleDateString(undefined, opts);
+      var p = document.getElementById("privacyEffective");
+      var t = document.getElementById("termsEffective");
+      if (p) p.textContent = pretty;
+      if (t) t.textContent = pretty;
+    })();
   </script>
 </body>
 </html>
