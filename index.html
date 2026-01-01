@@ -7,127 +7,140 @@
   <title>StoryCall — Exchange messages by phone</title>
   <style>
     :root{
-      --bg1:#fff7ef;
-      --bg2:#f2fbff;
-      --card:#ffffff;
-      --text:#16213a;
-      --muted:#42557a;
-      --line: rgba(22,33,58,.14);
-      --shadow: 0 14px 40px rgba(22,33,58,.10);
-      --brand:#6b4cff;
-      --brand2:#00b7ff;
-      --accent:#ff8a3d;
-      --max: 980px;
-      --radius: 22px;
+      --background_primary:   #fff7ef;
+      --background_secondary: #f2fbff;
+      --card_background:      #ffffff;
+      --text_primary:         #16213a;
+      --text_muted:           #42557a;
+      --line_color:           rgba(22,33,58,.14);
+      --shadow_card:          0 14px 40px rgba(22,33,58,.10);
+      --brand_primary:        #6b4cff;
+      --brand_secondary:      #00b7ff;
+      --accent_primary:       #ff8a3d;
+      --layout_max_width:     980px;
+      --radius_card:          22px;
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
+      margin      : 0;
+      font-family : ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color       : var(--text_primary);
+      background  :
         radial-gradient(900px 520px at 15% 0%, rgba(107,76,255,.14), transparent 58%),
         radial-gradient(900px 520px at 90% 10%, rgba(0,183,255,.12), transparent 58%),
         radial-gradient(700px 500px at 40% 115%, rgba(255,138,61,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      line-height:1.35;
+        linear-gradient(180deg, var(--background_primary), var(--background_secondary));
+      line-height : 1.35;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    .wrap{max-width:var(--layout_max_width); margin:0 auto; padding:0 22px}
 
     header{
-      position:sticky; top:0; z-index:10;
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
+      position        : sticky;
+      top             : 0;
+      z-index         : 10;
+      background      : rgba(255,255,255,.72);
+      backdrop-filter : blur(10px);
+      border-bottom   : 1px solid var(--line_color);
     }
     .bar{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:18px 0;
-      gap:14px;
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      padding         : 18px 0;
+      gap             : 14px;
     }
     .brand{
-      display:flex; align-items:center; gap:14px;
-      text-decoration:none;
-      font-weight:900;
-      font-size:22px;
-      letter-spacing:-.2px;
-      white-space:nowrap;
+      display         : flex;
+      align-items     : center;
+      gap             : 14px;
+      text-decoration : none;
+      font-weight     : 900;
+      font-size       : 22px;
+      letter-spacing  : -.2px;
+      white-space     : nowrap;
     }
     .logo{
-      width:44px; height:44px; border-radius:16px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 12px 26px rgba(22,33,58,.14);
-      flex:0 0 auto;
-      position:relative;
-      overflow:hidden;
+      width         : 44px;
+      height        : 44px;
+      border-radius : 16px;
+      background    : linear-gradient(135deg, var(--brand_primary), var(--brand_secondary));
+      box-shadow    : 0 12px 26px rgba(22,33,58,.14);
+      flex          : 0 0 auto;
+      position      : relative;
+      overflow      : hidden;
     }
     .logo:after{
-      content:"";
-      position:absolute; inset:-10px -14px auto auto;
-      width:60px; height:60px;
-      background: radial-gradient(circle, rgba(255,255,255,.55), transparent 58%);
-      transform: rotate(10deg);
-      opacity:.8;
+      content    : "";
+      position   : absolute;
+      inset      : -10px -14px auto auto;
+      width      : 60px;
+      height     : 60px;
+      background : radial-gradient(circle, rgba(255,255,255,.55), transparent 58%);
+      transform  : rotate(10deg);
+      opacity    : .8;
     }
     .nav{
-      display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
-      font-size:18px;
-      color:var(--muted);
+      display         : flex;
+      gap             : 12px;
+      flex-wrap       : wrap;
+      justify-content : flex-end;
+      font-size       : 18px;
+      color           : var(--text_muted);
     }
     .nav a{
-      text-decoration:none;
-      padding:10px 12px;
-      border-radius:16px;
-      border:1px solid transparent;
-      background: transparent;
+      text-decoration : none;
+      padding         : 10px 12px;
+      border-radius   : 16px;
+      border          : 1px solid transparent;
+      background      : transparent;
     }
     .nav a:hover{
-      color:var(--text);
-      border-color:var(--line);
-      background: rgba(255,255,255,.60);
+      color        : var(--text_primary);
+      border-color : var(--line_color);
+      background   : rgba(255,255,255,.60);
     }
     .cta{
-      color:var(--text);
-      background: rgba(107,76,255,.10);
-      border-color: rgba(107,76,255,.26) !important;
-      font-weight:900;
+      color        : var(--text_primary);
+      background   : rgba(107,76,255,.10);
+      border-color : rgba(107,76,255,.26) !important;
+      font-weight  : 900;
     }
     .cta:hover{
-      background: rgba(107,76,255,.14) !important;
-      border-color: rgba(107,76,255,.36) !important;
+      background   : rgba(107,76,255,.14) !important;
+      border-color : rgba(107,76,255,.36) !important;
     }
 
     main{padding:44px 0 26px}
     h1{
-      margin:0 0 14px;
-      font-size:52px;
-      line-height:1.05;
-      letter-spacing:-.8px;
+      margin        : 0 0 14px;
+      font-size     : 52px;
+      line-height   : 1.05;
+      letter-spacing: -.8px;
     }
     p.lead{
-      margin:0 0 18px;
-      font-size:22px;
-      color:var(--muted);
-      max-width: 64ch;
+      margin     : 0 0 18px;
+      font-size  : 22px;
+      color      : var(--text_muted);
+      max-width  : 64ch;
     }
     .note{
-      margin:0 0 22px;
-      font-size:18px;
-      color: var(--muted);
+      margin     : 0 0 22px;
+      font-size  : 18px;
+      color      : var(--text_muted);
     }
-    .note b{color:var(--text)}
+    .note b{color:var(--text_primary)}
     .buttons{display:flex; gap:14px; flex-wrap:wrap; margin: 18px 0 0}
     .btn{
-      display:inline-block;
-      text-decoration:none;
-      font-size:20px;
-      font-weight:900;
-      padding:14px 18px;
-      border-radius:18px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 10px 22px rgba(22,33,58,.06);
+      display         : inline-block;
+      text-decoration : none;
+      font-size       : 20px;
+      font-weight     : 900;
+      padding         : 14px 18px;
+      border-radius   : 18px;
+      border          : 1px solid var(--line_color);
+      background      : rgba(255,255,255,.72);
+      box-shadow      : 0 10px 22px rgba(22,33,58,.06);
     }
     .btn:hover{background: rgba(255,255,255,.92)}
     .btn.primary{
@@ -150,92 +163,99 @@
       letter-spacing:-.2px;
     }
     .box{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.78);
-      border-radius:var(--radius);
-      padding:18px 18px;
-      box-shadow: var(--shadow);
+      border        : 1px solid var(--line_color);
+      background    : rgba(255,255,255,.78);
+      border-radius : var(--radius_card);
+      padding       : 18px 18px;
+      box-shadow    : var(--shadow_card);
     }
     ol, ul{margin: 0; padding-left: 22px}
-    li{font-size:20px; color:var(--muted); margin: 10px 0}
+    li{font-size:20px; color:var(--text_muted); margin: 10px 0}
     .mini{
-      margin-top:12px;
-      font-size:18px;
-      color: var(--muted);
+      margin-top : 12px;
+      font-size  : 18px;
+      color      : var(--text_muted);
     }
 
-    .details-wrap{display:grid; gap:12px}
+    .details_wrap{display:grid; gap:12px}
     details{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 10px 22px rgba(22,33,58,.06);
-      padding:12px 14px;
+      border        : 1px solid var(--line_color);
+      border-radius : var(--radius_card);
+      background    : rgba(255,255,255,.78);
+      box-shadow    : 0 10px 22px rgba(22,33,58,.06);
+      padding       : 12px 14px;
     }
     summary{
-      cursor:pointer;
-      font-weight:900;
-      font-size:20px;
-      color: var(--text);
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      cursor          : pointer;
+      font-weight     : 900;
+      font-size       : 20px;
+      color           : var(--text_primary);
+      list-style      : none;
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      gap             : 12px;
     }
     summary::-webkit-details-marker{display:none}
     .caret{
-      width:34px; height:34px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.65);
-      display:grid; place-items:center;
-      color: var(--muted);
-      flex:0 0 auto;
-      transition:.15s ease;
-      font-weight:900;
+      width         : 34px;
+      height        : 34px;
+      border-radius : 14px;
+      border        : 1px solid var(--line_color);
+      background    : rgba(255,255,255,.65);
+      display       : grid;
+      place-items   : center;
+      color         : var(--text_muted);
+      flex          : 0 0 auto;
+      transition    : .15s ease;
+      font-weight   : 900;
     }
     details[open] .caret{transform: rotate(90deg)}
     details .content{
-      margin-top:10px;
-      color: var(--muted);
-      font-size:18px;
+      margin-top : 10px;
+      color      : var(--text_muted);
+      font-size  : 18px;
     }
     details .content p{margin:10px 0}
     details .content ul{margin:10px 0; padding-left: 22px}
     details .content li{font-size:18px; margin:8px 0}
-    details .content .small{font-size:16px; color: var(--muted)}
-    .legal-meta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:10px;
-      font-size:16px;
-      color: var(--muted);
+    details .content .small{font-size:16px; color: var(--text_muted)}
+    .legal_meta{
+      display    : flex;
+      gap        : 10px;
+      flex-wrap  : wrap;
+      margin-top : 10px;
+      font-size  : 16px;
+      color      : var(--text_muted);
     }
     .pill{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.6);
-      font-weight:800;
+      display       : inline-block;
+      padding       : 6px 10px;
+      border-radius : 999px;
+      border        : 1px solid var(--line_color);
+      background    : rgba(255,255,255,.6);
+      font-weight   : 800;
     }
 
     form{display:grid; gap:12px; margin-top:12px}
-    label{font-weight:900; font-size:16px; color: var(--text)}
+    label{font-weight:900; font-size:16px; color: var(--text_primary)}
     input, textarea{
       width:100%;
       padding:14px 14px;
       border-radius:18px;
-      border:1px solid var(--line);
+      border:1px solid var(--line_color);
       background: rgba(255,255,255,.92);
       font-size:18px;
-      color: var(--text);
+      color: var(--text_primary);
       outline:none;
     }
     textarea{min-height:120px; resize:vertical}
-    .help-row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    @media (max-width: 780px){ .help-row{grid-template-columns: 1fr} }
-    .small{font-size:16px; color: var(--muted); margin-top:8px}
+    .help_row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 780px){ .help_row{grid-template-columns: 1fr} }
+    .small{font-size:16px; color: var(--text_muted); margin-top:8px}
 
     footer{
-      border-top:1px solid var(--line);
+      border-top:1px solid var(--line_color);
       padding:26px 0 40px;
       background: rgba(255,255,255,.40);
     }
@@ -243,18 +263,18 @@
       display:flex; align-items:flex-start; justify-content:space-between;
       gap:18px; flex-wrap:wrap;
     }
-    .copy{color: var(--muted); font-size:18px}
+    .copy{color: var(--text_muted); font-size:18px}
     .links{display:flex; gap:12px; flex-wrap:wrap}
     .links a{
-      color: var(--muted);
+      color: var(--text_muted);
       text-decoration:none;
       font-size:18px;
       padding:10px 12px;
       border-radius:16px;
-      border:1px solid var(--line);
+      border:1px solid var(--line_color);
       background: rgba(255,255,255,.70);
     }
-    .links a:hover{color:var(--text); background: rgba(255,255,255,.90)}
+    .links a:hover{color:var(--text_primary); background: rgba(255,255,255,.90)}
 
     @media (max-width: 700px){
       h1{font-size:42px}
@@ -328,7 +348,7 @@
 
         <!-- mailto: opens the user's email client; no backend required -->
         <form action="mailto:paul@storycall.org" method="post" enctype="text/plain">
-          <div class="help-row">
+          <div class="help_row">
             <div>
               <label for="name">Your name</label>
               <input id="name" name="name" placeholder="Your name" autocomplete="name" />
@@ -339,7 +359,7 @@
             </div>
           </div>
 
-          <div class="help-row">
+          <div class="help_row">
             <div>
               <label for="phone">Recipient phone (optional)</label>
               <input id="phone" name="recipient_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
@@ -366,7 +386,7 @@
 
     <section id="faq">
       <h2>FAQ</h2>
-      <div class="details-wrap">
+      <div class="details_wrap">
         <details>
           <summary>
             Does the phone user install anything?
@@ -411,7 +431,7 @@
 
     <section id="legal">
       <h2>Privacy & Terms</h2>
-      <div class="details-wrap">
+      <div class="details_wrap">
 
         <!-- PRIVACY POLICY -->
         <details>
@@ -420,8 +440,8 @@
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <div class="legal-meta">
-              <span class="pill">Effective: <span id="privacyEffective"></span></span>
+            <div class="legal_meta">
+              <span class="pill">Effective: <span id="privacy_effective"></span></span>
               <span class="pill">Contact: paul@storycall.org</span>
             </div>
 
@@ -570,8 +590,8 @@
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <div class="legal-meta">
-              <span class="pill">Effective: <span id="termsEffective"></span></span>
+            <div class="legal_meta">
+              <span class="pill">Effective: <span id="terms_effective"></span></span>
               <span class="pill">Contact: paul@storycall.org</span>
             </div>
 
@@ -697,7 +717,7 @@
     <section id="about">
       <h2>About</h2>
       <div class="box">
-        <p style="margin:0; font-size:20px; color:var(--muted);">
+        <p style="margin:0; font-size:20px; color:var(--text_muted);">
           StoryCall is based in <b>San Francisco</b>. The founder, <b>Paul</b>, built it to help his nieces and nephews connect with
           other family members who didn’t use social media and text messages—by making the phone feel like part of the conversation.
         </p>
@@ -726,11 +746,15 @@
 
     // Default "effective date" = today's date (local)
     (function(){
-      var d = new Date();
-      var opts = { year:"numeric", month:"long", day:"numeric" };
+      var d      = new Date();
+      var opts   = {
+        year:  "numeric",
+        month: "long",
+        day:   "numeric",
+      };
       var pretty = d.toLocaleDateString(undefined, opts);
-      var p = document.getElementById("privacyEffective");
-      var t = document.getElementById("termsEffective");
+      var p      = document.getElementById("privacy_effective");
+      var t      = document.getElementById("terms_effective");
       if (p) p.textContent = pretty;
       if (t) t.textContent = pretty;
     })();
