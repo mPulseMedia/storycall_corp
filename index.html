@@ -1,1000 +1,259 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall relays messages from Instagram, text, and other apps into scheduled phone calls—so people who don’t use social media can still exchange voice messages." />
-  <meta name="theme-color" content="#0b1220" />
-  <title>StoryCall — Social messages, delivered by phone</title>
-
-  <!--
-    Corporate site domain: storycall.org
-    App link: https://app.storycall.org
-    Single-file HTML with inline CSS only
-  -->
-
+  <meta name="description" content="StoryCall relays messages from Instagram, text, and other apps into scheduled phone calls—and sends voice replies back." />
+  <title>StoryCall — Messages delivered by phone</title>
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#0f1a33;
-      --card:#101d3a;
-      --text:#e9eefc;
-      --muted:#b8c2e6;
-      --subtle:#7f8bb3;
+      --panel:#101a33;
+      --text:#f1f4ff;
+      --muted:#b9c3ea;
+      --line:rgba(255,255,255,.14);
       --brand:#7c5cff;
       --brand2:#45d1ff;
-      --ok:#2ee59d;
-      --warn:#ffcf5a;
-      --danger:#ff6b6b;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 16px;
-      --radius2: 22px;
-      --max: 1120px;
+      --max: 980px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 600px at 15% -10%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(69,209,255,.25), transparent 60%),
-        radial-gradient(900px 600px at 40% 120%, rgba(46,229,157,.18), transparent 55%),
-        var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(900px 500px at 20% 0%, rgba(124,92,255,.28), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(69,209,255,.22), transparent 55%),
+                  var(--bg);
       color:var(--text);
-      line-height:1.45;
+      line-height:1.35;
     }
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
-    .skip{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{
-      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
-      background:#111b36; border:1px solid var(--line); border-radius:10px; z-index:9999;
-    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
 
     /* Top bar */
     header{
-      position:sticky; top:0; z-index:1000;
+      position:sticky; top:0; z-index:10;
+      background: rgba(11,18,32,.78);
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,18,32,.85), rgba(11,18,32,.55));
-      border-bottom: 1px solid var(--line);
+      border-bottom:1px solid var(--line);
     }
-    .topbar{
+    .bar{
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
+      padding:18px 0;
       gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap:12px; min-width:220px;
+      display:flex; align-items:center; gap:14px;
       text-decoration:none;
-    }
-    .logo{
-      width:40px; height:40px; border-radius:12px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 35%),
-        linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 24px rgba(124,92,255,.25);
-      position:relative;
-      flex:0 0 auto;
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:9px 10px 11px 10px;
-      border:2px solid rgba(255,255,255,.60);
-      border-left-color: transparent;
-      border-top-color: transparent;
-      border-radius:10px;
-      transform: rotate(12deg);
-      opacity:.9;
-    }
-    .brand b{display:block; letter-spacing:.2px; font-size:15px}
-    .brand span{display:block; font-size:12.5px; color:var(--muted)}
-    nav{
-      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    nav a{
-      text-decoration:none;
-      color:var(--muted);
-      font-size:13px;
-      padding:9px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
-      transition: .15s ease;
-    }
-    nav a:hover{
-      color:var(--text);
-      border-color: var(--line);
-      background: rgba(255,255,255,.04);
-    }
-    .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      text-decoration:none;
-      font-weight:650;
-      font-size:13px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(124,92,255,.45);
-      background: linear-gradient(135deg, rgba(124,92,255,.20), rgba(69,209,255,.10));
-      box-shadow: 0 10px 26px rgba(0,0,0,.25);
-      transition:.15s ease;
+      font-weight:800;
+      font-size:22px;
+      letter-spacing:-.2px;
       white-space:nowrap;
     }
-    .cta:hover{
-      transform: translateY(-1px);
-      border-color: rgba(124,92,255,.70);
-      background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(69,209,255,.14));
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      flex:0 0 auto;
     }
-    .pill{
-      font-size:11px; font-weight:700;
-      padding:4px 8px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
+    .nav{
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:18px;
+      color:var(--muted);
+    }
+    .nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background: rgba(255,255,255,.05);
+    }
+    .cta{
+      color:var(--text);
+      background: rgba(124,92,255,.18);
+      border-color: rgba(124,92,255,.45) !important;
+      font-weight:800;
     }
 
     /* Hero */
-    .hero{
-      padding:48px 0 26px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:28px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-    }
-    .headline{
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
-      border: 1px solid var(--line);
-      border-radius: var(--radius2);
-      padding:24px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .headline:before{
-      content:"";
-      position:absolute; inset:-60px -60px auto auto;
-      width:220px; height:220px;
-      background: radial-gradient(circle, rgba(69,209,255,.25), transparent 60%);
-      filter: blur(0px);
-      transform: rotate(12deg);
-      pointer-events:none;
-    }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:10px;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 0 0 6px rgba(124,92,255,.15);
-    }
+    main{padding:44px 0 26px}
     h1{
-      margin:0 0 10px;
-      font-size:40px;
-      line-height:1.08;
-      letter-spacing:-.6px;
+      margin:0 0 14px;
+      font-size:52px;
+      line-height:1.05;
+      letter-spacing:-.8px;
     }
-    @media (max-width: 520px){
-      h1{font-size:34px}
-    }
-    .subhead{
-      margin:0 0 18px;
+    p.lead{
+      margin:0 0 22px;
+      font-size:22px;
       color:var(--muted);
-      font-size:16px;
-      max-width: 52ch;
+      max-width: 60ch;
     }
-    .hero-actions{
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
-      margin-top: 10px;
-    }
+    .buttons{display:flex; gap:14px; flex-wrap:wrap; margin: 18px 0 0}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:11px 14px;
-      border-radius:12px;
+      display:inline-block;
       text-decoration:none;
-      font-weight:700;
-      font-size:13px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      transition:.15s ease;
-      white-space:nowrap;
+      font-size:20px;
+      font-weight:800;
+      padding:14px 18px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.22);
-    }
+    .btn:hover{background: rgba(255,255,255,.08)}
     .btn.primary{
-      border-color: rgba(124,92,255,.55);
-      background: linear-gradient(135deg, rgba(124,92,255,.32), rgba(69,209,255,.16));
+      border-color: rgba(124,92,255,.6);
+      background: linear-gradient(135deg, rgba(124,92,255,.38), rgba(69,209,255,.16));
     }
     .btn.primary:hover{
-      border-color: rgba(124,92,255,.80);
-      background: linear-gradient(135deg, rgba(124,92,255,.40), rgba(69,209,255,.20));
-    }
-    .fineprint{
-      margin-top: 12px;
-      color: var(--subtle);
-      font-size: 12px;
+      background: linear-gradient(135deg, rgba(124,92,255,.48), rgba(69,209,255,.20));
     }
 
-    /* Demo panel */
-    .demo{
+    /* Simple sections */
+    section{padding:30px 0}
+    h2{
+      margin:0 0 12px;
+      font-size:30px;
+      letter-spacing:-.3px;
+    }
+    .box{
       border:1px solid var(--line);
-      border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-    }
-    .demo:before{
-      content:"";
-      position:absolute; inset:auto auto -120px -120px;
-      width:260px; height:260px;
-      background: radial-gradient(circle, rgba(46,229,157,.18), transparent 62%);
-      pointer-events:none;
-    }
-    .demo-top{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      margin-bottom: 12px;
-    }
-    .demo-top b{font-size:13px}
-    .demo-top span{font-size:12px; color:var(--muted)}
-    .mock{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(8,12,22,.55);
-      border-radius: 18px;
-      overflow:hidden;
-    }
-    .mockbar{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:10px 12px;
-      background: rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.10);
-      gap:10px;
-      font-size:12px;
-      color: var(--muted);
-    }
-    .lights{display:flex; gap:7px}
-    .light{width:10px; height:10px; border-radius:999px; background: rgba(255,255,255,.18)}
-    .light:nth-child(1){background: rgba(255,107,107,.7)}
-    .light:nth-child(2){background: rgba(255,207,90,.7)}
-    .light:nth-child(3){background: rgba(46,229,157,.7)}
-    .mockbody{padding:14px}
-    .flow{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:12px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){
-      .row{grid-template-columns:1fr}
-    }
-    .pane{
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      padding:12px;
       background: rgba(255,255,255,.04);
+      border-radius:22px;
+      padding:18px 18px;
     }
-    .pane h3{
-      margin:0 0 8px;
-      font-size:13px;
-      color: var(--text);
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-    }
-    .tag{
-      font-size:11px;
-      color: var(--muted);
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      padding:4px 8px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    .bubble{
-      border-radius: 14px;
-      padding:10px 10px;
-      border:1px solid rgba(255,255,255,.10);
-      margin-bottom: 8px;
-      font-size:12.5px;
-      color: var(--muted);
-    }
-    .bubble.me{
-      background: rgba(124,92,255,.12);
-      border-color: rgba(124,92,255,.26);
-    }
-    .bubble.them{
-      background: rgba(69,209,255,.10);
-      border-color: rgba(69,209,255,.22);
-    }
-    .bubble.phone{
-      background: rgba(46,229,157,.10);
-      border-color: rgba(46,229,157,.22);
-    }
+    ol, ul{margin: 0; padding-left: 22px}
+    li{font-size:20px; color:var(--muted); margin: 10px 0}
     .mini{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px;
-      color: var(--subtle); font-size:12px;
-    }
-    .mini span{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      padding:6px 8px;
-      border-radius:999px;
-    }
-    .divider{
-      height:1px; background: var(--line); margin:18px 0;
-    }
-
-    /* Sections */
-    section{padding:26px 0}
-    .section-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      margin-bottom: 14px;
-    }
-    .section-head h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.2px;
-    }
-    .section-head p{
-      margin:0;
+      margin-top:12px;
+      font-size:18px;
       color: var(--muted);
-      font-size:13px;
-      max-width: 70ch;
     }
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 980px){ .grid3{grid-template-columns:1fr} }
-    .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      padding:16px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.18);
-    }
-    .card h3{
-      margin:0 0 6px;
-      font-size:14px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-    }
-    .card p{margin:0; color:var(--muted); font-size:13px}
-    .icon{
-      width:34px; height:34px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .card-top{display:flex; align-items:flex-start; gap:12px; margin-bottom:10px}
-    .list{
-      margin:12px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-    }
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      color: var(--muted);
-      font-size:13px;
-    }
-    .check{
-      width:18px; height:18px; border-radius:6px;
-      border:1px solid rgba(46,229,157,.35);
-      background: rgba(46,229,157,.10);
-      display:grid; place-items:center;
-      margin-top:2px;
-      flex:0 0 auto;
-    }
-
-    /* Use cases */
-    .usecases{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
-    @media (max-width: 980px){ .usecases{grid-template-columns:1fr} }
-    .case{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      padding:16px;
-    }
-    .case h3{margin:0 0 8px; font-size:14px}
-    .case p{margin:0; color:var(--muted); font-size:13px}
-    .case .mini{margin-top:12px}
-
-    /* FAQ */
-    details{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.04);
-      padding:12px 14px;
-    }
-    details + details{margin-top:10px}
-    summary{
-      cursor:pointer;
-      font-weight:700;
-      font-size:13.5px;
-      color: var(--text);
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
-    summary::-webkit-details-marker{display:none}
-    .caret{
-      width:26px; height:26px; border-radius:10px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      display:grid; place-items:center;
-      color: var(--muted);
-      flex:0 0 auto;
-      transition:.15s ease;
-    }
-    details[open] .caret{transform: rotate(90deg)}
-    details p{margin:10px 0 0; color: var(--muted); font-size:13px}
 
     /* Footer */
     footer{
-      margin-top: 28px;
-      border-top: 1px solid var(--line);
-      background: linear-gradient(to top, rgba(255,255,255,.04), transparent);
-      padding: 22px 0 34px;
+      border-top:1px solid var(--line);
+      padding:26px 0 40px;
+      background: rgba(255,255,255,.02);
     }
     .foot{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:start;
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap:18px; flex-wrap:wrap;
     }
-    @media (max-width: 980px){ .foot{grid-template-columns:1fr} }
-    .foot small{color: var(--subtle)}
-    .foot-links{
-      display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end;
-    }
-    @media (max-width: 980px){ .foot-links{justify-content:flex-start} }
-    .foot-links a{
-      text-decoration:none;
+    .foot a{
       color: var(--muted);
-      font-size:13px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      padding:9px 12px;
-      border-radius: 12px;
-      transition:.15s ease;
-    }
-    .foot-links a:hover{
-      color: var(--text);
-      background: rgba(255,255,255,.07);
-      border-color: rgba(255,255,255,.22);
-    }
-    .legal{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .legal a{
-      color: var(--subtle);
-      font-size:12px;
       text-decoration:none;
-      border-bottom: 1px dashed rgba(255,255,255,.18);
+      font-size:18px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      display:inline-block;
     }
-    .legal a:hover{color: var(--text)}
-    .toast{
-      position: fixed;
-      left: 14px;
-      bottom: 14px;
-      right: 14px;
-      max-width: 520px;
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(11,18,32,.78);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      padding: 12px 12px;
-      display:none;
-      z-index: 2000;
+    .foot a:hover{color:var(--text); background: rgba(255,255,255,.06)}
+    .copy{
+      color: var(--muted);
+      font-size:18px;
     }
-    .toast.show{display:block}
-    .toast .rowx{
-      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
-    }
-    .toast p{margin:0; color: var(--muted); font-size:12.5px}
-    .toast button{
-      cursor:pointer;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-weight:700;
-      font-size:12px;
+
+    @media (max-width: 700px){
+      h1{font-size:42px}
+      p.lead{font-size:20px}
+      .nav{font-size:16px}
+      .btn{font-size:18px}
+      li{font-size:18px}
+      .copy{font-size:16px}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <header>
     <div class="wrap">
-      <div class="topbar">
+      <div class="bar">
         <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <b>StoryCall</b>
-            <span>Social messages, delivered by phone</span>
-          </div>
+          <span class="logo" aria-hidden="true"></span>
+          StoryCall
         </a>
 
-        <nav aria-label="Primary">
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#use">Use cases</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="https://app.storycall.org" class="cta" target="_blank" rel="noopener noreferrer">Open App</a>
+          <a href="#how">How</a>
+          <a href="#who">For</a>
           <a href="#faq">FAQ</a>
-          <a class="cta" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">
-            <span class="pill">Open App</span>
-            <span>app.storycall.org</span>
-          </a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main id="main">
-    <div class="wrap">
-      <section class="hero" aria-label="Hero">
-        <div class="hero-grid">
-          <div class="headline">
-            <div class="kicker">
-              <span class="dot" aria-hidden="true"></span>
-              <span>Turn Instagram, texts, and DMs into scheduled phone calls</span>
-            </div>
+  <main class="wrap">
+    <h1>Messages in. Phone calls out.</h1>
+    <p class="lead">
+      StoryCall relays audio messages from Instagram, text, and other apps into a scheduled telephone call
+      for someone who doesn’t use social media—then sends their voice reply back to the thread.
+    </p>
 
-            <h1>Bring social messages to people who live on the telephone.</h1>
-            <p class="subhead">
-              StoryCall relays audio messages from Instagram, SMS, and other messaging apps into a scheduled telephone call
-              for someone who doesn’t use social media—then captures their voice reply and sends it back.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">
-                ▶ Launch the app demo
-              </a>
-              <a class="btn" href="#how">See how it works</a>
-              <a class="btn" href="#features">Explore features</a>
-            </div>
-
-            <div class="fineprint">
-              Example: a grandchild sends a voice note → a grandparent receives it as a scheduled phone call → the reply becomes a message thread again.
-            </div>
-          </div>
-
-          <aside class="demo" aria-label="Product preview">
-            <div class="demo-top">
-              <div>
-                <b>Live flow preview</b><br />
-                <span>Message → call → reply</span>
-              </div>
-              <a class="btn" style="padding:9px 12px" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">
-                Open app ↗
-              </a>
-            </div>
-
-            <div class="mock" role="img" aria-label="Mocked interface showing message to phone call relay">
-              <div class="mockbar">
-                <div class="lights" aria-hidden="true">
-                  <span class="light"></span><span class="light"></span><span class="light"></span>
-                </div>
-                <div>StoryCall Relay • Scheduled delivery</div>
-                <div class="pill">Demo</div>
-              </div>
-
-              <div class="mockbody">
-                <div class="flow">
-                  <div class="row">
-                    <div class="pane">
-                      <h3>
-                        Incoming (Instagram / SMS / Apps)
-                        <span class="tag">Captured + queued</span>
-                      </h3>
-                      <div class="bubble me"><b>Grandchild:</b> “Hi Nana — tell me about your first job.”</div>
-                      <div class="bubble me"><b>Voice note:</b> 0:18 • “I was thinking about you…”</div>
-                      <div class="mini">
-                        <span>Context added</span>
-                        <span>Safe playback speed</span>
-                        <span>Caller ID branding</span>
-                      </div>
-                    </div>
-
-                    <div class="pane">
-                      <h3>
-                        Scheduled Phone Call (Landline / Mobile)
-                        <span class="tag">Delivered reliably</span>
-                      </h3>
-                      <div class="bubble phone"><b>Call @ 7:30pm:</b> Plays message + prompt</div>
-                      <div class="bubble phone"><b>Record reply:</b> “Oh wow—my first job was…”</div>
-                      <div class="mini">
-                        <span>Retry if missed</span>
-                        <span>Voicemail fallback</span>
-                        <span>Time windows</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="pane">
-                    <h3>
-                      Reply back to the thread
-                      <span class="tag">Transcript + audio</span>
-                    </h3>
-                    <div class="bubble them"><b>Grandparent reply:</b> Audio 1:12 • Transcript included</div>
-                    <div class="mini">
-                      <span>Shareable link</span>
-                      <span>Family-safe controls</span>
-                      <span>Export archive</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-
-                <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-                  <div style="color:var(--muted); font-size:12.5px;">
-                    Want to see this live? Open the app experience.
-                  </div>
-                  <a class="cta" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">
-                    <span class="pill">Try it</span>
-                    <span>app.storycall.org</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="how" aria-label="How it works">
-        <div class="section-head">
-          <div>
-            <h2>How StoryCall works</h2>
-            <p>Three steps that feel natural for both sides—messaging for one person, phone calls for the other.</p>
-          </div>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">①</div>
-              <div>
-                <h3>Capture messages</h3>
-                <p>From Instagram, SMS, and other apps—voice notes, DMs, and text.</p>
-              </div>
-            </div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true">✓</span><span>Adds context and a clear prompt</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Groups messages into one call</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Optional transcription</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">②</div>
-              <div>
-                <h3>Deliver by phone</h3>
-                <p>At the right time, as a scheduled telephone call—no apps needed.</p>
-              </div>
-            </div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true">✓</span><span>Time windows and retries</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Landline-friendly playback</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Voicemail fallback option</span></li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">③</div>
-              <div>
-                <h3>Send replies back</h3>
-                <p>The phone user speaks; StoryCall returns audio (and transcript) to the thread.</p>
-              </div>
-            </div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true">✓</span><span>Audio + text for accessibility</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Shareable, family-friendly posts</span></li>
-              <li><span class="check" aria-hidden="true">✓</span><span>Optional memory archive export</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="features" aria-label="Features">
-        <div class="section-head">
-          <div>
-            <h2>Features built for real families</h2>
-            <p>Modern messaging on one side, familiar phone calls on the other—without breaking anyone’s habits.</p>
-          </div>
-        </div>
-
-        <div class="grid3">
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">☎</div>
-              <div>
-                <h3>Scheduled delivery</h3>
-                <p>Choose days, times, and quiet hours. StoryCall calls at the right moment.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">🧠</div>
-              <div>
-                <h3>Context refreshers</h3>
-                <p>Short reminders of “who said what” before the message plays—helpful for memory and clarity.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">🔒</div>
-              <div>
-                <h3>Privacy-first controls</h3>
-                <p>Granular permissions, opt-in sharing, and safe defaults for families.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">🎙</div>
-              <div>
-                <h3>Voice, not typing</h3>
-                <p>Replies are recorded by phone. No passwords, no apps, no confusing UI.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">🧾</div>
-              <div>
-                <h3>Transcripts & summaries</h3>
-                <p>Optional transcription for quick reading, searching, and sharing.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-top">
-              <div class="icon" aria-hidden="true">🗂</div>
-              <div>
-                <h3>Family history archive</h3>
-                <p>Turn replies into a living library—organized, searchable, exportable.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="use" aria-label="Use cases">
-        <div class="section-head">
-          <div>
-            <h2>Use cases</h2>
-            <p>StoryCall works anywhere a real relationship needs a smoother bridge between social apps and the phone.</p>
-          </div>
-        </div>
-
-        <div class="usecases">
-          <div class="case">
-            <h3>Grandchild ↔ grandparent</h3>
-            <p>Grandkids stay in Instagram and texting. Grandparents stay on the phone. StoryCall makes it one conversation.</p>
-            <div class="mini">
-              <span>Voice notes</span><span>Photo captions read aloud</span><span>Weekly cadence</span>
-            </div>
-          </div>
-
-          <div class="case">
-            <h3>Family updates for elders</h3>
-            <p>Send many small updates; deliver them as one friendly call at a predictable time.</p>
-            <div class="mini">
-              <span>Message batching</span><span>Time windows</span><span>Missed-call retry</span>
-            </div>
-          </div>
-
-          <div class="case">
-            <h3>Memory-friendly conversations</h3>
-            <p>Give gentle context before playback and keep responses simple—just talk after the beep.</p>
-            <div class="mini">
-              <span>Context refresh</span><span>Consistent caller ID</span><span>Transcript for caregivers</span>
-            </div>
-          </div>
-
-          <div class="case">
-            <h3>Community & care teams</h3>
-            <p>Coordinate voice updates to someone who prefers phone calls while the team uses messaging apps.</p>
-            <div class="mini">
-              <span>Role-based access</span><span>Shared threads</span><span>Audit trail</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" aria-label="FAQ">
-        <div class="section-head">
-          <div>
-            <h2>FAQ</h2>
-            <p>Common questions from families, caregivers, and teams.</p>
-          </div>
-        </div>
-
-        <details>
-          <summary>
-            What does the phone user need to install?
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <p>
-            Nothing. They receive a normal telephone call, hear messages read or played, and respond by speaking.
-            StoryCall handles the rest.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            Can it work with landlines?
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <p>
-            Yes—StoryCall is designed to be landline-friendly, including paced playback, clear prompts, and simple reply recording.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            Is it only for Instagram?
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <p>
-            No. StoryCall is built to relay messages from text/SMS and other messaging platforms as well.
-            Instagram is just a common starting point for families.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            How do scheduled calls work?
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <p>
-            You choose a schedule (for example, Mon/Wed/Fri evenings). New messages are queued and delivered during the next call window.
-          </p>
-        </details>
-
-        <details>
-          <summary>
-            Where can I see the product in action?
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <p>
-            Use the link at the top of this page or open the app directly at
-            <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">app.storycall.org</a>.
-          </p>
-        </details>
-      </section>
-
-      <section aria-label="Call to action">
-        <div class="card" style="padding:18px; border-radius:22px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;">
-            <div>
-              <h2 style="margin:0 0 6px; font-size:18px;">Make it easy to stay close.</h2>
-              <p style="margin:0; color:var(--muted); font-size:13px;">
-                Start with a simple flow: messages in → a phone call out → replies back to the thread.
-              </p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Open the app</a>
-              <a class="btn" href="#faq">Read FAQ</a>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="buttons">
+      <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try the app demo</a>
+      <a class="btn" href="#how">See how it works</a>
     </div>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="box">
+        <ol>
+          <li>Someone sends a message (IG / SMS / apps).</li>
+          <li>StoryCall schedules a phone call and plays it.</li>
+          <li>The phone user replies by speaking.</li>
+          <li>The reply goes back as audio (optionally transcript).</li>
+        </ol>
+        <div class="mini">Example: grandchild ↔ grandparent, without changing habits.</div>
+      </div>
+    </section>
+
+    <section id="who">
+      <h2>Who it’s for</h2>
+      <div class="box">
+        <ul>
+          <li>Families connecting across generations.</li>
+          <li>People who prefer landlines or simple calls.</li>
+          <li>Care teams sharing updates by voice.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ</h2>
+      <div class="box">
+        <ul>
+          <li><b>Does the phone user install anything?</b> No. It’s just a call.</li>
+          <li><b>Landline-friendly?</b> Yes.</li>
+          <li><b>Only Instagram?</b> No—also texts and other apps.</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <footer aria-label="Footer">
+  <footer>
     <div class="wrap">
       <div class="foot">
-        <div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <div class="logo" style="width:34px;height:34px;border-radius:12px" aria-hidden="true"></div>
-            <div>
-              <b>StoryCall</b><br />
-              <small>Relaying modern messages into scheduled telephone calls.</small>
-            </div>
-          </div>
-
-          <div class="legal" aria-label="Legal links">
-            <!-- Placeholder pages to be developed -->
-            <a href="/privacy" aria-label="Privacy Policy (coming soon)">Privacy Policy (coming soon)</a>
-            <a href="/terms" aria-label="Terms & Conditions (coming soon)">Terms &amp; Conditions (coming soon)</a>
-          </div>
-
-          <div style="margin-top:12px;">
-            <small>© <span id="year"></span> StoryCall. All rights reserved.</small>
-          </div>
+        <div class="copy">
+          © <span id="year"></span> StoryCall • storycall.org
         </div>
-
-        <div class="foot-links" aria-label="Footer navigation">
-          <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Open App</a>
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#use">Use cases</a>
-          <a href="#faq">FAQ</a>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <a href="/privacy">Privacy Policy (coming soon)</a>
+          <a href="/terms">Terms &amp; Conditions (coming soon)</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite" aria-label="Notice">
-    <div class="rowx">
-      <p>
-        This is a single-page marketing site for <b>storycall.org</b>.
-        The <b>Privacy Policy</b> and <b>Terms</b> pages are placeholders to be built.
-      </p>
-      <button type="button" id="toastBtn" aria-label="Dismiss notice">Got it</button>
-    </div>
-  </div>
-
   <script>
-    // Small enhancements (still single-file):
-    // - Current year in footer
-    // - A lightweight notice (dismissible)
-    (function () {
-      var y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
-
-      var toast = document.getElementById("toast");
-      var btn = document.getElementById("toastBtn");
-
-      // Show once per browser session
-      try {
-        var seen = sessionStorage.getItem("storycall_toast_seen");
-        if (!seen && toast) {
-          toast.classList.add("show");
-          sessionStorage.setItem("storycall_toast_seen", "1");
-        }
-      } catch (e) {
-        if (toast) toast.classList.add("show");
-      }
-
-      if (btn && toast) {
-        btn.addEventListener("click", function () {
-          toast.classList.remove("show");
-        });
-      }
-    })();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
