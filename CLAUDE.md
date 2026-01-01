@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the corporate marketing website for StoryCall (storycall.org), a service that converts messages from Instagram, SMS, and other apps into scheduled phone calls for people who don't use social media.
+This is the corporate marketing website for StoryCall (storycall.org), a service that converts messages from SMS, Instagram, and other apps into scheduled phone calls for people who don't use social media.
 
 The site is a **static single-page HTML website** with no build process, dependencies, or backend. It's hosted via GitHub Pages with a custom domain (storycall.org).
 
@@ -82,4 +82,4 @@ Changes to the `main` branch are automatically deployed to storycall.org via Git
 
 ## Contact
 
-Support email: paul@storycall.org
+Support email: help@storycall.org

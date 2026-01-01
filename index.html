@@ -3,45 +3,69 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall turns messages from Instagram, text, and other apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
+  <meta name="description" content="StoryCall turns voice messages in text/SMS, Instagram, and other messaging apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
   <title>StoryCall — Exchange messages by phone</title>
   <style>
     :root{
-      --background_primary:   #fff7ef;
-      --background_secondary: #f2fbff;
+      --background_primary:   #f3f3f3;
+      --background_secondary: #ffffff;
       --card_background:      #ffffff;
-      --text_primary:         #16213a;
-      --text_muted:           #42557a;
-      --line_color:           rgba(22,33,58,.14);
-      --shadow_card:          0 14px 40px rgba(22,33,58,.10);
-      --brand_primary:        #6b4cff;
-      --brand_secondary:      #00b7ff;
-      --accent_primary:       #ff8a3d;
+      --text_primary:         #000000;
+      --text_muted:           rgba(0,0,0,.62);
+      --line_color:           rgba(0,0,0,.14);
+      --shadow_card:          0 14px 40px rgba(0,0,0,.10);
+      --shadow_soft:          0 10px 22px rgba(0,0,0,.06);
       --layout_max_width:     980px;
+      --layout_side_padding:  34px;
       --radius_card:          22px;
+
+      --border_default:       1px solid var(--line_color);
+
+      --surface_header:       rgba(255,255,255,.72);
+      --surface_panel:        rgba(255,255,255,.78);
+      --surface_control:      rgba(255,255,255,.92);
+      --surface_link:         rgba(255,255,255,.70);
+      --surface_footer:       rgba(255,255,255,.40);
+      --surface_pill:         rgba(255,255,255,.60);
+
+      --font_family_base:     ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --font_weight_heavy:    900;
+      --font_weight_bold:     800;
+
+      --font_size_title:      52px;
+      --font_size_heading:    30px;
+      --font_size_body:       18px;
+
+      --line_height_base:     1.35;
+      --line_height_title:    1.05;
+
+      --scroll_padding_top:   92px;
     }
     *{box-sizing:border-box}
+    html{
+      scroll-behavior    : smooth;
+      scroll-padding-top : var(--scroll_padding_top);
+    }
     body{
       margin      : 0;
-      font-family : ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family : var(--font_family_base);
+      font-size   : var(--font_size_body);
       color       : var(--text_primary);
-      background  :
-        radial-gradient(900px 520px at 15% 0%, rgba(107,76,255,.14), transparent 58%),
-        radial-gradient(900px 520px at 90% 10%, rgba(0,183,255,.12), transparent 58%),
-        radial-gradient(700px 500px at 40% 115%, rgba(255,138,61,.12), transparent 60%),
-        linear-gradient(180deg, var(--background_primary), var(--background_secondary));
-      line-height : 1.35;
+      background  : linear-gradient(180deg, var(--background_primary), var(--background_secondary));
+      line-height : var(--line_height_base);
     }
     a{color:inherit}
-    .wrap{max-width:var(--layout_max_width); margin:0 auto; padding:0 22px}
+    .wrap{max-width:var(--layout_max_width); margin:0 auto; padding:0 var(--layout_side_padding)}
 
     header{
       position        : sticky;
       top             : 0;
       z-index         : 10;
-      background      : rgba(255,255,255,.72);
-      backdrop-filter : blur(10px);
-      border-bottom   : 1px solid var(--line_color);
+      background      :
+        linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+        url("images/wood.png") center / 520px 110px repeat;
+      backdrop-filter : none;
+      border-bottom   : var(--border_default);
     }
     .bar{
       display         : flex;
@@ -56,37 +80,28 @@
       gap             : 14px;
       text-decoration : none;
       font-weight     : 900;
-      font-size       : 22px;
       letter-spacing  : -.2px;
       white-space     : nowrap;
     }
-    .logo{
-      width         : 44px;
-      height        : 44px;
-      border-radius : 16px;
-      background    : linear-gradient(135deg, var(--brand_primary), var(--brand_secondary));
-      box-shadow    : 0 12px 26px rgba(22,33,58,.14);
-      flex          : 0 0 auto;
-      position      : relative;
-      overflow      : hidden;
-    }
-    .logo:after{
-      content    : "";
-      position   : absolute;
-      inset      : -10px -14px auto auto;
-      width      : 60px;
-      height     : 60px;
-      background : radial-gradient(circle, rgba(255,255,255,.55), transparent 58%);
-      transform  : rotate(10deg);
-      opacity    : .8;
+    .brand_text{
+      font-family   : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
+      font-weight   : 900;
+      font-size     : 38px;
+      line-height   : 1;
+      letter-spacing: 0;
+      color         : rgba(255,255,255,.96);
+      text-shadow   :
+        -1px -1px 0 rgba(255,230,200,.35),
+        0 1px 0 rgba(255,230,200,.22),
+        2px 2px 0 rgba(0,0,0,.34),
+        0 10px 22px rgba(0,0,0,.26);
     }
     .nav{
       display         : flex;
       gap             : 12px;
       flex-wrap       : wrap;
       justify-content : flex-end;
-      font-size       : 18px;
-      color           : var(--text_muted);
+      color           : rgba(255,255,255,.88);
     }
     .nav a{
       text-decoration : none;
@@ -96,37 +111,55 @@
       background      : transparent;
     }
     .nav a:hover{
-      color        : var(--text_primary);
-      border-color : var(--line_color);
-      background   : rgba(255,255,255,.60);
+      color        : rgba(255,255,255,.96);
+      border-color : rgba(255,255,255,.35);
+      background   : rgba(0,0,0,.14);
     }
     .cta{
-      color        : var(--text_primary);
-      background   : rgba(107,76,255,.10);
-      border-color : rgba(107,76,255,.26) !important;
-      font-weight  : 900;
+      color        : rgba(255,255,255,.96);
+      background   : rgba(0,0,0,.22);
+      border-color : rgba(255,255,255,.35) !important;
+      font-weight  : var(--font_weight_heavy);
     }
     .cta:hover{
-      background   : rgba(107,76,255,.14) !important;
-      border-color : rgba(107,76,255,.36) !important;
+      background   : rgba(0,0,0,.28) !important;
+      border-color : rgba(255,255,255,.45) !important;
     }
 
-    main{padding:44px 0 26px}
+    main{padding:68px 0 26px}
+    .hero{
+      display               : grid;
+      grid-template-columns : 1.05fr .95fr;
+      gap                   : 28px;
+      align-items           : start;
+      margin-top            : 18px;
+    }
+    .hero_media{justify-self:end; align-self:start}
+    .hero_image{
+      display         : block;
+      width           : 100%;
+      max-width       : 420px;
+      aspect-ratio    : 4 / 5;
+      object-fit      : cover;
+      object-position : 50% 30%;
+      border-radius   : var(--radius_card);
+      border          : var(--border_default);
+      box-shadow      : var(--shadow_card);
+      background      : var(--surface_panel);
+    }
     h1{
       margin        : 0 0 14px;
-      font-size     : 52px;
-      line-height   : 1.05;
+      font-size     : var(--font_size_title);
+      line-height   : var(--line_height_title);
       letter-spacing: -.8px;
     }
     p.lead{
       margin     : 0 0 18px;
-      font-size  : 22px;
       color      : var(--text_muted);
       max-width  : 64ch;
     }
     .note{
-      margin     : 0 0 22px;
-      font-size  : 18px;
+      margin     : 0 0 18px;
       color      : var(--text_muted);
     }
     .note b{color:var(--text_primary)}
@@ -134,61 +167,64 @@
     .btn{
       display         : inline-block;
       text-decoration : none;
-      font-size       : 20px;
-      font-weight     : 900;
+      font-size       : inherit;
+      font-weight     : var(--font_weight_heavy);
       padding         : 14px 18px;
       border-radius   : 18px;
-      border          : 1px solid var(--line_color);
-      background      : rgba(255,255,255,.72);
-      box-shadow      : 0 10px 22px rgba(22,33,58,.06);
+      border          : var(--border_default);
+      background      : var(--surface_header);
+      box-shadow      : var(--shadow_soft);
     }
     .btn:hover{background: rgba(255,255,255,.92)}
     .btn.primary{
-      border-color: rgba(107,76,255,.28);
-      background: linear-gradient(135deg, rgba(107,76,255,.14), rgba(0,183,255,.10));
+      border-color: rgba(0,0,0,.18);
+      background: rgba(0,0,0,.06);
     }
     .btn.primary:hover{
-      background: linear-gradient(135deg, rgba(107,76,255,.18), rgba(0,183,255,.12));
+      background: rgba(0,0,0,.08);
     }
 
-    section{padding:30px 0}
+    section{
+      padding           : 30px 0;
+      scroll-margin-top : var(--scroll_padding_top);
+    }
     h2{
       margin:0 0 12px;
-      font-size:30px;
+      font-size:var(--font_size_heading);
       letter-spacing:-.3px;
     }
     h3{
       margin:18px 0 10px;
-      font-size:22px;
+      font-size:inherit;
+      font-weight:var(--font_weight_heavy);
       letter-spacing:-.2px;
     }
     .box{
-      border        : 1px solid var(--line_color);
-      background    : rgba(255,255,255,.78);
+      border        : var(--border_default);
+      background    : var(--surface_panel);
       border-radius : var(--radius_card);
       padding       : 18px 18px;
       box-shadow    : var(--shadow_card);
     }
     ol, ul{margin: 0; padding-left: 22px}
-    li{font-size:20px; color:var(--text_muted); margin: 10px 0}
+    li{color:var(--text_muted); margin: 10px 0}
     .mini{
       margin-top : 12px;
-      font-size  : 18px;
       color      : var(--text_muted);
     }
+    .box .mini:first-child{margin-top:0}
 
     .details_wrap{display:grid; gap:12px}
     details{
-      border        : 1px solid var(--line_color);
+      border        : var(--border_default);
       border-radius : var(--radius_card);
-      background    : rgba(255,255,255,.78);
-      box-shadow    : 0 10px 22px rgba(22,33,58,.06);
+      background    : var(--surface_panel);
+      box-shadow    : var(--shadow_soft);
       padding       : 12px 14px;
     }
     summary{
       cursor          : pointer;
-      font-weight     : 900;
-      font-size       : 20px;
+      font-weight     : var(--font_weight_heavy);
       color           : var(--text_primary);
       list-style      : none;
       display         : flex;
@@ -201,89 +237,100 @@
       width         : 34px;
       height        : 34px;
       border-radius : 14px;
-      border        : 1px solid var(--line_color);
+      border        : var(--border_default);
       background    : rgba(255,255,255,.65);
       display       : grid;
       place-items   : center;
       color         : var(--text_muted);
       flex          : 0 0 auto;
       transition    : .15s ease;
-      font-weight   : 900;
+      font-weight   : var(--font_weight_heavy);
     }
     details[open] .caret{transform: rotate(90deg)}
     details .content{
       margin-top : 10px;
       color      : var(--text_muted);
-      font-size  : 18px;
     }
     details .content p{margin:10px 0}
     details .content ul{margin:10px 0; padding-left: 22px}
-    details .content li{font-size:18px; margin:8px 0}
-    details .content .small{font-size:16px; color: var(--text_muted)}
+    details .content li{margin:8px 0}
+    details .content .small{color: var(--text_muted)}
     .legal_meta{
       display    : flex;
       gap        : 10px;
       flex-wrap  : wrap;
       margin-top : 10px;
-      font-size  : 16px;
       color      : var(--text_muted);
     }
     .pill{
       display       : inline-block;
       padding       : 6px 10px;
       border-radius : 999px;
-      border        : 1px solid var(--line_color);
-      background    : rgba(255,255,255,.6);
-      font-weight   : 800;
+      border        : var(--border_default);
+      background    : var(--surface_pill);
+      font-weight   : var(--font_weight_bold);
     }
 
     form{display:grid; gap:12px; margin-top:12px}
-    label{font-weight:900; font-size:16px; color: var(--text_primary)}
+    label{font-weight:var(--font_weight_heavy); color: var(--text_primary)}
     input, textarea{
       width:100%;
       padding:14px 14px;
       border-radius:18px;
-      border:1px solid var(--line_color);
-      background: rgba(255,255,255,.92);
-      font-size:18px;
+      border:var(--border_default);
+      background: var(--surface_control);
+      font-size:inherit;
       color: var(--text_primary);
       outline:none;
     }
     textarea{min-height:120px; resize:vertical}
     .help_row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
     @media (max-width: 780px){ .help_row{grid-template-columns: 1fr} }
-    .small{font-size:16px; color: var(--text_muted); margin-top:8px}
+    .small{color: var(--text_muted); margin-top:8px}
+    .about_copy{margin:0; color:var(--text_muted)}
 
     footer{
-      border-top:1px solid var(--line_color);
+      border-top:var(--border_default);
       padding:26px 0 40px;
-      background: rgba(255,255,255,.40);
+      background:
+        linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+        url("images/wood.png") center / 520px 110px repeat;
     }
     .foot{
       display:flex; align-items:flex-start; justify-content:space-between;
       gap:18px; flex-wrap:wrap;
     }
-    .copy{color: var(--text_muted); font-size:18px}
+    .copy{color: rgba(255,255,255,.88)}
     .links{display:flex; gap:12px; flex-wrap:wrap}
     .links a{
-      color: var(--text_muted);
+      color: rgba(255,255,255,.88);
       text-decoration:none;
-      font-size:18px;
+      font-size:inherit;
       padding:10px 12px;
       border-radius:16px;
-      border:1px solid var(--line_color);
-      background: rgba(255,255,255,.70);
+      border:var(--border_default);
+      background: rgba(0,0,0,.22);
     }
-    .links a:hover{color:var(--text_primary); background: rgba(255,255,255,.90)}
+    .links a:hover{color:rgba(255,255,255,.96); background: rgba(0,0,0,.28)}
 
     @media (max-width: 700px){
-      h1{font-size:42px}
-      p.lead{font-size:20px}
-      .nav{font-size:16px}
-      .btn{font-size:18px}
-      li{font-size:18px}
-      summary{font-size:18px}
-      details .content{font-size:16px}
+      :root{--scroll_padding_top: 74px}
+      :root{
+        --font_size_title:   42px;
+        --font_size_heading: 26px;
+        --font_size_body:    16px;
+        --layout_side_padding: 18px;
+      }
+      main{padding:54px 0 22px}
+      .bar{padding:12px 0}
+      .brand{gap:10px}
+      .brand_text{font-size:30px}
+      .nav{gap:8px}
+      .nav a{padding:8px 10px; border-radius:14px}
+      .hero{grid-template-columns:1fr; gap:18px}
+      .hero_media{justify-self:center}
+      .hero_image{max-width:520px}
+      .hero{margin-top:12px}
     }
   </style>
 </head>
@@ -293,12 +340,11 @@
     <div class="wrap">
       <div class="bar">
         <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
-          <span class="logo" aria-hidden="true"></span>
-          StoryCall
+          <span class="brand_text">StoryCall</span>
         </a>
 
         <nav class="nav" aria-label="Primary">
-          <a href="https://app.storycall.org" class="cta" target="_blank" rel="noopener noreferrer">Open App</a>
+          <a href="https://app.storycall.org" class="cta open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
           <a href="#how">How</a>
           <a href="#help">Help</a>
           <a href="#faq">FAQ</a>
@@ -310,77 +356,45 @@
   </header>
 
   <main class="wrap">
-    <h1>Exchange messages with anyone—by phone.</h1>
-    <p class="lead">
-      StoryCall turns messages from Instagram, text, and other apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
-    </p>
-    <p class="note">
-      <b>Opt-out anytime:</b> the phone recipient can stop future calls by texting <b>STOP</b>.
-      <br />
-      A common use case is helping grandchildren and grandparents stay in touch—without changing anyone’s habits.
-    </p>
+    <div class="hero">
+      <div class="hero_copy">
+        <h1>Exchange messages with anyone—by phone.</h1>
+        <p class="lead">
+          StoryCall turns voice messages in text/SMS, Instagram, and other messaging apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
+        </p>
+        <p class="note">
+          A common use case is helping grandchildren and grandparents stay in touch—without changing anyone’s habits.
+        </p>
+        <p class="note">
+          <b>Opt-out anytime:</b> the phone recipient can stop future calls by texting <b>STOP</b>.
+        </p>
 
-    <div class="buttons">
-      <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try the app demo</a>
-      <a class="btn" href="#how">See how it works</a>
-      <a class="btn" href="#help">Get help</a>
+        <div class="buttons">
+          <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try App</a>
+        </div>
+      </div>
+
+      <div class="hero_media">
+        <img
+          class="hero_image"
+          src="images/granny_and_kid.png"
+          alt="A young woman and an older woman smiling while looking at a phone and holding a phone receiver."
+          decoding="async"
+        />
+      </div>
     </div>
 
     <section id="how">
       <h2>How it works</h2>
       <div class="box">
         <ol>
-          <li>You send a message (IG / SMS / apps).</li>
-          <li>StoryCall schedules a phone call and plays it.</li>
-          <li>The phone user replies by speaking.</li>
-          <li>The reply returns as audio (optionally transcript).</li>
+          <li>Text message a voice recording to <b>833-576-1437</b>.</li>
+          <li>StoryCall schedules a phone call to your loved one.</li>
+          <li>They answer a regular phone call and hear the recording.</li>
+          <li>They can respond after the beep.</li>
+          <li>Their response appears in your text app.</li>
         </ol>
         <div class="mini">Simple for them. Familiar for you. Helpful for everyone.</div>
-      </div>
-    </section>
-
-    <section id="help">
-      <h2>Need help?</h2>
-      <div class="box">
-        <div class="mini" style="margin-top:0">
-          Send a help request and it will be emailed to <b>Paul</b> at <b>paul@storycall.org</b>.
-        </div>
-
-        <!-- mailto: opens the user's email client; no backend required -->
-        <form action="mailto:paul@storycall.org" method="post" enctype="text/plain">
-          <div class="help_row">
-            <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" placeholder="Your name" autocomplete="name" />
-            </div>
-            <div>
-              <label for="email">Your email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
-            </div>
-          </div>
-
-          <div class="help_row">
-            <div>
-              <label for="phone">Recipient phone (optional)</label>
-              <input id="phone" name="recipient_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
-            </div>
-            <div>
-              <label for="topic">Topic</label>
-              <input id="topic" name="topic" placeholder="Setup / Scheduling / Billing / Other" />
-            </div>
-          </div>
-
-          <div>
-            <label for="msg">What’s going on?</label>
-            <textarea id="msg" name="message" placeholder="Tell us what happened and what you expected instead."></textarea>
-          </div>
-
-          <button class="btn primary" type="submit">Send help request</button>
-
-          <div class="small">
-            Opt-out: the phone recipient can stop future calls by texting <b>STOP</b>.
-          </div>
-        </form>
       </div>
     </section>
 
@@ -442,18 +456,18 @@
           <div class="content">
             <div class="legal_meta">
               <span class="pill">Effective: <span id="privacy_effective"></span></span>
-              <span class="pill">Contact: paul@storycall.org</span>
+              <span class="pill">Contact: help@storycall.org</span>
             </div>
 
             <p><b>1. Overview</b></p>
             <p>
               StoryCall (“StoryCall,” “we,” “us”) provides a service that relays messages from messaging platforms (such as
-              Instagram, SMS/text, and other apps) into scheduled telephone calls, and returns voice replies back to the originating
+              SMS/text, Instagram, and other apps) into scheduled telephone calls, and returns voice replies back to the originating
               thread. This Privacy Policy explains what we collect, how we use it, and the choices you have.
             </p>
             <p>
               We aim to be conservative with data: collect the minimum necessary, avoid selling or sharing for advertising,
-              and give you control. If anything here is unclear, email <b>paul@storycall.org</b>.
+              and give you control. If anything here is unclear, email <b>help@storycall.org</b>.
             </p>
 
             <p><b>2. Definitions</b></p>
@@ -549,7 +563,7 @@
               <li><b>Consent controls:</b> You can disable optional features (like transcription) if offered.</li>
             </ul>
             <p class="small">
-              To make a request, email <b>paul@storycall.org</b>. We may need to verify your identity before fulfilling requests.
+              To make a request, email <b>help@storycall.org</b>. We may need to verify your identity before fulfilling requests.
             </p>
 
             <p><b>9. Security</b></p>
@@ -561,7 +575,7 @@
             <p><b>10. Children</b></p>
             <p>
               StoryCall is not directed to children under 13. If you believe a child has provided personal information to us,
-              contact <b>paul@storycall.org</b> so we can address it.
+              contact <b>help@storycall.org</b> so we can address it.
             </p>
 
             <p><b>11. International Users</b></p>
@@ -578,7 +592,7 @@
 
             <p><b>13. Contact</b></p>
             <p>
-              Questions or requests: <b>paul@storycall.org</b>.
+              Questions or requests: <b>help@storycall.org</b>.
             </p>
           </div>
         </details>
@@ -592,7 +606,7 @@
           <div class="content">
             <div class="legal_meta">
               <span class="pill">Effective: <span id="terms_effective"></span></span>
-              <span class="pill">Contact: paul@storycall.org</span>
+              <span class="pill">Contact: help@storycall.org</span>
             </div>
 
             <p><b>1. Acceptance</b></p>
@@ -603,7 +617,7 @@
 
             <p><b>2. What StoryCall Does</b></p>
             <p>
-              StoryCall relays messages from messaging platforms (such as Instagram, SMS/text, and other apps) into scheduled telephone calls,
+              StoryCall relays messages from messaging platforms (such as SMS/text, Instagram, and other apps) into scheduled telephone calls,
               and returns voice replies to the originating thread. The Service may include optional transcription and other features.
             </p>
 
@@ -655,7 +669,7 @@
             <ul>
               <li>We aim to provide a reliable Service, but we do not guarantee uninterrupted availability.</li>
               <li>We may modify or discontinue features to improve the Service or for safety, legal, or operational reasons.</li>
-              <li>Support requests can be sent to <b>paul@storycall.org</b> or via the help form on this site.</li>
+              <li>Support requests can be sent to <b>help@storycall.org</b> or via the help form on this site.</li>
             </ul>
 
             <p><b>9. Fees and Carrier Charges</b></p>
@@ -706,7 +720,7 @@
 
             <p><b>16. Contact</b></p>
             <p>
-              Questions: <b>paul@storycall.org</b>.
+              Questions: <b>help@storycall.org</b>.
             </p>
           </div>
         </details>
@@ -714,12 +728,56 @@
       </div>
     </section>
 
+    <section id="help">
+      <h2>Need help?</h2>
+      <div class="box">
+        <div class="mini">
+          Send a help request and it will be emailed to <b>help@storycall.org</b>.
+        </div>
+
+        <!-- mailto: opens the user's email client; no backend required -->
+        <form action="mailto:help@storycall.org" method="post" enctype="text/plain">
+          <div class="help_row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div>
+              <label for="email">Your email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="help_row">
+            <div>
+              <label for="phone">Recipient phone (optional)</label>
+              <input id="phone" name="recipient_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
+            </div>
+            <div>
+              <label for="topic">Topic</label>
+              <input id="topic" name="topic" placeholder="Setup / Scheduling / Billing / Other" />
+            </div>
+          </div>
+
+          <div>
+            <label for="msg">What’s going on?</label>
+            <textarea id="msg" name="message" placeholder="Tell us what happened and what you expected instead."></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Send help request</button>
+
+          <div class="small">
+            Opt-out: the phone recipient can stop future calls by texting <b>STOP</b>.
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section id="about">
       <h2>About</h2>
       <div class="box">
-        <p style="margin:0; font-size:20px; color:var(--text_muted);">
-          StoryCall is based in <b>San Francisco</b>. The founder, <b>Paul</b>, built it to help his nieces and nephews connect with
-          other family members who didn’t use social media and text messages—by making the phone feel like part of the conversation.
+        <p class="about_copy">
+          StoryCall is based in <b>San Francisco</b>. The founder, <b>Paul</b>, built it to help his nieces and nephews connect with their grandparents.
         </p>
       </div>
     </section>
@@ -732,7 +790,7 @@
           © <span id="year"></span> StoryCall • storycall.org
         </div>
         <div class="links">
-          <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Open App</a>
+          <a href="https://app.storycall.org" class="open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
           <a href="#help">Help</a>
           <a href="#legal">Privacy & Terms</a>
           <a href="#about">About</a>
@@ -743,6 +801,24 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Ensure "Open App" always opens in a new tab/window (some mobile/PWA contexts ignore target=_blank)
+    (function(){
+      var links = document.querySelectorAll("a.open_app_link");
+      for (var i = 0; i < links.length; i++) {
+        (function(link){
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+          link.addEventListener("click", function(ev){
+            // Allow modified clicks (e.g., open in background tab)
+            if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+            var w = window.open(link.href, "_blank");
+            if (w) w.opener = null;
+            ev.preventDefault();
+          });
+        })(links[i]);
+      }
+    })();
 
     // Default "effective date" = today's date (local)
     (function(){
