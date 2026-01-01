@@ -1,30 +1,35 @@
-```html
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall relays messages from Instagram, text, and other apps into scheduled phone calls—and sends voice replies back." />
-  <title>StoryCall — Messages delivered by phone</title>
+  <meta name="description" content="StoryCall turns messages from Instagram, texts, and other apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
+  <title>StoryCall — Keep in touch by phone</title>
   <style>
     :root{
-      --bg:#0b1220;
-      --panel:#101a33;
-      --text:#f1f4ff;
-      --muted:#b9c3ea;
-      --line:rgba(255,255,255,.14);
-      --brand:#7c5cff;
-      --brand2:#45d1ff;
+      --bg1:#fff7ef;
+      --bg2:#f2fbff;
+      --card:#ffffff;
+      --text:#16213a;
+      --muted:#42557a;
+      --line: rgba(22,33,58,.14);
+      --shadow: 0 14px 40px rgba(22,33,58,.10);
+      --brand:#6b4cff;
+      --brand2:#00b7ff;
+      --accent:#ff8a3d;
       --max: 980px;
+      --radius: 22px;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(900px 500px at 20% 0%, rgba(124,92,255,.28), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(69,209,255,.22), transparent 55%),
-                  var(--bg);
       color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 0%, rgba(107,76,255,.14), transparent 58%),
+        radial-gradient(900px 520px at 90% 10%, rgba(0,183,255,.12), transparent 58%),
+        radial-gradient(700px 500px at 40% 115%, rgba(255,138,61,.12), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
       line-height:1.35;
     }
     a{color:inherit}
@@ -33,7 +38,7 @@
     /* Top bar */
     header{
       position:sticky; top:0; z-index:10;
-      background: rgba(11,18,32,.78);
+      background: rgba(255,255,255,.72);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
@@ -45,16 +50,26 @@
     .brand{
       display:flex; align-items:center; gap:14px;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       font-size:22px;
       letter-spacing:-.2px;
       white-space:nowrap;
     }
     .logo{
-      width:44px; height:44px; border-radius:14px;
+      width:44px; height:44px; border-radius:16px;
       background: linear-gradient(135deg, var(--brand), var(--brand2));
-      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      box-shadow: 0 12px 26px rgba(22,33,58,.14);
       flex:0 0 auto;
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-10px -14px auto auto;
+      width:60px; height:60px;
+      background: radial-gradient(circle, rgba(255,255,255,.55), transparent 58%);
+      transform: rotate(10deg);
+      opacity:.8;
     }
     .nav{
       display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end;
@@ -64,19 +79,24 @@
     .nav a{
       text-decoration:none;
       padding:10px 12px;
-      border-radius:14px;
+      border-radius:16px;
       border:1px solid transparent;
+      background: transparent;
     }
     .nav a:hover{
       color:var(--text);
       border-color:var(--line);
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.60);
     }
     .cta{
       color:var(--text);
-      background: rgba(124,92,255,.18);
-      border-color: rgba(124,92,255,.45) !important;
-      font-weight:800;
+      background: rgba(107,76,255,.10);
+      border-color: rgba(107,76,255,.26) !important;
+      font-weight:900;
+    }
+    .cta:hover{
+      background: rgba(107,76,255,.14) !important;
+      border-color: rgba(107,76,255,.36) !important;
     }
 
     /* Hero */
@@ -88,29 +108,36 @@
       letter-spacing:-.8px;
     }
     p.lead{
-      margin:0 0 22px;
+      margin:0 0 18px;
       font-size:22px;
       color:var(--muted);
-      max-width: 60ch;
+      max-width: 62ch;
     }
+    .note{
+      margin:0 0 22px;
+      font-size:18px;
+      color: var(--muted);
+    }
+    .note b{color:var(--text)}
     .buttons{display:flex; gap:14px; flex-wrap:wrap; margin: 18px 0 0}
     .btn{
       display:inline-block;
       text-decoration:none;
       font-size:20px;
-      font-weight:800;
+      font-weight:900;
       padding:14px 18px;
       border-radius:18px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 22px rgba(22,33,58,.06);
     }
-    .btn:hover{background: rgba(255,255,255,.08)}
+    .btn:hover{background: rgba(255,255,255,.92)}
     .btn.primary{
-      border-color: rgba(124,92,255,.6);
-      background: linear-gradient(135deg, rgba(124,92,255,.38), rgba(69,209,255,.16));
+      border-color: rgba(107,76,255,.28);
+      background: linear-gradient(135deg, rgba(107,76,255,.14), rgba(0,183,255,.10));
     }
     .btn.primary:hover{
-      background: linear-gradient(135deg, rgba(124,92,255,.48), rgba(69,209,255,.20));
+      background: linear-gradient(135deg, rgba(107,76,255,.18), rgba(0,183,255,.12));
     }
 
     /* Simple sections */
@@ -122,9 +149,10 @@
     }
     .box{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius:22px;
+      background: rgba(255,255,255,.78);
+      border-radius:var(--radius);
       padding:18px 18px;
+      box-shadow: var(--shadow);
     }
     ol, ul{margin: 0; padding-left: 22px}
     li{font-size:20px; color:var(--muted); margin: 10px 0}
@@ -134,39 +162,119 @@
       color: var(--muted);
     }
 
+    /* Details (FAQ + Legal) */
+    .details-wrap{
+      display:grid;
+      gap:12px;
+    }
+    details{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 22px rgba(22,33,58,.06);
+      padding:12px 14px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      font-size:20px;
+      color: var(--text);
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .caret{
+      width:34px; height:34px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      display:grid; place-items:center;
+      color: var(--muted);
+      flex:0 0 auto;
+      transition:.15s ease;
+      font-weight:900;
+    }
+    details[open] .caret{transform: rotate(90deg)}
+    details .content{
+      margin-top:10px;
+      color: var(--muted);
+      font-size:18px;
+    }
+    details .content p{margin:10px 0}
+    details .content ul{margin:10px 0; padding-left: 22px}
+    details .content li{font-size:18px; margin:8px 0}
+
+    /* Help */
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+    label{
+      font-weight:900;
+      font-size:16px;
+      color: var(--text);
+    }
+    input, textarea{
+      width:100%;
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      font-size:18px;
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .help-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 780px){
+      .help-row{grid-template-columns: 1fr}
+    }
+    .small{
+      font-size:16px;
+      color: var(--muted);
+      margin-top:8px;
+    }
+
     /* Footer */
     footer{
       border-top:1px solid var(--line);
       padding:26px 0 40px;
-      background: rgba(255,255,255,.02);
+      background: rgba(255,255,255,.40);
     }
     .foot{
       display:flex; align-items:flex-start; justify-content:space-between;
       gap:18px; flex-wrap:wrap;
     }
-    .foot a{
-      color: var(--muted);
-      text-decoration:none;
-      font-size:18px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      display:inline-block;
-    }
-    .foot a:hover{color:var(--text); background: rgba(255,255,255,.06)}
     .copy{
       color: var(--muted);
       font-size:18px;
     }
-
+    .links{
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .links a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size:18px;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+    }
+    .links a:hover{color:var(--text); background: rgba(255,255,255,.90)}
     @media (max-width: 700px){
       h1{font-size:42px}
       p.lead{font-size:20px}
       .nav{font-size:16px}
       .btn{font-size:18px}
       li{font-size:18px}
-      .copy{font-size:16px}
+      summary{font-size:18px}
+      details .content{font-size:16px}
     }
   </style>
 </head>
@@ -183,57 +291,174 @@
         <nav class="nav" aria-label="Primary">
           <a href="https://app.storycall.org" class="cta" target="_blank" rel="noopener noreferrer">Open App</a>
           <a href="#how">How</a>
-          <a href="#who">For</a>
+          <a href="#help">Help</a>
           <a href="#faq">FAQ</a>
+          <a href="#legal">Privacy & Terms</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <h1>Messages in. Phone calls out.</h1>
+    <h1>Stay close—without asking Grandma to “get the app.”</h1>
     <p class="lead">
-      StoryCall relays audio messages from Instagram, text, and other apps into a scheduled telephone call
-      for someone who doesn’t use social media—then sends their voice reply back to the thread.
+      StoryCall turns messages from Instagram, text, and other apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
+    </p>
+    <p class="note">
+      <b>Opt-out anytime:</b> the phone recipient can stop future calls by texting <b>STOP</b>.
     </p>
 
     <div class="buttons">
       <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try the app demo</a>
       <a class="btn" href="#how">See how it works</a>
+      <a class="btn" href="#help">Get help</a>
     </div>
 
     <section id="how">
       <h2>How it works</h2>
       <div class="box">
         <ol>
-          <li>Someone sends a message (IG / SMS / apps).</li>
+          <li>You send a message (IG / SMS / apps).</li>
           <li>StoryCall schedules a phone call and plays it.</li>
-          <li>The phone user replies by speaking.</li>
-          <li>The reply goes back as audio (optionally transcript).</li>
+          <li>Your grandparent replies by speaking.</li>
+          <li>The reply returns as audio (optionally transcript).</li>
         </ol>
-        <div class="mini">Example: grandchild ↔ grandparent, without changing habits.</div>
+        <div class="mini">Simple for them. Familiar for you.</div>
       </div>
     </section>
 
-    <section id="who">
-      <h2>Who it’s for</h2>
+    <section id="help">
+      <h2>Need help?</h2>
       <div class="box">
-        <ul>
-          <li>Families connecting across generations.</li>
-          <li>People who prefer landlines or simple calls.</li>
-          <li>Care teams sharing updates by voice.</li>
-        </ul>
+        <div class="mini" style="margin-top:0">
+          Send a help request and it will be emailed to <b>Paul</b> at <b>paul@storycall.org</b>.
+        </div>
+
+        <!-- Sends via the user's email client; no backend required -->
+        <form action="mailto:paul@storycall.org" method="post" enctype="text/plain">
+          <div class="help-row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div>
+              <label for="email">Your email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="help-row">
+            <div>
+              <label for="phone">Grandparent phone (optional)</label>
+              <input id="phone" name="grandparent_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
+            </div>
+            <div>
+              <label for="topic">Topic</label>
+              <input id="topic" name="topic" placeholder="Billing / Setup / Scheduling / Something else" />
+            </div>
+          </div>
+
+          <div>
+            <label for="msg">What’s going on?</label>
+            <textarea id="msg" name="message" placeholder="Tell us what happened and what you expected instead."></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Send help request</button>
+
+          <div class="small">
+            Tip: If the phone recipient texts <b>STOP</b>, they won’t receive future StoryCall calls.
+          </div>
+        </form>
       </div>
     </section>
 
     <section id="faq">
       <h2>FAQ</h2>
-      <div class="box">
-        <ul>
-          <li><b>Does the phone user install anything?</b> No. It’s just a call.</li>
-          <li><b>Landline-friendly?</b> Yes.</li>
-          <li><b>Only Instagram?</b> No—also texts and other apps.</li>
-        </ul>
+      <div class="details-wrap">
+        <details>
+          <summary>
+            Does the phone user install anything?
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p>No. They receive a normal phone call, listen, and reply by speaking after the prompt.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Is it landline-friendly?
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p>Yes. StoryCall is designed to work well on landlines and simple phones.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            How do people stop?
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p>The phone recipient can opt out anytime by texting <b>STOP</b>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Where can I see it in action?
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p>Open the app experience at <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">app.storycall.org</a>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="legal">
+      <h2>Privacy & Terms</h2>
+      <div class="details-wrap">
+        <details>
+          <summary>
+            Privacy Policy
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p><b>In plain English:</b> We collect only what we need to deliver calls and message replies.</p>
+            <ul>
+              <li><b>Data you provide:</b> names, phone numbers, and the messages/audio you choose to send.</li>
+              <li><b>How we use it:</b> to deliver scheduled calls, record replies, and return them to the message thread.</li>
+              <li><b>Sharing:</b> we don’t sell personal data. We may use service providers to operate the system (telephony, storage, etc.).</li>
+              <li><b>Retention:</b> you can request deletion of your account and associated content.</li>
+              <li><b>Security:</b> we use reasonable safeguards, but no system is perfect.</li>
+              <li><b>Opt-out:</b> the phone recipient can stop future calls by texting <b>STOP</b>.</li>
+              <li><b>Contact:</b> privacy questions can be sent via the Help form or email <b>paul@storycall.org</b>.</li>
+            </ul>
+            <p class="small">This is a friendly summary. Replace with your final policy language when ready.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Terms & Conditions
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <p><b>In plain English:</b> Use StoryCall responsibly, and you keep ownership of your content.</p>
+            <ul>
+              <li><b>Eligibility:</b> you must have permission to message/call the recipient.</li>
+              <li><b>Your content:</b> you own your messages and recordings; you grant StoryCall permission to process them to provide the service.</li>
+              <li><b>Prohibited use:</b> no harassment, spam, fraud, or illegal content.</li>
+              <li><b>Availability:</b> we aim for reliability, but service may be interrupted.</li>
+              <li><b>Costs:</b> standard carrier charges may apply depending on your plan.</li>
+              <li><b>Stopping:</b> the phone recipient can opt out anytime by texting <b>STOP</b>.</li>
+              <li><b>Liability:</b> limited to the maximum extent permitted by law.</li>
+            </ul>
+            <p class="small">This is a friendly summary. Replace with your final terms when ready.</p>
+          </div>
+        </details>
       </div>
     </section>
   </main>
@@ -244,9 +469,10 @@
         <div class="copy">
           © <span id="year"></span> StoryCall • storycall.org
         </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap">
-          <a href="/privacy">Privacy Policy (coming soon)</a>
-          <a href="/terms">Terms &amp; Conditions (coming soon)</a>
+        <div class="links">
+          <a href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Open App</a>
+          <a href="#help">Help</a>
+          <a href="#legal">Privacy & Terms</a>
         </div>
       </div>
     </div>
@@ -257,4 +483,3 @@
   </script>
 </body>
 </html>
-```
