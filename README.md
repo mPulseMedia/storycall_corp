@@ -1,4 +1,4 @@
 # storycall_corp
 storycall.org corporate site
 
-Try the app: https://app.storycall.org
+Try the [App](https://app.storycall.org).
