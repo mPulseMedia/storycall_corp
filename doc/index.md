@@ -38,9 +38,9 @@ claude_md                   : file    : repo rules
 
 cname                       : file    : custom domain
 
+color_background_card       : css     : card bg
 color_background_primary    : css     : bg primary
 color_background_secondary  : css     : bg secondary
-color_card_background       : css     : card bg
 color_line                  : css     : divider color
 color_rgb_black             : css     : rgb tuple
 color_rgb_white             : css     : rgb tuple
@@ -72,6 +72,9 @@ footer_padding_bottom       : css     : footer pad bottom
 footer_padding_top          : css     : footer pad top
 
 form_gap                    : css     : css value
+form_input_padding_x        : css     : input pad x
+form_input_padding_y        : css     : input pad y
+form_textarea_min_height    : css     : css value
 
 granny_and_kid_png          : image   : hero photo
 
@@ -97,9 +100,6 @@ hero_media                  : class   : hero media col
 how                         : section : (#how)
 
 index_html                  : file    : landing page
-
-input_padding_x             : css     : input pad x
-input_padding_y             : css     : input pad y
 
 layer_header                : css     : z header
 
@@ -153,8 +153,6 @@ primary                     : class   : button variant
 
 privacy_effective           : id      : privacy effective date
 
-radius_button               : css     : corner radius
-radius_card                 : css     : corner radius
 radius_medium               : css     : corner radius
 radius_pill                 : css     : corner radius
 radius_small                : css     : corner radius
@@ -186,17 +184,11 @@ storycall_org               : domain  : marketing site
 
 surface_control             : css     : surface tint
 surface_footer              : css     : surface tint
-surface_header              : css     : surface tint
-surface_link                : css     : surface tint
 surface_neutral             : css     : surface tint
-surface_panel               : css     : surface tint
-surface_pill                : css     : surface tint
 
 terms_effective             : id      : terms effective date
 
 text_measure_wide           : css     : text measure
-
-textarea_min_height         : css     : css value
 
 topic                       : field   : help form topic
 

@@ -7,10 +7,7 @@
   <title>StoryCall — Exchange voice recordings with a landline</title>
   <style>
     :root{
-      --color_background_primary:   #f3f3f3;
-      --color_background_secondary: #ffffff;
-      --color_card_background:      #ffffff;
-      --color_text_primary:         #000000;
+      /* primitives */
       --color_rgb_black:            0,0,0;
       --color_rgb_white:            255,255,255;
 
@@ -19,36 +16,97 @@
       --opacity_light:              .30;
       --opacity_faint:              .14;
 
-      --color_text_muted:                      rgba(var(--color_rgb_black),var(--opacity_medium));
-      --color_line:                            rgba(var(--color_rgb_black),var(--opacity_faint));
-      --shadow_card:               0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
-      --shadow_soft:               0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
+      /* base colors */
+      --color_background_primary:   #f3f3f3;
+      --color_background_secondary: #ffffff;
+      --color_background_card:      #ffffff;
+      --color_text_primary:         #000000;
 
-      --space_micro:          6px;
-      --space_xsmall:         8px;
-      --space_small:          12px;
-      --space_medium:         18px;
-      --space_large:          26px;
-      --space_xlarge:         40px;
+      /* derived colors */
+      --color_text_muted:           rgba(var(--color_rgb_black),var(--opacity_medium));
+      --color_line:                 rgba(var(--color_rgb_black),var(--opacity_faint));
 
-      --layout_max_width:     980px;
-      --layout_side_padding:  34px;
+      /* surfaces */
+      --surface_neutral:            rgba(var(--color_rgb_white),var(--opacity_medium));
+      --surface_control:            rgba(var(--color_rgb_white),var(--opacity_heavy));
+      --surface_footer:             rgba(var(--color_rgb_white),var(--opacity_light));
 
-      --radius_small:         14px;
-      --radius_medium:        16px;
-      --radius_button:        18px;
-      --radius_card:          22px;
-      --radius_pill:          999px;
+      /* shadows */
+      --shadow_card:                0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
+      --shadow_soft:                0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
 
-      --header_padding_y:     var(--space_medium);
-      --nav_gap:              var(--space_small);
-      --nav_padding_y:        var(--space_xsmall);
-      --nav_padding_x:        var(--space_small);
+      /* typography */
+      --font_family_base:           ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --font_weight_heavy:          900;
+      --font_weight_bold:           600;
+      --font_size_title:            52px;
+      --font_size_heading:          30px;
+      --font_size_body:             18px;
 
-      --main_padding_top:            var(--scroll_padding_top);
-      --main_padding_bottom:         var(--space_large);
-      --main_padding_bottom_mobile:  22px;
+      --line_height_base:           1.35;
+      --line_height_title:          1.05;
 
+      --letter_spacing_brand:       -.2px;
+      --letter_spacing_title:       -.8px;
+      --letter_spacing_h2:          -.3px;
+      --letter_spacing_h3:          -.2px;
+
+      --brand_text_shadow:
+        -1px -1px  0   rgba(255,230,200,var(--opacity_light)),
+         0    1px  0   rgba(255,230,200,var(--opacity_faint)),
+         2px  2px  0   rgba(var(--color_rgb_black),var(--opacity_light)),
+         0   10px 22px rgba(var(--color_rgb_black),var(--opacity_light));
+
+      /* spacing + radius */
+      --space_micro:                6px;
+      --space_xsmall:               8px;
+      --space_small:                12px;
+      --space_medium:               18px;
+      --space_large:                26px;
+      --space_xlarge:               40px;
+
+      --radius_small:               14px;
+      --radius_medium:              18px;
+      --radius_pill:                999px;
+
+      /* layout + measure */
+      --layout_max_width:           980px;
+      --layout_side_padding:        34px;
+      --text_measure_wide:          64ch;
+
+      /* scroll + page padding */
+      --scroll_padding_top:         92px;
+      --scroll_padding_top_mobile:  74px;
+
+      --main_padding_top:           var(--scroll_padding_top);
+      --main_padding_bottom:        var(--space_large);
+      --main_padding_bottom_mobile: 22px;
+
+      /* component sizing */
+      --header_padding_y:           var(--space_medium);
+
+      --nav_gap:                    var(--space_small);
+      --nav_padding_y:              var(--space_xsmall);
+      --nav_padding_x:              var(--space_small);
+
+      --button_gap:                 var(--space_small);
+      --button_padding_y:           var(--space_small);
+      --button_padding_x:           var(--space_medium);
+
+      --section_padding_y:          var(--space_large);
+
+      --form_gap:                   var(--space_small);
+      --form_input_padding_y:       var(--space_small);
+      --form_input_padding_x:       var(--space_small);
+      --form_textarea_min_height:   120px;
+
+      --footer_padding_top:         var(--space_large);
+      --footer_padding_bottom:      var(--space_xlarge);
+
+      --brand_text_size:            38px;
+      --brand_text_size_mobile:     30px;
+
+      /* hero */
       --hero_gap:                    var(--space_large);
       --hero_margin_top:             var(--space_medium);
       --hero_image_max_width:        420px;
@@ -59,70 +117,23 @@
       --hero_image_aspect_ratio:     4 / 5;
       --hero_image_object_position:  50% 30%;
 
-      --button_gap:           var(--space_small);
-      --button_padding_y:     var(--space_small);
-      --button_padding_x:     var(--space_medium);
+      /* assets */
+      --wood_tile_size:             520px 110px;
 
-      --section_padding_y:    var(--space_large);
+      /* borders */
+      --border_default:             1px solid var(--color_line);
+      --border_transparent:         1px solid transparent;
 
-      --form_gap:             var(--space_small);
-      --input_padding_y:      var(--space_small);
-      --input_padding_x:      var(--space_small);
-      --textarea_min_height:  120px;
+      /* motion */
+      --motion_duration_fast:       .15s;
 
-      --footer_padding_top:     var(--space_large);
-      --footer_padding_bottom:  var(--space_xlarge);
+      /* layering */
+      --layer_header:               10;
 
-      --brand_text_size:        38px;
-      --brand_text_size_mobile: 30px;
-
-      --wood_tile_size:       520px 110px;
-
-      --border_default:       1px solid var(--color_line);
-      --border_transparent:   1px solid transparent;
-
-      --layer_header:         10;
-
-      --letter_spacing_brand: -.2px;
-      --letter_spacing_title: -.8px;
-      --letter_spacing_h2:    -.3px;
-      --letter_spacing_h3:    -.2px;
-
-      --scroll_padding_top_mobile: 74px;
-
-      --brand_text_shadow:
-        -1px -1px  0   rgba(255,230,200,var(--opacity_light)),
-         0    1px  0   rgba(255,230,200,var(--opacity_faint)),
-         2px  2px  0   rgba(var(--color_rgb_black),var(--opacity_light)),
-         0   10px 22px rgba(var(--color_rgb_black),var(--opacity_light));
-
-      --surface_neutral:      rgba(var(--color_rgb_white),var(--opacity_medium));
-      --surface_header:       var(--surface_neutral);
-      --surface_panel:        var(--surface_neutral);
-      --surface_control:      rgba(var(--color_rgb_white),var(--opacity_heavy));
-      --surface_link:         var(--surface_neutral);
-      --surface_footer:       rgba(var(--color_rgb_white),var(--opacity_light));
-      --surface_pill:         var(--surface_neutral);
-
-      --font_family_base:     ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --font_weight_heavy:    900;
-      --font_weight_bold:     600;
-
-      --font_size_title:      52px;
-      --font_size_heading:    30px;
-      --font_size_body:       18px;
-
-      --line_height_base:     1.35;
-      --line_height_title:    1.05;
-
-      --scroll_padding_top:   92px;
-      --text_measure_wide:    64ch;
-
-      --motion_duration_fast: .15s;
-
-      --breakpoint_nav:       45rem;
-      --breakpoint_help:      48.75rem;
-      --breakpoint_mobile:    43.75rem;
+      /* breakpoints */
+      --breakpoint_nav:             45rem;
+      --breakpoint_help:            48.75rem;
+      --breakpoint_mobile:          43.75rem;
     }
     *{
       box-sizing : border-box;
@@ -245,10 +256,10 @@
       aspect-ratio    : var(--hero_image_aspect_ratio);
       object-fit      : cover;
       object-position : var(--hero_image_object_position);
-      border-radius   : var(--radius_card);
+      border-radius   : var(--radius_medium);
       border          : var(--border_default);
       box-shadow      : var(--shadow_card);
-      background      : var(--surface_panel);
+      background      : var(--surface_neutral);
     }
     h1{
       margin         : 0 0 var(--space_small);
@@ -276,9 +287,9 @@
       font-size       : inherit;
       font-weight     : var(--font_weight_heavy);
       padding         : var(--button_padding_y) var(--button_padding_x);
-      border-radius   : var(--radius_button);
+      border-radius   : var(--radius_medium);
       border          : var(--border_default);
-      background      : var(--surface_header);
+      background      : var(--surface_neutral);
       box-shadow      : var(--shadow_soft);
     }
     .btn:hover{
@@ -306,8 +317,8 @@
     }
     .box{
       border        : var(--border_default);
-      background    : var(--surface_panel);
-      border-radius : var(--radius_card);
+      background    : var(--surface_neutral);
+      border-radius : var(--radius_medium);
       padding       : var(--space_medium) var(--space_medium);
       box-shadow    : var(--shadow_card);
     }
@@ -333,8 +344,8 @@
     }
     details{
       border        : var(--border_default);
-      border-radius : var(--radius_card);
-      background    : var(--surface_panel);
+      border-radius : var(--radius_medium);
+      background    : var(--surface_neutral);
       box-shadow    : var(--shadow_soft);
       padding       : var(--space_small) var(--space_small);
       transition    :
@@ -343,7 +354,7 @@
         transform    var(--motion_duration_fast) ease;
     }
     summary{
-      border-radius : var(--radius_card);
+      border-radius : var(--radius_medium);
       cursor        : pointer;
       padding       : var(--space_small);
       margin        : calc(-1 * var(--space_small));
@@ -412,7 +423,7 @@
       padding       : var(--space_micro) var(--space_small);
       border-radius : var(--radius_pill);
       border        : var(--border_default);
-      background    : var(--surface_pill);
+      background    : var(--surface_neutral);
       font-weight   : var(--font_weight_bold);
     }
 
@@ -427,8 +438,8 @@
     }
     input, textarea{
       width         : 100%;
-      padding       : var(--input_padding_y) var(--input_padding_x);
-      border-radius : var(--radius_button);
+      padding       : var(--form_input_padding_y) var(--form_input_padding_x);
+      border-radius : var(--radius_medium);
       border        : var(--border_default);
       background    : var(--surface_control);
       font-size     : inherit;
@@ -436,7 +447,7 @@
       outline       : none;
     }
     textarea{
-      min-height : var(--textarea_min_height);
+      min-height : var(--form_textarea_min_height);
       resize     : vertical;
     }
     .help_row{
@@ -499,12 +510,14 @@
 
     @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
       :root{
-        --font_size_title:     42px;
-        --font_size_heading:   26px;
-        --font_size_body:      16px;
-        --layout_side_padding: 18px;
-        --scroll_padding_top:  var(--scroll_padding_top_mobile);
-        --main_padding_bottom: var(--main_padding_bottom_mobile);
+        --font_size_title:      42px;
+        --font_size_heading:    26px;
+        --font_size_body:       16px;
+
+        --layout_side_padding:  18px;
+
+        --scroll_padding_top:   var(--scroll_padding_top_mobile);
+        --main_padding_bottom:  var(--main_padding_bottom_mobile);
       }
       .bar{
         padding : var(--space_small) 0;

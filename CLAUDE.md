@@ -44,13 +44,14 @@ The site is a **static single-page HTML website** with no build process, depende
 - **root term first**: choose the first term so sorted lists cluster related concepts.
   - favor adding a sub-term before creating a new root.
   - use terms users understand (concepts), not programmer-only jargon.
+- **prefix-cluster within a family**: for vars that are meant to “go together”, reuse the same left-side terms so they sit adjacent when sorted/scanned (e.g. `color_background_*`, `form_input_padding_*`).
 
 ### css literals → variables (when reasonable)
 
 - **reduce hard-coded numbers**: move repeated or “design system” numbers into `:root` vars (0 and 1 literals are fine).
 - **opacity**: avoid hard-coded alpha values; prefer `opacity_*` vars.
 - **rgb tuples**: avoid repeating `255,255,255` / `0,0,0`; prefer `color_rgb_*` vars.
-- **surfaces**: `surface_*` should derive from `opacity_surface_*` vars so it’s consistent.
+- **surfaces**: `surface_*` should derive from `color_rgb_*` + `opacity_*` (avoid redundant alias surfaces).
 - **breakpoints**
   - prefer **rem** for breakpoint values.
   - define a `breakpoint_*` var as the source of truth, but keep a literal in `@media/@container` conditions (and comment the var name) because `var()` in conditions isn’t reliably supported everywhere.
@@ -64,10 +65,6 @@ The site is a **static single-page HTML website** with no build process, depende
   - keep `type` short and lowercase (examples: `css`, `class`, `id`, `file`, `image`, `domain`, `section`, `field`).
   - keep `detail` short, lowercase, and user-meaningful (avoid the word “token”).
   - if `detail` just repeats the name words, replace it with a short clarifier of what it refers to.
-
-
-
-
 
 ## Sections in index.html
 
