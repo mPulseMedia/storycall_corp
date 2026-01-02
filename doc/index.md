@@ -7,6 +7,8 @@ about_copy                  : class   : about paragraph
 
 app_storycall_org           : domain  : app link
 
+back                        : class   : back link
+
 bar                         : class   : header bar row
 
 border_default              : css     : border default
@@ -152,6 +154,7 @@ pill                        : class   : legal pill
 primary                     : class   : button variant
 
 privacy_effective           : id      : privacy effective date
+privacy_html                : file    : privacy page
 
 radius_medium               : css     : corner radius
 radius_pill                 : css     : corner radius
@@ -187,6 +190,7 @@ surface_footer              : css     : surface tint
 surface_neutral             : css     : surface tint
 
 terms_effective             : id      : terms effective date
+terms_html                  : file    : terms page
 
 text_measure_wide           : css     : text measure
 

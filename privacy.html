@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"    content="width=device-width,initial-scale=1" />
+  <meta name="description" content="StoryCall privacy policy." />
+  <title>StoryCall — Privacy Policy</title>
+  <style>
+    :root{
+      /* primitives */
+      --color_rgb_black:            0,0,0;
+      --color_rgb_white:            255,255,255;
+
+      --opacity_heavy:              .92;
+      --opacity_medium:             .62;
+      --opacity_light:              .30;
+      --opacity_faint:              .14;
+
+      /* base colors */
+      --color_background_primary:   #f3f3f3;
+      --color_background_secondary: #ffffff;
+      --color_background_card:      #ffffff;
+      --color_text_primary:         #000000;
+
+      /* derived colors */
+      --color_text_muted:           rgba(var(--color_rgb_black),var(--opacity_medium));
+      --color_line:                 rgba(var(--color_rgb_black),var(--opacity_faint));
+
+      /* surfaces */
+      --surface_neutral:            rgba(var(--color_rgb_white),var(--opacity_medium));
+      --surface_control:            rgba(var(--color_rgb_white),var(--opacity_heavy));
+
+      /* shadows */
+      --shadow_card:                0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
+      --shadow_soft:                0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
+
+      /* typography */
+      --font_family_base:           ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --font_weight_heavy:          900;
+      --font_weight_bold:           600;
+      --font_size_title:            46px;
+      --font_size_body:             18px;
+
+      --line_height_base:           1.45;
+      --line_height_title:          1.10;
+
+      --letter_spacing_title:       -.6px;
+
+      /* spacing + radius */
+      --space_micro:                6px;
+      --space_xsmall:               8px;
+      --space_small:                12px;
+      --space_medium:               18px;
+      --space_large:                26px;
+      --space_xlarge:               40px;
+
+      --radius_small:               14px;
+      --radius_medium:              18px;
+      --radius_pill:                999px;
+
+      /* layout */
+      --layout_max_width:           980px;
+      --layout_side_padding:        34px;
+
+      /* scroll + page padding */
+      --scroll_padding_top:         92px;
+      --scroll_padding_top_mobile:  74px;
+      --main_padding_top:           var(--scroll_padding_top);
+      --main_padding_bottom:        var(--space_large);
+
+      /* component sizing */
+      --header_padding_y:           var(--space_medium);
+      --nav_padding_y:              var(--space_xsmall);
+      --nav_padding_x:              var(--space_small);
+
+      --footer_padding_top:         var(--space_large);
+      --footer_padding_bottom:      var(--space_xlarge);
+
+      /* assets */
+      --wood_tile_size:             520px 110px;
+
+      /* borders */
+      --border_default:             1px solid var(--color_line);
+      --border_transparent:         1px solid transparent;
+
+      /* motion */
+      --motion_duration_fast:       .15s;
+
+      /* layering */
+      --layer_header:               10;
+
+      /* breakpoints */
+      --breakpoint_mobile:          43.75rem;
+    }
+    *{
+      box-sizing : border-box;
+    }
+    html{
+      scroll-behavior    : smooth;
+      scroll-padding-top : var(--scroll_padding_top);
+    }
+    body{
+      margin      : 0;
+      font-family : var(--font_family_base);
+      font-size   : var(--font_size_body);
+      color       : var(--color_text_primary);
+      background  : linear-gradient(180deg, var(--color_background_primary), var(--color_background_secondary));
+      line-height : var(--line_height_base);
+    }
+    a{
+      color : inherit;
+    }
+    .wrap{
+      max-width : var(--layout_max_width);
+      margin    : 0 auto;
+      padding   : 0 var(--layout_side_padding);
+    }
+
+    header{
+      position        : sticky;
+      top             : 0;
+      z-index         : var(--layer_header);
+      background      :
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_light)), rgba(var(--color_rgb_black),var(--opacity_light))),
+        url("images/wood.png") center / var(--wood_tile_size) repeat;
+      border-bottom   : var(--border_default);
+    }
+    .bar{
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      padding         : var(--header_padding_y) 0;
+      gap             : var(--space_small);
+    }
+    .back{
+      display         : inline-block;
+      text-decoration : none;
+      padding         : var(--nav_padding_y) var(--nav_padding_x);
+      border-radius   : var(--radius_medium);
+      border          : var(--border_transparent);
+      color           : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      background      : transparent;
+      font-weight     : var(--font_weight_heavy);
+    }
+    .back:hover{
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
+    }
+    .nav{
+      display         : flex;
+      justify-content : flex-end;
+      color           : rgba(var(--color_rgb_white),var(--opacity_heavy));
+    }
+    .nav a{
+      text-decoration : none;
+      padding         : var(--nav_padding_y) var(--nav_padding_x);
+      border-radius   : var(--radius_medium);
+      border          : var(--border_transparent);
+      background      : transparent;
+    }
+    .nav a:hover{
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
+    }
+    .cta{
+      color        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      background   : rgba(var(--color_rgb_black),var(--opacity_light));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint)) !important;
+      font-weight  : var(--font_weight_heavy);
+    }
+    .cta:hover{
+      background   : rgba(var(--color_rgb_black),var(--opacity_light)) !important;
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint)) !important;
+    }
+
+    main{
+      padding : var(--main_padding_top) 0 var(--main_padding_bottom);
+    }
+    h1{
+      margin         : 0 0 var(--space_small);
+      font-size      : var(--font_size_title);
+      line-height    : var(--line_height_title);
+      letter-spacing : var(--letter_spacing_title);
+    }
+    .box{
+      border        : var(--border_default);
+      background    : var(--surface_neutral);
+      border-radius : var(--radius_medium);
+      padding       : var(--space_medium) var(--space_medium);
+      box-shadow    : var(--shadow_card);
+    }
+    .content{
+      color : var(--color_text_muted);
+    }
+    .content p{
+      margin : var(--space_small) 0;
+    }
+    .content ul{
+      margin       : var(--space_small) 0;
+      padding-left : var(--space_medium);
+    }
+    .content li{
+      margin : var(--space_xsmall) 0;
+    }
+    .content .small{
+      color : var(--color_text_muted);
+    }
+    .legal_meta{
+      display    : flex;
+      gap        : var(--space_small);
+      flex-wrap  : wrap;
+      margin-top : var(--space_small);
+      color      : var(--color_text_muted);
+    }
+    .pill{
+      display       : inline-block;
+      padding       : var(--space_micro) var(--space_small);
+      border-radius : var(--radius_pill);
+      border        : var(--border_default);
+      background    : var(--surface_control);
+      font-weight   : var(--font_weight_bold);
+    }
+
+    footer{
+      border-top : var(--border_default);
+      padding    : var(--footer_padding_top) 0 var(--footer_padding_bottom);
+      background :
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_light)), rgba(var(--color_rgb_black),var(--opacity_light))),
+        url("images/wood.png") center / var(--wood_tile_size) repeat;
+    }
+    .foot{
+      display         : flex;
+      align-items     : center;
+      justify-content : space-between;
+      gap             : var(--space_medium);
+      flex-wrap       : wrap;
+      text-align      : left;
+    }
+    .copy{
+      color : rgba(var(--color_rgb_white),var(--opacity_medium));
+    }
+    .links{
+      display         : flex;
+      gap             : var(--space_medium);
+      flex-wrap       : wrap;
+      justify-content : flex-end;
+    }
+
+    @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
+      :root{
+        --font_size_title:      38px;
+        --font_size_body:       16px;
+        --layout_side_padding:  18px;
+        --scroll_padding_top:   var(--scroll_padding_top_mobile);
+      }
+      .bar{
+        padding : var(--space_small) 0;
+      }
+      footer .foot{
+        justify-content : center;
+        text-align      : center;
+      }
+      footer .links{
+        justify-content : center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="back" href="index.html" aria-label="Back to StoryCall home">← Back</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="https://app.storycall.org" class="cta open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Privacy Policy</h1>
+    <div class="box">
+      <div class="content">
+        <div class="legal_meta">
+          <span class="pill">Effective: <span id="privacy_effective"></span></span>
+          <span class="pill">Contact: help@storycall.org</span>
+        </div>
+
+        <p><b>1. Overview</b></p>
+        <p>
+          StoryCall (“StoryCall,” “we,” “us”) provides a service that forwards voice recordings from messaging platforms (such as
+          SMS/text, and other apps) to a landline (or phone number) as a normal phone call, and returns voice replies back
+          to the originating thread. This Privacy Policy explains what we collect, how we use it, and the choices you have.
+        </p>
+        <p>
+          We aim to be conservative with data: collect the minimum necessary, avoid selling or sharing for advertising,
+          and give you control. If anything here is unclear, email <b>help@storycall.org</b>.
+        </p>
+
+        <p><b>2. Definitions</b></p>
+        <ul>
+          <li><b>“User”</b> means someone who uses the StoryCall app or website to send or manage messages/calls.</li>
+          <li><b>“Recipient”</b> means someone who receives StoryCall calls (including calls to a landline).</li>
+          <li><b>“Content”</b> means messages, voice recordings, transcripts, and related metadata.</li>
+        </ul>
+
+        <p><b>3. Information We Collect</b></p>
+        <p><b>3.1 Information you provide</b></p>
+        <ul>
+          <li><b>Account info:</b> name, email, and login identifiers (if you create an account).</li>
+          <li><b>Contact info:</b> phone/landline numbers and names for Recipients (as provided by you).</li>
+          <li><b>Support info:</b> information you submit in help requests or emails to us.</li>
+        </ul>
+
+        <p><b>3.2 Content processed to provide the service</b></p>
+        <ul>
+          <li><b>Incoming messages:</b> text and/or voice notes/recordings you choose to route through StoryCall.</li>
+          <li><b>Outbound call audio:</b> the audio we play to the Recipient during scheduled calls.</li>
+          <li><b>Recipient replies:</b> recorded voice replies, and optional transcripts if enabled.</li>
+        </ul>
+
+        <p><b>3.3 Usage and device information</b></p>
+        <ul>
+          <li><b>Basic logs:</b> timestamps, delivery status, call duration, and error reports.</li>
+          <li><b>Web data:</b> limited analytics needed to run and secure the site (e.g., IP address, browser type).</li>
+        </ul>
+
+        <p><b>3.4 What we do not collect (by default)</b></p>
+        <ul>
+          <li>We do not sell personal information.</li>
+          <li>We do not share personal information for third-party advertising.</li>
+          <li>We do not collect precise location data.</li>
+          <li>We do not intentionally collect sensitive data beyond what you choose to send as Content.</li>
+        </ul>
+
+        <p><b>4. How We Use Information</b></p>
+        <ul>
+          <li><b>Provide the service:</b> schedule calls, play messages, record replies, and deliver them back.</li>
+          <li><b>Safety and security:</b> prevent abuse, detect fraud, and protect accounts and systems.</li>
+          <li><b>Support:</b> respond to help requests and troubleshoot issues.</li>
+          <li><b>Service improvement:</b> fix bugs, improve reliability, and enhance features.</li>
+        </ul>
+
+        <p><b>5. Legal Bases (Where Applicable)</b></p>
+        <ul>
+          <li><b>Contract:</b> to provide StoryCall as requested by Users.</li>
+          <li><b>Legitimate interests:</b> to secure, maintain, and improve the service.</li>
+          <li><b>Consent:</b> where required (e.g., certain notifications or optional features).</li>
+          <li><b>Legal obligation:</b> where we must comply with law or lawful requests.</li>
+        </ul>
+
+        <p><b>6. Sharing and Disclosure</b></p>
+        <p>
+          We share information only as needed to run StoryCall, and we limit that sharing as much as possible.
+        </p>
+        <p><b>6.1 Service providers</b></p>
+        <ul>
+          <li>
+            We use vetted service providers to operate key functions (e.g., telephony, hosting, storage, email delivery).
+            They are permitted to process data only to provide services to StoryCall and must protect it.
+          </li>
+        </ul>
+
+        <p><b>6.2 Legal and safety</b></p>
+        <ul>
+          <li>
+            We may disclose information if we believe it is reasonably necessary to comply with law,
+            enforce our terms, or protect rights, safety, and security.
+          </li>
+        </ul>
+
+        <p><b>6.3 No sale of personal information</b></p>
+        <p>
+          We do not sell personal information and do not share it for cross-context behavioral advertising.
+        </p>
+
+        <p><b>7. Retention</b></p>
+        <p>
+          We retain information only as long as necessary to provide the service and for legitimate business and legal needs.
+          You can request deletion (see “Your Choices”). Some data may be retained for limited periods for fraud prevention,
+          billing, dispute resolution, or legal compliance.
+        </p>
+
+        <p><b>8. Your Choices and Rights</b></p>
+        <ul>
+          <li><b>Opt-out (Recipients):</b> Recipients can stop future calls by texting STOP at any time.</li>
+          <li><b>Access/correction:</b> You can request access to or correction of your account information.</li>
+          <li><b>Deletion:</b> You can request deletion of your account and associated Content, subject to retention needs.</li>
+          <li><b>Export:</b> You can request an export of your Content where feasible.</li>
+          <li><b>Consent controls:</b> You can disable optional features (like transcription) if offered.</li>
+        </ul>
+        <p class="small">
+          To make a request, email <b>help@storycall.org</b>. We may need to verify your identity before fulfilling requests.
+        </p>
+
+        <p><b>9. Security</b></p>
+        <p>
+          We use reasonable administrative, technical, and physical safeguards designed to protect data. No system can be
+          guaranteed 100% secure; if you believe your account has been compromised, contact us promptly.
+        </p>
+
+        <p><b>10. Children</b></p>
+        <p>
+          StoryCall is not directed to children under 13. If you believe a child has provided personal information to us,
+          contact <b>help@storycall.org</b> so we can address it.
+        </p>
+
+        <p><b>11. International Users</b></p>
+        <p>
+          If you access StoryCall from outside the United States, your information may be processed in the United States
+          or other locations where our service providers operate.
+        </p>
+
+        <p><b>12. Changes to This Policy</b></p>
+        <p>
+          We may update this policy from time to time. If changes are material, we will provide a prominent notice or other
+          appropriate communication. The “Effective” date above indicates when this policy was last updated.
+        </p>
+
+        <p><b>13. Contact</b></p>
+        <p>
+          Questions or requests: <b>help@storycall.org</b>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="copy">
+          © <span id="year"></span> StoryCall • storycall.org
+        </div>
+        <div class="links">
+          <a href="https://app.storycall.org" class="cta open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Ensure "Try App" always opens in a new tab/window (some mobile/PWA contexts ignore target=_blank)
+    (function(){
+      const open_app_links = document.querySelectorAll("a.open_app_link");
+      for (let link_idx = 0; link_idx < open_app_links.length; link_idx++) {
+        const link_el = open_app_links[link_idx];
+        link_el.setAttribute("target", "_blank");
+        link_el.setAttribute("rel", "noopener noreferrer");
+        link_el.addEventListener("click", function(ev){
+          if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+          const new_window = window.open(link_el.href, "_blank");
+          if (new_window) new_window.opener = null;
+          ev.preventDefault();
+        });
+      }
+    })();
+
+    // Default "effective date" = today's date (local)
+    (function(){
+      const today               = new Date();
+      const date_format_options = {
+        year:  "numeric",
+        month: "long",
+        day:   "numeric",
+      };
+      const effective_date_text  = today.toLocaleDateString(undefined, date_format_options);
+      const privacy_effective_el = document.getElementById("privacy_effective");
+      if (privacy_effective_el) privacy_effective_el.textContent = effective_date_text;
+    })();
+  </script>
+</body>
+</html>
+
