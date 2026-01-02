@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport"    content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall forwards your voice recording from text/SMS, Instagram, and other messaging apps to a landline as a normal phone call—then forwards the response back to your text thread." />
+  <meta name="description" content="StoryCall forwards your voice recording from text/SMS, and other messaging apps to a landline as a normal phone call—then forwards the response back to your text thread." />
   <title>StoryCall — Exchange voice recordings with a landline</title>
   <style>
     :root{
@@ -256,14 +256,10 @@
       line-height    : var(--line_height_title);
       letter-spacing : var(--letter_spacing_title);
     }
-    p.lead{
-      margin     : 0 0 var(--space_medium);
-      color      : var(--color_text_muted);
-      max-width  : var(--text_measure_wide);
-    }
     .note{
       margin     : 0 0 var(--space_medium);
       color      : var(--color_text_muted);
+      max-width  : var(--text_measure_wide);
     }
     .note b{
       color     : var(--color_text_primary);
@@ -290,9 +286,6 @@
     }
     .btn.primary{
       border-color : rgba(var(--color_rgb_black),var(--opacity_faint));
-      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
-    }
-    .btn.primary:hover{
       background   : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
 
@@ -351,9 +344,17 @@
     }
     summary{
       border-radius : var(--radius_card);
+      cursor        : pointer;
       padding       : var(--space_small);
       margin        : calc(-1 * var(--space_small));
       transition    : background var(--motion_duration_fast) ease;
+      font-weight   : var(--font_weight_heavy);
+      color         : var(--color_text_primary);
+      list-style    : none;
+      display       : flex;
+      align-items   : center;
+      justify-content : space-between;
+      gap           : var(--space_medium);
     }
     details:hover{
       border-color : rgba(var(--color_rgb_black),var(--opacity_light));
@@ -362,16 +363,6 @@
     }
     details:hover summary{
       background : rgba(var(--color_rgb_black),var(--opacity_faint));
-    }
-    summary{
-      cursor          : pointer;
-      font-weight     : var(--font_weight_heavy);
-      color           : var(--color_text_primary);
-      list-style      : none;
-      display         : flex;
-      align-items     : center;
-      justify-content : space-between;
-      gap             : var(--space_medium);
     }
     summary::-webkit-details-marker{
       display : none;
@@ -388,9 +379,6 @@
       flex          : 0 0 auto;
       transition    : var(--motion_duration_fast) ease;
       font-weight   : var(--font_weight_heavy);
-    }
-    details:hover .caret{
-      background : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
     details[open] .caret{
       transform : rotate(90deg);
@@ -582,15 +570,15 @@
   <main class="wrap">
     <div class="hero">
       <div class="hero_copy">
-        <h1>Exchange voice recordings with a landline</h1>
-        <p class="lead">
-          StoryCall forwards your voice recording from text/SMS, Instagram, and other messaging apps to a landline as a normal phone call—then forwards the response back to your text thread.
+        <h1>Voice notes that ring</h1>
+        <p class="note">
+          StoryCall takes a voice recording from text messaging apps and delivers it to a landline as a normal phone call—then returns the reply to the original message thread.
         </p>
         <p class="note">
-          A common use case is helping grandchildren and grandparents stay in touch—without changing anyone’s habits.
+          For example, a grandchild sends a quick voice note from a text or Instagram message. The phone rings in a grandparent’s kitchen, they listen and respond, and that reply appears right back in the grandchild’s message thread.
         </p>
         <p class="note">
-          <b>Opt-out anytime:</b> stop future calls by texting STOP.
+          <b>No new apps, no new habits.</b>
         </p>
 
         <div class="buttons">
@@ -613,12 +601,11 @@
       <div class="box">
         <ol>
           <li>Record a voice message and text it to <b>833-576-1437</b>.</li>
-           <li>We call the landline (retrying if needed) and play the recording.</li>
+          <li>We call the landline (retrying if needed) and play the recording.</li>
           <li>Receive the response in your text thread.</li>
         </ol>
 
         <div class="mini">One-time setup: Provide the landline number to receive your voice recording.</div>
-
       </div>
     </section>
 
@@ -687,7 +674,7 @@
             <p><b>1. Overview</b></p>
             <p>
               StoryCall (“StoryCall,” “we,” “us”) provides a service that forwards voice recordings from messaging platforms (such as
-              SMS/text, Instagram, and other apps) to a landline (or phone number) as a normal phone call, and returns voice replies back
+              SMS/text, and other apps) to a landline (or phone number) as a normal phone call, and returns voice replies back
               to the originating thread. This Privacy Policy explains what we collect, how we use it, and the choices you have.
             </p>
             <p>
@@ -842,7 +829,7 @@
 
             <p><b>2. What StoryCall Does</b></p>
             <p>
-              StoryCall forwards voice recordings from messaging platforms (such as SMS/text, Instagram, and other apps) as a normal phone call
+              StoryCall forwards voice recordings from messaging platforms (such as SMS/text, and other apps) as a normal phone call
               to a landline (or phone number), and returns voice replies to the originating thread. The Service may include optional transcription
               and other features.
             </p>

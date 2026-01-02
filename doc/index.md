@@ -106,8 +106,6 @@ layer_header                : css     : z header
 layout_max_width            : css     : layout sizing
 layout_side_padding         : css     : layout side pad
 
-lead                        : class   : hero lead
-
 legal                       : section : (#legal)
 legal_meta                  : class   : legal pills row
 
