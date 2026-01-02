@@ -55,11 +55,10 @@ copy                        : class   : footer copyright
 
 cta                         : class   : nav cta button
 
-details_wrap                : class   : accordion grid
-
 email                       : field   : help form email
 
 faq                         : section : (#faq)
+faq_group                   : class   : faq group box
 
 font_family_base            : css     : font stack
 font_size_body              : css     : type size
@@ -79,6 +78,9 @@ form_input_padding_y        : css     : input pad y
 form_textarea_min_height    : css     : css value
 
 granny_and_kid_png          : image   : hero photo
+
+group_block                 : class   : grouped sub-block
+group_box                   : class   : grouped box
 
 header_padding_y            : css     : header pad y
 
@@ -147,8 +149,6 @@ opacity_medium              : css     : opacity level
 
 open_app_link               : class   : force new tab
 
-phone                       : field   : help form phone
-
 pill                        : class   : legal pill
 
 primary                     : class   : button variant
@@ -161,8 +161,6 @@ radius_pill                 : css     : corner radius
 radius_small                : css     : corner radius
 
 readme_md                   : file    : readme
-
-recipient_phone             : field   : recipient phone
 
 scroll_padding_top          : css     : scroll pad top
 scroll_padding_top_mobile   : css     : scroll pad top mobile
@@ -181,6 +179,10 @@ space_small                 : css     : spacing scale
 space_xlarge                : css     : spacing scale
 space_xsmall                : css     : spacing scale
 
+start                       : section : (#start)
+
+stop                        : section : (#stop)
+
 storycall                   : name    : product
 storycall_corp              : name    : repo folder
 storycall_org               : domain  : marketing site
@@ -193,8 +195,6 @@ terms_effective             : id      : terms effective date
 terms_html                  : file    : terms page
 
 text_measure_wide           : css     : text measure
-
-topic                       : field   : help form topic
 
 wood_png                    : image   : wood texture
 wood_tile_size              : css     : wood styling

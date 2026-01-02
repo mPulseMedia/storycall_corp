@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport"    content="width=device-width,initial-scale=1" />
-  <meta name="description" content="StoryCall forwards your voice recording from text/SMS, and other messaging apps to a landline as a normal phone call—then forwards the response back to your text thread." />
+  <meta name="description" content="StoryCall forwards a voice recording from text/SMS and other messaging apps to a landline as a normal phone call—then returns the reply to the same text thread." />
   <title>StoryCall — Exchange voice recordings with a landline</title>
   <style>
     :root{
@@ -338,10 +338,51 @@
       margin-top : 0;
     }
 
-    .details_wrap{
-      display : grid;
-      gap     : var(--space_medium);
+    .group_box{
+      padding : 0;
     }
+    .group_block{
+      padding : var(--space_medium);
+    }
+    .group_block + .group_block{
+      border-top : var(--border_default);
+    }
+    .group_box h3{
+      margin : 0 0 var(--space_small);
+    }
+    .group_block .note{
+      margin : var(--space_small) 0 0;
+    }
+
+    #start, #stop{
+      scroll-margin-top : var(--scroll_padding_top);
+    }
+
+    .faq_group details{
+      border        : none;
+      border-radius : 0;
+      background    : transparent;
+      box-shadow    : none;
+      padding       : 0;
+      margin        : 0;
+    }
+    .faq_group details + details{
+      border-top : var(--border_default);
+    }
+    .faq_group summary{
+      border-radius : 0;
+      padding       : var(--space_medium);
+      margin        : 0;
+    }
+    .faq_group details:hover{
+      box-shadow : none;
+      transform  : none;
+    }
+    .faq_group details .content{
+      margin-top : 0;
+      padding    : 0 var(--space_medium) var(--space_medium);
+    }
+
     details{
       border        : var(--border_default);
       border-radius : var(--radius_medium);
@@ -445,6 +486,9 @@
       font-size     : inherit;
       color         : var(--color_text_primary);
       outline       : none;
+    }
+    input::placeholder, textarea::placeholder{
+      color : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
     textarea{
       min-height : var(--form_textarea_min_height);
@@ -588,7 +632,7 @@
           StoryCall takes a voice recording from text messaging apps and delivers it to a landline as a normal phone call—then returns the reply to the original message thread.
         </p>
         <p class="note">
-          For example, a grandchild sends a quick voice note from a text or Instagram message. The phone rings in a grandparent’s kitchen, they listen and respond, and that reply appears right back in the grandchild’s message thread.
+          For example, a grandchild sends a quick voice note in a text thread. The phone rings in a grandparent’s kitchen, they listen and respond, and the reply appears right back in the grandchild's thread.
         </p>
         <p class="note">
           <b>No new apps, no new habits.</b>
@@ -611,26 +655,37 @@
 
     <section id="how">
       <h2>How it works</h2>
-      <div class="box">
-        <ol>
-          <li>Record a voice message and text it to <b>888-569-6984</b>.</li>
-          <li>StoryCall schedules a call to the landline you've specified (retrying if needed) and plays the recording.</li>
-          <li>Receive the reply recording in your text thread.</li>
-        </ol>
+      <div class="box group_box">
+        <div class="group_block" id="start">
+          <h3>How to start</h3>
+          <ol>
+            <li>To opt in, text <b>STORYCALL</b> to <b>888-569-6984</b>.</li>
+            <li>You receive a confirmation message.</li>
+            <li>Reply with the landline number that should receive your voice recordings.</li>
+          </ol>
+        </div>
 
-        <div class="mini">Note:</div>
+        <div class="group_block">
+          <h3>How to send messages</h3>
+          <ol>
+            <li>Record a voice message and text it to <b>888-569-6984</b>.</li>
+            <li>StoryCall schedules a call to the landline you specified (retrying if needed) and plays the recording.</li>
+            <li>You receive the reply recording in the same text thread.</li>
+          </ol>
+        </div>
 
-        <ul>
-          <li>During setup,  provide the landline number to receive your voice recording</li>
-          <li>Get status via text-only messages in your same text thread </li>
-        </ul>
-        
+        <div class="group_block" id="stop">
+          <h3>How to stop</h3>
+          <ol>
+            <li>To opt out, text <b>STOP</b> to <b>888-569-6984</b>.</li>
+          </ol>
+        </div>
       </div>
     </section>
 
     <section id="faq">
       <h2>FAQ</h2>
-      <div class="details_wrap">
+      <div class="box group_box faq_group">
 
         <details>
           <summary>
@@ -654,7 +709,7 @@
 
         <details>
           <summary>
-            How do people stop?
+            How do you stop?
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -695,27 +750,12 @@
             </div>
           </div>
 
-          <div class="help_row">
-            <div>
-              <label for="phone">Recipient phone (optional)</label>
-              <input id="phone" name="recipient_phone" placeholder="+1 (555) 555-5555" inputmode="tel" />
-            </div>
-            <div>
-              <label for="topic">Topic</label>
-              <input id="topic" name="topic" placeholder="Setup / Scheduling / Billing / Other" />
-            </div>
-          </div>
-
           <div>
             <label for="msg">What’s going on?</label>
             <textarea id="msg" name="message" placeholder="Tell us what happened and what you expected instead."></textarea>
           </div>
 
           <button class="btn primary" type="submit">Send help request</button>
-
-          <div class="small">
-            Opt-out: stop future calls by texting STOP.
-          </div>
         </form>
       </div>
     </section>
