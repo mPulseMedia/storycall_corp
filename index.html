@@ -15,11 +15,76 @@
       --line_color:           rgba(0,0,0,.14);
       --shadow_card:          0 14px 40px rgba(0,0,0,.10);
       --shadow_soft:          0 10px 22px rgba(0,0,0,.06);
+
+      --space_micro:          6px;
+      --space_xsmall:         8px;
+      --space_small:          12px;
+      --space_medium:         18px;
+      --space_large:          26px;
+      --space_xlarge:         40px;
+
       --layout_max_width:     980px;
       --layout_side_padding:  34px;
+
+      --radius_small:         14px;
+      --radius_medium:        16px;
+      --radius_button:        18px;
       --radius_card:          22px;
+      --radius_pill:          999px;
+
+      --header_padding_y:     var(--space_medium);
+      --nav_gap:              var(--space_small);
+      --nav_padding_y:        var(--space_xsmall);
+      --nav_padding_x:        var(--space_small);
+
+      --main_padding_top:     68px;
+      --main_padding_bottom:  var(--space_large);
+      --main_padding_top_mobile:    54px;
+      --main_padding_bottom_mobile: 22px;
+
+      --hero_gap:             var(--space_large);
+      --hero_margin_top:      var(--space_medium);
+      --hero_image_max_width: 420px;
+      --hero_gap_mobile:             var(--space_medium);
+      --hero_margin_top_mobile:      var(--space_small);
+      --hero_image_max_width_mobile: 520px;
+
+      --button_gap:           var(--space_small);
+      --button_padding_y:     var(--space_small);
+      --button_padding_x:     var(--space_medium);
+
+      --section_padding_y:    var(--space_large);
+
+      --form_gap:             var(--space_small);
+      --input_padding_y:      var(--space_small);
+      --input_padding_x:      var(--space_small);
+      --textarea_min_height:  120px;
+
+      --footer_padding_top:   var(--space_large);
+      --footer_padding_bottom:var(--space_xlarge);
+
+      --brand_text_size:      38px;
+      --brand_text_size_mobile: 30px;
+
+      --wood_tile_size:       520px 110px;
 
       --border_default:       1px solid var(--line_color);
+      --border_transparent:   1px solid transparent;
+
+      --layer_header:         10;
+
+      --letter_spacing_brand: -.2px;
+      --letter_spacing_title: -.8px;
+      --letter_spacing_h2:    -.3px;
+      --letter_spacing_h3:    -.2px;
+
+      --scroll_padding_top_mobile: 74px;
+
+      --brand_text_shadow:
+        -1px -1px 0 rgba(255,230,200,.35),
+        0 1px 0 rgba(255,230,200,.22),
+        2px 2px 0 rgba(0,0,0,.34),
+        0 10px 22px rgba(0,0,0,.26);
 
       --surface_header:       rgba(255,255,255,.72);
       --surface_panel:        rgba(255,255,255,.78);
@@ -30,7 +95,7 @@
 
       --font_family_base:     ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_weight_heavy:    900;
-      --font_weight_bold:     800;
+      --font_weight_bold:     600;
 
       --font_size_title:      52px;
       --font_size_heading:    30px;
@@ -54,16 +119,22 @@
       background  : linear-gradient(180deg, var(--background_primary), var(--background_secondary));
       line-height : var(--line_height_base);
     }
-    a{color:inherit}
-    .wrap{max-width:var(--layout_max_width); margin:0 auto; padding:0 var(--layout_side_padding)}
+    a{
+      color : inherit;
+    }
+    .wrap{
+      max-width : var(--layout_max_width);
+      margin    : 0 auto;
+      padding   : 0 var(--layout_side_padding);
+    }
 
     header{
       position        : sticky;
       top             : 0;
-      z-index         : 10;
+      z-index         : var(--layer_header);
       background      :
         linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
-        url("images/wood.png") center / 520px 110px repeat;
+        url("images/wood.png") center / var(--wood_tile_size) repeat;
       backdrop-filter : none;
       border-bottom   : var(--border_default);
     }
@@ -71,43 +142,40 @@
       display         : flex;
       align-items     : center;
       justify-content : space-between;
-      padding         : 18px 0;
-      gap             : 14px;
+      padding         : var(--header_padding_y) 0;
+      gap             : var(--space_small);
+      container-type  : inline-size;
     }
     .brand{
       display         : flex;
       align-items     : center;
-      gap             : 14px;
+      gap             : var(--space_small);
       text-decoration : none;
-      font-weight     : 900;
-      letter-spacing  : -.2px;
+      font-weight     : var(--font_weight_heavy);
+      letter-spacing  : var(--letter_spacing_brand);
       white-space     : nowrap;
     }
     .brand_text{
       font-family   : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
-      font-weight   : 900;
-      font-size     : 38px;
+      font-weight   : var(--font_weight_heavy);
+      font-size     : var(--brand_text_size);
       line-height   : 1;
       letter-spacing: 0;
       color         : rgba(255,255,255,.96);
-      text-shadow   :
-        -1px -1px 0 rgba(255,230,200,.35),
-        0 1px 0 rgba(255,230,200,.22),
-        2px 2px 0 rgba(0,0,0,.34),
-        0 10px 22px rgba(0,0,0,.26);
+      text-shadow   : var(--brand_text_shadow);
     }
     .nav{
       display         : flex;
-      gap             : 12px;
+      gap             : var(--nav_gap);
       flex-wrap       : wrap;
       justify-content : flex-end;
       color           : rgba(255,255,255,.88);
     }
     .nav a{
       text-decoration : none;
-      padding         : 10px 12px;
-      border-radius   : 16px;
-      border          : 1px solid transparent;
+      padding         : var(--nav_padding_y) var(--nav_padding_x);
+      border-radius   : var(--radius_medium);
+      border          : var(--border_transparent);
       background      : transparent;
     }
     .nav a:hover{
@@ -126,19 +194,27 @@
       border-color : rgba(255,255,255,.45) !important;
     }
 
-    main{padding:68px 0 26px}
+    /* When the header gets narrow, only show "Try App" and keep it right-aligned */
+    @container (max-width: 720px){
+      .nav{margin-left:auto}
+      .nav a:not(.open_app_link){display:none}
+    }
+
+    main{
+      padding : var(--main_padding_top) 0 var(--main_padding_bottom);
+    }
     .hero{
       display               : grid;
       grid-template-columns : 1.05fr .95fr;
-      gap                   : 28px;
+      gap                   : var(--hero_gap);
       align-items           : start;
-      margin-top            : 18px;
+      margin-top            : var(--hero_margin_top);
     }
     .hero_media{justify-self:end; align-self:start}
     .hero_image{
       display         : block;
       width           : 100%;
-      max-width       : 420px;
+      max-width       : var(--hero_image_max_width);
       aspect-ratio    : 4 / 5;
       object-fit      : cover;
       object-position : 50% 30%;
@@ -148,79 +224,97 @@
       background      : var(--surface_panel);
     }
     h1{
-      margin        : 0 0 14px;
+      margin        : 0 0 var(--space_small);
       font-size     : var(--font_size_title);
       line-height   : var(--line_height_title);
-      letter-spacing: -.8px;
+      letter-spacing: var(--letter_spacing_title);
     }
     p.lead{
-      margin     : 0 0 18px;
+      margin     : 0 0 var(--space_medium);
       color      : var(--text_muted);
       max-width  : 64ch;
     }
     .note{
-      margin     : 0 0 18px;
+      margin     : 0 0 var(--space_medium);
       color      : var(--text_muted);
     }
-    .note b{color:var(--text_primary)}
-    .buttons{display:flex; gap:14px; flex-wrap:wrap; margin: 18px 0 0}
+    .note b{
+      color : var(--text_primary);
+    }
+    .buttons{
+      display   : flex;
+      gap       : var(--button_gap);
+      flex-wrap : wrap;
+      margin    : var(--space_medium) 0 0;
+    }
     .btn{
       display         : inline-block;
       text-decoration : none;
       font-size       : inherit;
       font-weight     : var(--font_weight_heavy);
-      padding         : 14px 18px;
-      border-radius   : 18px;
+      padding         : var(--button_padding_y) var(--button_padding_x);
+      border-radius   : var(--radius_button);
       border          : var(--border_default);
       background      : var(--surface_header);
       box-shadow      : var(--shadow_soft);
     }
-    .btn:hover{background: rgba(255,255,255,.92)}
+    .btn:hover{
+      background : rgba(255,255,255,.92);
+    }
     .btn.primary{
-      border-color: rgba(0,0,0,.18);
-      background: rgba(0,0,0,.06);
+      border-color : rgba(0,0,0,.18);
+      background   : rgba(0,0,0,.06);
     }
     .btn.primary:hover{
-      background: rgba(0,0,0,.08);
+      background : rgba(0,0,0,.08);
     }
 
     section{
-      padding           : 30px 0;
+      padding           : var(--section_padding_y) 0;
       scroll-margin-top : var(--scroll_padding_top);
     }
     h2{
-      margin:0 0 12px;
-      font-size:var(--font_size_heading);
-      letter-spacing:-.3px;
+      margin         : 0 0 var(--space_small);
+      font-size      : var(--font_size_heading);
+      letter-spacing : var(--letter_spacing_h2);
     }
     h3{
-      margin:18px 0 10px;
-      font-size:inherit;
-      font-weight:var(--font_weight_heavy);
-      letter-spacing:-.2px;
+      margin         : var(--space_medium) 0 var(--space_xsmall);
+      font-size      : inherit;
+      font-weight    : var(--font_weight_heavy);
+      letter-spacing : var(--letter_spacing_h3);
     }
     .box{
       border        : var(--border_default);
       background    : var(--surface_panel);
       border-radius : var(--radius_card);
-      padding       : 18px 18px;
+      padding       : var(--space_medium) var(--space_medium);
       box-shadow    : var(--shadow_card);
     }
-    ol, ul{margin: 0; padding-left: 22px}
-    li{color:var(--text_muted); margin: 10px 0}
+    ol, ul{
+      margin       : 0;
+      padding-left : var(--space_medium);
+    }
+    li{
+      color  : var(--text_muted);
+      margin : var(--space_small) 0;
+    }
     .mini{
-      margin-top : 12px;
+      margin-top : var(--space_small);
       color      : var(--text_muted);
     }
     .box .mini:first-child{margin-top:0}
 
-    .details_wrap{display:grid; gap:12px}
+    .details_wrap{
+      display : grid;
+      gap     : var(--space_medium);
+    }
     details{
       border        : var(--border_default);
       border-radius : var(--radius_card);
       background    : var(--surface_panel);
       box-shadow    : var(--shadow_soft);
-      padding       : 12px 14px;
+      padding       : var(--space_small) var(--space_small);
     }
     summary{
       cursor          : pointer;
@@ -230,13 +324,15 @@
       display         : flex;
       align-items     : center;
       justify-content : space-between;
-      gap             : 12px;
+      gap             : var(--space_medium);
     }
-    summary::-webkit-details-marker{display:none}
+    summary::-webkit-details-marker{
+      display : none;
+    }
     .caret{
-      width         : 34px;
-      height        : 34px;
-      border-radius : 14px;
+      width         : var(--layout_side_padding);
+      height        : var(--layout_side_padding);
+      border-radius : var(--radius_small);
       border        : var(--border_default);
       background    : rgba(255,255,255,.65);
       display       : grid;
@@ -246,91 +342,136 @@
       transition    : .15s ease;
       font-weight   : var(--font_weight_heavy);
     }
-    details[open] .caret{transform: rotate(90deg)}
+    details[open] .caret{
+      transform : rotate(90deg);
+    }
     details .content{
-      margin-top : 10px;
+      margin-top : var(--space_small);
       color      : var(--text_muted);
     }
-    details .content p{margin:10px 0}
-    details .content ul{margin:10px 0; padding-left: 22px}
-    details .content li{margin:8px 0}
-    details .content .small{color: var(--text_muted)}
+    details .content p{
+      margin : var(--space_small) 0;
+    }
+    details .content ul{
+      margin       : var(--space_small) 0;
+      padding-left : var(--space_medium);
+    }
+    details .content li{
+      margin : var(--space_xsmall) 0;
+    }
+    details .content .small{
+      color : var(--text_muted);
+    }
     .legal_meta{
       display    : flex;
-      gap        : 10px;
+      gap        : var(--space_small);
       flex-wrap  : wrap;
-      margin-top : 10px;
+      margin-top : var(--space_small);
       color      : var(--text_muted);
     }
     .pill{
       display       : inline-block;
-      padding       : 6px 10px;
-      border-radius : 999px;
+      padding       : var(--space_micro) var(--space_small);
+      border-radius : var(--radius_pill);
       border        : var(--border_default);
       background    : var(--surface_pill);
       font-weight   : var(--font_weight_bold);
     }
 
-    form{display:grid; gap:12px; margin-top:12px}
-    label{font-weight:var(--font_weight_heavy); color: var(--text_primary)}
+    form{
+      display    : grid;
+      gap        : var(--form_gap);
+      margin-top : var(--space_medium);
+    }
+    label{
+      font-weight : var(--font_weight_heavy);
+      color       : var(--text_primary);
+    }
     input, textarea{
       width:100%;
-      padding:14px 14px;
-      border-radius:18px;
+      padding:var(--input_padding_y) var(--input_padding_x);
+      border-radius:var(--radius_button);
       border:var(--border_default);
       background: var(--surface_control);
       font-size:inherit;
       color: var(--text_primary);
       outline:none;
     }
-    textarea{min-height:120px; resize:vertical}
-    .help_row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    @media (max-width: 780px){ .help_row{grid-template-columns: 1fr} }
-    .small{color: var(--text_muted); margin-top:8px}
-    .about_copy{margin:0; color:var(--text_muted)}
+    textarea{
+      min-height : var(--textarea_min_height);
+      resize     : vertical;
+    }
+    .help_row{
+      display               : grid;
+      grid-template-columns : 1fr 1fr;
+      gap                   : var(--space_medium);
+    }
+    @media (max-width: 780px){
+      .help_row{grid-template-columns: 1fr}
+    }
+    .small{
+      color      : var(--text_muted);
+      margin-top : var(--space_xsmall);
+    }
+    .about_copy{
+      margin : 0;
+      color  : var(--text_muted);
+    }
 
     footer{
-      border-top:var(--border_default);
-      padding:26px 0 40px;
-      background:
+      border-top : var(--border_default);
+      padding    : var(--footer_padding_top) 0 var(--footer_padding_bottom);
+      background :
         linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
-        url("images/wood.png") center / 520px 110px repeat;
+        url("images/wood.png") center / var(--wood_tile_size) repeat;
     }
     .foot{
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:18px; flex-wrap:wrap;
+      display         : flex;
+      align-items     : flex-start;
+      justify-content : space-between;
+      gap             : var(--space_xlarge);
+      flex-wrap       : wrap;
     }
-    .copy{color: rgba(255,255,255,.88)}
-    .links{display:flex; gap:12px; flex-wrap:wrap}
+    .copy{
+      color : rgba(255,255,255,.88);
+    }
+    .links{
+      display   : flex;
+      gap       : var(--space_medium);
+      flex-wrap : wrap;
+    }
     .links a{
-      color: rgba(255,255,255,.88);
-      text-decoration:none;
-      font-size:inherit;
-      padding:10px 12px;
-      border-radius:16px;
-      border:var(--border_default);
-      background: rgba(0,0,0,.22);
+      color           : rgba(255,255,255,.88);
+      text-decoration : none;
+      font-size       : inherit;
+      padding         : var(--nav_padding_y) var(--nav_padding_x);
+      border-radius   : var(--radius_medium);
+      border          : var(--border_default);
+      background      : rgba(0,0,0,.22);
     }
-    .links a:hover{color:rgba(255,255,255,.96); background: rgba(0,0,0,.28)}
+    .links a:hover{
+      color      : rgba(255,255,255,.96);
+      background : rgba(0,0,0,.28);
+    }
 
     @media (max-width: 700px){
-      :root{--scroll_padding_top: 74px}
       :root{
-        --font_size_title:   42px;
-        --font_size_heading: 26px;
-        --font_size_body:    16px;
+        --font_size_title:     42px;
+        --font_size_heading:   26px;
+        --font_size_body:      16px;
         --layout_side_padding: 18px;
+        --scroll_padding_top:  var(--scroll_padding_top_mobile);
       }
-      main{padding:54px 0 22px}
-      .bar{padding:12px 0}
-      .brand{gap:10px}
-      .brand_text{font-size:30px}
-      .nav{gap:8px}
-      .nav a{padding:8px 10px; border-radius:14px}
-      .hero{grid-template-columns:1fr; gap:18px}
+      main{padding:var(--main_padding_top_mobile) 0 var(--main_padding_bottom_mobile)}
+      .bar{padding:var(--space_small) 0}
+      .brand{gap:var(--space_small)}
+      .nav{gap:var(--space_xsmall)}
+      .nav a{padding:var(--space_xsmall) var(--space_small); border-radius:var(--radius_small)}
+      .hero{grid-template-columns:1fr; gap:var(--hero_gap_mobile)}
       .hero_media{justify-self:center}
-      .hero_image{max-width:520px}
-      .hero{margin-top:12px}
+      .hero_image{max-width:var(--hero_image_max_width_mobile)}
+      .hero{margin-top:var(--hero_margin_top_mobile)}
+      .brand_text{font-size:var(--brand_text_size_mobile)}
     }
   </style>
 </head>
@@ -360,7 +501,7 @@
       <div class="hero_copy">
         <h1>Exchange messages with anyone—by phone.</h1>
         <p class="lead">
-          StoryCall turns voice messages in text/SMS, Instagram, and other messaging apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
+          StoryCall turns your voice recording in text/SMS, Instagram, and other messaging apps into a scheduled phone call for someone who doesn’t use social media—then sends their voice reply back to the thread.
         </p>
         <p class="note">
           A common use case is helping grandchildren and grandparents stay in touch—without changing anyone’s habits.
@@ -388,11 +529,9 @@
       <h2>How it works</h2>
       <div class="box">
         <ol>
-          <li>Text message a voice recording to <b>833-576-1437</b>.</li>
-          <li>StoryCall schedules a phone call to your loved one.</li>
-          <li>They answer a regular phone call and hear the recording.</li>
-          <li>They can respond after the beep.</li>
-          <li>Their response appears in your text app.</li>
+          <li>Text a voice message to <b>833-576-1437</b>.</li>
+          <li>StoryCall calls your loved one and plays it.</li>
+          <li>They reply after the beep—and you get it back in your texts.</li>
         </ol>
         <div class="mini">Simple for them. Familiar for you. Helpful for everyone.</div>
       </div>
