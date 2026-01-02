@@ -23,21 +23,47 @@ The site is a **static single-page HTML website** with no build process, depende
 
 ## Rules on code and file layout
 
-rules about code aesthetics
-1  across nearby lines in code files, align any characters that repeeat, such as = : " , [   
+### alignment (local, not global)
 
+- **align “like things” within a local neighborhood**: look a few lines up/down and align repeated characters (typically `:` and `=`) when it improves scan-ability.
+- **don’t force alignment that harms code**: if alignment risks breaking parsing, introducing weird whitespace requirements, or making diffs confusing, skip it.
+- **css blocks**
+  - **within a rule block**: prefer `property : value;` with colons aligned inside that block.
+  - **within `:root` families**: align *value columns* for related variables (e.g. opacity decimals, spacing sizes) so the “numbers line up” visually.
+  - **keep families grouped**: keep related vars together (e.g. `color_*`, `opacity_*`, `space_*`, `radius_*`, `hero_*`).
+- **html**
+  - **attribute alignment is optional**: align only when it stays readable and doesn’t create noisy diffs.
+- **js**
+  - **align assignment blocks** (`=`) only when it stays idiomatic and doesn’t fight formatting.
 
-rules about names
-1  name every file, directory, method, requirement, testcase, repository, commit, branch, etc that is conventionally ok to name
-2  use snake_case, made up of terms
-3  first term is root concept
-4  term sequence is: root/main/big ...smaller/sub/attribute ...sometimes verb
-5  make terms singular, not plural
-6  use terms from existing names if it referring to the same concept
-7  favor adding a new sub term before a new root
-8  choose names so when sorted, related larger concepts on left align and break into smaller term on right
-9  when processing every prompt, maintain doc/index.md file with sorted index of all used names
-10 when processing every prompt, audit all newly used names and their place on index
+### naming (snake_case, user-meaningful roots)
+
+- **snake_case everywhere you can name things** (classes, ids, vars, files, etc.).
+- **no numbers in names** for scalable tokens (use small/medium/large, etc.) so names don’t become wrong when values change.
+- **use semantic intensity terms** when you need variants (e.g. `strong/regular/subtle`, `soft/strong`, `mobile`) instead of numeric suffixes like `_1/_2`.
+- **root term first**: choose the first term so sorted lists cluster related concepts.
+  - favor adding a sub-term before creating a new root.
+  - use terms users understand (concepts), not programmer-only jargon.
+
+### css literals → variables (when reasonable)
+
+- **reduce hard-coded numbers**: move repeated or “design system” numbers into `:root` vars (0 and 1 literals are fine).
+- **opacity**: avoid hard-coded alpha values; prefer `opacity_*` vars.
+- **rgb tuples**: avoid repeating `255,255,255` / `0,0,0`; prefer `color_rgb_*` vars.
+- **surfaces**: `surface_*` should derive from `opacity_surface_*` vars so it’s consistent.
+- **breakpoints**
+  - prefer **rem** for breakpoint values.
+  - define a `breakpoint_*` var as the source of truth, but keep a literal in `@media/@container` conditions (and comment the var name) because `var()` in conditions isn’t reliably supported everywhere.
+
+### doc/index.md (name_index) formatting rules
+
+- **keep it sorted** (lexicographic by name).
+- **insert a blank line when the root term changes** (first term before `_`) so it’s scannable.
+- **format is always**: `name : type : detail`
+  - align the first `:` column and the second `:` column vertically.
+  - keep `type` short and lowercase (examples: `css`, `class`, `id`, `file`, `image`, `domain`, `section`, `field`).
+  - keep `detail` short, lowercase, and user-meaningful (avoid the word “token”).
+  - if `detail` just repeats the name words, replace it with a short clarifier of what it refers to.
 
 
 
@@ -48,7 +74,7 @@ rules about names
 The single-page site contains these sections (accessible via anchor links):
 - Header with navigation (sticky)
 - Hero/main content area with CTA buttons
-- `#how` - How it works (4-step process)
+- `#how` - How it works (3-step process)
 - `#help` - Help/contact form (mailto-based)
 - `#faq` - Expandable FAQ items using `<details>`
 - `#legal` - Full Privacy Policy and Terms & Conditions (expandable)
@@ -60,7 +86,7 @@ The single-page site contains these sections (accessible via anchor links):
 **Styling approach**: All CSS is inline in `<style>` tag with:
 - CSS custom properties for theming (colors, spacing, borders)
 - Responsive design with media queries
-- Gradient backgrounds and glassmorphic effects
+- Subtle surface overlays and minimal color palette
 
 **No backend**: Contact form uses `mailto:` action to open user's email client directly
 
@@ -73,8 +99,8 @@ The single-page site contains these sections (accessible via anchor links):
 When editing index.html:
 - Maintain the inline architecture (don't extract CSS/JS into separate files)
 - Preserve accessibility attributes (aria-label, etc.)
-- Keep the glassmorphic design system using CSS custom properties in `:root`
-- Test responsive breakpoints (main breakpoint: 700px)
+- Keep the design system using CSS custom properties in `:root`
+- Test responsive breakpoints (see `breakpoint_*` vars; note literals remain in `@media/@container`)
 
 ## Deployment
 

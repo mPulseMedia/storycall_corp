@@ -14,41 +14,15 @@
       --color_rgb_black:            0,0,0;
       --color_rgb_white:            255,255,255;
 
-      --opacity_strong:             .96;
-      --opacity_regular:            .88;
-      --opacity_subtle:             .40;
+      --opacity_heavy:              .92;
+      --opacity_medium:             .62;
+      --opacity_light:              .30;
+      --opacity_faint:              .14;
 
-      --opacity_surface_header:     .72;
-      --opacity_surface_panel:      .78;
-      --opacity_surface_control:    .92;
-      --opacity_surface_link:       .70;
-      --opacity_surface_footer:     .40;
-      --opacity_surface_pill:       .60;
-
-      --opacity_text_muted:         .62;
-      --opacity_line:               .14;
-      --opacity_shadow_card:        .10;
-      --opacity_shadow_soft:        .06;
-
-      --opacity_brand_shadow_1:     .34;
-      --opacity_brand_shadow_2:     .26;
-      --opacity_brand_highlight_1:  .35;
-      --opacity_brand_highlight_2:  .22;
-
-      --opacity_overlay:            .30;
-      --opacity_hover:              .14;
-      --opacity_pressed:            .28;
-      --opacity_fill:               .22;
-      --opacity_fill_subtle:        .06;
-      --opacity_fill_hover:         .08;
-      --opacity_border_subtle:      .18;
-      --opacity_tint:               .03;
-      --opacity_caret:              .65;
-
-      --color_text_muted:     rgba(var(--color_rgb_black),var(--opacity_text_muted));
-      --color_line:           rgba(var(--color_rgb_black),var(--opacity_line));
-      --shadow_card:          0 14px 40px rgba(var(--color_rgb_black),var(--opacity_shadow_card));
-      --shadow_soft:          0 10px 22px rgba(var(--color_rgb_black),var(--opacity_shadow_soft));
+      --color_text_muted:                      rgba(var(--color_rgb_black),var(--opacity_medium));
+      --color_line:                            rgba(var(--color_rgb_black),var(--opacity_faint));
+      --shadow_card:               0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
+      --shadow_soft:               0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
 
       --space_micro:          6px;
       --space_xsmall:         8px;
@@ -71,9 +45,9 @@
       --nav_padding_y:        var(--space_xsmall);
       --nav_padding_x:        var(--space_small);
 
-      --main_padding_top:           var(--scroll_padding_top);
-      --main_padding_bottom:        var(--space_large);
-      --main_padding_bottom_mobile: 22px;
+      --main_padding_top:            var(--scroll_padding_top);
+      --main_padding_bottom:         var(--space_large);
+      --main_padding_bottom_mobile:  22px;
 
       --hero_gap:                    var(--space_large);
       --hero_margin_top:             var(--space_medium);
@@ -96,8 +70,8 @@
       --input_padding_x:      var(--space_small);
       --textarea_min_height:  120px;
 
-      --footer_padding_top:    var(--space_large);
-      --footer_padding_bottom: var(--space_xlarge);
+      --footer_padding_top:     var(--space_large);
+      --footer_padding_bottom:  var(--space_xlarge);
 
       --brand_text_size:        38px;
       --brand_text_size_mobile: 30px;
@@ -117,17 +91,18 @@
       --scroll_padding_top_mobile: 74px;
 
       --brand_text_shadow:
-        -1px -1px 0    rgba(255,230,200,var(--opacity_brand_highlight_1)),
-        0    1px  0    rgba(255,230,200,var(--opacity_brand_highlight_2)),
-        2px  2px  0    rgba(var(--color_rgb_black),var(--opacity_brand_shadow_1)),
-        0 10px    22px rgba(var(--color_rgb_black),var(--opacity_brand_shadow_2));
+        -1px -1px  0   rgba(255,230,200,var(--opacity_light)),
+         0    1px  0   rgba(255,230,200,var(--opacity_faint)),
+         2px  2px  0   rgba(var(--color_rgb_black),var(--opacity_light)),
+         0   10px 22px rgba(var(--color_rgb_black),var(--opacity_light));
 
-      --surface_header:       rgba(var(--color_rgb_white),var(--opacity_surface_header));
-      --surface_panel:        rgba(var(--color_rgb_white),var(--opacity_surface_panel));
-      --surface_control:      rgba(var(--color_rgb_white),var(--opacity_surface_control));
-      --surface_link:         rgba(var(--color_rgb_white),var(--opacity_surface_link));
-      --surface_footer:       rgba(var(--color_rgb_white),var(--opacity_surface_footer));
-      --surface_pill:         rgba(var(--color_rgb_white),var(--opacity_surface_pill));
+      --surface_neutral:      rgba(var(--color_rgb_white),var(--opacity_medium));
+      --surface_header:       var(--surface_neutral);
+      --surface_panel:        var(--surface_neutral);
+      --surface_control:      rgba(var(--color_rgb_white),var(--opacity_heavy));
+      --surface_link:         var(--surface_neutral);
+      --surface_footer:       rgba(var(--color_rgb_white),var(--opacity_light));
+      --surface_pill:         var(--surface_neutral);
 
       --font_family_base:     ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_weight_heavy:    900;
@@ -145,9 +120,9 @@
 
       --motion_duration_fast: .15s;
 
-      --breakpoint_nav:            45rem;
-      --breakpoint_help:           48.75rem;
-      --breakpoint_mobile:         43.75rem;
+      --breakpoint_nav:       45rem;
+      --breakpoint_help:      48.75rem;
+      --breakpoint_mobile:    43.75rem;
     }
     *{
       box-sizing : border-box;
@@ -178,7 +153,7 @@
       top             : 0;
       z-index         : var(--layer_header);
       background      :
-        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_overlay)), rgba(var(--color_rgb_black),var(--opacity_overlay))),
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_light)), rgba(var(--color_rgb_black),var(--opacity_light))),
         url("images/wood.png") center / var(--wood_tile_size) repeat;
       backdrop-filter : none;
       border-bottom   : var(--border_default);
@@ -206,7 +181,7 @@
       font-size      : var(--brand_text_size);
       line-height    : 1;
       letter-spacing : 0;
-      color          : rgba(var(--color_rgb_white),var(--opacity_strong));
+      color          : rgba(var(--color_rgb_white),var(--opacity_heavy));
       text-shadow    : var(--brand_text_shadow);
     }
     .nav{
@@ -214,7 +189,7 @@
       gap             : var(--nav_gap);
       flex-wrap       : wrap;
       justify-content : flex-end;
-      color           : rgba(var(--color_rgb_white),var(--opacity_regular));
+      color           : rgba(var(--color_rgb_white),var(--opacity_heavy));
     }
     .nav a{
       text-decoration : none;
@@ -224,19 +199,19 @@
       background      : transparent;
     }
     .nav a:hover{
-      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
-      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle));
-      background   : rgba(var(--color_rgb_black),var(--opacity_hover));
+      color        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
     .cta{
-      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
-      background   : rgba(var(--color_rgb_black),var(--opacity_fill));
-      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle)) !important;
+      color        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      background   : rgba(var(--color_rgb_black),var(--opacity_light));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint)) !important;
       font-weight  : var(--font_weight_heavy);
     }
     .cta:hover{
-      background   : rgba(var(--color_rgb_black),var(--opacity_pressed)) !important;
-      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle)) !important;
+      background   : rgba(var(--color_rgb_black),var(--opacity_light)) !important;
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint)) !important;
     }
 
     /* When the header gets narrow, only show "Try App" and keep it right-aligned */
@@ -311,14 +286,14 @@
       box-shadow      : var(--shadow_soft);
     }
     .btn:hover{
-      background   : rgba(var(--color_rgb_white),var(--opacity_surface_control));
+      background   : rgba(var(--color_rgb_white),var(--opacity_heavy));
     }
     .btn.primary{
-      border-color : rgba(var(--color_rgb_black),var(--opacity_border_subtle));
-      background   : rgba(var(--color_rgb_black),var(--opacity_fill_subtle));
+      border-color : rgba(var(--color_rgb_black),var(--opacity_faint));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
     .btn.primary:hover{
-      background   : rgba(var(--color_rgb_black),var(--opacity_fill_hover));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
 
     section{
@@ -381,12 +356,12 @@
       transition    : background var(--motion_duration_fast) ease;
     }
     details:hover{
-      border-color : rgba(var(--color_rgb_black),var(--opacity_fill));
+      border-color : rgba(var(--color_rgb_black),var(--opacity_light));
       box-shadow   : var(--shadow_card);
       transform    : translateY(-1px);
     }
     details:hover summary{
-      background : rgba(var(--color_rgb_black),var(--opacity_tint));
+      background : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
     summary{
       cursor          : pointer;
@@ -406,7 +381,7 @@
       height        : var(--layout_side_padding);
       border-radius : var(--radius_small);
       border        : var(--border_default);
-      background    : rgba(var(--color_rgb_white),var(--opacity_caret));
+      background    : rgba(var(--color_rgb_white),var(--opacity_medium));
       display       : grid;
       place-items   : center;
       color         : var(--color_text_muted);
@@ -415,7 +390,7 @@
       font-weight   : var(--font_weight_heavy);
     }
     details:hover .caret{
-      background : rgba(var(--color_rgb_white),var(--opacity_surface_panel));
+      background : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
     details[open] .caret{
       transform : rotate(90deg);
@@ -499,7 +474,7 @@
       border-top : var(--border_default);
       padding    : var(--footer_padding_top) 0 var(--footer_padding_bottom);
       background :
-        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_overlay)), rgba(var(--color_rgb_black),var(--opacity_overlay))),
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_light)), rgba(var(--color_rgb_black),var(--opacity_light))),
         url("images/wood.png") center / var(--wood_tile_size) repeat;
     }
     .foot{
@@ -511,7 +486,7 @@
       text-align      : left;
     }
     .copy{
-      color : rgba(var(--color_rgb_white),var(--opacity_regular));
+      color : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
     .links{
       display         : flex;
@@ -520,7 +495,7 @@
       justify-content : flex-end;
     }
     .links a{
-      color           : rgba(var(--color_rgb_white),var(--opacity_regular));
+      color           : rgba(var(--color_rgb_white),var(--opacity_medium));
       text-decoration : none;
       font-size       : inherit;
       padding         : var(--nav_padding_y) var(--nav_padding_x);
@@ -529,9 +504,9 @@
       background      : transparent;
     }
     .links a:hover{
-      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
-      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle));
-      background   : rgba(var(--color_rgb_black),var(--opacity_hover));
+      color        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_faint));
+      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
     }
 
     @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
@@ -637,8 +612,8 @@
       <h2>How it works</h2>
       <div class="box">
         <ol>
-          <li>Text a voice message to <b>833-576-1437</b>.</li>
-          <li>StoryCall calls your loved one and plays it.</li>
+          <li>Text a voice recording to <b>833-576-1437</b>.</li>
+          <li>StoryCall scheduals a call to your loved one and plays it.</li>
           <li>They reply after the beep—and you get it back in your texts.</li>
         </ol>
         <div class="mini">Simple for them. Familiar for you. Helpful for everyone.</div>

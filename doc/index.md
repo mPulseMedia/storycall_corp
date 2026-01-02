@@ -7,9 +7,14 @@ about_copy                  : class   : about paragraph
 
 app_storycall_org           : domain  : app link
 
+bar                         : class   : header bar row
+
 border_default              : css     : border default
 border_transparent          : css     : border transparent
 
+box                         : class   : card container
+
+brand                       : class   : brand link
 brand_text                  : class   : wordmark text
 brand_text_shadow           : css     : wordmark shadow
 brand_text_size             : css     : wordmark size
@@ -19,9 +24,15 @@ breakpoint_help             : css     : breakpoint help stack
 breakpoint_mobile           : css     : breakpoint mobile
 breakpoint_nav              : css     : breakpoint nav collapse
 
+btn                         : class   : button
+
 button_gap                  : css     : button spacing
 button_padding_x            : css     : button pad x
 button_padding_y            : css     : button pad y
+
+buttons                     : class   : button row
+
+caret                       : class   : accordion caret
 
 claude_md                   : file    : repo rules
 
@@ -36,7 +47,15 @@ color_rgb_white             : css     : rgb tuple
 color_text_muted            : css     : text color
 color_text_primary          : css     : text color
 
+content                     : class   : accordion content
+
+copy                        : class   : footer copyright
+
+cta                         : class   : nav cta button
+
 details_wrap                : class   : accordion grid
+
+email                       : field   : help form email
 
 faq                         : section : (#faq)
 
@@ -46,6 +65,11 @@ font_size_heading           : css     : font size h2
 font_size_title             : css     : font size h1
 font_weight_bold            : css     : type weight
 font_weight_heavy           : css     : type weight
+
+foot                        : class   : footer row
+
+footer_padding_bottom       : css     : footer pad bottom
+footer_padding_top          : css     : footer pad top
 
 form_gap                    : css     : css value
 
@@ -82,6 +106,8 @@ layer_header                : css     : z header
 layout_max_width            : css     : layout sizing
 layout_side_padding         : css     : layout side pad
 
+lead                        : class   : hero lead
+
 legal                       : section : (#legal)
 legal_meta                  : class   : legal pills row
 
@@ -93,44 +119,39 @@ letter_spacing_title        : css     : tracking title
 line_height_base            : css     : line height
 line_height_title           : css     : line height
 
+links                       : class   : footer links row
+
 main_padding_bottom         : css     : main pad bottom
 main_padding_bottom_mobile  : css     : main pad bottom mobile
 main_padding_top            : css     : main pad top
 
+mini                        : class   : small helper text
+
 motion_duration_fast        : css     : motion timing
 
+msg                         : field   : help form message
+
+name                        : field   : help form name
+
+nav                         : class   : top nav
 nav_gap                     : css     : nav spacing
 nav_padding_x               : css     : nav pad x
 nav_padding_y               : css     : nav pad y
 
-opacity_border_subtle       : css     : border opacity
-opacity_brand_highlight_1   : css     : brand highlight opacity
-opacity_brand_highlight_2   : css     : brand highlight opacity
-opacity_brand_shadow_1      : css     : brand shadow opacity
-opacity_brand_shadow_2      : css     : brand shadow opacity
-opacity_caret               : css     : caret bg opacity
-opacity_fill                : css     : fill opacity
-opacity_fill_hover          : css     : fill opacity hover
-opacity_fill_subtle         : css     : fill opacity subtle
-opacity_hover               : css     : hover opacity
-opacity_line                : css     : line opacity
-opacity_overlay             : css     : overlay opacity
-opacity_pressed             : css     : pressed opacity
-opacity_regular             : css     : ui opacity
-opacity_shadow_card         : css     : shadow opacity card
-opacity_shadow_soft         : css     : shadow opacity soft
-opacity_strong              : css     : ui opacity
-opacity_subtle              : css     : ui opacity
-opacity_surface_control     : css     : surface opacity
-opacity_surface_footer      : css     : surface opacity
-opacity_surface_header      : css     : surface opacity
-opacity_surface_link        : css     : surface opacity
-opacity_surface_panel       : css     : surface opacity
-opacity_surface_pill        : css     : surface opacity
-opacity_text_muted          : css     : text opacity muted
-opacity_tint                : css     : tint opacity
+note                        : class   : hero note
+
+opacity_faint               : css     : opacity level
+opacity_heavy               : css     : opacity level
+opacity_light               : css     : opacity level
+opacity_medium              : css     : opacity level
 
 open_app_link               : class   : force new tab
+
+phone                       : field   : help form phone
+
+pill                        : class   : legal pill
+
+primary                     : class   : button variant
 
 privacy_effective           : id      : privacy effective date
 
@@ -152,6 +173,8 @@ section_padding_y           : css     : section pad y
 shadow_card                 : css     : shadow preset
 shadow_soft                 : css     : shadow preset
 
+small                       : class   : small muted text
+
 space_large                 : css     : spacing scale
 space_medium                : css     : spacing scale
 space_micro                 : css     : spacing scale
@@ -167,6 +190,7 @@ surface_control             : css     : surface tint
 surface_footer              : css     : surface tint
 surface_header              : css     : surface tint
 surface_link                : css     : surface tint
+surface_neutral             : css     : surface tint
 surface_panel               : css     : surface tint
 surface_pill                : css     : surface tint
 
@@ -176,8 +200,12 @@ text_measure_wide           : css     : text measure
 
 textarea_min_height         : css     : css value
 
+topic                       : field   : help form topic
+
 wood_png                    : image   : wood texture
 wood_tile_size              : css     : wood styling
+
+wrap                        : class   : layout wrapper
 
 year                        : id      : current year
 ```
