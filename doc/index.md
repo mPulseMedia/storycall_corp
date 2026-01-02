@@ -2,104 +2,183 @@
 Sorted index of names used in this repo (internal names prefer `snake_case`).
 
 ```text
-about                       : `index.html` section id (`#about`)
-about_copy                  : paragraph class (`.about_copy`)
-app_storycall_org           : external domain (`app.storycall.org`)
-background_primary          : CSS custom property (`--background_primary`)
-background_secondary        : CSS custom property (`--background_secondary`)
-border_default              : CSS custom property (`--border_default`)
-border_transparent          : CSS custom property (`--border_transparent`)
-brand_text                  : brand wordmark class (`.brand_text`)
-brand_text_shadow           : CSS custom property (`--brand_text_shadow`)
-brand_text_size             : CSS custom property (`--brand_text_size`)
-brand_text_size_mobile      : CSS custom property (`--brand_text_size_mobile`)
-button_gap                  : CSS custom property (`--button_gap`)
-button_padding_x            : CSS custom property (`--button_padding_x`)
-button_padding_y            : CSS custom property (`--button_padding_y`)
-card_background             : CSS custom property (`--card_background`)
-claude_md                   : `CLAUDE.md`
-cname                       : `CNAME` (GitHub Pages custom domain configuration)
-details_wrap                : CSS class (`.details_wrap`)
-faq                         : `index.html` section id (`#faq`)
-font_family_base            : CSS custom property (`--font_family_base`)
-font_size_body              : CSS custom property (`--font_size_body`)
-font_size_heading           : CSS custom property (`--font_size_heading`)
-font_size_title             : CSS custom property (`--font_size_title`)
-font_weight_bold            : CSS custom property (`--font_weight_bold`)
-font_weight_heavy           : CSS custom property (`--font_weight_heavy`)
-form_gap                    : CSS custom property (`--form_gap`)
-granny_and_kid_png          : image file (`images/granny_and_kid.png`)
-header_padding_y            : CSS custom property (`--header_padding_y`)
-help                        : `index.html` section id (`#help`)
-help_row                    : CSS class (`.help_row`)
-hero                        : layout wrapper class (`.hero`)
-hero_copy                   : hero copy wrapper class (`.hero_copy`)
-hero_gap                    : CSS custom property (`--hero_gap`)
-hero_gap_mobile             : CSS custom property (`--hero_gap_mobile`)
-hero_image                  : hero image class (`.hero_image`)
-hero_image_max_width        : CSS custom property (`--hero_image_max_width`)
-hero_image_max_width_mobile : CSS custom property (`--hero_image_max_width_mobile`)
-hero_margin_top             : CSS custom property (`--hero_margin_top`)
-hero_margin_top_mobile      : CSS custom property (`--hero_margin_top_mobile`)
-hero_media                  : hero media wrapper class (`.hero_media`)
-how                         : `index.html` section id (`#how`)
-index_html                  : `index.html`
-input_padding_x             : CSS custom property (`--input_padding_x`)
-input_padding_y             : CSS custom property (`--input_padding_y`)
-layer_header                : CSS custom property (`--layer_header`)
-layout_max_width            : CSS custom property (`--layout_max_width`)
-layout_side_padding         : CSS custom property (`--layout_side_padding`)
-legal                       : `index.html` section id (`#legal`)
-legal_meta                  : CSS class (`.legal_meta`)
-letter_spacing_brand        : CSS custom property (`--letter_spacing_brand`)
-letter_spacing_h2           : CSS custom property (`--letter_spacing_h2`)
-letter_spacing_h3           : CSS custom property (`--letter_spacing_h3`)
-letter_spacing_title        : CSS custom property (`--letter_spacing_title`)
-line_color                  : CSS custom property (`--line_color`)
-line_height_base            : CSS custom property (`--line_height_base`)
-line_height_title           : CSS custom property (`--line_height_title`)
-main_padding_bottom         : CSS custom property (`--main_padding_bottom`)
-main_padding_bottom_mobile  : CSS custom property (`--main_padding_bottom_mobile`)
-main_padding_top            : CSS custom property (`--main_padding_top`)
-main_padding_top_mobile     : CSS custom property (`--main_padding_top_mobile`)
-nav_gap                     : CSS custom property (`--nav_gap`)
-nav_padding_x               : CSS custom property (`--nav_padding_x`)
-nav_padding_y               : CSS custom property (`--nav_padding_y`)
-open_app_link               : link class forcing open-in-new-tab behavior (`.open_app_link`)
-privacy_effective           : DOM id used for effective date (`id="privacy_effective"`)
-radius_card                 : CSS custom property (`--radius_card`)
-radius_button               : CSS custom property (`--radius_button`)
-radius_medium               : CSS custom property (`--radius_medium`)
-radius_pill                 : CSS custom property (`--radius_pill`)
-radius_small                : CSS custom property (`--radius_small`)
-readme_md                   : `README.md`
-recipient_phone             : form field name (`name="recipient_phone"`)
-scroll_padding_top          : CSS custom property (`--scroll_padding_top`)
-scroll_padding_top_mobile   : CSS custom property (`--scroll_padding_top_mobile`)
-section_padding_y           : CSS custom property (`--section_padding_y`)
-shadow_card                 : CSS custom property (`--shadow_card`)
-shadow_soft                 : CSS custom property (`--shadow_soft`)
-space_large                 : CSS custom property (`--space_large`)
-space_medium                : CSS custom property (`--space_medium`)
-space_micro                 : CSS custom property (`--space_micro`)
-space_small                 : CSS custom property (`--space_small`)
-space_xsmall                : CSS custom property (`--space_xsmall`)
-space_xlarge                : CSS custom property (`--space_xlarge`)
-storycall                   : product/service name ("StoryCall")
-storycall_corp              : repository name / workspace root folder
-storycall_org               : external domain (`storycall.org`)
-surface_control             : CSS custom property (`--surface_control`)
-surface_footer              : CSS custom property (`--surface_footer`)
-surface_header              : CSS custom property (`--surface_header`)
-surface_link                : CSS custom property (`--surface_link`)
-surface_panel               : CSS custom property (`--surface_panel`)
-surface_pill                : CSS custom property (`--surface_pill`)
-terms_effective             : DOM id used for effective date (`id="terms_effective"`)
-text_muted                  : CSS custom property (`--text_muted`)
-text_primary                : CSS custom property (`--text_primary`)
-textarea_min_height         : CSS custom property (`--textarea_min_height`)
-wood_png                    : image file (`images/wood.png`)
-wood_tile_size              : CSS custom property (`--wood_tile_size`)
-year                        : DOM id used for current year (`id="year"`)
+about                       : section : (#about)
+about_copy                  : class   : about paragraph
+
+app_storycall_org           : domain  : app link
+
+border_default              : css     : border default
+border_transparent          : css     : border transparent
+
+brand_text                  : class   : wordmark text
+brand_text_shadow           : css     : wordmark shadow
+brand_text_size             : css     : wordmark size
+brand_text_size_mobile      : css     : wordmark size mobile
+
+breakpoint_help             : css     : breakpoint help stack
+breakpoint_mobile           : css     : breakpoint mobile
+breakpoint_nav              : css     : breakpoint nav collapse
+
+button_gap                  : css     : button spacing
+button_padding_x            : css     : button pad x
+button_padding_y            : css     : button pad y
+
+claude_md                   : file    : repo rules
+
+cname                       : file    : custom domain
+
+color_background_primary    : css     : bg primary
+color_background_secondary  : css     : bg secondary
+color_card_background       : css     : card bg
+color_line                  : css     : divider color
+color_rgb_black             : css     : rgb tuple
+color_rgb_white             : css     : rgb tuple
+color_text_muted            : css     : text color
+color_text_primary          : css     : text color
+
+details_wrap                : class   : accordion grid
+
+faq                         : section : (#faq)
+
+font_family_base            : css     : font stack
+font_size_body              : css     : type size
+font_size_heading           : css     : font size h2
+font_size_title             : css     : font size h1
+font_weight_bold            : css     : type weight
+font_weight_heavy           : css     : type weight
+
+form_gap                    : css     : css value
+
+granny_and_kid_png          : image   : hero photo
+
+header_padding_y            : css     : header pad y
+
+help                        : section : (#help)
+help_row                    : class   : help grid row
+
+hero                        : class   : hero grid
+hero_columns                : css     : hero grid columns
+hero_copy                   : class   : hero copy col
+hero_gap                    : css     : hero layout
+hero_gap_mobile             : css     : hero layout
+hero_image                  : class   : hero image
+hero_image_aspect_ratio     : css     : hero image ratio
+hero_image_max_width        : css     : hero layout
+hero_image_max_width_mobile : css     : hero layout
+hero_image_object_position  : css     : hero image crop
+hero_margin_top             : css     : hero layout
+hero_margin_top_mobile      : css     : hero layout
+hero_media                  : class   : hero media col
+
+how                         : section : (#how)
+
+index_html                  : file    : landing page
+
+input_padding_x             : css     : input pad x
+input_padding_y             : css     : input pad y
+
+layer_header                : css     : z header
+
+layout_max_width            : css     : layout sizing
+layout_side_padding         : css     : layout side pad
+
+legal                       : section : (#legal)
+legal_meta                  : class   : legal pills row
+
+letter_spacing_brand        : css     : tracking brand
+letter_spacing_h2           : css     : tracking h2
+letter_spacing_h3           : css     : tracking h3
+letter_spacing_title        : css     : tracking title
+
+line_height_base            : css     : line height
+line_height_title           : css     : line height
+
+main_padding_bottom         : css     : main pad bottom
+main_padding_bottom_mobile  : css     : main pad bottom mobile
+main_padding_top            : css     : main pad top
+
+motion_duration_fast        : css     : motion timing
+
+nav_gap                     : css     : nav spacing
+nav_padding_x               : css     : nav pad x
+nav_padding_y               : css     : nav pad y
+
+opacity_border_subtle       : css     : border opacity
+opacity_brand_highlight_1   : css     : brand highlight opacity
+opacity_brand_highlight_2   : css     : brand highlight opacity
+opacity_brand_shadow_1      : css     : brand shadow opacity
+opacity_brand_shadow_2      : css     : brand shadow opacity
+opacity_caret               : css     : caret bg opacity
+opacity_fill                : css     : fill opacity
+opacity_fill_hover          : css     : fill opacity hover
+opacity_fill_subtle         : css     : fill opacity subtle
+opacity_hover               : css     : hover opacity
+opacity_line                : css     : line opacity
+opacity_overlay             : css     : overlay opacity
+opacity_pressed             : css     : pressed opacity
+opacity_regular             : css     : ui opacity
+opacity_shadow_card         : css     : shadow opacity card
+opacity_shadow_soft         : css     : shadow opacity soft
+opacity_strong              : css     : ui opacity
+opacity_subtle              : css     : ui opacity
+opacity_surface_control     : css     : surface opacity
+opacity_surface_footer      : css     : surface opacity
+opacity_surface_header      : css     : surface opacity
+opacity_surface_link        : css     : surface opacity
+opacity_surface_panel       : css     : surface opacity
+opacity_surface_pill        : css     : surface opacity
+opacity_text_muted          : css     : text opacity muted
+opacity_tint                : css     : tint opacity
+
+open_app_link               : class   : force new tab
+
+privacy_effective           : id      : privacy effective date
+
+radius_button               : css     : corner radius
+radius_card                 : css     : corner radius
+radius_medium               : css     : corner radius
+radius_pill                 : css     : corner radius
+radius_small                : css     : corner radius
+
+readme_md                   : file    : readme
+
+recipient_phone             : field   : recipient phone
+
+scroll_padding_top          : css     : scroll pad top
+scroll_padding_top_mobile   : css     : scroll pad top mobile
+
+section_padding_y           : css     : section pad y
+
+shadow_card                 : css     : shadow preset
+shadow_soft                 : css     : shadow preset
+
+space_large                 : css     : spacing scale
+space_medium                : css     : spacing scale
+space_micro                 : css     : spacing scale
+space_small                 : css     : spacing scale
+space_xlarge                : css     : spacing scale
+space_xsmall                : css     : spacing scale
+
+storycall                   : name    : product
+storycall_corp              : name    : repo folder
+storycall_org               : domain  : marketing site
+
+surface_control             : css     : surface tint
+surface_footer              : css     : surface tint
+surface_header              : css     : surface tint
+surface_link                : css     : surface tint
+surface_panel               : css     : surface tint
+surface_pill                : css     : surface tint
+
+terms_effective             : id      : terms effective date
+
+text_measure_wide           : css     : text measure
+
+textarea_min_height         : css     : css value
+
+wood_png                    : image   : wood texture
+wood_tile_size              : css     : wood styling
+
+year                        : id      : current year
 ```
 

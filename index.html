@@ -2,19 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport"    content="width=device-width,initial-scale=1" />
   <meta name="description" content="StoryCall turns voice messages in text/SMS, Instagram, and other messaging apps into scheduled phone calls for someone who doesn’t use social media—and sends their voice replies back." />
   <title>StoryCall — Exchange messages by phone</title>
   <style>
     :root{
-      --background_primary:   #f3f3f3;
-      --background_secondary: #ffffff;
-      --card_background:      #ffffff;
-      --text_primary:         #000000;
-      --text_muted:           rgba(0,0,0,.62);
-      --line_color:           rgba(0,0,0,.14);
-      --shadow_card:          0 14px 40px rgba(0,0,0,.10);
-      --shadow_soft:          0 10px 22px rgba(0,0,0,.06);
+      --color_background_primary:   #f3f3f3;
+      --color_background_secondary: #ffffff;
+      --color_card_background:      #ffffff;
+      --color_text_primary:         #000000;
+      --color_rgb_black:            0,0,0;
+      --color_rgb_white:            255,255,255;
+
+      --opacity_strong:             .96;
+      --opacity_regular:            .88;
+      --opacity_subtle:             .40;
+
+      --opacity_surface_header:     .72;
+      --opacity_surface_panel:      .78;
+      --opacity_surface_control:    .92;
+      --opacity_surface_link:       .70;
+      --opacity_surface_footer:     .40;
+      --opacity_surface_pill:       .60;
+
+      --opacity_text_muted:         .62;
+      --opacity_line:               .14;
+      --opacity_shadow_card:        .10;
+      --opacity_shadow_soft:        .06;
+
+      --opacity_brand_shadow_1:     .34;
+      --opacity_brand_shadow_2:     .26;
+      --opacity_brand_highlight_1:  .35;
+      --opacity_brand_highlight_2:  .22;
+
+      --opacity_overlay:            .30;
+      --opacity_hover:              .14;
+      --opacity_pressed:            .28;
+      --opacity_fill:               .22;
+      --opacity_fill_subtle:        .06;
+      --opacity_fill_hover:         .08;
+      --opacity_border_subtle:      .18;
+      --opacity_tint:               .03;
+      --opacity_caret:              .65;
+
+      --color_text_muted:     rgba(var(--color_rgb_black),var(--opacity_text_muted));
+      --color_line:           rgba(var(--color_rgb_black),var(--opacity_line));
+      --shadow_card:          0 14px 40px rgba(var(--color_rgb_black),var(--opacity_shadow_card));
+      --shadow_soft:          0 10px 22px rgba(var(--color_rgb_black),var(--opacity_shadow_soft));
 
       --space_micro:          6px;
       --space_xsmall:         8px;
@@ -37,17 +71,19 @@
       --nav_padding_y:        var(--space_xsmall);
       --nav_padding_x:        var(--space_small);
 
-      --main_padding_top:     68px;
-      --main_padding_bottom:  var(--space_large);
-      --main_padding_top_mobile:    54px;
+      --main_padding_top:           var(--scroll_padding_top);
+      --main_padding_bottom:        var(--space_large);
       --main_padding_bottom_mobile: 22px;
 
-      --hero_gap:             var(--space_large);
-      --hero_margin_top:      var(--space_medium);
-      --hero_image_max_width: 420px;
+      --hero_gap:                    var(--space_large);
+      --hero_margin_top:             var(--space_medium);
+      --hero_image_max_width:        420px;
       --hero_gap_mobile:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
       --hero_image_max_width_mobile: 520px;
+      --hero_columns:                1.05fr .95fr;
+      --hero_image_aspect_ratio:     4 / 5;
+      --hero_image_object_position:  50% 30%;
 
       --button_gap:           var(--space_small);
       --button_padding_y:     var(--space_small);
@@ -60,15 +96,15 @@
       --input_padding_x:      var(--space_small);
       --textarea_min_height:  120px;
 
-      --footer_padding_top:   var(--space_large);
-      --footer_padding_bottom:var(--space_xlarge);
+      --footer_padding_top:    var(--space_large);
+      --footer_padding_bottom: var(--space_xlarge);
 
-      --brand_text_size:      38px;
+      --brand_text_size:        38px;
       --brand_text_size_mobile: 30px;
 
       --wood_tile_size:       520px 110px;
 
-      --border_default:       1px solid var(--line_color);
+      --border_default:       1px solid var(--color_line);
       --border_transparent:   1px solid transparent;
 
       --layer_header:         10;
@@ -81,17 +117,17 @@
       --scroll_padding_top_mobile: 74px;
 
       --brand_text_shadow:
-        -1px -1px 0 rgba(255,230,200,.35),
-        0 1px 0 rgba(255,230,200,.22),
-        2px 2px 0 rgba(0,0,0,.34),
-        0 10px 22px rgba(0,0,0,.26);
+        -1px -1px 0    rgba(255,230,200,var(--opacity_brand_highlight_1)),
+        0    1px  0    rgba(255,230,200,var(--opacity_brand_highlight_2)),
+        2px  2px  0    rgba(var(--color_rgb_black),var(--opacity_brand_shadow_1)),
+        0 10px    22px rgba(var(--color_rgb_black),var(--opacity_brand_shadow_2));
 
-      --surface_header:       rgba(255,255,255,.72);
-      --surface_panel:        rgba(255,255,255,.78);
-      --surface_control:      rgba(255,255,255,.92);
-      --surface_link:         rgba(255,255,255,.70);
-      --surface_footer:       rgba(255,255,255,.40);
-      --surface_pill:         rgba(255,255,255,.60);
+      --surface_header:       rgba(var(--color_rgb_white),var(--opacity_surface_header));
+      --surface_panel:        rgba(var(--color_rgb_white),var(--opacity_surface_panel));
+      --surface_control:      rgba(var(--color_rgb_white),var(--opacity_surface_control));
+      --surface_link:         rgba(var(--color_rgb_white),var(--opacity_surface_link));
+      --surface_footer:       rgba(var(--color_rgb_white),var(--opacity_surface_footer));
+      --surface_pill:         rgba(var(--color_rgb_white),var(--opacity_surface_pill));
 
       --font_family_base:     ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_weight_heavy:    900;
@@ -105,8 +141,17 @@
       --line_height_title:    1.05;
 
       --scroll_padding_top:   92px;
+      --text_measure_wide:    64ch;
+
+      --motion_duration_fast: .15s;
+
+      --breakpoint_nav:            45rem;
+      --breakpoint_help:           48.75rem;
+      --breakpoint_mobile:         43.75rem;
     }
-    *{box-sizing:border-box}
+    *{
+      box-sizing : border-box;
+    }
     html{
       scroll-behavior    : smooth;
       scroll-padding-top : var(--scroll_padding_top);
@@ -115,8 +160,8 @@
       margin      : 0;
       font-family : var(--font_family_base);
       font-size   : var(--font_size_body);
-      color       : var(--text_primary);
-      background  : linear-gradient(180deg, var(--background_primary), var(--background_secondary));
+      color       : var(--color_text_primary);
+      background  : linear-gradient(180deg, var(--color_background_primary), var(--color_background_secondary));
       line-height : var(--line_height_base);
     }
     a{
@@ -133,7 +178,7 @@
       top             : 0;
       z-index         : var(--layer_header);
       background      :
-        linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_overlay)), rgba(var(--color_rgb_black),var(--opacity_overlay))),
         url("images/wood.png") center / var(--wood_tile_size) repeat;
       backdrop-filter : none;
       border-bottom   : var(--border_default);
@@ -156,20 +201,20 @@
       white-space     : nowrap;
     }
     .brand_text{
-      font-family   : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
-      font-weight   : var(--font_weight_heavy);
-      font-size     : var(--brand_text_size);
-      line-height   : 1;
-      letter-spacing: 0;
-      color         : rgba(255,255,255,.96);
-      text-shadow   : var(--brand_text_shadow);
+      font-family    : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
+      font-weight    : var(--font_weight_heavy);
+      font-size      : var(--brand_text_size);
+      line-height    : 1;
+      letter-spacing : 0;
+      color          : rgba(var(--color_rgb_white),var(--opacity_strong));
+      text-shadow    : var(--brand_text_shadow);
     }
     .nav{
       display         : flex;
       gap             : var(--nav_gap);
       flex-wrap       : wrap;
       justify-content : flex-end;
-      color           : rgba(255,255,255,.88);
+      color           : rgba(var(--color_rgb_white),var(--opacity_regular));
     }
     .nav a{
       text-decoration : none;
@@ -179,25 +224,29 @@
       background      : transparent;
     }
     .nav a:hover{
-      color        : rgba(255,255,255,.96);
-      border-color : rgba(255,255,255,.35);
-      background   : rgba(0,0,0,.14);
+      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle));
+      background   : rgba(var(--color_rgb_black),var(--opacity_hover));
     }
     .cta{
-      color        : rgba(255,255,255,.96);
-      background   : rgba(0,0,0,.22);
-      border-color : rgba(255,255,255,.35) !important;
+      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
+      background   : rgba(var(--color_rgb_black),var(--opacity_fill));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle)) !important;
       font-weight  : var(--font_weight_heavy);
     }
     .cta:hover{
-      background   : rgba(0,0,0,.28) !important;
-      border-color : rgba(255,255,255,.45) !important;
+      background   : rgba(var(--color_rgb_black),var(--opacity_pressed)) !important;
+      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle)) !important;
     }
 
     /* When the header gets narrow, only show "Try App" and keep it right-aligned */
-    @container (max-width: 720px){
-      .nav{margin-left:auto}
-      .nav a:not(.open_app_link){display:none}
+    @container (max-width: 45rem){ /* var: --breakpoint_nav */
+      .nav{
+        margin-left : auto;
+      }
+      .nav a:not(.open_app_link){
+        display : none;
+      }
     }
 
     main{
@@ -205,41 +254,44 @@
     }
     .hero{
       display               : grid;
-      grid-template-columns : 1.05fr .95fr;
+      grid-template-columns : var(--hero_columns);
       gap                   : var(--hero_gap);
       align-items           : start;
       margin-top            : var(--hero_margin_top);
     }
-    .hero_media{justify-self:end; align-self:start}
+    .hero_media{
+      justify-self : end;
+      align-self   : start;
+    }
     .hero_image{
       display         : block;
       width           : 100%;
       max-width       : var(--hero_image_max_width);
-      aspect-ratio    : 4 / 5;
+      aspect-ratio    : var(--hero_image_aspect_ratio);
       object-fit      : cover;
-      object-position : 50% 30%;
+      object-position : var(--hero_image_object_position);
       border-radius   : var(--radius_card);
       border          : var(--border_default);
       box-shadow      : var(--shadow_card);
       background      : var(--surface_panel);
     }
     h1{
-      margin        : 0 0 var(--space_small);
-      font-size     : var(--font_size_title);
-      line-height   : var(--line_height_title);
-      letter-spacing: var(--letter_spacing_title);
+      margin         : 0 0 var(--space_small);
+      font-size      : var(--font_size_title);
+      line-height    : var(--line_height_title);
+      letter-spacing : var(--letter_spacing_title);
     }
     p.lead{
       margin     : 0 0 var(--space_medium);
-      color      : var(--text_muted);
-      max-width  : 64ch;
+      color      : var(--color_text_muted);
+      max-width  : var(--text_measure_wide);
     }
     .note{
       margin     : 0 0 var(--space_medium);
-      color      : var(--text_muted);
+      color      : var(--color_text_muted);
     }
     .note b{
-      color : var(--text_primary);
+      color     : var(--color_text_primary);
     }
     .buttons{
       display   : flex;
@@ -259,14 +311,14 @@
       box-shadow      : var(--shadow_soft);
     }
     .btn:hover{
-      background : rgba(255,255,255,.92);
+      background   : rgba(var(--color_rgb_white),var(--opacity_surface_control));
     }
     .btn.primary{
-      border-color : rgba(0,0,0,.18);
-      background   : rgba(0,0,0,.06);
+      border-color : rgba(var(--color_rgb_black),var(--opacity_border_subtle));
+      background   : rgba(var(--color_rgb_black),var(--opacity_fill_subtle));
     }
     .btn.primary:hover{
-      background : rgba(0,0,0,.08);
+      background   : rgba(var(--color_rgb_black),var(--opacity_fill_hover));
     }
 
     section{
@@ -296,14 +348,16 @@
       padding-left : var(--space_medium);
     }
     li{
-      color  : var(--text_muted);
+      color  : var(--color_text_muted);
       margin : var(--space_small) 0;
     }
     .mini{
       margin-top : var(--space_small);
-      color      : var(--text_muted);
+      color      : var(--color_text_muted);
     }
-    .box .mini:first-child{margin-top:0}
+    .box .mini:first-child{
+      margin-top : 0;
+    }
 
     .details_wrap{
       display : grid;
@@ -315,11 +369,29 @@
       background    : var(--surface_panel);
       box-shadow    : var(--shadow_soft);
       padding       : var(--space_small) var(--space_small);
+      transition    :
+        box-shadow   var(--motion_duration_fast) ease,
+        border-color var(--motion_duration_fast) ease,
+        transform    var(--motion_duration_fast) ease;
+    }
+    summary{
+      border-radius : var(--radius_card);
+      padding       : var(--space_small);
+      margin        : calc(-1 * var(--space_small));
+      transition    : background var(--motion_duration_fast) ease;
+    }
+    details:hover{
+      border-color : rgba(var(--color_rgb_black),var(--opacity_fill));
+      box-shadow   : var(--shadow_card);
+      transform    : translateY(-1px);
+    }
+    details:hover summary{
+      background : rgba(var(--color_rgb_black),var(--opacity_tint));
     }
     summary{
       cursor          : pointer;
       font-weight     : var(--font_weight_heavy);
-      color           : var(--text_primary);
+      color           : var(--color_text_primary);
       list-style      : none;
       display         : flex;
       align-items     : center;
@@ -334,23 +406,26 @@
       height        : var(--layout_side_padding);
       border-radius : var(--radius_small);
       border        : var(--border_default);
-      background    : rgba(255,255,255,.65);
+      background    : rgba(var(--color_rgb_white),var(--opacity_caret));
       display       : grid;
       place-items   : center;
-      color         : var(--text_muted);
+      color         : var(--color_text_muted);
       flex          : 0 0 auto;
-      transition    : .15s ease;
+      transition    : var(--motion_duration_fast) ease;
       font-weight   : var(--font_weight_heavy);
+    }
+    details:hover .caret{
+      background : rgba(var(--color_rgb_white),var(--opacity_surface_panel));
     }
     details[open] .caret{
       transform : rotate(90deg);
     }
     details .content{
       margin-top : var(--space_small);
-      color      : var(--text_muted);
+      color      : var(--color_text_muted);
     }
     details .content p{
-      margin : var(--space_small) 0;
+      margin     : var(--space_small) 0;
     }
     details .content ul{
       margin       : var(--space_small) 0;
@@ -360,14 +435,14 @@
       margin : var(--space_xsmall) 0;
     }
     details .content .small{
-      color : var(--text_muted);
+      color  : var(--color_text_muted);
     }
     .legal_meta{
       display    : flex;
       gap        : var(--space_small);
       flex-wrap  : wrap;
       margin-top : var(--space_small);
-      color      : var(--text_muted);
+      color      : var(--color_text_muted);
     }
     .pill{
       display       : inline-block;
@@ -385,17 +460,17 @@
     }
     label{
       font-weight : var(--font_weight_heavy);
-      color       : var(--text_primary);
+      color       : var(--color_text_primary);
     }
     input, textarea{
-      width:100%;
-      padding:var(--input_padding_y) var(--input_padding_x);
-      border-radius:var(--radius_button);
-      border:var(--border_default);
-      background: var(--surface_control);
-      font-size:inherit;
-      color: var(--text_primary);
-      outline:none;
+      width         : 100%;
+      padding       : var(--input_padding_y) var(--input_padding_x);
+      border-radius : var(--radius_button);
+      border        : var(--border_default);
+      background    : var(--surface_control);
+      font-size     : inherit;
+      color         : var(--color_text_primary);
+      outline       : none;
     }
     textarea{
       min-height : var(--textarea_min_height);
@@ -406,72 +481,102 @@
       grid-template-columns : 1fr 1fr;
       gap                   : var(--space_medium);
     }
-    @media (max-width: 780px){
-      .help_row{grid-template-columns: 1fr}
+    @media (max-width: 48.75rem){ /* var: --breakpoint_help */
+      .help_row{
+        grid-template-columns : 1fr;
+      }
     }
     .small{
-      color      : var(--text_muted);
+      color      : var(--color_text_muted);
       margin-top : var(--space_xsmall);
     }
     .about_copy{
       margin : 0;
-      color  : var(--text_muted);
+      color  : var(--color_text_muted);
     }
 
     footer{
       border-top : var(--border_default);
       padding    : var(--footer_padding_top) 0 var(--footer_padding_bottom);
       background :
-        linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+        linear-gradient(rgba(var(--color_rgb_black),var(--opacity_overlay)), rgba(var(--color_rgb_black),var(--opacity_overlay))),
         url("images/wood.png") center / var(--wood_tile_size) repeat;
     }
     .foot{
       display         : flex;
-      align-items     : flex-start;
+      align-items     : center;
       justify-content : space-between;
-      gap             : var(--space_xlarge);
+      gap             : var(--space_medium);
       flex-wrap       : wrap;
+      text-align      : left;
     }
     .copy{
-      color : rgba(255,255,255,.88);
+      color : rgba(var(--color_rgb_white),var(--opacity_regular));
     }
     .links{
-      display   : flex;
-      gap       : var(--space_medium);
-      flex-wrap : wrap;
+      display         : flex;
+      gap             : var(--space_medium);
+      flex-wrap       : wrap;
+      justify-content : flex-end;
     }
     .links a{
-      color           : rgba(255,255,255,.88);
+      color           : rgba(var(--color_rgb_white),var(--opacity_regular));
       text-decoration : none;
       font-size       : inherit;
       padding         : var(--nav_padding_y) var(--nav_padding_x);
       border-radius   : var(--radius_medium);
-      border          : var(--border_default);
-      background      : rgba(0,0,0,.22);
+      border          : var(--border_transparent);
+      background      : transparent;
     }
     .links a:hover{
-      color      : rgba(255,255,255,.96);
-      background : rgba(0,0,0,.28);
+      color        : rgba(var(--color_rgb_white),var(--opacity_strong));
+      border-color : rgba(var(--color_rgb_white),var(--opacity_subtle));
+      background   : rgba(var(--color_rgb_black),var(--opacity_hover));
     }
 
-    @media (max-width: 700px){
+    @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
       :root{
         --font_size_title:     42px;
         --font_size_heading:   26px;
         --font_size_body:      16px;
         --layout_side_padding: 18px;
         --scroll_padding_top:  var(--scroll_padding_top_mobile);
+        --main_padding_bottom: var(--main_padding_bottom_mobile);
       }
-      main{padding:var(--main_padding_top_mobile) 0 var(--main_padding_bottom_mobile)}
-      .bar{padding:var(--space_small) 0}
-      .brand{gap:var(--space_small)}
-      .nav{gap:var(--space_xsmall)}
-      .nav a{padding:var(--space_xsmall) var(--space_small); border-radius:var(--radius_small)}
-      .hero{grid-template-columns:1fr; gap:var(--hero_gap_mobile)}
-      .hero_media{justify-self:center}
-      .hero_image{max-width:var(--hero_image_max_width_mobile)}
-      .hero{margin-top:var(--hero_margin_top_mobile)}
-      .brand_text{font-size:var(--brand_text_size_mobile)}
+      .bar{
+        padding : var(--space_small) 0;
+      }
+      .brand{
+        gap : var(--space_small);
+      }
+      .nav{
+        gap : var(--space_xsmall);
+      }
+      .nav a{
+        padding       : var(--space_xsmall) var(--space_small);
+        border-radius : var(--radius_small);
+      }
+      .hero{
+        grid-template-columns : 1fr;
+        gap                   : var(--hero_gap_mobile);
+        margin-top            : var(--hero_margin_top_mobile);
+      }
+      .hero_media{
+        justify-self : center;
+      }
+      .hero_image{
+        max-width : var(--hero_image_max_width_mobile);
+      }
+      .brand_text{
+        font-size : var(--brand_text_size_mobile);
+      }
+      footer .foot{
+        justify-content : center;
+        text-align      : center;
+      }
+      footer .links{
+        justify-content : center;
+      }
     }
   </style>
 </head>
@@ -487,9 +592,9 @@
         <nav class="nav" aria-label="Primary">
           <a href="https://app.storycall.org" class="cta open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
           <a href="#how">How</a>
-          <a href="#help">Help</a>
           <a href="#faq">FAQ</a>
           <a href="#legal">Privacy & Terms</a>
+          <a href="#help">Help</a>
           <a href="#about">About</a>
         </nav>
       </div>
@@ -929,7 +1034,7 @@
           © <span id="year"></span> StoryCall • storycall.org
         </div>
         <div class="links">
-          <a href="https://app.storycall.org" class="open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
+          <a href="https://app.storycall.org" class="cta open_app_link" target="_blank" rel="noopener noreferrer">Try App</a>
           <a href="#help">Help</a>
           <a href="#legal">Privacy & Terms</a>
           <a href="#about">About</a>
@@ -941,37 +1046,36 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Ensure "Open App" always opens in a new tab/window (some mobile/PWA contexts ignore target=_blank)
+    // Ensure "Try App" always opens in a new tab/window (some mobile/PWA contexts ignore target=_blank)
     (function(){
-      var links = document.querySelectorAll("a.open_app_link");
-      for (var i = 0; i < links.length; i++) {
-        (function(link){
-          link.setAttribute("target", "_blank");
-          link.setAttribute("rel", "noopener noreferrer");
-          link.addEventListener("click", function(ev){
-            // Allow modified clicks (e.g., open in background tab)
-            if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
-            var w = window.open(link.href, "_blank");
-            if (w) w.opener = null;
-            ev.preventDefault();
-          });
-        })(links[i]);
+      const open_app_links = document.querySelectorAll("a.open_app_link");
+      for (let link_idx = 0; link_idx < open_app_links.length; link_idx++) {
+        const link_el = open_app_links[link_idx];
+        link_el.setAttribute("target", "_blank");
+        link_el.setAttribute("rel", "noopener noreferrer");
+        link_el.addEventListener("click", function(ev){
+          // Allow modified clicks (e.g., open in background tab)
+          if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+          const new_window = window.open(link_el.href, "_blank");
+          if (new_window) new_window.opener = null;
+          ev.preventDefault();
+        });
       }
     })();
 
     // Default "effective date" = today's date (local)
     (function(){
-      var d      = new Date();
-      var opts   = {
+      const today               = new Date();
+      const date_format_options = {
         year:  "numeric",
         month: "long",
         day:   "numeric",
       };
-      var pretty = d.toLocaleDateString(undefined, opts);
-      var p      = document.getElementById("privacy_effective");
-      var t      = document.getElementById("terms_effective");
-      if (p) p.textContent = pretty;
-      if (t) t.textContent = pretty;
+      const effective_date_text  = today.toLocaleDateString(undefined, date_format_options);
+      const privacy_effective_el = document.getElementById("privacy_effective");
+      const terms_effective_el   = document.getElementById("terms_effective");
+      if (privacy_effective_el) privacy_effective_el.textContent = effective_date_text;
+      if (terms_effective_el) terms_effective_el.textContent = effective_date_text;
     })();
   </script>
 </body>
