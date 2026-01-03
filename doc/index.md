@@ -60,8 +60,6 @@ cta                         : class
 
 drawer_shadow_top           : css
 
-help_name                   : field
-help_send_sms               : id
 
 faq                         : section
 faq_group                   : class
@@ -79,10 +77,6 @@ foot                        : class
 footer_padding_bottom       : css
 footer_padding_top          : css
 
-form_gap                    : css
-form_input_padding_x        : css
-form_input_padding_y        : css
-form_textarea_min_height    : css
 
 granny_and_kid_png          : image
 granny_png                  : image
@@ -151,7 +145,6 @@ mini                        : class
 
 motion_duration_fast        : css
 
-help_msg                    : field
 
 
 nav                         : class

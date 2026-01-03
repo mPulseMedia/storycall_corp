@@ -99,11 +99,6 @@
       --button_padding_y:           var(--space_small);
       --button_padding_x:           var(--space_medium);
 
-      --form_gap:                   var(--space_small);
-      --form_input_padding_y:       var(--space_small);
-      --form_input_padding_x:       var(--space_small);
-      --form_textarea_min_height:   120px;
-
       --footer_padding_top:         var(--space_large);
       --footer_padding_bottom:      var(--space_xlarge);
 
@@ -599,32 +594,6 @@
       color  : var(--color_text_muted);
     }
 
-    form{
-      display    : grid;
-      gap        : var(--form_gap);
-      margin-top : var(--space_medium);
-    }
-    label{
-      font-weight : var(--font_weight_heavy);
-      color       : var(--color_text_primary);
-    }
-    input, textarea{
-      width         : 100%;
-      padding       : var(--form_input_padding_y) var(--form_input_padding_x);
-      border-radius : var(--radius_medium);
-      border        : var(--border_default);
-      background    : var(--surface_control);
-      font-size     : inherit;
-      color         : var(--color_text_primary);
-      outline       : none;
-    }
-    input::placeholder, textarea::placeholder{
-      color : rgba(var(--color_rgb_black),var(--opacity_faint));
-    }
-    textarea{
-      min-height : var(--form_textarea_min_height);
-      resize     : vertical;
-    }
     .about_copy{
       margin : 0;
       color  : var(--color_text_muted);
@@ -769,30 +738,33 @@
       <div class="box group_box how_group">
         <details>
           <summary>
-            <span class="summary_text"><b>To start</b>, record a voice message and text it to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</span>
+            <span class="summary_text"><b>To start</b></span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
+            <p>Record a voice message and text it to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</p>
             <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
           </div>
         </details>
 
         <details>
           <summary>
-            <span class="summary_text"><b>First time</b>, we'll ask you the landline number to call.</span>
+            <span class="summary_text"><b>First time</b></span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
+            <p>We’ll ask you the landline number to call.</p>
             <img class="group_image" src="images/start_2.png" alt="Screenshot of confirming the landline number." decoding="async" />
           </div>
         </details>
 
         <details id="stop">
           <summary>
-            <span class="summary_text"><b>To opt out</b>, text STOP to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</span>
+            <span class="summary_text"><b>To opt out</b></span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
+            <p>Text STOP to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</p>
             <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
           </div>
         </details>
@@ -850,15 +822,12 @@
       <h2>Need help?</h2>
       <div class="box">
         <div class="mini">
-          Send a text message to the StoryCall help team at <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.
+          Text message StoryCall help directly with a question at 888-569-6984.
         </div>
 
-        <div>
-          <label for="help_msg">What’s going on?</label>
-          <textarea id="help_msg" name="help_msg" placeholder="Tell us what happened and what you expected instead."></textarea>
+        <div class="buttons">
+          <a class="btn primary" href="sms:+18885696984">Text Help</a>
         </div>
-
-        <button class="btn primary" id="help_send_sms" type="button">Text help team</button>
       </div>
     </section>
 
@@ -920,37 +889,6 @@
           ev.preventDefault();
         });
       }
-    })();
-
-    // Help: open SMS composer with a drafted message to StoryCall
-    (function(){
-      const number_el = "+18885696984";
-      const send_btn  = document.getElementById("help_send_sms");
-      const name_el   = document.getElementById("help_name");
-      const msg_el    = document.getElementById("help_msg");
-      if (!send_btn || !name_el || !msg_el) return;
-
-      function build_body(){
-        const name_val = (name_el.value || "").trim();
-        const msg_val  = (msg_el.value || "").trim();
-        const lines = [];
-        if (name_val) lines.push("Name: " + name_val);
-        if (msg_val) lines.push("", msg_val);
-        if (!lines.length) lines.push("Help request:");
-        return lines.join("\n");
-      }
-
-      function sms_href(){
-        const body = encodeURIComponent(build_body());
-        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        return is_ios
-          ? `sms:${number_el}&body=${body}`
-          : `sms:${number_el}?body=${body}`;
-      }
-
-      send_btn.addEventListener("click", function(){
-        window.location.href = sms_href();
-      });
     })();
 
   </script>
