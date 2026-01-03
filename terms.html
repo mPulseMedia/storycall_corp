@@ -60,7 +60,7 @@
 
       /* layout */
       --layout_max_width:           980px;
-      --layout_side_padding:        34px;
+      --layout_side_padding:        41px;
 
       /* scroll + page padding */
       --scroll_padding_top:         92px;
@@ -191,6 +191,8 @@
       background    : var(--surface_neutral);
       border-radius : var(--radius_medium);
       padding       : var(--space_medium) var(--space_medium);
+      margin-left   : calc(-1 * var(--space_medium));
+      margin-right  : calc(-1 * var(--space_medium));
       box-shadow    : var(--shadow_card);
     }
     .content{
@@ -251,7 +253,7 @@
       :root{
         --font_size_title:      38px;
         --font_size_body:       20px;
-        --layout_side_padding:  18px;
+        --layout_side_padding:  22px;
         --scroll_padding_top:   var(--scroll_padding_top_mobile);
       }
       .bar{

@@ -69,7 +69,7 @@
       /* layout + measure */
       --layout_max_width:           980px;
       --layout_content_max_width:   var(--text_measure_wide);
-      --layout_side_padding:        88px;
+      --layout_side_padding:        106px;
       --text_measure_wide:          64ch;
 
       /* scroll + page padding */
@@ -416,6 +416,8 @@
       background    : var(--surface_neutral);
       border-radius : var(--radius_medium);
       padding       : var(--space_medium) var(--space_medium);
+      margin-left   : calc(-1 * var(--space_medium));
+      margin-right  : calc(-1 * var(--space_medium));
       box-shadow    : var(--shadow_card);
     }
     ol, ul{
@@ -440,8 +442,6 @@
     .box.group_box{
       background : var(--color_bg_card);
       overflow   : hidden;
-      margin-left  : calc(-1 * var(--space_medium));
-      margin-right : calc(-1 * var(--space_medium));
     }
     .group_image{
       width         : 70%;
@@ -700,7 +700,7 @@
 
         
 
-        --layout_side_padding:     44px;
+        --layout_side_padding:     53px;
         --caret_size:             36px;
 
         --main_padding_bottom:     var(--main_padding_bottom_mobile);
@@ -920,7 +920,7 @@
       <h2>About</h2>
       <div class="box">
         <p class="about_copy">
-          StoryCall is based in <b>San Francisco</b>. The founder built it to help his nieces and nephews connect with their grandparents.
+          StoryCall is based in <b>San Francisco</b>, where the creator wanted to help his nieces and nephews connect with their grandparents.
         </p>
       </div>
     </section>
