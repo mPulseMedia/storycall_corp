@@ -109,6 +109,7 @@
 
       /* how group */
       --group_image_width:          7rem;
+      --start_image_width:          16rem;
 
       /* hero */
       --hero_gap:                    var(--space_large);
@@ -129,13 +130,9 @@
       --portrait_granny_visible_ratio: 1;
       --portrait_kid_visible_ratio: 1;
       --portrait_granny_offset_y:   calc(-1 * var(--space_small));
+      --portrait_float_offset_y:    calc(-1 * var(--space_xsmall));
+      --portrait_shape_radius_boost: 10px;
 
-      --hero_message_max_width:      9rem;
-      --hero_message_gap:            var(--space_small);
-      --hero_message_border:         1px solid rgba(var(--color_rgb_black),var(--opacity_faint));
-      --hero_message_radius:         16px;
-
-      --hero_sprite_scale:           230%;
 
       /* assets */
       --wood_tile_size:             520px 110px;
@@ -275,15 +272,6 @@
       text-align: center;
       font-size : calc(var(--font_size_body) * var(--hero_text_scale));
     }
-    .hero_tagline{
-      margin         : 0 0 var(--space_large);
-      font-family    : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
-      font-weight    : var(--font_weight_heavy);
-      font-size      : 1.42em;
-      line-height    : 1;
-      letter-spacing : 0;
-      color          : rgba(var(--color_rgb_black),var(--opacity_medium));
-    }
     .hero_portrait{
       position         : relative;
       width            : var(--portrait_size);
@@ -347,15 +335,15 @@
     }
     .hero_portrait_float_right{
       float        : right;
-      margin       : 0 calc(-1 * var(--portrait_overhang)) var(--portrait_margin) var(--portrait_margin);
-      shape-outside: circle(50%);
+      margin       : var(--portrait_float_offset_y) calc(-1 * var(--portrait_overhang)) var(--portrait_margin) var(--portrait_margin);
+      shape-outside: circle(calc(50% + var(--portrait_shape_radius_boost)));
       shape-margin : var(--portrait_margin);
       clip-path    : circle(50%);
     }
     .hero_portrait_float_left{
       float        : left;
-      margin       : 0 var(--portrait_margin) var(--portrait_margin) calc(-1 * var(--portrait_overhang));
-      shape-outside: circle(50%);
+      margin       : var(--portrait_float_offset_y) var(--portrait_margin) var(--portrait_margin) calc(-1 * var(--portrait_overhang));
+      shape-outside: circle(calc(50% + var(--portrait_shape_radius_boost)));
       shape-margin : var(--portrait_margin);
       clip-path    : circle(50%);
       clear        : both;
@@ -450,12 +438,30 @@
     .group_box{
       padding : 0;
     }
+    .box.group_box{
+      background : var(--color_background_card);
+    }
     .group_block{
       padding               : var(--space_medium);
       display               : grid;
       grid-template-columns : 1fr var(--group_image_width);
       gap                   : var(--space_small) var(--space_medium);
       align-items           : start;
+    }
+    #start{
+      grid-template-columns : 1fr;
+      position              : relative;
+      padding-right         : calc(min(var(--start_image_width), 42%) + var(--space_medium));
+    }
+    #start::after{
+      content       : "";
+      position      : absolute;
+      top           : var(--space_medium);
+      right         : var(--space_medium);
+      bottom        : var(--space_medium);
+      width         : min(var(--start_image_width), 42%);
+      border-radius : var(--radius_medium);
+      background    : url("images/start_2.png") center / cover no-repeat;
     }
     .group_block > h3,
     .group_block > ol,
@@ -688,8 +694,8 @@
         --font_size_title:         46px;
 
         --group_image_width:       6.5rem;
+        --start_image_width:       12rem;
 
-        --hero_message_max_width:  7.5rem;
         --hero_text_scale:         1.16;
 
         --layout_side_padding:     44px;
@@ -715,9 +721,6 @@
       }
       .hero{
         margin-top : var(--hero_margin_top_mobile);
-      }
-      .hero .messages{
-        margin : var(--space_small) 0 var(--space_medium);
       }
       .group_block{
         grid-template-columns : 1fr;
@@ -769,28 +772,35 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1 class="hero_tagline">message landlines</h1>
+        <p class="note">
+          <b></b>Convert voice messages into calls, and connect to a whole new generation.
+        </p>
         <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
         <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
-          We'll ring the number you say, and play your messages.
+          The first time, we'll ask the number to dial.
+        </p>        <p class="note">
+          From then on, we'll ring that number, and play your recordings.
         </p>
         <p class="note">
-          Then text you the recording of their reply.
+          And text you recordings of the replies.
         </p>
         <p class="note">
           No new app.
         </p>
         <p class="note">
-          Just voices spanning generations.
+          Voice messages spanning generations.
         </p>
         <p class="note">
-          Try texting your first recording to <b>888-569-6984</b>.
+          Try it.
         </p>
-
+        <p class="note">
+          Text your first recording to <b>888-569-6984</b>.
+        </p>
+      </div>
     </div>
 
     <section id="how">
@@ -798,28 +808,32 @@
       <div class="box group_box">
         <div class="group_block" id="start">
           <h3>To start</h3>
-          <ol>
-            <li>Text <b>STORYCALL</b> to <b>888-569-6984</b> to opt in.</li>
-            <li>Receive a confirmation message.</li>
-            <li>Reply with the landline number that should receive your voice recordings.</li>
-          </ol>
-          <img class="group_image" src="images/start.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
+          <p class="note">
+            To start, text <b>STORYCALL</b> to <b>888-569-6984</b> to opt in.
+          </p>
         </div>
 
         <div class="group_block">
           <h3>To send a message</h3>
-          <ol>
-            <li>Record a voice message and text it to <b>888-569-6984</b>.</li>
-          </ol>
-          <img class="group_image" src="images/start.png" alt="Screenshot of sending a voice message by text." decoding="async" />
+          <p class="note">
+            To send a message, record a voice message and text it to <b>888-569-6984</b>.
+          </p>
+          <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
+        </div>
+
+        <div class="group_block">
+          <h3>Your first time</h3>
+          <p class="note">
+            We'll ask you the landline number to call.
+          </p>
         </div>
 
         <div class="group_block" id="stop">
           <h3>To stop</h3>
-          <ol>
-            <li>To opt out, text <b>STOP</b> to <b>888-569-6984</b>.</li>
-          </ol>
-          <img class="group_image" src="images/start.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
+          <p class="note">
+            To opt out, text <b>STOP</b> to <b>888-569-6984</b>.
+          </p>
+          <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
         </div>
       </div>
     </section>

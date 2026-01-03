@@ -99,19 +99,19 @@ hero_gap_mobile             : css     : hero layout
 hero_margin_top             : css     : hero layout
 hero_margin_top_mobile      : css     : hero layout
 hero_center_max_width       : css     : hero max width
-hero_tagline                : class   : hero tagline
 hero_text_scale             : css     : hero type scale
 portrait_border             : css     : portrait border
 portrait_kid_visible_ratio  : css     : portrait kid visible ratio
 portrait_margin             : css     : portrait spacing
 portrait_hidden_ratio       : css     : portrait hidden ratio
+portrait_float_offset_y     : css     : portrait float offset y
 portrait_granny_offset_y    : css     : portrait granny offset y
 portrait_granny_visible_ratio : css   : portrait granny visible ratio
 portrait_overhang           : css     : portrait overhang
 portrait_position_y         : css     : portrait crop y
+portrait_shape_radius_boost : css     : portrait wrap boost
 portrait_size               : css     : portrait size
 portrait_zoom               : css     : portrait zoom
-hero_sprite_scale           : css     : hero sprite scale
 
 hero_portrait               : class   : hero portrait circle
 hero_portrait_float_left    : class   : hero portrait float left
@@ -201,6 +201,8 @@ space_xsmall                : css     : spacing scale
 
 start                       : section : (#start)
 start_png                   : image   : start screenshot
+start_2_png                 : image   : start screenshot
+start_image_width           : css     : start image width
 
 site_2_0_png                : image   : design mock source
 
