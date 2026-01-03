@@ -101,19 +101,8 @@ hero_margin_top_mobile      : css     : hero layout
 hero_center_max_width       : css     : hero max width
 hero_tagline                : class   : hero tagline
 hero_text_scale             : css     : hero type scale
-hero_message                : class   : hero message image
-hero_message_border         : css     : hero message border
-hero_message_gap            : css     : hero message spacing
-hero_audio_crop_bottom      : css     : hero audio crop
-hero_audio_crop_left        : css     : hero audio crop
-hero_audio_crop_right       : css     : hero audio crop
-hero_audio_crop_top         : css     : hero audio crop
-hero_message_incoming       : class   : hero incoming audio
-hero_message_max_width      : css     : hero message width
-hero_message_outgoing       : class   : hero outgoing audio
-hero_message_radius         : css     : hero message radius
-hero_messages               : class   : hero messages stack
 portrait_border             : css     : portrait border
+portrait_kid_visible_ratio  : css     : portrait kid visible ratio
 portrait_margin             : css     : portrait spacing
 portrait_granny_visible_ratio : css   : portrait granny visible ratio
 portrait_overhang           : css     : portrait overhang
@@ -138,6 +127,7 @@ layer_header                : css     : z header
 layout_max_width            : css     : layout sizing
 layout_content_max_width    : css     : layout sizing
 layout_side_padding         : css     : layout side pad
+layout_side_padding_base    : css     : layout pad base
 
 legal                       : section : (#legal)
 legal_meta                  : class   : legal pills row

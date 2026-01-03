@@ -72,7 +72,8 @@
       /* layout + measure */
       --layout_max_width:           980px;
       --layout_content_max_width:   var(--text_measure_wide);
-      --layout_side_padding:        34px;
+      --layout_side_padding_base:   44px;
+      --layout_side_padding:        88px;
       --text_measure_wide:          64ch;
 
       /* scroll + page padding */
@@ -119,14 +120,18 @@
       --hero_text_scale:            1.08;
       --hero_center_max_width:      var(--layout_content_max_width);
 
-      --portrait_size:              9rem;
+      --portrait_size:              14.4rem;
       --portrait_border:            2px;
       --portrait_zoom:              175%;
       --portrait_margin:            var(--space_small);
-      --portrait_overhang:          min(calc(var(--portrait_size) / 3), var(--layout_side_padding));
+      --portrait_overhang:
+        calc(
+          (var(--portrait_size) * .4) +
+          (var(--layout_side_padding) - var(--layout_side_padding_base))
+        );
       --portrait_position_y:        45%;
-      --portrait_granny_visible_ratio: .67;
-      --portrait_kid_visible_ratio: .67;
+      --portrait_granny_visible_ratio: 1;
+      --portrait_kid_visible_ratio: 1;
 
       --hero_message_max_width:      9rem;
       --hero_message_gap:            var(--space_small);
@@ -134,10 +139,6 @@
       --hero_message_radius:         16px;
 
       --hero_sprite_scale:           230%;
-      --hero_audio_crop_top:         0px;
-      --hero_audio_crop_right:       0px;
-      --hero_audio_crop_bottom:      0px;
-      --hero_audio_crop_left:        0px;
 
       /* assets */
       --wood_tile_size:             520px 110px;
@@ -171,6 +172,7 @@
       color       : var(--color_text_primary);
       background  : linear-gradient(180deg, var(--color_background_primary), var(--color_background_secondary));
       line-height : var(--line_height_base);
+      overflow-x  : hidden;
     }
     a{
       color : inherit;
@@ -360,49 +362,10 @@
       clip-path    : circle(50%);
       clear        : both;
     }
-    .hero_portrait_granny.hero_portrait_float_left{
-      shape-outside: inset(0 0 0 0);
-      clip-path    : none;
-    }
-    .hero_portrait_kid.hero_portrait_float_right{
-      shape-outside: inset(0 0 0 0);
-      clip-path    : none;
-    }
     .hero_copy::after{
       content : "";
       display : block;
       clear   : both;
-    }
-    .hero_messages{
-      display        : grid;
-      gap            : var(--hero_message_gap);
-      max-width      : var(--hero_message_max_width);
-      margin         : var(--space_small) auto var(--space_medium);
-    }
-    .hero_message{
-      display   : block;
-      width     : 100%;
-      height    : auto;
-    }
-    .hero_message_outgoing{
-      justify-self       : end;
-      clip-path :
-        inset(
-          var(--hero_audio_crop_top)
-          var(--hero_audio_crop_right)
-          var(--hero_audio_crop_bottom)
-          var(--hero_audio_crop_left)
-        );
-    }
-    .hero_message_incoming{
-      justify-self       : start;
-      clip-path :
-        inset(
-          var(--hero_audio_crop_top)
-          var(--hero_audio_crop_right)
-          var(--hero_audio_crop_bottom)
-          var(--hero_audio_crop_left)
-        );
     }
     .note{
       margin     : 0 0 var(--space_medium);
@@ -723,10 +686,11 @@
         --font_size_heading:    28px;
         --font_size_body:       18px;
 
-        --layout_side_padding:  18px;
+        --layout_side_padding_base: 22px;
+        --layout_side_padding:  44px;
         --group_image_width:    6.5rem;
         --hero_text_scale:      1.04;
-        --portrait_size:        7.5rem;
+        --portrait_size:        12rem;
         --hero_message_max_width: 7.5rem;
 
         --scroll_padding_top:   var(--scroll_padding_top_mobile);
@@ -801,30 +765,21 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1 class="hero_tagline">connect how you both like</h1>
+        <h1 class="hero_tagline">“voice message to landline”</h1>
+        <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
+        <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
-          First time, text us the number to reach.
-        </p>
-        <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
-        <div class="hero_messages" aria-hidden="true">
-          <img class="hero_message hero_message_outgoing" src="images/audio_img.png" alt="" decoding="async" />
-        </div>
-        <p class="note">
-          We ring their landline — at their perferred time of day
+          We ring the number you set and play the message.
         </p>
         <p class="note">
-          Plays the message records the reply.
+          Then text back a recording of their reply.
         </p>
-        <div class="hero_messages" aria-hidden="true">
-          <img class="hero_message hero_message_incoming" src="images/audio_img.png" alt="" decoding="async" />
-        </div>
         <p class="note">
           Reply shows up back in the thread.
         </p>
-        <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
           No app.
         </p>
@@ -835,7 +790,7 @@
           Just your voice — spanning distances, time zones, and generations.
         </p>
         <p class="note">
-          Text your recording to <b>888-569-6984</b>.
+          Text your firstrecording to <b>888-569-6984</b>.
         </p>
 
         <div class="buttons">
