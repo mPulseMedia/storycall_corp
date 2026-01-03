@@ -85,7 +85,6 @@ granny_png                  : image   : granny portrait
 group_block                 : class   : grouped sub-block
 group_box                   : class   : grouped box
 group_image                 : class   : how step image
-group_image_width           : css     : how image size
 
 header_padding_y            : css     : header pad y
 
@@ -202,7 +201,6 @@ space_xsmall                : css     : spacing scale
 start                       : section : (#start)
 start_png                   : image   : start screenshot
 start_2_png                 : image   : start screenshot
-start_image_width           : css     : start image width
 
 site_2_0_png                : image   : design mock source
 

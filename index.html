@@ -108,8 +108,6 @@
       --brand_text_size_mobile:     36px;
 
       /* how group */
-      --group_image_width:          7rem;
-      --start_image_width:          16rem;
 
       /* hero */
       --hero_gap:                    var(--space_large);
@@ -442,42 +440,18 @@
       background : var(--color_background_card);
     }
     .group_block{
-      padding               : var(--space_medium);
-      display               : grid;
-      grid-template-columns : 1fr var(--group_image_width);
-      gap                   : var(--space_small) var(--space_medium);
-      align-items           : start;
-    }
-    #start{
-      grid-template-columns : 1fr;
-      position              : relative;
-      padding-right         : calc(min(var(--start_image_width), 42%) + var(--space_medium));
-    }
-    #start::after{
-      content       : "";
-      position      : absolute;
-      top           : var(--space_medium);
-      right         : var(--space_medium);
-      bottom        : var(--space_medium);
-      width         : min(var(--start_image_width), 42%);
-      border-radius : var(--radius_medium);
-      background    : url("images/start_2.png") center / cover no-repeat;
-    }
-    .group_block > h3,
-    .group_block > ol,
-    .group_block > ul,
-    .group_block > p{
-      grid-column : 1;
+      padding        : var(--space_medium);
+      display        : flex;
+      flex-direction : column;
+      gap            : var(--space_small);
     }
     .group_image{
-      grid-column   : 2;
-      grid-row      : 1 / span 3;
-      width         : 100%;
+      width         : 70%;
       height        : auto;
-      justify-self  : end;
-      border-radius : var(--radius_small);
-      border        : var(--border_default);
-      background    : var(--surface_neutral);
+      border-radius : var(--radius_medium);
+      border        : none;
+      box-shadow    : none;
+      background    : transparent;
     }
     .group_block + .group_block{
       border-top : var(--border_default);
@@ -693,8 +667,7 @@
         --font_size_heading:       28px;
         --font_size_title:         46px;
 
-        --group_image_width:       6.5rem;
-        --start_image_width:       12rem;
+        
 
         --hero_text_scale:         1.16;
 
@@ -721,16 +694,6 @@
       }
       .hero{
         margin-top : var(--hero_margin_top_mobile);
-      }
-      .group_block{
-        grid-template-columns : 1fr;
-      }
-      .group_image{
-        grid-column   : 1;
-        grid-row      : auto;
-        width         : var(--group_image_width);
-        justify-self  : end;
-        margin-top    : var(--space_small);
       }
       .brand_text{
         font-size : var(--brand_text_size_mobile);
@@ -773,7 +736,7 @@
     <div class="hero">
       <div class="hero_copy">
         <p class="note">
-          <b>Convert voice messages into calls, and connect to a whole new generation.</b>
+          <b>Convert voice messages to calls, and bridge generations.</b>
         </p>
         <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <p class="note">
@@ -781,24 +744,18 @@
         </p>
         <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
-          The first time, we'll ask the number to dial.
+          First time, we'll ask the number to dial.
         </p>        <p class="note">
-          From then on, we'll ring that number, and play your recordings at the time of day they prefer.
+          From then on, we'll ring that number at a convenient time, and play your recordings.
         </p>
         <p class="note">
-          And text you recordings of the replies.
+          You get recordings of the replies in the same thread.
         </p>
         <p class="note">
-          No new app.
+          No new app -- voice messages spanning generations.
         </p>
         <p class="note">
-          Voice messages spanning generations.
-        </p>
-        <p class="note">
-          Try it.
-        </p>
-        <p class="note">
-          <b>Text your first recording to 888-569-6984.</b>
+          <b>Try it.</b> Text your first recording to <b>888-569-6984.</b>
         </p>
       </div>
     </div>
@@ -807,31 +764,29 @@
       <h2>How it works</h2>
       <div class="box group_box">
         <div class="group_block" id="start">
-          <h3>To start</h3>
           <p class="note">
-            To start, text <b>STORYCALL</b> to <b>888-569-6984</b> to opt in.
+            <b>To start</b>, text the word <b>STORYCALL</b> to <b>888-569-6984</b>.
           </p>
+          <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
         </div>
 
         <div class="group_block">
-          <h3>To send a message</h3>
           <p class="note">
-            To send a message, record a voice message and text it to <b>888-569-6984</b>.
+            <b>To send a message</b>, record a voice message and text it to <b>888-569-6984</b>.
           </p>
           <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
         </div>
 
         <div class="group_block">
-          <h3>Your first time</h3>
           <p class="note">
-            We'll ask you the landline number to call.
+            <b>First time</b>, we'll ask you the landline number to call.
           </p>
+          <img class="group_image" src="images/start_2.png" alt="Screenshot of confirming the landline number." decoding="async" />
         </div>
 
         <div class="group_block" id="stop">
-          <h3>To stop</h3>
           <p class="note">
-            To opt out, text <b>STOP</b> to <b>888-569-6984</b>.
+            <b>To opt out</b>, text <b>STOP</b> to <b>888-569-6984</b>.
           </p>
           <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
         </div>
