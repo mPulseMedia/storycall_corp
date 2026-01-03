@@ -37,6 +37,7 @@ button_padding_y            : css     : button pad y
 buttons                     : class   : button row
 
 caret                       : class   : accordion caret
+caret_size                  : css     : accordion caret size
 
 claude_md                   : file    : repo rules
 
@@ -206,6 +207,8 @@ stop                        : section : (#stop)
 storycall                   : name    : product
 storycall_corp              : name    : repo folder
 storycall_org               : domain  : marketing site
+
+summary_text                : class   : accordion summary text
 
 surface_control             : css     : surface tint
 surface_neutral             : css     : surface tint
