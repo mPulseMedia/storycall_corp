@@ -625,16 +625,6 @@
       min-height : var(--form_textarea_min_height);
       resize     : vertical;
     }
-    .help_row{
-      display               : grid;
-      grid-template-columns : 1fr 1fr;
-      gap                   : var(--space_medium);
-    }
-    @media (max-width: 48.75rem){ /* var: --breakpoint_help */
-      .help_row{
-        grid-template-columns : 1fr;
-      }
-    }
     .about_copy{
       margin : 0;
       color  : var(--color_text_muted);
@@ -752,7 +742,7 @@
     <div class="hero">
       <div class="hero_copy">
         <p class="note">
-          <b>StoryCall bridges a generation by connecting messaging apps and traditional phones.</b>
+          <b>StoryCall bridges generations by connecting messaging apps and traditional phones.</b>
         </p>
         <div class="hero_face hero_face_kid hero_face_float_right" aria-hidden="true"></div>
         <p class="note">
@@ -763,13 +753,10 @@
         </p>
         <div class="hero_face hero_face_granny hero_face_float_left" aria-hidden="true"></div>
         <p class="note">
-          We ring the traditional phone, and play your recording.
+          We ring the traditional phone, play your recording, and text the response back.
         </p>
         <p class="note">
-          We record the reply and send it back to the same thread.
-        </p>
-        <p class="note">
-          No new app -- just voice messages bridging generations.
+          No new app -- just voice messages across generations.
         </p>
         <p class="note">
           <b>Try it.</b> Text your first recording to <a class="sms_link" href="sms:+18885696984"><b>888-569-6984</b></a>.
@@ -863,29 +850,15 @@
       <h2>Need help?</h2>
       <div class="box">
         <div class="mini">
-          Send a help request and it will be emailed to <b>help@storycall.org</b>.
+          Send a text message to the StoryCall help team at <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.
         </div>
 
-        <!-- mailto: opens the user's email client; no backend required -->
-        <form action="mailto:help@storycall.org" method="post" enctype="text/plain">
-          <div class="help_row">
-            <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" placeholder="Your name" autocomplete="name" />
-            </div>
-            <div>
-              <label for="email">Your email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
-            </div>
-          </div>
+        <div>
+          <label for="help_msg">What’s going on?</label>
+          <textarea id="help_msg" name="help_msg" placeholder="Tell us what happened and what you expected instead."></textarea>
+        </div>
 
-          <div>
-            <label for="msg">What’s going on?</label>
-            <textarea id="msg" name="message" placeholder="Tell us what happened and what you expected instead."></textarea>
-          </div>
-
-          <button class="btn primary" type="submit">Send help request</button>
-        </form>
+        <button class="btn primary" id="help_send_sms" type="button">Text help team</button>
       </div>
     </section>
 
@@ -947,6 +920,37 @@
           ev.preventDefault();
         });
       }
+    })();
+
+    // Help: open SMS composer with a drafted message to StoryCall
+    (function(){
+      const number_el = "+18885696984";
+      const send_btn  = document.getElementById("help_send_sms");
+      const name_el   = document.getElementById("help_name");
+      const msg_el    = document.getElementById("help_msg");
+      if (!send_btn || !name_el || !msg_el) return;
+
+      function build_body(){
+        const name_val = (name_el.value || "").trim();
+        const msg_val  = (msg_el.value || "").trim();
+        const lines = [];
+        if (name_val) lines.push("Name: " + name_val);
+        if (msg_val) lines.push("", msg_val);
+        if (!lines.length) lines.push("Help request:");
+        return lines.join("\n");
+      }
+
+      function sms_href(){
+        const body = encodeURIComponent(build_body());
+        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        return is_ios
+          ? `sms:${number_el}&body=${body}`
+          : `sms:${number_el}?body=${body}`;
+      }
+
+      send_btn.addEventListener("click", function(){
+        window.location.href = sms_href();
+      });
     })();
 
   </script>

@@ -60,7 +60,8 @@ cta                         : class
 
 drawer_shadow_top           : css
 
-email                       : field
+help_name                   : field
+help_send_sms               : id
 
 faq                         : section
 faq_group                   : class
@@ -92,7 +93,6 @@ group_image                 : class
 header_padding_y            : css
 
 help                        : section
-help_row                    : class
 
 hero                        : class
 hero_copy                   : class
@@ -151,9 +151,8 @@ mini                        : class
 
 motion_duration_fast        : css
 
-msg                         : field
+help_msg                    : field
 
-name                        : field
 
 nav                         : class
 nav_gap                     : css
