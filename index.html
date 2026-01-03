@@ -39,9 +39,9 @@
       --font_family_base:           ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_weight_heavy:          900;
       --font_weight_bold:           600;
-      --font_size_title:            52px;
-      --font_size_heading:          30px;
-      --font_size_body:             18px;
+      --font_size_title:            56px;
+      --font_size_heading:          32px;
+      --font_size_body:             20px;
 
       --line_height_base:           1.35;
       --line_height_title:          1.05;
@@ -71,6 +71,7 @@
 
       /* layout + measure */
       --layout_max_width:           980px;
+      --layout_content_max_width:   var(--text_measure_wide);
       --layout_side_padding:        34px;
       --text_measure_wide:          64ch;
 
@@ -106,16 +107,33 @@
       --brand_text_size:            38px;
       --brand_text_size_mobile:     30px;
 
+      /* how group */
+      --group_image_width:          7rem;
+
       /* hero */
       --hero_gap:                    var(--space_large);
       --hero_margin_top:             var(--space_medium);
-      --hero_image_max_width:        420px;
       --hero_gap_mobile:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
-      --hero_image_max_width_mobile: 520px;
-      --hero_columns:                1.05fr .95fr;
-      --hero_image_aspect_ratio:     4 / 5;
-      --hero_image_object_position:  50% 30%;
+
+      --hero_text_scale:            1.2;
+      --hero_center_max_width:      var(--layout_content_max_width);
+
+      --portrait_size:              9rem;
+      --portrait_border:            2px;
+      --portrait_zoom:              175%;
+      --portrait_margin:            var(--space_small);
+      --portrait_overhang:          calc(var(--portrait_size) / 3);
+      --portrait_position_y:        45%;
+
+      --hero_message_max_width:      9rem;
+      --hero_message_height:         1.75rem;
+      --hero_message_gap:            var(--space_small);
+      --hero_message_border:         1px solid rgba(var(--color_rgb_black),var(--opacity_faint));
+      --hero_message_radius:         16px;
+
+      --hero_sprite_scale:           230%;
+      --hero_audio_sprite_scale:     180%;
 
       /* assets */
       --wood_tile_size:             520px 110px;
@@ -157,6 +175,9 @@
       max-width : var(--layout_max_width);
       margin    : 0 auto;
       padding   : 0 var(--layout_side_padding);
+    }
+    .wrap_main{
+      max-width : var(--layout_content_max_width);
     }
 
     header{
@@ -239,38 +260,102 @@
       padding : var(--main_padding_top) 0 var(--main_padding_bottom);
     }
     .hero{
-      display               : grid;
-      grid-template-columns : var(--hero_columns);
-      gap                   : var(--hero_gap);
-      align-items           : start;
-      margin-top            : var(--hero_margin_top);
+      position   : relative;
+      margin-top : var(--hero_margin_top);
     }
-    .hero_media{
-      justify-self : end;
-      align-self   : start;
+    .hero_copy{
+      position  : relative;
+      z-index   : 2;
+      max-width : var(--hero_center_max_width);
+      margin    : 0 auto;
+      text-align: center;
+      font-size : calc(var(--font_size_body) * var(--hero_text_scale));
     }
-    .hero_image{
-      display         : block;
-      width           : 100%;
-      max-width       : var(--hero_image_max_width);
-      aspect-ratio    : var(--hero_image_aspect_ratio);
-      object-fit      : cover;
-      object-position : var(--hero_image_object_position);
-      border-radius   : var(--radius_medium);
-      border          : var(--border_default);
-      box-shadow      : var(--shadow_card);
-      background      : var(--surface_neutral);
+    .hero_tagline{
+      margin         : 0 0 var(--space_large);
+      font-family    : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
+      font-weight    : var(--font_weight_heavy);
+      font-size      : 2.4em;
+      line-height    : 1;
+      letter-spacing : 0;
+      color          : rgba(var(--color_rgb_black),var(--opacity_medium));
     }
-    h1{
-      margin         : 0 0 var(--space_small);
-      font-size      : var(--font_size_title);
-      line-height    : var(--line_height_title);
-      letter-spacing : var(--letter_spacing_title);
+    .hero_portrait{
+      width            : var(--portrait_size);
+      height           : var(--portrait_size);
+      border-radius    : 50%;
+      border           : 1px solid rgba(var(--color_rgb_white),1);
+      background-color : rgba(var(--color_rgb_white),1);
+      background-repeat: no-repeat;
+      background-position : 50% var(--portrait_position_y);
+      background-size  : var(--portrait_zoom);
+      box-shadow       : var(--shadow_soft);
+      display          : block;
+    }
+    .hero_portrait_kid{
+      background-image : url("images/kid.png");
+    }
+    .hero_portrait_granny{
+      background-image : url("images/granny.png");
+    }
+    .hero_portrait_float_right{
+      float        : right;
+      margin       : 0 calc(-1 * var(--portrait_overhang)) var(--portrait_margin) var(--portrait_margin);
+      shape-outside: circle(50%);
+      shape-margin : var(--portrait_margin);
+      clip-path    : circle(50%);
+    }
+    .hero_portrait_float_left{
+      float        : left;
+      margin       : 0 var(--portrait_margin) var(--portrait_margin) calc(-1 * var(--portrait_overhang));
+      shape-outside: circle(50%);
+      shape-margin : var(--portrait_margin);
+      clip-path    : circle(50%);
+      clear        : both;
+    }
+    .hero_copy::after{
+      content : "";
+      display : block;
+      clear   : both;
+    }
+    .hero_messages{
+      display        : grid;
+      gap            : var(--hero_message_gap);
+      max-width      : var(--hero_message_max_width);
+      margin         : var(--space_small) auto var(--space_medium);
+    }
+    .hero_message{
+      width            : 100%;
+      height           : var(--hero_message_height);
+      border           : var(--hero_message_border);
+      border-radius    : var(--hero_message_radius);
+      background       : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      background-repeat: no-repeat;
+      background-size  : var(--hero_sprite_scale) auto;
+      position         : relative;
+      margin           : 0 auto;
+    }
+    .hero_message_outgoing{
+      justify-self       : end;
+      background-image   : url("images/audio_img.png");
+      background-size    : var(--hero_audio_sprite_scale) auto;
+      background-position: 50% 52%;
+      border             : none;
+      background-color   : transparent;
+    }
+    .hero_message_incoming{
+      justify-self       : start;
+      background-image   : url("images/audio_img.png");
+      background-size    : var(--hero_audio_sprite_scale) auto;
+      background-position: 50% 52%;
+      border             : none;
+      background-color   : transparent;
     }
     .note{
       margin     : 0 0 var(--space_medium);
       color      : var(--color_text_muted);
       max-width  : var(--text_measure_wide);
+      text-align : left;
     }
     .note b{
       color     : var(--color_text_primary);
@@ -349,7 +434,27 @@
       padding : 0;
     }
     .group_block{
-      padding : var(--space_medium);
+      padding               : var(--space_medium);
+      display               : grid;
+      grid-template-columns : 1fr var(--group_image_width);
+      gap                   : var(--space_small) var(--space_medium);
+      align-items           : start;
+    }
+    .group_block > h3,
+    .group_block > ol,
+    .group_block > ul,
+    .group_block > p{
+      grid-column : 1;
+    }
+    .group_image{
+      grid-column   : 2;
+      grid-row      : 1 / span 3;
+      width         : 100%;
+      height        : auto;
+      justify-self  : end;
+      border-radius : var(--radius_small);
+      border        : var(--border_default);
+      background    : var(--surface_neutral);
     }
     .group_block + .group_block{
       border-top : var(--border_default);
@@ -561,11 +666,16 @@
 
     @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
       :root{
-        --font_size_title:      42px;
-        --font_size_heading:    26px;
-        --font_size_body:       16px;
+        --font_size_title:      46px;
+        --font_size_heading:    28px;
+        --font_size_body:       18px;
 
         --layout_side_padding:  18px;
+        --group_image_width:    6.5rem;
+        --hero_text_scale:      1.14;
+        --portrait_size:        7.5rem;
+        --hero_message_max_width: 7.5rem;
+        --hero_message_height:    1.6rem;
 
         --scroll_padding_top:   var(--scroll_padding_top_mobile);
         --main_padding_bottom:  var(--main_padding_bottom_mobile);
@@ -584,15 +694,20 @@
         border-radius : var(--radius_small);
       }
       .hero{
+        margin-top : var(--hero_margin_top_mobile);
+      }
+      .hero .messages{
+        margin : var(--space_small) 0 var(--space_medium);
+      }
+      .group_block{
         grid-template-columns : 1fr;
-        gap                   : var(--hero_gap_mobile);
-        margin-top            : var(--hero_margin_top_mobile);
       }
-      .hero_media{
-        justify-self : center;
-      }
-      .hero_image{
-        max-width : var(--hero_image_max_width_mobile);
+      .group_image{
+        grid-column   : 1;
+        grid-row      : auto;
+        width         : var(--group_image_width);
+        justify-self  : end;
+        margin-top    : var(--space_small);
       }
       .brand_text{
         font-size : var(--brand_text_size_mobile);
@@ -631,33 +746,48 @@
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1>Voice notes that ring.</h1>
+        <h1 class="hero_tagline">span generations</h1>
         <p class="note">
-          StoryCall takes a voice recording from text messaging apps and delivers it to a landline as a normal phone call—then returns the reply to the original message thread.
+          Record a message and text it.
+        </p>
+        <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
+        <div class="hero_messages" aria-hidden="true">
+          <div class="hero_message hero_message_outgoing"></div>
+        </div>
+        <p class="note">
+          At their perferred time of day, the kitchen phone rings.
         </p>
         <p class="note">
-          For example, a grandchild sends a quick voice note in a text thread. The phone rings in a grandparent’s kitchen, they listen and respond, and the reply appears right back in the grandchild's thread.
+          Plays the message records the reply.
+        </p>
+        <div class="hero_messages" aria-hidden="true">
+          <div class="hero_message hero_message_incoming"></div>
+        </div>
+        <p class="note">
+          Reply shows up back in the thread.
+        </p>
+        <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
+        <p class="note">
+          No app.
         </p>
         <p class="note">
-          <b>No new apps, no new habits.</b>
+          No change of habit.
+        </p>
+        <p class="note">
+          Just your voice — spanning distances, time zones, and generations.
+        </p>
+        <p class="note">
+          Text your recording to <b>888-569-6984</b>.
         </p>
 
         <div class="buttons">
-          <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try App</a>
+          <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try It</a>
         </div>
       </div>
 
-      <div class="hero_media">
-        <img
-          class="hero_image"
-          src="images/granny_and_kid.png"
-          alt="A young woman and an older woman smiling while looking at a phone and holding a phone receiver."
-          decoding="async"
-        />
-      </div>
     </div>
 
     <section id="how">
@@ -666,19 +796,21 @@
         <div class="group_block" id="start">
           <h3>How to start</h3>
           <ol>
-            <li>To opt in, text <b>STORYCALL</b> to <b>888-569-6984</b>.</li>
-            <li>You receive a confirmation message.</li>
+            <li>Text <b>STORYCALL</b> to <b>888-569-6984</b> to opt in.</li>
+            <li>Receive a confirmation message.</li>
             <li>Reply with the landline number that should receive your voice recordings.</li>
           </ol>
+          <img class="group_image" src="images/start.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
         </div>
 
         <div class="group_block">
           <h3>How to send a message</h3>
           <ol>
             <li>Record a voice message and text it to <b>888-569-6984</b>.</li>
-            <li>StoryCall schedules a call to the landline (retrying if needed), plays the recording, and records the reply.</li>
-            <li>You receive the reply recording in the same text thread.</li>
+            <li>Your grandparent receives a call to a regular landline (calling back if needed). They hear the recording and reply after the beep.</li>
+            <li>Receive the reply recording in the same text thread.</li>
           </ol>
+          <img class="group_image" src="images/start.png" alt="Screenshot of sending a voice message by text." decoding="async" />
         </div>
 
         <div class="group_block" id="stop">
@@ -686,6 +818,7 @@
           <ol>
             <li>To opt out, text <b>STOP</b> to <b>888-569-6984</b>.</li>
           </ol>
+          <img class="group_image" src="images/start.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
         </div>
       </div>
     </section>

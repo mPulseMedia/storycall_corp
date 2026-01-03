@@ -2,6 +2,8 @@
 Sorted index of names used in this repo (internal names prefer `snake_case`).
 
 ```text
+audio_img_png               : image   : audio message
+
 about                       : section : (#about)
 about_copy                  : class   : about paragraph
 
@@ -78,9 +80,12 @@ form_input_padding_y        : css     : input pad y
 form_textarea_min_height    : css     : css value
 
 granny_and_kid_png          : image   : hero photo
+granny_png                  : image   : granny portrait
 
 group_block                 : class   : grouped sub-block
 group_box                   : class   : grouped box
+group_image                 : class   : how step image
+group_image_width           : css     : how image size
 
 header_padding_y            : css     : header pad y
 
@@ -88,18 +93,38 @@ help                        : section : (#help)
 help_row                    : class   : help grid row
 
 hero                        : class   : hero grid
-hero_columns                : css     : hero grid columns
 hero_copy                   : class   : hero copy col
 hero_gap                    : css     : hero layout
 hero_gap_mobile             : css     : hero layout
-hero_image                  : class   : hero image
-hero_image_aspect_ratio     : css     : hero image ratio
-hero_image_max_width        : css     : hero layout
-hero_image_max_width_mobile : css     : hero layout
-hero_image_object_position  : css     : hero image crop
 hero_margin_top             : css     : hero layout
 hero_margin_top_mobile      : css     : hero layout
-hero_media                  : class   : hero media col
+hero_center_max_width       : css     : hero max width
+hero_tagline                : class   : hero tagline
+hero_text_scale             : css     : hero type scale
+hero_message                : class   : hero message image
+hero_message_border         : css     : hero message border
+hero_message_gap            : css     : hero message spacing
+hero_message_height         : css     : hero message height
+hero_message_incoming       : class   : hero incoming audio
+hero_message_max_width      : css     : hero message width
+hero_message_outgoing       : class   : hero outgoing audio
+hero_message_radius         : css     : hero message radius
+hero_messages               : class   : hero messages stack
+hero_audio_sprite_scale     : css     : hero audio sprite scale
+portrait_border             : css     : portrait border
+portrait_margin             : css     : portrait spacing
+portrait_overhang           : css     : portrait overhang
+portrait_position_y         : css     : portrait crop y
+portrait_size               : css     : portrait size
+portrait_zoom               : css     : portrait zoom
+hero_sprite_scale           : css     : hero sprite scale
+
+hero_portrait               : class   : hero portrait circle
+hero_portrait_float_left    : class   : hero portrait float left
+hero_portrait_float_right   : class   : hero portrait float right
+hero_portrait_granny        : class   : hero granny portrait
+hero_portrait_kid           : class   : hero kid portrait
+kid_png                     : image   : kid portrait
 
 how                         : section : (#how)
 
@@ -108,6 +133,7 @@ index_html                  : file    : landing page
 layer_header                : css     : z header
 
 layout_max_width            : css     : layout sizing
+layout_content_max_width    : css     : layout sizing
 layout_side_padding         : css     : layout side pad
 
 legal                       : section : (#legal)
@@ -180,6 +206,9 @@ space_xlarge                : css     : spacing scale
 space_xsmall                : css     : spacing scale
 
 start                       : section : (#start)
+start_png                   : image   : start screenshot
+
+site_2_0_png                : image   : design mock source
 
 stop                        : section : (#stop)
 
@@ -200,6 +229,7 @@ wood_png                    : image   : wood texture
 wood_tile_size              : css     : wood styling
 
 wrap                        : class   : layout wrapper
+wrap_main                   : class   : main wrapper
 
 year                        : id      : current year
 ```
