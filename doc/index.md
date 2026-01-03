@@ -48,7 +48,6 @@ color_bg_primary            : css
 color_bg_secondary          : css
 color_line                  : css
 color_rgb_black             : css
-color_rgb_wood              : css
 color_rgb_white             : css
 color_text_muted            : css
 color_text_primary          : css
@@ -59,8 +58,6 @@ copy                        : class
 
 cta                         : class
 
-drawer_edge_size            : css
-drawer_shadow_side          : css
 drawer_shadow_top           : css
 
 email                       : field
