@@ -38,15 +38,13 @@
       --font_family_base:           ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_weight_heavy:          900;
       --font_weight_bold:           600;
-      --font_size_title:            56px;
+      --font_weight_regular:        400;
       --font_size_heading:          32px;
       --font_size_body:             20px;
 
       --line_height_base:           1.35;
-      --line_height_title:          1.05;
 
       --letter_spacing_brand:       -.2px;
-      --letter_spacing_title:       -.8px;
       --letter_spacing_h2:          -.3px;
       --letter_spacing_h3:          -.2px;
 
@@ -116,7 +114,6 @@
       --hero_margin_top:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
 
-      --hero_text_scale:            1.24;
       --hero_center_max_width:      var(--layout_content_max_width);
 
       --face_size:                  14.4rem;
@@ -166,6 +163,10 @@
       background  : linear-gradient(180deg, var(--color_bg_primary), var(--color_bg_secondary));
       line-height : var(--line_height_base);
       overflow-x  : hidden;
+    }
+    b, strong{
+      font-size   : inherit;
+      font-weight : var(--font_weight_heavy);
     }
     a{
       color : inherit;
@@ -268,7 +269,7 @@
       max-width : var(--hero_center_max_width);
       margin    : 0 auto;
       text-align: center;
-      font-size : calc(var(--font_size_body) * var(--hero_text_scale));
+      font-size : var(--font_size_body);
     }
     .hero_face{
       position         : relative;
@@ -438,6 +439,9 @@
     }
     .box.group_box{
       background : var(--color_bg_card);
+      overflow   : hidden;
+      margin-left  : calc(-1 * var(--space_medium));
+      margin-right : calc(-1 * var(--space_medium));
     }
     .group_image{
       width         : 70%;
@@ -450,7 +454,7 @@
       margin-left   : auto;
     }
 
-    #start, #stop{
+    #stop{
       scroll-margin-top : var(--scroll_padding_top);
     }
 
@@ -472,9 +476,10 @@
       border-radius : 0;
       padding       : var(--space_medium);
       margin        : 0;
+      font-weight   : var(--font_weight_regular);
     }
-    .faq_group details:first-child summary,
-    .how_group details:first-child summary{
+    .faq_group details:first-of-type summary,
+    .how_group details:first-of-type summary{
       border-top-left-radius  : var(--radius_medium);
       border-top-right-radius : var(--radius_medium);
     }
@@ -490,8 +495,6 @@
     .faq_group details[open],
     .how_group details[open]{
       background : rgba(var(--color_rgb_white),1);
-      border-left  : var(--border_default);
-      border-right : var(--border_default);
       box-shadow : none;
     }
     .faq_group details[open] + details summary,
@@ -694,11 +697,8 @@
       :root{
         --font_size_body:          18px;
         --font_size_heading:       28px;
-        --font_size_title:         46px;
 
         
-
-        --hero_text_scale:         1.16;
 
         --layout_side_padding:     44px;
         --caret_size:             36px;
@@ -765,14 +765,14 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <div class="hero_face hero_face_kid hero_face_float_right" aria-hidden="true"></div>
         <p class="note">
           <b>Convert voice messages to calls, and bridge generations.</b>
         </p>
-        <div class="hero_face hero_face_granny hero_face_float_left" aria-hidden="true"></div>
+        <div class="hero_face hero_face_kid hero_face_float_right" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
+        <div class="hero_face hero_face_granny hero_face_float_left" aria-hidden="true"></div>
         <p class="note">
           First time, we'll ask the number to dial.
         </p>
@@ -794,19 +794,9 @@
     <section id="how">
       <h2>How it works</h2>
       <div class="box group_box how_group">
-        <details id="start">
-          <summary>
-            <span class="summary_text"><b>To start</b>, text the word <b>STORYCALL</b> to <b>888-569-6984</b>.</span>
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <div class="content">
-            <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
-          </div>
-        </details>
-
         <details>
           <summary>
-            <span class="summary_text"><b>To send a message</b>, record a voice message and text it to <b>888-569-6984</b>.</span>
+            <span class="summary_text"><b>To start</b>, record a voice message and text it to 888-569-6984.</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -826,7 +816,7 @@
 
         <details id="stop">
           <summary>
-            <span class="summary_text"><b>To opt out</b>, text <b>STOP</b> to <b>888-569-6984</b>.</span>
+            <span class="summary_text"><b>To opt out</b>, text STOP to 888-569-6984.</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">

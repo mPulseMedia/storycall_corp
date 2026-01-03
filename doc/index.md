@@ -71,6 +71,7 @@ font_size_heading           : css
 font_size_title             : css
 font_weight_bold            : css
 font_weight_heavy           : css
+font_weight_regular         : css
 
 foot                        : class
 
@@ -98,7 +99,6 @@ hero_copy                   : class
 hero_margin_top             : css
 hero_margin_top_mobile      : css
 hero_center_max_width       : css
-hero_text_scale             : css
 face_kid_visible_ratio      : css
 face_margin                 : css
 face_hidden_ratio           : css
@@ -198,7 +198,6 @@ space_small                 : css
 space_xlarge                : css
 space_xsmall                : css
 
-start                       : section
 start_png                   : image
 start_2_png                 : image
 
