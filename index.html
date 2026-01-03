@@ -72,7 +72,6 @@
       /* layout + measure */
       --layout_max_width:           980px;
       --layout_content_max_width:   var(--text_measure_wide);
-      --layout_side_padding_base:   44px;
       --layout_side_padding:        88px;
       --text_measure_wide:          64ch;
 
@@ -124,11 +123,8 @@
       --portrait_border:            2px;
       --portrait_zoom:              175%;
       --portrait_margin:            var(--space_small);
-      --portrait_overhang:
-        calc(
-          (var(--portrait_size) * .4) +
-          (var(--layout_side_padding) - var(--layout_side_padding_base))
-        );
+      --portrait_hidden_ratio:      .4;
+      --portrait_overhang:          calc(var(--layout_side_padding) + (var(--portrait_size) * var(--portrait_hidden_ratio)));
       --portrait_position_y:        45%;
       --portrait_granny_visible_ratio: 1;
       --portrait_kid_visible_ratio: 1;
@@ -686,7 +682,6 @@
         --font_size_heading:    28px;
         --font_size_body:       18px;
 
-        --layout_side_padding_base: 22px;
         --layout_side_padding:  44px;
         --group_image_width:    6.5rem;
         --hero_text_scale:      1.04;
@@ -765,20 +760,17 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1 class="hero_tagline">“voice message to landline”</h1>
+        <h1 class="hero_tagline">messaging to landlines</h1>
         <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
         <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
-          We ring the number you set and play the message.
+          We ring the number you set and play your message.
         </p>
         <p class="note">
-          Then text back a recording of their reply.
-        </p>
-        <p class="note">
-          Reply shows up back in the thread.
+          And text the reply recording to you.
         </p>
         <p class="note">
           No app.
@@ -787,7 +779,7 @@
           No change of habit.
         </p>
         <p class="note">
-          Just your voice — spanning distances, time zones, and generations.
+          Voices spanning generations.
         </p>
         <p class="note">
           Text your firstrecording to <b>888-569-6984</b>.
