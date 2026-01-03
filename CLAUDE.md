@@ -44,7 +44,7 @@ The site is a **static single-page HTML website** with no build process, depende
 - **root term first**: choose the first term so sorted lists cluster related concepts.
   - favor adding a sub-term before creating a new root.
   - use terms users understand (concepts), not programmer-only jargon.
-- **prefix-cluster within a family**: for vars that are meant to “go together”, reuse the same left-side terms so they sit adjacent when sorted/scanned (e.g. `color_background_*`, `form_input_padding_*`).
+- **prefix-cluster within a family**: for vars that are meant to “go together”, reuse the same left-side terms so they sit adjacent when sorted/scanned (e.g. `color_bg_*`, `form_input_padding_*`).
 
 ### css literals → variables (when reasonable)
 

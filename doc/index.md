@@ -42,9 +42,9 @@ claude_md                   : file    : repo rules
 
 cname                       : file    : custom domain
 
-color_background_card       : css     : card bg
-color_background_primary    : css     : bg primary
-color_background_secondary  : css     : bg secondary
+color_bg_card               : css     : card bg
+color_bg_primary            : css     : bg primary
+color_bg_secondary          : css     : bg secondary
 color_line                  : css     : divider color
 color_rgb_black             : css     : rgb tuple
 color_rgb_white             : css     : rgb tuple
@@ -82,7 +82,6 @@ form_textarea_min_height    : css     : css value
 granny_and_kid_png          : image   : hero photo
 granny_png                  : image   : granny portrait
 
-group_block                 : class   : grouped sub-block
 group_box                   : class   : grouped box
 group_image                 : class   : how step image
 
@@ -93,33 +92,31 @@ help_row                    : class   : help grid row
 
 hero                        : class   : hero grid
 hero_copy                   : class   : hero copy col
-hero_gap                    : css     : hero layout
-hero_gap_mobile             : css     : hero layout
 hero_margin_top             : css     : hero layout
 hero_margin_top_mobile      : css     : hero layout
 hero_center_max_width       : css     : hero max width
 hero_text_scale             : css     : hero type scale
-portrait_border             : css     : portrait border
-portrait_kid_visible_ratio  : css     : portrait kid visible ratio
-portrait_margin             : css     : portrait spacing
-portrait_hidden_ratio       : css     : portrait hidden ratio
-portrait_float_offset_y     : css     : portrait float offset y
-portrait_granny_offset_y    : css     : portrait granny offset y
-portrait_granny_visible_ratio : css   : portrait granny visible ratio
-portrait_overhang           : css     : portrait overhang
-portrait_position_y         : css     : portrait crop y
-portrait_shape_radius_boost : css     : portrait wrap boost
-portrait_size               : css     : portrait size
-portrait_zoom               : css     : portrait zoom
+face_kid_visible_ratio      : css     : face kid visible ratio
+face_margin                 : css     : face spacing
+face_hidden_ratio           : css     : face hidden ratio
+face_float_offset_y         : css     : face float offset y
+face_granny_offset_y        : css     : face granny offset y
+face_granny_visible_ratio   : css     : face granny visible ratio
+face_overhang               : css     : face overhang
+face_position_y             : css     : face crop y
+face_shape_radius_boost     : css     : face wrap boost
+face_size                   : css     : face size
+face_zoom                   : css     : face zoom
 
-hero_portrait               : class   : hero portrait circle
-hero_portrait_float_left    : class   : hero portrait float left
-hero_portrait_float_right   : class   : hero portrait float right
-hero_portrait_granny        : class   : hero granny portrait
-hero_portrait_kid           : class   : hero kid portrait
+hero_face                   : class   : hero face circle
+hero_face_float_left        : class   : hero face float left
+hero_face_float_right       : class   : hero face float right
+hero_face_granny            : class   : hero granny face
+hero_face_kid               : class   : hero kid face
 kid_png                     : image   : kid portrait
 
 how                         : section : (#how)
+how_group                   : class   : how group box
 
 index_html                  : file    : landing page
 
@@ -211,7 +208,6 @@ storycall_corp              : name    : repo folder
 storycall_org               : domain  : marketing site
 
 surface_control             : css     : surface tint
-surface_footer              : css     : surface tint
 surface_neutral             : css     : surface tint
 
 terms_effective             : id      : terms effective date

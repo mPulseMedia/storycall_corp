@@ -17,9 +17,9 @@
       --opacity_faint:              .14;
 
       /* base colors */
-      --color_background_primary:   #f3f3f3;
-      --color_background_secondary: #ffffff;
-      --color_background_card:      #ffffff;
+      --color_bg_primary:           #f3f3f3;
+      --color_bg_secondary:         #ffffff;
+      --color_bg_card:              #ffffff;
       --color_text_primary:         #000000;
 
       /* derived colors */
@@ -29,7 +29,6 @@
       /* surfaces */
       --surface_neutral:            rgba(var(--color_rgb_white),var(--opacity_medium));
       --surface_control:            rgba(var(--color_rgb_white),var(--opacity_heavy));
-      --surface_footer:             rgba(var(--color_rgb_white),var(--opacity_light));
 
       /* shadows */
       --shadow_card:                0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
@@ -104,32 +103,31 @@
       --footer_padding_top:         var(--space_large);
       --footer_padding_bottom:      var(--space_xlarge);
 
+      --caret_size:                44px;
+
       --brand_text_size:            46px;
       --brand_text_size_mobile:     36px;
 
       /* how group */
 
       /* hero */
-      --hero_gap:                    var(--space_large);
       --hero_margin_top:             var(--space_medium);
-      --hero_gap_mobile:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
 
       --hero_text_scale:            1.24;
       --hero_center_max_width:      var(--layout_content_max_width);
 
-      --portrait_size:              14.4rem;
-      --portrait_border:            2px;
-      --portrait_zoom:              175%;
-      --portrait_margin:            var(--space_small);
-      --portrait_hidden_ratio:      .4;
-      --portrait_overhang:          calc(var(--layout_side_padding) + (var(--portrait_size) * var(--portrait_hidden_ratio)));
-      --portrait_position_y:        45%;
-      --portrait_granny_visible_ratio: 1;
-      --portrait_kid_visible_ratio: 1;
-      --portrait_granny_offset_y:   calc(-1 * var(--space_small));
-      --portrait_float_offset_y:    calc(-1 * var(--space_xsmall));
-      --portrait_shape_radius_boost: 10px;
+      --face_size:                  14.4rem;
+      --face_zoom:                  175%;
+      --face_margin:                var(--space_small);
+      --face_hidden_ratio:          .4;
+      --face_overhang:              calc(var(--layout_side_padding) + (var(--face_size) * var(--face_hidden_ratio)));
+      --face_position_y:            45%;
+      --face_granny_visible_ratio:  1;
+      --face_kid_visible_ratio:     1;
+      --face_granny_offset_y:       calc(-1 * var(--space_small));
+      --face_float_offset_y:        calc(-1 * var(--space_xsmall));
+      --face_shape_radius_boost:    10px;
 
 
       /* assets */
@@ -163,7 +161,7 @@
       font-family : var(--font_family_base);
       font-size   : var(--font_size_body);
       color       : var(--color_text_primary);
-      background  : linear-gradient(180deg, var(--color_background_primary), var(--color_background_secondary));
+      background  : linear-gradient(180deg, var(--color_bg_primary), var(--color_bg_secondary));
       line-height : var(--line_height_base);
       overflow-x  : hidden;
     }
@@ -270,84 +268,84 @@
       text-align: center;
       font-size : calc(var(--font_size_body) * var(--hero_text_scale));
     }
-    .hero_portrait{
+    .hero_face{
       position         : relative;
-      width            : var(--portrait_size);
-      height           : var(--portrait_size);
+      width            : var(--face_size);
+      height           : var(--face_size);
       border-radius    : 50%;
       border           : 1px solid rgba(var(--color_rgb_white),1);
       background-color : rgba(var(--color_rgb_white),1);
       background-repeat: no-repeat;
-      background-position : 50% var(--portrait_position_y);
-      background-size  : var(--portrait_zoom);
+      background-position : 50% var(--face_position_y);
+      background-size  : var(--face_zoom);
       box-shadow       : var(--shadow_soft);
       display          : block;
     }
-    .hero_portrait_kid{
-      width          : calc(var(--portrait_size) * var(--portrait_kid_visible_ratio));
+    .hero_face_kid{
+      width          : calc(var(--face_size) * var(--face_kid_visible_ratio));
       border         : none;
       border-radius  : 0;
       background     : transparent;
       box-shadow     : none;
       overflow       : hidden;
     }
-    .hero_portrait_kid::before{
+    .hero_face_kid::before{
       content            : "";
       position           : absolute;
       top                : 0;
       left               : 0;
-      width              : var(--portrait_size);
-      height             : var(--portrait_size);
+      width              : var(--face_size);
+      height             : var(--face_size);
       border-radius      : 50%;
       border             : 1px solid rgba(var(--color_rgb_white),1);
       background-color   : rgba(var(--color_rgb_white),1);
       background-image   : url("images/kid.png");
       background-repeat  : no-repeat;
-      background-position: 50% var(--portrait_position_y);
-      background-size    : var(--portrait_zoom);
+      background-position: 50% var(--face_position_y);
+      background-size    : var(--face_zoom);
       box-shadow         : var(--shadow_soft);
     }
-    .hero_portrait_granny{
-      width          : calc(var(--portrait_size) * var(--portrait_granny_visible_ratio));
+    .hero_face_granny{
+      width          : calc(var(--face_size) * var(--face_granny_visible_ratio));
       border         : none;
       border-radius  : 0;
       background     : transparent;
       box-shadow     : none;
       overflow       : hidden;
     }
-    .hero_portrait_granny::before{
+    .hero_face_granny::before{
       content            : "";
       position           : absolute;
       top                : 0;
-      left               : calc(-1 * var(--portrait_size) * (1 - var(--portrait_granny_visible_ratio)));
-      width              : var(--portrait_size);
-      height             : var(--portrait_size);
+      left               : calc(-1 * var(--face_size) * (1 - var(--face_granny_visible_ratio)));
+      width              : var(--face_size);
+      height             : var(--face_size);
       border-radius      : 50%;
       border             : 1px solid rgba(var(--color_rgb_white),1);
       background-color   : rgba(var(--color_rgb_white),1);
       background-image   : url("images/granny.png");
       background-repeat  : no-repeat;
-      background-position: 50% var(--portrait_position_y);
-      background-size    : var(--portrait_zoom);
+      background-position: 50% var(--face_position_y);
+      background-size    : var(--face_zoom);
       box-shadow         : var(--shadow_soft);
     }
-    .hero_portrait_float_right{
+    .hero_face_float_right{
       float        : right;
-      margin       : var(--portrait_float_offset_y) calc(-1 * var(--portrait_overhang)) var(--portrait_margin) var(--portrait_margin);
-      shape-outside: circle(calc(50% + var(--portrait_shape_radius_boost)));
-      shape-margin : var(--portrait_margin);
+      margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_margin);
+      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
+      shape-margin : var(--face_margin);
       clip-path    : circle(50%);
     }
-    .hero_portrait_float_left{
+    .hero_face_float_left{
       float        : left;
-      margin       : var(--portrait_float_offset_y) var(--portrait_margin) var(--portrait_margin) calc(-1 * var(--portrait_overhang));
-      shape-outside: circle(calc(50% + var(--portrait_shape_radius_boost)));
-      shape-margin : var(--portrait_margin);
+      margin       : var(--face_float_offset_y) var(--face_margin) var(--face_margin) calc(-1 * var(--face_overhang));
+      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
+      shape-margin : var(--face_margin);
       clip-path    : circle(50%);
       clear        : both;
     }
-    .hero_portrait_granny.hero_portrait_float_left{
-      margin-top : var(--portrait_granny_offset_y);
+    .hero_face_granny.hero_face_float_left{
+      margin-top : var(--face_granny_offset_y);
     }
     .hero_copy::after{
       content : "";
@@ -437,13 +435,7 @@
       padding : 0;
     }
     .box.group_box{
-      background : var(--color_background_card);
-    }
-    .group_block{
-      padding        : var(--space_medium);
-      display        : flex;
-      flex-direction : column;
-      gap            : var(--space_small);
+      background : var(--color_bg_card);
     }
     .group_image{
       width         : 70%;
@@ -452,22 +444,16 @@
       border        : none;
       box-shadow    : none;
       background    : transparent;
-    }
-    .group_block + .group_block{
-      border-top : var(--border_default);
-    }
-    .group_box h3{
-      margin : 0 0 var(--space_small);
-    }
-    .group_block .note{
-      margin : var(--space_small) 0 0;
+      display       : block;
+      margin-left   : auto;
     }
 
     #start, #stop{
       scroll-margin-top : var(--scroll_padding_top);
     }
 
-    .faq_group details{
+    .faq_group details,
+    .how_group details{
       border        : none;
       border-radius : 0;
       background    : transparent;
@@ -475,19 +461,35 @@
       padding       : 0;
       margin        : 0;
     }
-    .faq_group details + details{
+    .faq_group details + details,
+    .how_group details + details{
       border-top : var(--border_default);
     }
-    .faq_group summary{
+    .faq_group summary,
+    .how_group summary{
       border-radius : 0;
       padding       : var(--space_medium);
       margin        : 0;
     }
-    .faq_group details:hover{
+    .faq_group details:not([open]) summary,
+    .how_group details:not([open]) summary{
+      background : transparent;
+    }
+    .faq_group details:hover,
+    .how_group details:hover{
       box-shadow : none;
       transform  : none;
     }
-    .faq_group details .content{
+    .faq_group details[open],
+    .how_group details[open]{
+      background : rgba(var(--color_rgb_black),var(--opacity_faint));
+    }
+    .faq_group details[open] summary,
+    .how_group details[open] summary{
+      background : rgba(var(--color_rgb_black),var(--opacity_faint));
+    }
+    .faq_group details .content,
+    .how_group details .content{
       margin-top : 0;
       padding    : 0 var(--space_medium) var(--space_medium);
     }
@@ -514,8 +516,12 @@
       list-style    : none;
       display       : flex;
       align-items   : center;
-      justify-content : space-between;
+      justify-content : flex-start;
       gap           : var(--space_medium);
+    }
+    .summary_text{
+      flex      : 1 1 auto;
+      min-width : 0;
     }
     details:hover{
       border-color : rgba(var(--color_rgb_black),var(--opacity_light));
@@ -529,8 +535,8 @@
       display : none;
     }
     .caret{
-      width         : var(--layout_side_padding);
-      height        : var(--layout_side_padding);
+      width         : var(--caret_size);
+      height        : var(--caret_size);
       border-radius : var(--radius_small);
       border        : var(--border_default);
       background    : rgba(var(--color_rgb_white),var(--opacity_medium));
@@ -538,6 +544,7 @@
       place-items   : center;
       color         : var(--color_text_muted);
       flex          : 0 0 auto;
+      margin-left   : auto;
       transition    : var(--motion_duration_fast) ease;
       font-weight   : var(--font_weight_heavy);
     }
@@ -675,7 +682,7 @@
 
         --main_padding_bottom:     var(--main_padding_bottom_mobile);
 
-        --portrait_size:           12rem;
+        --face_size:               12rem;
 
         --scroll_padding_top:      var(--scroll_padding_top_mobile);
       }
@@ -735,24 +742,25 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
+        <div class="hero_face hero_face_kid hero_face_float_right" aria-hidden="true"></div>
         <p class="note">
           <b>Convert voice messages to calls, and bridge generations.</b>
         </p>
-        <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
+        <div class="hero_face hero_face_granny hero_face_float_left" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
-        <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
           First time, we'll ask the number to dial.
-        </p>        <p class="note">
+        </p>
+        <p class="note">
           From then on, we'll ring that number at a convenient time, and play your recordings.
         </p>
         <p class="note">
-          You get recordings of the replies in the same thread.
+          Recordings of the replies come back in the same thread.
         </p>
         <p class="note">
-          No new app -- voice messages spanning generations.
+          No new app -- just voice messages spanning generations.
         </p>
         <p class="note">
           <b>Try it.</b> Text your first recording to <b>888-569-6984.</b>
@@ -762,34 +770,46 @@
 
     <section id="how">
       <h2>How it works</h2>
-      <div class="box group_box">
-        <div class="group_block" id="start">
-          <p class="note">
-            <b>To start</b>, text the word <b>STORYCALL</b> to <b>888-569-6984</b>.
-          </p>
-          <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
-        </div>
+      <div class="box group_box how_group">
+        <details id="start">
+          <summary>
+            <span class="summary_text"><b>To start</b>, text the word <b>STORYCALL</b> to <b>888-569-6984</b>.</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STORYCALL to opt in." decoding="async" />
+          </div>
+        </details>
 
-        <div class="group_block">
-          <p class="note">
-            <b>To send a message</b>, record a voice message and text it to <b>888-569-6984</b>.
-          </p>
-          <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
-        </div>
+        <details>
+          <summary>
+            <span class="summary_text"><b>To send a message</b>, record a voice message and text it to <b>888-569-6984</b>.</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
+          </div>
+        </details>
 
-        <div class="group_block">
-          <p class="note">
-            <b>First time</b>, we'll ask you the landline number to call.
-          </p>
-          <img class="group_image" src="images/start_2.png" alt="Screenshot of confirming the landline number." decoding="async" />
-        </div>
+        <details>
+          <summary>
+            <span class="summary_text"><b>First time</b>, we'll ask you the landline number to call.</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <img class="group_image" src="images/start_2.png" alt="Screenshot of confirming the landline number." decoding="async" />
+          </div>
+        </details>
 
-        <div class="group_block" id="stop">
-          <p class="note">
-            <b>To opt out</b>, text <b>STOP</b> to <b>888-569-6984</b>.
-          </p>
-          <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
-        </div>
+        <details id="stop">
+          <summary>
+            <span class="summary_text"><b>To opt out</b>, text <b>STOP</b> to <b>888-569-6984</b>.</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
+          </div>
+        </details>
       </div>
     </section>
 
@@ -799,7 +819,7 @@
 
         <details>
           <summary>
-            Is this landline-friendly?
+            <span class="summary_text">Is this <b>landline-friendly</b>?</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -809,7 +829,7 @@
         
         <details>
           <summary>
-            Does the landline user install anything?
+            <span class="summary_text">Does the landline user <b>install</b> anything?</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -819,7 +839,7 @@
 
         <details>
           <summary>
-            How do you stop?
+            <span class="summary_text">How do you <b>stop</b>?</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -829,7 +849,7 @@
 
         <details>
           <summary>
-            Where can I see it in action?
+            <span class="summary_text">Where can I <b>see it in action</b>?</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
