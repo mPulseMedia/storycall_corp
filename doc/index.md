@@ -99,6 +99,7 @@ hero_copy                   : class
 hero_margin_top             : css
 hero_margin_top_mobile      : css
 hero_center_max_width       : css
+
 face_kid_visible_ratio      : css
 face_margin                 : css
 face_hidden_ratio           : css
