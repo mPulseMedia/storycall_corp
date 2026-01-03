@@ -104,6 +104,8 @@ hero_text_scale             : css     : hero type scale
 portrait_border             : css     : portrait border
 portrait_kid_visible_ratio  : css     : portrait kid visible ratio
 portrait_margin             : css     : portrait spacing
+portrait_hidden_ratio       : css     : portrait hidden ratio
+portrait_granny_offset_y    : css     : portrait granny offset y
 portrait_granny_visible_ratio : css   : portrait granny visible ratio
 portrait_overhang           : css     : portrait overhang
 portrait_position_y         : css     : portrait crop y
@@ -127,7 +129,6 @@ layer_header                : css     : z header
 layout_max_width            : css     : layout sizing
 layout_content_max_width    : css     : layout sizing
 layout_side_padding         : css     : layout side pad
-layout_side_padding_base    : css     : layout pad base
 
 legal                       : section : (#legal)
 legal_meta                  : class   : legal pills row

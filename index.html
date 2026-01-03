@@ -116,7 +116,7 @@
       --hero_gap_mobile:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
 
-      --hero_text_scale:            1.08;
+      --hero_text_scale:            1.24;
       --hero_center_max_width:      var(--layout_content_max_width);
 
       --portrait_size:              14.4rem;
@@ -128,6 +128,7 @@
       --portrait_position_y:        45%;
       --portrait_granny_visible_ratio: 1;
       --portrait_kid_visible_ratio: 1;
+      --portrait_granny_offset_y:   calc(-1 * var(--space_small));
 
       --hero_message_max_width:      9rem;
       --hero_message_gap:            var(--space_small);
@@ -277,7 +278,7 @@
       margin         : 0 0 var(--space_large);
       font-family    : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
       font-weight    : var(--font_weight_heavy);
-      font-size      : 1.55em;
+      font-size      : 1.42em;
       line-height    : 1;
       letter-spacing : 0;
       color          : rgba(var(--color_rgb_black),var(--opacity_medium));
@@ -357,6 +358,9 @@
       shape-margin : var(--portrait_margin);
       clip-path    : circle(50%);
       clear        : both;
+    }
+    .hero_portrait_granny.hero_portrait_float_left{
+      margin-top : var(--portrait_granny_offset_y);
     }
     .hero_copy::after{
       content : "";
@@ -678,18 +682,22 @@
 
     @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
       :root{
-        --font_size_title:      46px;
-        --font_size_heading:    28px;
-        --font_size_body:       18px;
+        --font_size_body:          18px;
+        --font_size_heading:       28px;
+        --font_size_title:         46px;
 
-        --layout_side_padding:  44px;
-        --group_image_width:    6.5rem;
-        --hero_text_scale:      1.04;
-        --portrait_size:        12rem;
-        --hero_message_max_width: 7.5rem;
+        --group_image_width:       6.5rem;
 
-        --scroll_padding_top:   var(--scroll_padding_top_mobile);
-        --main_padding_bottom:  var(--main_padding_bottom_mobile);
+        --hero_message_max_width:  7.5rem;
+        --hero_text_scale:         1.16;
+
+        --layout_side_padding:     44px;
+
+        --main_padding_bottom:     var(--main_padding_bottom_mobile);
+
+        --portrait_size:           12rem;
+
+        --scroll_padding_top:      var(--scroll_padding_top_mobile);
       }
       .bar{
         padding : var(--space_small) 0;
@@ -760,35 +768,27 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1 class="hero_tagline">messaging to landlines</h1>
+        <h1 class="hero_tagline">message landlines</h1>
         <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <p class="note">
           Record a message, and text it to us.
         </p>
         <div class="hero_portrait hero_portrait_granny hero_portrait_float_left" aria-hidden="true"></div>
         <p class="note">
-          We ring the number you set and play your message.
+          We'll ring the number you say, and play your messages.
         </p>
         <p class="note">
-          And text the reply recording to you.
+          Then text the recording of their reply back to you.
         </p>
         <p class="note">
-          No app.
+          No new app.
         </p>
         <p class="note">
-          No change of habit.
+          Just voices spanning generations.
         </p>
         <p class="note">
-          Voices spanning generations.
+          Try it. Text your first recording to <b>888-569-6984</b>.
         </p>
-        <p class="note">
-          Text your firstrecording to <b>888-569-6984</b>.
-        </p>
-
-        <div class="buttons">
-          <a class="btn primary" href="https://app.storycall.org" target="_blank" rel="noopener noreferrer">Try It</a>
-        </div>
-      </div>
 
     </div>
 
