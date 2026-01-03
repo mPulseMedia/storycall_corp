@@ -104,15 +104,18 @@ hero_text_scale             : css     : hero type scale
 hero_message                : class   : hero message image
 hero_message_border         : css     : hero message border
 hero_message_gap            : css     : hero message spacing
-hero_message_height         : css     : hero message height
+hero_audio_crop_bottom      : css     : hero audio crop
+hero_audio_crop_left        : css     : hero audio crop
+hero_audio_crop_right       : css     : hero audio crop
+hero_audio_crop_top         : css     : hero audio crop
 hero_message_incoming       : class   : hero incoming audio
 hero_message_max_width      : css     : hero message width
 hero_message_outgoing       : class   : hero outgoing audio
 hero_message_radius         : css     : hero message radius
 hero_messages               : class   : hero messages stack
-hero_audio_sprite_scale     : css     : hero audio sprite scale
 portrait_border             : css     : portrait border
 portrait_margin             : css     : portrait spacing
+portrait_granny_visible_ratio : css   : portrait granny visible ratio
 portrait_overhang           : css     : portrait overhang
 portrait_position_y         : css     : portrait crop y
 portrait_size               : css     : portrait size

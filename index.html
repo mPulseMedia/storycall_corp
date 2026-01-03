@@ -104,8 +104,8 @@
       --footer_padding_top:         var(--space_large);
       --footer_padding_bottom:      var(--space_xlarge);
 
-      --brand_text_size:            38px;
-      --brand_text_size_mobile:     30px;
+      --brand_text_size:            46px;
+      --brand_text_size_mobile:     36px;
 
       /* how group */
       --group_image_width:          7rem;
@@ -116,24 +116,28 @@
       --hero_gap_mobile:             var(--space_medium);
       --hero_margin_top_mobile:      var(--space_small);
 
-      --hero_text_scale:            1.2;
+      --hero_text_scale:            1.08;
       --hero_center_max_width:      var(--layout_content_max_width);
 
       --portrait_size:              9rem;
       --portrait_border:            2px;
       --portrait_zoom:              175%;
       --portrait_margin:            var(--space_small);
-      --portrait_overhang:          calc(var(--portrait_size) / 3);
+      --portrait_overhang:          min(calc(var(--portrait_size) / 3), var(--layout_side_padding));
       --portrait_position_y:        45%;
+      --portrait_granny_visible_ratio: .67;
+      --portrait_kid_visible_ratio: .67;
 
       --hero_message_max_width:      9rem;
-      --hero_message_height:         1.75rem;
       --hero_message_gap:            var(--space_small);
       --hero_message_border:         1px solid rgba(var(--color_rgb_black),var(--opacity_faint));
       --hero_message_radius:         16px;
 
       --hero_sprite_scale:           230%;
-      --hero_audio_sprite_scale:     180%;
+      --hero_audio_crop_top:         0px;
+      --hero_audio_crop_right:       0px;
+      --hero_audio_crop_bottom:      0px;
+      --hero_audio_crop_left:        0px;
 
       /* assets */
       --wood_tile_size:             520px 110px;
@@ -275,12 +279,13 @@
       margin         : 0 0 var(--space_large);
       font-family    : "Snell Roundhand", "Apple Chancery", "Brush Script MT", "Segoe Script", cursive;
       font-weight    : var(--font_weight_heavy);
-      font-size      : 2.4em;
+      font-size      : 1.55em;
       line-height    : 1;
       letter-spacing : 0;
       color          : rgba(var(--color_rgb_black),var(--opacity_medium));
     }
     .hero_portrait{
+      position         : relative;
       width            : var(--portrait_size);
       height           : var(--portrait_size);
       border-radius    : 50%;
@@ -293,10 +298,52 @@
       display          : block;
     }
     .hero_portrait_kid{
-      background-image : url("images/kid.png");
+      width          : calc(var(--portrait_size) * var(--portrait_kid_visible_ratio));
+      border         : none;
+      border-radius  : 0;
+      background     : transparent;
+      box-shadow     : none;
+      overflow       : hidden;
+    }
+    .hero_portrait_kid::before{
+      content            : "";
+      position           : absolute;
+      top                : 0;
+      left               : 0;
+      width              : var(--portrait_size);
+      height             : var(--portrait_size);
+      border-radius      : 50%;
+      border             : 1px solid rgba(var(--color_rgb_white),1);
+      background-color   : rgba(var(--color_rgb_white),1);
+      background-image   : url("images/kid.png");
+      background-repeat  : no-repeat;
+      background-position: 50% var(--portrait_position_y);
+      background-size    : var(--portrait_zoom);
+      box-shadow         : var(--shadow_soft);
     }
     .hero_portrait_granny{
-      background-image : url("images/granny.png");
+      width          : calc(var(--portrait_size) * var(--portrait_granny_visible_ratio));
+      border         : none;
+      border-radius  : 0;
+      background     : transparent;
+      box-shadow     : none;
+      overflow       : hidden;
+    }
+    .hero_portrait_granny::before{
+      content            : "";
+      position           : absolute;
+      top                : 0;
+      left               : calc(-1 * var(--portrait_size) * (1 - var(--portrait_granny_visible_ratio)));
+      width              : var(--portrait_size);
+      height             : var(--portrait_size);
+      border-radius      : 50%;
+      border             : 1px solid rgba(var(--color_rgb_white),1);
+      background-color   : rgba(var(--color_rgb_white),1);
+      background-image   : url("images/granny.png");
+      background-repeat  : no-repeat;
+      background-position: 50% var(--portrait_position_y);
+      background-size    : var(--portrait_zoom);
+      box-shadow         : var(--shadow_soft);
     }
     .hero_portrait_float_right{
       float        : right;
@@ -313,6 +360,14 @@
       clip-path    : circle(50%);
       clear        : both;
     }
+    .hero_portrait_granny.hero_portrait_float_left{
+      shape-outside: inset(0 0 0 0);
+      clip-path    : none;
+    }
+    .hero_portrait_kid.hero_portrait_float_right{
+      shape-outside: inset(0 0 0 0);
+      clip-path    : none;
+    }
     .hero_copy::after{
       content : "";
       display : block;
@@ -325,31 +380,29 @@
       margin         : var(--space_small) auto var(--space_medium);
     }
     .hero_message{
-      width            : 100%;
-      height           : var(--hero_message_height);
-      border           : var(--hero_message_border);
-      border-radius    : var(--hero_message_radius);
-      background       : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      background-repeat: no-repeat;
-      background-size  : var(--hero_sprite_scale) auto;
-      position         : relative;
-      margin           : 0 auto;
+      display   : block;
+      width     : 100%;
+      height    : auto;
     }
     .hero_message_outgoing{
       justify-self       : end;
-      background-image   : url("images/audio_img.png");
-      background-size    : var(--hero_audio_sprite_scale) auto;
-      background-position: 50% 52%;
-      border             : none;
-      background-color   : transparent;
+      clip-path :
+        inset(
+          var(--hero_audio_crop_top)
+          var(--hero_audio_crop_right)
+          var(--hero_audio_crop_bottom)
+          var(--hero_audio_crop_left)
+        );
     }
     .hero_message_incoming{
       justify-self       : start;
-      background-image   : url("images/audio_img.png");
-      background-size    : var(--hero_audio_sprite_scale) auto;
-      background-position: 50% 52%;
-      border             : none;
-      background-color   : transparent;
+      clip-path :
+        inset(
+          var(--hero_audio_crop_top)
+          var(--hero_audio_crop_right)
+          var(--hero_audio_crop_bottom)
+          var(--hero_audio_crop_left)
+        );
     }
     .note{
       margin     : 0 0 var(--space_medium);
@@ -672,10 +725,9 @@
 
         --layout_side_padding:  18px;
         --group_image_width:    6.5rem;
-        --hero_text_scale:      1.14;
+        --hero_text_scale:      1.04;
         --portrait_size:        7.5rem;
         --hero_message_max_width: 7.5rem;
-        --hero_message_height:    1.6rem;
 
         --scroll_padding_top:   var(--scroll_padding_top_mobile);
         --main_padding_bottom:  var(--main_padding_bottom_mobile);
@@ -749,22 +801,25 @@
   <main class="wrap wrap_main">
     <div class="hero">
       <div class="hero_copy">
-        <h1 class="hero_tagline">span generations</h1>
+        <h1 class="hero_tagline">connect how you both like</h1>
         <p class="note">
-          Record a message and text it.
+          Record a message, and text it to us.
+        </p>
+        <p class="note">
+          First time, text us the number to reach.
         </p>
         <div class="hero_portrait hero_portrait_kid hero_portrait_float_right" aria-hidden="true"></div>
         <div class="hero_messages" aria-hidden="true">
-          <div class="hero_message hero_message_outgoing"></div>
+          <img class="hero_message hero_message_outgoing" src="images/audio_img.png" alt="" decoding="async" />
         </div>
         <p class="note">
-          At their perferred time of day, the kitchen phone rings.
+          We ring their landline — at their perferred time of day
         </p>
         <p class="note">
           Plays the message records the reply.
         </p>
         <div class="hero_messages" aria-hidden="true">
-          <div class="hero_message hero_message_incoming"></div>
+          <img class="hero_message hero_message_incoming" src="images/audio_img.png" alt="" decoding="async" />
         </div>
         <p class="note">
           Reply shows up back in the thread.
