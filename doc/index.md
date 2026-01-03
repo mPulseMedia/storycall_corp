@@ -184,6 +184,7 @@ shadow_soft                 : css
 
 small                       : class
 sms_link                    : class
+sms_compose                 : class
 
 space_large                 : css
 space_medium                : css

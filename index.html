@@ -476,6 +476,10 @@
       font-weight   : var(--font_weight_regular);
       background    : rgba(var(--color_rgb_white),1);
     }
+    .faq_group summary b,
+    .how_group summary b{
+      font-weight : inherit;
+    }
     .faq_group details:first-of-type summary,
     .how_group details:first-of-type summary{
       border-top-left-radius  : var(--radius_medium);
@@ -506,6 +510,7 @@
       background    : rgba(var(--color_rgb_white),1);
       position      : relative;
       z-index       : 1;
+      font-weight   : var(--font_weight_heavy);
     }
     .faq_group details .content,
     .how_group details .content{
@@ -744,6 +749,9 @@
           <div class="content">
             <p>Record a voice message and text it to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</p>
             <img class="group_image" src="images/start_2.png" alt="Screenshot of sending a voice message by text." decoding="async" />
+            <div class="buttons">
+              <a class="btn primary sms_compose" href="sms:+18885696984">Make Text</a>
+            </div>
           </div>
         </details>
 
@@ -764,8 +772,11 @@
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <p>Text STOP to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</p>
+            <p>Text STOP to <a class="sms_link sms_compose" data_sms_body="STOP" href="sms:+18885696984">888-569-6984</a>.</p>
             <img class="group_image" src="images/start_2.png" alt="Screenshot of texting STOP to opt out." decoding="async" />
+            <div class="buttons">
+              <a class="btn primary sms_compose" data_sms_body="STOP" href="sms:+18885696984">Write STOP text</a>
+            </div>
           </div>
         </details>
       </div>
@@ -888,6 +899,37 @@
           if (new_window) new_window.opener = null;
           ev.preventDefault();
         });
+      }
+    })();
+
+    // Ensure sms: links with a drafted body work reliably across mobile platforms.
+    (function(){
+      const sms_compose_links = document.querySelectorAll("a.sms_compose");
+      if (!sms_compose_links.length) return;
+
+      function sms_href(number, body){
+        const normalized_number = number.replace(/\s+/g, "");
+        if (!body) return `sms:${normalized_number}`;
+        const encoded_body = encodeURIComponent(body);
+        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        return is_ios
+          ? `sms:${normalized_number}&body=${encoded_body}`
+          : `sms:${normalized_number}?body=${encoded_body}`;
+      }
+
+      function sync_href(link_el){
+        const base = link_el.getAttribute("href") || "";
+        const number_match = base.match(/sms:([+0-9]+)/i);
+        const number = number_match ? number_match[1] : "+18885696984";
+        const body = (link_el.getAttribute("data_sms_body") || "").trim();
+        link_el.setAttribute("href", sms_href(number, body));
+      }
+
+      for (let link_idx = 0; link_idx < sms_compose_links.length; link_idx++) {
+        const link_el = sms_compose_links[link_idx];
+        link_el.addEventListener("pointerdown", function(){ sync_href(link_el); });
+        link_el.addEventListener("touchstart", function(){ sync_href(link_el); }, { passive: true });
+        link_el.addEventListener("click", function(){ sync_href(link_el); });
       }
     })();
 
