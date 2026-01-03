@@ -191,6 +191,7 @@ shadow_card                 : css
 shadow_soft                 : css
 
 small                       : class
+sms_link                    : class
 
 space_large                 : css
 space_medium                : css

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport"    content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="StoryCall privacy policy." />
   <title>StoryCall — Privacy Policy</title>
   <style>
@@ -19,7 +20,6 @@
       /* base colors */
       --color_bg_primary:           #f3f3f3;
       --color_bg_secondary:         #ffffff;
-      --color_bg_card:              #ffffff;
       --color_text_primary:         #000000;
 
       /* derived colors */
@@ -32,7 +32,6 @@
 
       /* shadows */
       --shadow_card:                0 14px 40px rgba(var(--color_rgb_black),var(--opacity_faint));
-      --shadow_soft:                0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
 
       /* typography */
       --font_family_base:           ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -54,7 +53,6 @@
       --space_large:                26px;
       --space_xlarge:               40px;
 
-      --radius_small:               14px;
       --radius_medium:              18px;
       --radius_pill:                999px;
 
@@ -84,7 +82,6 @@
       --border_transparent:         1px solid transparent;
 
       /* motion */
-      --motion_duration_fast:       .15s;
 
       /* layering */
       --layer_header:               10;
@@ -113,6 +110,9 @@
     }
     a{
       color : inherit;
+    }
+    a.sms_link{
+      text-decoration : none;
     }
     .wrap{
       max-width : var(--layout_max_width);
@@ -412,7 +412,7 @@
   
         <p><b>8. Your Choices and Rights</b></p>
         <ul>
-          <li><b>Opt-out (Recipients):</b> Recipients can stop future calls by texting <b>STOP</b> to <b>888-569-6984</b> at any time.</li>
+          <li><b>Opt-out (Recipients):</b> Recipients can stop future calls by texting <b>STOP</b> to <a class="sms_link" href="sms:+18885696984"><b>888-569-6984</b></a> at any time.</li>
           <li><b>Access/correction:</b> You may request access to or correction of your account information.</li>
           <li><b>Deletion:</b> You may request deletion of your account and associated Content, subject to retention needs.</li>
           <li><b>Export:</b> You may request an export of your Content where feasible.</li>

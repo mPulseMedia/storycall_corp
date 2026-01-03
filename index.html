@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport"    content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="StoryCall forwards a voice recording from text/SMS and other messaging apps to a landline as a normal phone call—then returns the reply to the same text thread." />
   <title>StoryCall — Exchange voice recordings with a landline</title>
   <style>
@@ -168,6 +169,9 @@
     }
     a{
       color : inherit;
+    }
+    a.sms_link{
+      text-decoration : none;
     }
     .wrap{
       max-width : var(--layout_max_width);
@@ -591,21 +595,6 @@
     details .content .small{
       color  : var(--color_text_muted);
     }
-    .legal_meta{
-      display    : flex;
-      gap        : var(--space_small);
-      flex-wrap  : wrap;
-      margin-top : var(--space_small);
-      color      : var(--color_text_muted);
-    }
-    .pill{
-      display       : inline-block;
-      padding       : var(--space_micro) var(--space_small);
-      border-radius : var(--radius_pill);
-      border        : var(--border_default);
-      background    : var(--surface_neutral);
-      font-weight   : var(--font_weight_bold);
-    }
 
     form{
       display    : grid;
@@ -642,10 +631,6 @@
       .help_row{
         grid-template-columns : 1fr;
       }
-    }
-    .small{
-      color      : var(--color_text_muted);
-      margin-top : var(--space_xsmall);
     }
     .about_copy{
       margin : 0;
@@ -784,7 +769,7 @@
           No new app -- just voice messages bridging generations.
         </p>
         <p class="note">
-          <b>Try it.</b> Text your first recording to <b>888-569-6984.</b>
+          <b>Try it.</b> Text your first recording to <a class="sms_link" href="sms:+18885696984"><b>888-569-6984</b></a>.
         </p>
       </div>
     </div>
@@ -794,7 +779,7 @@
       <div class="box group_box how_group">
         <details>
           <summary>
-            <span class="summary_text"><b>To start</b>, record a voice message and text it to 888-569-6984.</span>
+            <span class="summary_text"><b>To start</b>, record a voice message and text it to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
@@ -814,7 +799,7 @@
 
         <details id="stop">
           <summary>
-            <span class="summary_text"><b>To opt out</b>, text STOP to 888-569-6984.</span>
+            <span class="summary_text"><b>To opt out</b>, text STOP to <a class="sms_link" href="sms:+18885696984">888-569-6984</a>.</span>
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
