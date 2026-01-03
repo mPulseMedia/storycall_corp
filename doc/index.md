@@ -2,228 +2,233 @@
 Sorted index of names used in this repo (internal names prefer `snake_case`).
 
 ```text
-audio_img_png               : image   : audio message
+audio_img_png               : image
 
-about                       : section : (#about)
-about_copy                  : class   : about paragraph
+about                       : section
+about_copy                  : class
 
-app_storycall_org           : domain  : app link
+app_storycall_org           : domain
 
-back                        : class   : back link
+back                        : class
 
-bar                         : class   : header bar row
+bar                         : class
 
-border_default              : css     : border default
-border_transparent          : css     : border transparent
+border_default              : css
+border_transparent          : css
 
-box                         : class   : card container
+box                         : class
 
-brand                       : class   : brand link
-brand_text                  : class   : wordmark text
-brand_text_shadow           : css     : wordmark shadow
-brand_text_size             : css     : wordmark size
-brand_text_size_mobile      : css     : wordmark size mobile
+brand                       : class
+brand_text                  : class
+brand_text_shadow           : css
+brand_text_size             : css
+brand_text_size_mobile      : css
 
-breakpoint_help             : css     : breakpoint help stack
-breakpoint_mobile           : css     : breakpoint mobile
-breakpoint_nav              : css     : breakpoint nav collapse
+breakpoint_help             : css
+breakpoint_mobile           : css
+breakpoint_nav              : css
 
-btn                         : class   : button
+btn                         : class
 
-button_gap                  : css     : button spacing
-button_padding_x            : css     : button pad x
-button_padding_y            : css     : button pad y
+button_gap                  : css
+button_padding_x            : css
+button_padding_y            : css
 
-buttons                     : class   : button row
+buttons                     : class
 
-caret                       : class   : accordion caret
-caret_size                  : css     : accordion caret size
+caret                       : class
+caret_size                  : css
 
-claude_md                   : file    : repo rules
+claude_md                   : file
 
-cname                       : file    : custom domain
+cname                       : file
 
-color_bg_card               : css     : card bg
-color_bg_primary            : css     : bg primary
-color_bg_secondary          : css     : bg secondary
-color_line                  : css     : divider color
-color_rgb_black             : css     : rgb tuple
-color_rgb_white             : css     : rgb tuple
-color_text_muted            : css     : text color
-color_text_primary          : css     : text color
+color_bg_card               : css
+color_bg_primary            : css
+color_bg_secondary          : css
+color_line                  : css
+color_rgb_black             : css
+color_rgb_wood              : css
+color_rgb_white             : css
+color_text_muted            : css
+color_text_primary          : css
 
-content                     : class   : accordion content
+content                     : class
 
-copy                        : class   : footer copyright
+copy                        : class
 
-cta                         : class   : nav cta button
+cta                         : class
 
-email                       : field   : help form email
+drawer_edge_size            : css
+drawer_shadow_side          : css
+drawer_shadow_top           : css
 
-faq                         : section : (#faq)
-faq_group                   : class   : faq group box
+email                       : field
 
-font_family_base            : css     : font stack
-font_size_body              : css     : type size
-font_size_heading           : css     : font size h2
-font_size_title             : css     : font size h1
-font_weight_bold            : css     : type weight
-font_weight_heavy           : css     : type weight
+faq                         : section
+faq_group                   : class
 
-foot                        : class   : footer row
+font_family_base            : css
+font_size_body              : css
+font_size_heading           : css
+font_size_title             : css
+font_weight_bold            : css
+font_weight_heavy           : css
 
-footer_padding_bottom       : css     : footer pad bottom
-footer_padding_top          : css     : footer pad top
+foot                        : class
 
-form_gap                    : css     : css value
-form_input_padding_x        : css     : input pad x
-form_input_padding_y        : css     : input pad y
-form_textarea_min_height    : css     : css value
+footer_padding_bottom       : css
+footer_padding_top          : css
 
-granny_and_kid_png          : image   : hero photo
-granny_png                  : image   : granny portrait
+form_gap                    : css
+form_input_padding_x        : css
+form_input_padding_y        : css
+form_textarea_min_height    : css
 
-group_box                   : class   : grouped box
-group_image                 : class   : how step image
+granny_and_kid_png          : image
+granny_png                  : image
 
-header_padding_y            : css     : header pad y
+group_box                   : class
+group_image                 : class
 
-help                        : section : (#help)
-help_row                    : class   : help grid row
+header_padding_y            : css
 
-hero                        : class   : hero grid
-hero_copy                   : class   : hero copy col
-hero_margin_top             : css     : hero layout
-hero_margin_top_mobile      : css     : hero layout
-hero_center_max_width       : css     : hero max width
-hero_text_scale             : css     : hero type scale
-face_kid_visible_ratio      : css     : face kid visible ratio
-face_margin                 : css     : face spacing
-face_hidden_ratio           : css     : face hidden ratio
-face_float_offset_y         : css     : face float offset y
-face_granny_offset_y        : css     : face granny offset y
-face_granny_visible_ratio   : css     : face granny visible ratio
-face_overhang               : css     : face overhang
-face_position_y             : css     : face crop y
-face_shape_radius_boost     : css     : face wrap boost
-face_size                   : css     : face size
-face_zoom                   : css     : face zoom
+help                        : section
+help_row                    : class
 
-hero_face                   : class   : hero face circle
-hero_face_float_left        : class   : hero face float left
-hero_face_float_right       : class   : hero face float right
-hero_face_granny            : class   : hero granny face
-hero_face_kid               : class   : hero kid face
-kid_png                     : image   : kid portrait
+hero                        : class
+hero_copy                   : class
+hero_margin_top             : css
+hero_margin_top_mobile      : css
+hero_center_max_width       : css
+hero_text_scale             : css
+face_kid_visible_ratio      : css
+face_margin                 : css
+face_hidden_ratio           : css
+face_float_offset_y         : css
+face_granny_offset_y        : css
+face_granny_visible_ratio   : css
+face_overhang               : css
+face_position_y             : css
+face_shape_radius_boost     : css
+face_size                   : css
+face_zoom                   : css
 
-how                         : section : (#how)
-how_group                   : class   : how group box
+hero_face                   : class
+hero_face_float_left        : class
+hero_face_float_right       : class
+hero_face_granny            : class
+hero_face_kid               : class
+kid_png                     : image
 
-index_html                  : file    : landing page
+how                         : section
+how_group                   : class
 
-layer_header                : css     : z header
+index_html                  : file
 
-layout_max_width            : css     : layout sizing
-layout_content_max_width    : css     : layout sizing
-layout_side_padding         : css     : layout side pad
+layer_header                : css
 
-legal                       : section : (#legal)
-legal_meta                  : class   : legal pills row
+layout_max_width            : css
+layout_content_max_width    : css
+layout_side_padding         : css
 
-letter_spacing_brand        : css     : tracking brand
-letter_spacing_h2           : css     : tracking h2
-letter_spacing_h3           : css     : tracking h3
-letter_spacing_title        : css     : tracking title
+legal                       : section
+legal_meta                  : class
 
-line_height_base            : css     : line height
-line_height_title           : css     : line height
+letter_spacing_brand        : css
+letter_spacing_h2           : css
+letter_spacing_h3           : css
+letter_spacing_title        : css
 
-links                       : class   : footer links row
+line_height_base            : css
+line_height_title           : css
 
-main_padding_bottom         : css     : main pad bottom
-main_padding_bottom_mobile  : css     : main pad bottom mobile
-main_padding_top            : css     : main pad top
+links                       : class
 
-mini                        : class   : small helper text
+main_padding_bottom         : css
+main_padding_bottom_mobile  : css
+main_padding_top            : css
 
-motion_duration_fast        : css     : motion timing
+mini                        : class
 
-msg                         : field   : help form message
+motion_duration_fast        : css
 
-name                        : field   : help form name
+msg                         : field
 
-nav                         : class   : top nav
-nav_gap                     : css     : nav spacing
-nav_padding_x               : css     : nav pad x
-nav_padding_y               : css     : nav pad y
+name                        : field
 
-note                        : class   : hero note
+nav                         : class
+nav_gap                     : css
+nav_padding_x               : css
+nav_padding_y               : css
 
-opacity_faint               : css     : opacity level
-opacity_heavy               : css     : opacity level
-opacity_light               : css     : opacity level
-opacity_medium              : css     : opacity level
+note                        : class
 
-open_app_link               : class   : force new tab
+opacity_faint               : css
+opacity_heavy               : css
+opacity_light               : css
+opacity_medium              : css
 
-pill                        : class   : legal pill
+open_app_link               : class
 
-primary                     : class   : button variant
+pill                        : class
 
-privacy_effective           : id      : privacy effective date
-privacy_html                : file    : privacy page
+primary                     : class
 
-radius_medium               : css     : corner radius
-radius_pill                 : css     : corner radius
-radius_small                : css     : corner radius
+privacy_effective           : id
+privacy_html                : file
 
-readme_md                   : file    : readme
+radius_medium               : css
+radius_pill                 : css
+radius_small                : css
 
-scroll_padding_top          : css     : scroll pad top
-scroll_padding_top_mobile   : css     : scroll pad top mobile
+readme_md                   : file
 
-section_padding_y           : css     : section pad y
+scroll_padding_top          : css
+scroll_padding_top_mobile   : css
 
-shadow_card                 : css     : shadow preset
-shadow_soft                 : css     : shadow preset
+section_padding_y           : css
 
-small                       : class   : small muted text
+shadow_card                 : css
+shadow_soft                 : css
 
-space_large                 : css     : spacing scale
-space_medium                : css     : spacing scale
-space_micro                 : css     : spacing scale
-space_small                 : css     : spacing scale
-space_xlarge                : css     : spacing scale
-space_xsmall                : css     : spacing scale
+small                       : class
 
-start                       : section : (#start)
-start_png                   : image   : start screenshot
-start_2_png                 : image   : start screenshot
+space_large                 : css
+space_medium                : css
+space_micro                 : css
+space_small                 : css
+space_xlarge                : css
+space_xsmall                : css
 
-site_2_0_png                : image   : design mock source
+start                       : section
+start_png                   : image
+start_2_png                 : image
 
-stop                        : section : (#stop)
+site_2_0_png                : image
 
-storycall                   : name    : product
-storycall_corp              : name    : repo folder
-storycall_org               : domain  : marketing site
+stop                        : section
 
-summary_text                : class   : accordion summary text
+storycall                   : name
+storycall_corp              : name
+storycall_org               : domain
 
-surface_control             : css     : surface tint
-surface_neutral             : css     : surface tint
+summary_text                : class
 
-terms_effective             : id      : terms effective date
-terms_html                  : file    : terms page
+surface_control             : css
+surface_neutral             : css
 
-text_measure_wide           : css     : text measure
+terms_effective             : id
+terms_html                  : file
 
-wood_png                    : image   : wood texture
-wood_tile_size              : css     : wood styling
+text_measure_wide           : css
 
-wrap                        : class   : layout wrapper
-wrap_main                   : class   : main wrapper
+wood_png                    : image
+wood_tile_size              : css
 
-year                        : id      : current year
+wrap                        : class
+wrap_main                   : class
+
+year                        : id
 ```
 

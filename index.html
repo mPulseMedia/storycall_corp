@@ -10,6 +10,7 @@
       /* primitives */
       --color_rgb_black:            0,0,0;
       --color_rgb_white:            255,255,255;
+      --color_rgb_wood:             141,98,63;
 
       --opacity_heavy:              .92;
       --opacity_medium:             .62;
@@ -105,6 +106,10 @@
 
       --caret_size:                44px;
 
+      --drawer_edge_size:          6px;
+      --drawer_shadow_side:        24px;
+      --drawer_shadow_top:         140px;
+
       --brand_text_size:            46px;
       --brand_text_size_mobile:     36px;
 
@@ -125,8 +130,8 @@
       --face_position_y:            45%;
       --face_granny_visible_ratio:  1;
       --face_kid_visible_ratio:     1;
-      --face_granny_offset_y:       calc(-1 * var(--space_small));
-      --face_float_offset_y:        calc(-1 * var(--space_xsmall));
+      --face_granny_offset_y:       0;
+      --face_float_offset_y:        0;
       --face_shape_radius_boost:    10px;
 
 
@@ -484,8 +489,13 @@
     .how_group details[open]{
       background : rgba(var(--color_rgb_white),1);
       box-shadow :
-        inset 6px 0 0 rgba(var(--color_rgb_black),var(--opacity_light)),
-        inset -2px 0 0 rgba(var(--color_rgb_black),var(--opacity_light));
+        inset var(--drawer_edge_size) 0 0 rgba(var(--color_rgb_wood),1),
+        inset calc(-1 * var(--drawer_edge_size)) 0 0 rgba(var(--color_rgb_wood),1),
+        /* left + right: cast shadow inward (to the inside of the brown rails) */
+        inset calc(var(--drawer_edge_size) + var(--drawer_shadow_side)) 0 70px -72px rgba(var(--color_rgb_black),var(--opacity_medium)),
+        inset calc(-1 * (var(--drawer_edge_size) + var(--drawer_shadow_side))) 0 70px -72px rgba(var(--color_rgb_black),var(--opacity_medium)),
+        /* top: cast shadow downward into the open drawer (below the summary) */
+        inset 0 var(--drawer_shadow_top) 200px -190px rgba(var(--color_rgb_black),var(--opacity_medium));
     }
     .faq_group details[open] summary,
     .how_group details[open] summary{
@@ -493,7 +503,7 @@
       border-bottom : var(--border_default);
       position      : relative;
       z-index       : 1;
-      box-shadow    : 0 14px 18px -18px rgba(var(--color_rgb_black),var(--opacity_heavy));
+      box-shadow    : 0 1px 0 rgba(var(--color_rgb_black),var(--opacity_faint));
     }
     .faq_group details .content,
     .how_group details .content{
