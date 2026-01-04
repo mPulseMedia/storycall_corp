@@ -196,6 +196,7 @@ space_xsmall                : css
 
 start_png                   : image
 start_2_png                 : image
+start_image                 : class
 
 site_2_0_png                : image
 

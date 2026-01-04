@@ -61,7 +61,7 @@
       --face_float_offset_y:        0;
       --face_shape_radius_boost:    0px;
       --face_shape_margin:          1px;
-      --face_shape_bulge:           18px;
+      --face_shape_bulge:           32px;
 
       /* motion */
       --motion_duration_fast:       .15s;
@@ -276,6 +276,19 @@
       gap       : var(--button_gap);
       flex-wrap : wrap;
       margin    : var(--space_medium) 0 0;
+    }
+    #try .buttons{
+      justify-content : center;
+    }
+    .start_image{
+      width         : 70%;
+      height        : auto;
+      display       : block;
+      margin        : var(--space_medium) auto 0;
+      border-radius : var(--radius_medium);
+      border        : none;
+      box-shadow    : none;
+      background    : transparent;
     }
     .btn{
       display         : inline-block;
