@@ -219,9 +219,9 @@
         50% 100%,
         35% 95%,
         22% 85%,
-        calc(12% - (var(--face_shape_bulge) * .5)) 70%,
-        calc(0%  - var(--face_shape_bulge)) 50%,
-        calc(12% - (var(--face_shape_bulge) * .5)) 30%,
+        calc(16% - (var(--face_shape_bulge) * .25)) 70%,
+        calc(0%  - (var(--face_shape_bulge) * 1.25)) 50%,
+        calc(16% - (var(--face_shape_bulge) * .25)) 30%,
         22% 15%,
         35% 5%
       );
@@ -236,9 +236,9 @@
         50% 0%,
         65% 5%,
         78% 15%,
-        calc(88% + (var(--face_shape_bulge) * .5)) 30%,
-        calc(100% + var(--face_shape_bulge)) 50%,
-        calc(88% + (var(--face_shape_bulge) * .5)) 70%,
+        calc(84%  + (var(--face_shape_bulge) * .25)) 30%,
+        calc(100% + (var(--face_shape_bulge) * 1.25)) 50%,
+        calc(84%  + (var(--face_shape_bulge) * .25)) 70%,
         78% 85%,
         65% 95%,
         50% 100%,
@@ -253,6 +253,57 @@
       shape-margin : var(--face_shape_margin);
       clip-path    : circle(50%);
       clear        : both;
+    }
+
+    /* Touch Safari can ignore calc()/var() inside polygon(), falling back to circle().
+       Use a percent-only polygon for mobile/iPad so the curve matches desktop. */
+    @media (pointer: coarse){
+      :root{
+        /* Start the floats slightly lower on touch layouts so paragraph 1 can span full width. */
+        --face_float_offset_y : 22px;
+      }
+      .hero_face_float_right{
+        shape-outside: polygon(
+          50% 0%,
+          56% 6%,
+          66% 18%,
+          86% 34%,
+          100% 50%,
+          86% 66%,
+          66% 82%,
+          56% 94%,
+          50% 100%,
+          44% 94%,
+          34% 82%,
+          26% 66%,
+          0% 50%,
+          26% 34%,
+          34% 18%,
+          44% 6%
+        );
+        shape-margin : 16px;
+      }
+      .hero_face_float_left{
+        shape-outside: polygon(
+          50% 0%,
+          56% 6%,
+          66% 18%,
+          86% 34%,
+          100% 50%,
+          86% 66%,
+          66% 82%,
+          56% 94%,
+          50% 100%,
+          44% 94%,
+          34% 82%,
+          26% 66%,
+          0% 50%,
+          26% 34%,
+          34% 18%,
+          44% 6%
+        );
+        shape-margin : 16px;
+      }
     }
     .hero_face_granny.hero_face_float_left{
       margin-top : var(--face_granny_offset_y);
@@ -573,5 +624,49 @@
       }
       footer .links a:not(.open_app_link){
         display : none;
+      }
+
+      /* iOS Chrome/Safari reliability: use a percent-only polygon on small screens */
+      .hero_face_float_right{
+        shape-outside: polygon(
+          50% 0%,
+          56% 6%,
+          66% 18%,
+          86% 34%,
+          100% 50%,
+          86% 66%,
+          66% 82%,
+          56% 94%,
+          50% 100%,
+          44% 94%,
+          34% 82%,
+          26% 66%,
+          0% 50%,
+          26% 34%,
+          34% 18%,
+          44% 6%
+        );
+        shape-margin : 16px;
+      }
+      .hero_face_float_left{
+        shape-outside: polygon(
+          50% 0%,
+          56% 6%,
+          66% 18%,
+          86% 34%,
+          100% 50%,
+          86% 66%,
+          66% 82%,
+          56% 94%,
+          50% 100%,
+          44% 94%,
+          34% 82%,
+          26% 66%,
+          0% 50%,
+          26% 34%,
+          34% 18%,
+          44% 6%
+        );
+        shape-margin : 16px;
       }
     }
