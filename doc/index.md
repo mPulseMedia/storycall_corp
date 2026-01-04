@@ -214,6 +214,8 @@ terms_html                  : file
 
 text_measure_wide           : css
 
+try                         : section
+
 wood_png                    : image
 wood_tile_size              : css
 
