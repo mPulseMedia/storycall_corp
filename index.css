@@ -60,6 +60,8 @@
       --face_granny_offset_y:       0;
       --face_float_offset_y:        0;
       --face_shape_radius_boost:    0px;
+      --face_shape_margin:          1px;
+      --face_shape_bulge:           18px;
 
       /* motion */
       --motion_duration_fast:       .15s;
@@ -154,7 +156,7 @@
       display          : block;
     }
     .hero_face_kid{
-      width          : calc(var(--face_size) * var(--face_kid_visible_ratio));
+      width          : var(--face_size);
       border         : none;
       border-radius  : 0;
       background     : transparent;
@@ -178,7 +180,7 @@
       box-shadow         : var(--shadow_soft);
     }
     .hero_face_granny{
-      width          : calc(var(--face_size) * var(--face_granny_visible_ratio));
+      width          : var(--face_size);
       border         : none;
       border-radius  : 0;
       background     : transparent;
@@ -189,7 +191,7 @@
       content            : "";
       position           : absolute;
       top                : 0;
-      left               : calc(-1 * var(--face_size) * (1 - var(--face_granny_visible_ratio)));
+      left               : 0;
       width              : var(--face_size);
       height             : var(--face_size);
       border-radius      : 50%;
@@ -204,15 +206,49 @@
     .hero_face_float_right{
       float        : right;
       margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_margin);
-      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
-      shape-margin : var(--face_margin);
+      shape-outside: polygon(
+        50% 0%,
+        65% 5%,
+        78% 15%,
+        88% 30%,
+        100% 50%,
+        88% 70%,
+        78% 85%,
+        65% 95%,
+        50% 100%,
+        35% 95%,
+        22% 85%,
+        calc(12% - (var(--face_shape_bulge) * .5)) 70%,
+        calc(0%  - var(--face_shape_bulge)) 50%,
+        calc(12% - (var(--face_shape_bulge) * .5)) 30%,
+        22% 15%,
+        35% 5%
+      );
+      shape-margin : var(--face_shape_margin);
       clip-path    : circle(50%);
     }
     .hero_face_float_left{
       float        : left;
       margin       : var(--face_float_offset_y) var(--face_margin) var(--face_margin) calc(-1 * var(--face_overhang));
-      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
-      shape-margin : var(--face_margin);
+      shape-outside: polygon(
+        50% 0%,
+        65% 5%,
+        78% 15%,
+        calc(88% + (var(--face_shape_bulge) * .5)) 30%,
+        calc(100% + var(--face_shape_bulge)) 50%,
+        calc(88% + (var(--face_shape_bulge) * .5)) 70%,
+        78% 85%,
+        65% 95%,
+        50% 100%,
+        35% 95%,
+        22% 85%,
+        12% 70%,
+        0% 50%,
+        12% 30%,
+        22% 15%,
+        35% 5%
+      );
+      shape-margin : var(--face_shape_margin);
       clip-path    : circle(50%);
       clear        : both;
     }
