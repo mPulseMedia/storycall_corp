@@ -206,6 +206,7 @@
     .hero_face_float_right{
       float        : right;
       margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_margin);
+      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
       shape-outside: polygon(
         50% 0%,
         65% 5%,
@@ -230,6 +231,7 @@
     .hero_face_float_left{
       float        : left;
       margin       : var(--face_float_offset_y) var(--face_margin) var(--face_margin) calc(-1 * var(--face_overhang));
+      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
       shape-outside: polygon(
         50% 0%,
         65% 5%,
