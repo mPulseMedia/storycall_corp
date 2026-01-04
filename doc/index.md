@@ -82,7 +82,6 @@ granny_and_kid_png          : image
 granny_png                  : image
 
 group_box                   : class
-group_image                 : class
 
 header_padding_y            : css
 
@@ -114,9 +113,9 @@ hero_face_kid               : class
 kid_png                     : image
 
 how                         : section
-how_group                   : class
 
 index_html                  : file
+index_css                   : file
 
 layer_header                : css
 
@@ -126,6 +125,8 @@ layout_side_padding         : css
 
 legal                       : section
 legal_meta                  : class
+legal_css                   : file
+site_css                    : file
 
 letter_spacing_brand        : css
 letter_spacing_h2           : css
@@ -198,7 +199,6 @@ start_2_png                 : image
 
 site_2_0_png                : image
 
-stop                        : section
 
 storycall                   : name
 storycall_corp              : name
