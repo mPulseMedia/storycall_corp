@@ -27,9 +27,12 @@ The site is a **static single-page HTML website** with no build process, depende
 
 - **align “like things” within a local neighborhood**: look a few lines up/down and align repeated characters (typically `:` and `=`) when it improves scan-ability.
 - **don’t force alignment that harms code**: if alignment risks breaking parsing, introducing weird whitespace requirements, or making diffs confusing, skip it.
+- **definition colon target**: when aligning definitions, **aim to place the `:` at ~25 characters into the line**.
+  - if any item in that neighborhood needs more room (longer name), **shift the `:` further right** for the whole neighborhood.
+  - keep the `:` alignment local (don’t try to make one giant global column for the whole file).
 - **css blocks**
-  - **within a rule block**: prefer `property : value;` with colons aligned inside that block.
-  - **within `:root` families**: align *value columns* for related variables (e.g. opacity decimals, spacing sizes) so the “numbers line up” visually.
+  - **within a rule block**: align declaration `:` within that block using the **25-char target** rule above.
+  - **within `:root` families**: align declaration `:` within a family, and (when helpful) align *value columns* for related variables (e.g. opacity decimals, spacing sizes) so the “numbers line up” visually.
   - **keep families grouped**: keep related vars together (e.g. `color_*`, `opacity_*`, `space_*`, `radius_*`, `hero_*`).
 - **html**
   - **attribute alignment is optional**: align only when it stays readable and doesn’t create noisy diffs.
@@ -51,7 +54,7 @@ The site is a **static single-page HTML website** with no build process, depende
 - **reduce hard-coded numbers**: move repeated or “design system” numbers into `:root` vars (0 and 1 literals are fine).
 - **opacity**: avoid hard-coded alpha values; prefer `opacity_*` vars.
 - **rgb tuples**: avoid repeating `255,255,255` / `0,0,0`; prefer `color_rgb_*` vars.
-- **surfaces**: `surface_*` should derive from `color_rgb_*` + `opacity_*` (avoid redundant alias surfaces).
+- **background**: `background_*` should derive from `color_rgb_*` + `opacity_*` (avoid redundant alias backgrounds).
 - **breakpoints**
   - prefer **rem** for breakpoint values.
   - define a `breakpoint_*` var as the source of truth, but keep a literal in `@media/@container` conditions (and comment the var name) because `var()` in conditions isn’t reliably supported everywhere.
@@ -61,7 +64,7 @@ The site is a **static single-page HTML website** with no build process, depende
 - **keep it sorted** (lexicographic by name).
 - **insert a blank line when the root term changes** (first term before `_`) so it’s scannable.
 - **format is always**: `name : type : detail`
-  - align the first `:` column and the second `:` column vertically.
+  - align the first `:` column (use the **25-char target** rule), and align the second `:` column within the same neighborhood.
   - keep `type` short and lowercase (examples: `css`, `class`, `id`, `file`, `image`, `domain`, `section`, `field`).
   - keep `detail` short, lowercase, and user-meaningful (avoid the word “token”).
   - if `detail` just repeats the name words, replace it with a short clarifier of what it refers to.
