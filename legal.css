@@ -60,6 +60,7 @@
       padding           : var(--nav_padding_y) var(--nav_padding_x);
       border-radius     : var(--radius_medium);
       border            : var(--border_transparent);
+      border-color      : rgba(var(--color_rgb_white),var(--opacity_faint));
       background        : transparent;
     }
     .nav a:hover{

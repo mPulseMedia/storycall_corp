@@ -144,7 +144,6 @@ opacity_heavy           : css   : custom property
 opacity_light           : css   : custom property
 opacity_medium          : css   : custom property
 
-open_app_link           : class : css class
 
 pill                    : class : css class
 
