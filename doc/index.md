@@ -62,6 +62,7 @@ drawer_shadow_top       : css   : custom property
 face_float_offset_y     : css   : custom property
 face_granny_offset_y    : css   : custom property
 face_granny_position_y  : css   : custom property
+face_granny_zoom        : css   : custom property
 face_hidden_ratio       : css   : custom property
 face_margin             : css   : custom property
 face_overhang           : css   : custom property

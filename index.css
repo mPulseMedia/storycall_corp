@@ -19,6 +19,7 @@
 
       --face_size             : 14.4rem;
       --face_zoom             : 175%;
+      --face_granny_zoom      : 190%;
       --face_margin           : 0px;
       --face_text_gap         : var(--space_medium);
       --face_hidden_ratio     : .3;
@@ -184,7 +185,7 @@
       background-image   : url("images/granny.png");
       background-repeat  : no-repeat;
       background-position: 50% var(--face_granny_position_y);
-      background-size    : var(--face_zoom);
+      background-size    : var(--face_granny_zoom);
       box-shadow         : var(--shadow_soft);
     }
     .hero_face_float_right{
