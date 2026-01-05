@@ -50,6 +50,7 @@
       --face_size:                  14.4rem;
       --face_zoom:                  175%;
       --face_margin:                0px;
+      --face_text_gap:              var(--space_medium);
       --face_hidden_ratio:          .3;
       --face_overhang:              calc(var(--layout_side_padding) + (var(--face_size) * var(--face_hidden_ratio)));
       --face_position_y:            45%;
@@ -196,12 +197,11 @@
     }
     .hero_face_float_right{
       float        : right;
-      margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_margin);
+      margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_text_gap);
     }
     .hero_face_float_left{
       float        : left;
-      /* extra gutter so the text doesn't ride the left portrait */
-      margin       : var(--face_float_offset_y) var(--space_small) var(--face_margin) calc(-1 * var(--face_overhang));
+      margin       : var(--face_float_offset_y) var(--face_text_gap) var(--face_margin) calc(-1 * var(--face_overhang));
       clear        : both;
     }
 
