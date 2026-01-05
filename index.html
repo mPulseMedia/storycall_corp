@@ -61,13 +61,13 @@
     <section id="try">
       <h2>Try it</h2>
       <div class="box">
-        <div class="buttons">
-          <a class="btn primary" href="sms:+18885696984">Text<br />888-569-6984</a>
-        </div>
         <p class="note">
           Click to start a text message, then attach a voice recording.
         </p>
-        <img class="start_image" src="images/start_2.png" alt="Example of starting a text message to StoryCall" />
+        <div class="buttons">
+          <a class="btn primary" href="sms:+18885696984">Text<br />888-569-6984</a>
+        </div>
+        <img class="start_image" src="images/sms_audio.png" alt="Example of an SMS audio message to StoryCall" />
       </div>
     </section>
 
@@ -127,8 +127,8 @@
           Read the full policies here:
         </p>
         <div class="buttons">
-          <a class="btn" href="privacy.html">Privacy Policy</a>
-          <a class="btn" href="terms.html">Terms &amp; Conditions</a>
+          <a class="btn primary" href="privacy.html">Privacy Policy</a>
+          <a class="btn primary" href="terms.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </section>
@@ -177,37 +177,6 @@
           if (new_window) new_window.opener = null;
           ev.preventDefault();
         });
-      }
-    })();
-
-    // Ensure sms: links with a drafted body work reliably across mobile platforms.
-    (function(){
-      const sms_compose_links = document.querySelectorAll("a.sms_compose");
-      if (!sms_compose_links.length) return;
-
-      function sms_href(number, body){
-        const normalized_number = number.replace(/\s+/g, "");
-        if (!body) return `sms:${normalized_number}`;
-        const encoded_body = encodeURIComponent(body);
-        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent);
-        return is_ios
-          ? `sms:${normalized_number}&body=${encoded_body}`
-          : `sms:${normalized_number}?body=${encoded_body}`;
-      }
-
-      function sync_href(link_el){
-        const base = link_el.getAttribute("href") || "";
-        const number_match = base.match(/sms:([+0-9]+)/i);
-        const number = number_match ? number_match[1] : "+18885696984";
-        const body = (link_el.getAttribute("data_sms_body") || "").trim();
-        link_el.setAttribute("href", sms_href(number, body));
-      }
-
-      for (let link_idx = 0; link_idx < sms_compose_links.length; link_idx++) {
-        const link_el = sms_compose_links[link_idx];
-        link_el.addEventListener("pointerdown", function(){ sync_href(link_el); });
-        link_el.addEventListener("touchstart", function(){ sync_href(link_el); }, { passive: true });
-        link_el.addEventListener("click", function(){ sync_href(link_el); });
       }
     })();
 

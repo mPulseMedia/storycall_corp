@@ -24,9 +24,7 @@ brand_text_shadow           : css
 brand_text_size             : css
 brand_text_size_mobile      : css
 
-breakpoint_help             : css
 breakpoint_mobile           : css
-breakpoint_nav              : css
 
 btn                         : class
 
@@ -93,12 +91,10 @@ hero_margin_top             : css
 hero_margin_top_mobile      : css
 hero_center_max_width       : css
 
-face_kid_visible_ratio      : css
 face_margin                 : css
 face_hidden_ratio           : css
 face_float_offset_y         : css
 face_granny_offset_y        : css
-face_granny_visible_ratio   : css
 face_overhang               : css
 face_position_y             : css
 face_shape_radius_boost     : css
@@ -149,7 +145,6 @@ motion_duration_fast        : css
 
 
 nav                         : class
-nav_gap                     : css
 nav_padding_x               : css
 nav_padding_y               : css
 
@@ -195,7 +190,7 @@ space_xlarge                : css
 space_xsmall                : css
 
 start_png                   : image
-start_2_png                 : image
+sms_audio_png               : image
 start_image                 : class
 
 site_2_0_png                : image
