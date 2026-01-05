@@ -53,11 +53,9 @@
       --face_hidden_ratio:          .3;
       --face_overhang:              calc(var(--layout_side_padding) + (var(--face_size) * var(--face_hidden_ratio)));
       --face_position_y:            45%;
+      --face_granny_position_y:     35%;
       --face_granny_offset_y:       0;
       --face_float_offset_y:        0;
-      --face_shape_radius_boost:    0px;
-      --face_shape_margin:          1px;
-      --face_shape_bulge:           32px;
 
       /* motion */
       --motion_duration_fast:       .15s;
@@ -151,7 +149,7 @@
     .hero_face_kid{
       width          : var(--face_size);
       border         : none;
-      border-radius  : 0;
+      border-radius  : 50%;
       background     : transparent;
       box-shadow     : none;
       overflow       : hidden;
@@ -175,7 +173,7 @@
     .hero_face_granny{
       width          : var(--face_size);
       border         : none;
-      border-radius  : 0;
+      border-radius  : 50%;
       background     : transparent;
       box-shadow     : none;
       overflow       : hidden;
@@ -192,110 +190,25 @@
       background-color   : rgba(var(--color_rgb_white),1);
       background-image   : url("images/granny.png");
       background-repeat  : no-repeat;
-      background-position: 50% var(--face_position_y);
+      background-position: 50% var(--face_granny_position_y);
       background-size    : var(--face_zoom);
       box-shadow         : var(--shadow_soft);
     }
     .hero_face_float_right{
       float        : right;
       margin       : var(--face_float_offset_y) calc(-1 * var(--face_overhang)) var(--face_margin) var(--face_margin);
-      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
-      shape-outside: polygon(
-        50% 0%,
-        65% 5%,
-        78% 15%,
-        88% 30%,
-        100% 50%,
-        88% 70%,
-        78% 85%,
-        65% 95%,
-        50% 100%,
-        35% 95%,
-        22% 85%,
-        calc(16% - (var(--face_shape_bulge) * .25)) 70%,
-        calc(0%  - (var(--face_shape_bulge) * 1.25)) 50%,
-        calc(16% - (var(--face_shape_bulge) * .25)) 30%,
-        22% 15%,
-        35% 5%
-      );
-      shape-margin : var(--face_shape_margin);
-      clip-path    : circle(50%);
     }
     .hero_face_float_left{
       float        : left;
-      margin       : var(--face_float_offset_y) var(--face_margin) var(--face_margin) calc(-1 * var(--face_overhang));
-      shape-outside: circle(calc(50% + var(--face_shape_radius_boost)));
-      shape-outside: polygon(
-        50% 0%,
-        65% 5%,
-        78% 15%,
-        calc(84%  + (var(--face_shape_bulge) * .25)) 30%,
-        calc(100% + (var(--face_shape_bulge) * 1.25)) 50%,
-        calc(84%  + (var(--face_shape_bulge) * .25)) 70%,
-        78% 85%,
-        65% 95%,
-        50% 100%,
-        35% 95%,
-        22% 85%,
-        12% 70%,
-        0% 50%,
-        12% 30%,
-        22% 15%,
-        35% 5%
-      );
-      shape-margin : var(--face_shape_margin);
-      clip-path    : circle(50%);
+      /* extra gutter so the text doesn't ride the left portrait */
+      margin       : var(--face_float_offset_y) var(--space_small) var(--face_margin) calc(-1 * var(--face_overhang));
       clear        : both;
     }
 
-    /* Touch Safari can ignore calc()/var() inside polygon(), falling back to circle().
-       Use a percent-only polygon for mobile/iPad so the curve matches desktop. */
+    /* On touch layouts, start the floats slightly lower so paragraph 1 can span full width. */
     @media (pointer: coarse){
       :root{
-        /* Start the floats slightly lower on touch layouts so paragraph 1 can span full width. */
         --face_float_offset_y : 22px;
-      }
-      .hero_face_float_right{
-        shape-outside: polygon(
-          50% 0%,
-          56% 6%,
-          66% 18%,
-          86% 34%,
-          100% 50%,
-          86% 66%,
-          66% 82%,
-          56% 94%,
-          50% 100%,
-          44% 94%,
-          34% 82%,
-          26% 66%,
-          0% 50%,
-          26% 34%,
-          34% 18%,
-          44% 6%
-        );
-        shape-margin : 16px;
-      }
-      .hero_face_float_left{
-        shape-outside: polygon(
-          50% 0%,
-          56% 6%,
-          66% 18%,
-          86% 34%,
-          100% 50%,
-          86% 66%,
-          66% 82%,
-          56% 94%,
-          50% 100%,
-          44% 94%,
-          34% 82%,
-          26% 66%,
-          0% 50%,
-          26% 34%,
-          34% 18%,
-          44% 6%
-        );
-        shape-margin : 16px;
       }
     }
     .hero_face_granny.hero_face_float_left{
@@ -339,9 +252,6 @@
     #try details.try_see_how summary{
       font-weight : var(--font_weight_regular);
       background  : rgba(var(--color_rgb_white),1);
-    }
-    #try details.try_see_how[open] summary{
-      font-weight : var(--font_weight_heavy);
     }
     #try details.try_see_how .content{
       padding-top : var(--space_small);
@@ -655,47 +565,4 @@
         display : none;
       }
 
-      /* iOS Chrome/Safari reliability: use a percent-only polygon on small screens */
-      .hero_face_float_right{
-        shape-outside: polygon(
-          50% 0%,
-          56% 6%,
-          66% 18%,
-          86% 34%,
-          100% 50%,
-          86% 66%,
-          66% 82%,
-          56% 94%,
-          50% 100%,
-          44% 94%,
-          34% 82%,
-          26% 66%,
-          0% 50%,
-          26% 34%,
-          34% 18%,
-          44% 6%
-        );
-        shape-margin : 16px;
-      }
-      .hero_face_float_left{
-        shape-outside: polygon(
-          50% 0%,
-          56% 6%,
-          66% 18%,
-          86% 34%,
-          100% 50%,
-          86% 66%,
-          66% 82%,
-          56% 94%,
-          50% 100%,
-          44% 94%,
-          34% 82%,
-          26% 66%,
-          0% 50%,
-          26% 34%,
-          34% 18%,
-          44% 6%
-        );
-        shape-margin : 16px;
-      }
     }
