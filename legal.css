@@ -143,6 +143,7 @@
     .copy{
       display     : flex;
       align-items : center;
+      column-gap  : .35em;
       line-height : 1;
       color       : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
