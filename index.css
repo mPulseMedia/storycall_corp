@@ -230,6 +230,7 @@
       margin    : var(--space_medium) 0 0;
     }
     #try .buttons,
+    #help .buttons,
     #legal .buttons{
       justify-content : center;
     }
@@ -248,18 +249,30 @@
       width      : min(22rem, 100%);
       text-align : center;
     }
+    /* Make "See how" behave like a single FAQ row (full-width within the box). */
     #try details.try_see_how{
-      margin-top : var(--space_small);
-      box-shadow : none;
-      background : rgba(var(--color_rgb_white),1);
+      border        : none;
+      border-radius : var(--radius_medium);
+      overflow      : hidden;
+      background    : rgba(var(--color_rgb_white),1);
+      box-shadow    : none;
+      padding       : 0;
+      margin        : var(--space_small) calc(-1 * var(--space_medium)) calc(-1 * var(--space_medium));
     }
     #try details.try_see_how summary{
-      font-weight : var(--font_weight_regular);
+      border-radius : 0;
+      padding       : var(--space_medium);
+      margin        : 0;
+      font-weight   : var(--font_weight_regular);
     }
     #try details.try_see_how[open] summary{
       font-weight : var(--font_weight_heavy);
     }
     #try details.try_see_how .content{
+      margin-top : 0;
+      padding    : 0 var(--space_medium) var(--space_medium);
+    }
+    #try details.try_see_how[open] .content{
       padding-top : var(--space_small);
     }
     #try details.try_see_how .start_image{
