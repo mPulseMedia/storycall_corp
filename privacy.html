@@ -212,34 +212,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Ensure "Try App" always opens in a new tab/window (some mobile/PWA contexts ignore target=_blank)
-    (function(){
-      const open_app_links = document.querySelectorAll("a.open_app_link");
-      for (let link_idx = 0; link_idx < open_app_links.length; link_idx++) {
-        const link_el = open_app_links[link_idx];
-        link_el.setAttribute("target", "_blank");
-        link_el.setAttribute("rel", "noopener noreferrer");
-        link_el.addEventListener("click", function(ev){
-          if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
-          const new_window = window.open(link_el.href, "_blank");
-          if (new_window) new_window.opener = null;
-          ev.preventDefault();
-        });
-      }
-    })();
-
-    // Default "effective date" = today's date (local)
-    (function(){
-      const today               = new Date();
-      const date_format_options = {
-        year:  "numeric",
-        month: "long",
-        day:   "numeric",
-      };
-      const effective_date_text  = today.toLocaleDateString(undefined, date_format_options);
-      const privacy_effective_el = document.getElementById("privacy_effective");
-      if (privacy_effective_el) privacy_effective_el.textContent = effective_date_text;
-    })();
   </script>
 </body>
 </html>

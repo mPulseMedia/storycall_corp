@@ -67,14 +67,10 @@
       --footer_padding_top:         var(--space_large);
       --footer_padding_bottom:      var(--space_xlarge);
 
-      /* assets */
-      --wood_tile_size:             520px 110px;
-
       /* layering */
       --layer_header:               10;
 
       /* breakpoints */
-      --breakpoint_mobile:          43.75rem;
     }
 
     *{

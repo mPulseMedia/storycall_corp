@@ -68,10 +68,6 @@
     body{
       overflow-x  : hidden;
     }
-    .wrap_main{
-      max-width : var(--layout_content_max_width);
-    }
-
     header{
       position        : sticky;
       top             : 0;
@@ -125,25 +121,23 @@
       margin-top : var(--hero_margin_top);
     }
     .hero_copy{
-      position  : relative;
-      z-index   : 2;
-      max-width : var(--hero_center_max_width);
-      margin    : 0 auto;
-      text-align: center;
-      font-size : var(--font_size_body);
+      position   : relative;
+      z-index    : 2;
+      text-align : left;
+      font-size  : var(--font_size_body);
     }
     .hero_face{
-      position         : relative;
-      width            : var(--face_size);
-      height           : var(--face_size);
-      border-radius    : 50%;
-      border           : 1px solid rgba(var(--color_rgb_white),1);
-      background-color : rgba(var(--color_rgb_white),1);
-      background-repeat: no-repeat;
+      position            : relative;
+      width               : var(--face_size);
+      height              : var(--face_size);
+      border-radius       : 50%;
+      border              : 1px solid rgba(var(--color_rgb_white),1);
+      background-color    : rgba(var(--color_rgb_white),1);
+      background-repeat   : no-repeat;
       background-position : 50% var(--face_position_y);
-      background-size  : var(--face_zoom);
-      box-shadow       : var(--shadow_soft);
-      display          : block;
+      background-size     : var(--face_zoom);
+      box-shadow          : var(--shadow_soft);
+      display             : block;
     }
     .hero_face_kid{
       width          : var(--face_size);
@@ -165,7 +159,7 @@
       background-color   : rgba(var(--color_rgb_white),1);
       background-image   : url("images/kid.png");
       background-repeat  : no-repeat;
-      background-position: 50% var(--face_position_y);
+      background-position : 50% var(--face_position_y);
       background-size    : var(--face_zoom);
       box-shadow         : var(--shadow_soft);
     }
@@ -189,7 +183,7 @@
       background-color   : rgba(var(--color_rgb_white),1);
       background-image   : url("images/granny.png");
       background-repeat  : no-repeat;
-      background-position: 50% var(--face_granny_position_y);
+      background-position : 50% var(--face_granny_position_y);
       background-size    : var(--face_zoom);
       box-shadow         : var(--shadow_soft);
     }
@@ -512,28 +506,8 @@
     .copy{
       color : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
-    .links{
-      display         : flex;
-      gap             : var(--space_medium);
-      flex-wrap       : wrap;
-      justify-content : flex-end;
-    }
-    .links a{
-      color           : rgba(var(--color_rgb_white),var(--opacity_medium));
-      text-decoration : none;
-      font-size       : inherit;
-      padding         : var(--nav_padding_y) var(--nav_padding_x);
-      border-radius   : var(--radius_medium);
-      border          : var(--border_transparent);
-      background      : transparent;
-    }
-    .links a:hover{
-      color        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      border-color : rgba(var(--color_rgb_white),var(--opacity_faint));
-      background   : rgba(var(--color_rgb_black),var(--opacity_faint));
-    }
 
-    @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
+    @media (max-width: 43.75rem){
       :root{
         --font_size_body:          22px;
         --font_size_heading:       28px;
@@ -564,9 +538,6 @@
       footer .foot{
         justify-content : center;
         text-align      : center;
-      }
-      footer .links{
-        justify-content : center;
       }
 
     }

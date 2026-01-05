@@ -58,7 +58,6 @@ cta                         : class
 
 drawer_shadow_top           : css
 
-
 faq                         : section
 faq_group                   : class
 
@@ -74,7 +73,6 @@ foot                        : class
 
 footer_padding_bottom       : css
 footer_padding_top          : css
-
 
 granny_and_kid_png          : image
 granny_png                  : image
@@ -97,7 +95,6 @@ face_float_offset_y         : css
 face_granny_offset_y        : css
 face_overhang               : css
 face_position_y             : css
-face_shape_radius_boost     : css
 face_size                   : css
 face_zoom                   : css
 
@@ -132,7 +129,6 @@ letter_spacing_title        : css
 line_height_base            : css
 line_height_title           : css
 
-links                       : class
 
 main_padding_bottom         : css
 main_padding_bottom_mobile  : css
@@ -141,8 +137,6 @@ main_padding_top            : css
 mini                        : class
 
 motion_duration_fast        : css
-
-
 
 nav                         : class
 nav_padding_x               : css
@@ -180,7 +174,6 @@ shadow_soft                 : css
 
 small                       : class
 sms_link                    : class
-sms_compose                 : class
 
 space_large                 : css
 space_medium                : css
@@ -213,10 +206,8 @@ text_measure_wide           : css
 try                         : section
 
 wood_png                    : image
-wood_tile_size              : css
 
 wrap                        : class
-wrap_main                   : class
 
 year                        : id
 ```

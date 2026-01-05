@@ -138,14 +138,8 @@
     .copy{
       color : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
-    .links{
-      display         : flex;
-      gap             : var(--space_medium);
-      flex-wrap       : wrap;
-      justify-content : flex-end;
-    }
 
-    @media (max-width: 43.75rem){ /* var: --breakpoint_mobile */
+    @media (max-width: 43.75rem){
       :root{
         --font_size_title:      38px;
         --font_size_body:       22px;
@@ -158,8 +152,5 @@
       footer .foot{
         justify-content : center;
         text-align      : center;
-      }
-      footer .links{
-        justify-content : center;
       }
     }
