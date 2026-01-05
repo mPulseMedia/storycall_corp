@@ -223,6 +223,9 @@
     .note b{
       color     : var(--color_text_primary);
     }
+    .nowrap{
+      white-space : nowrap;
+    }
     .buttons{
       display   : flex;
       gap       : var(--button_gap);
@@ -267,6 +270,7 @@
       overflow      : hidden;
       background    : rgba(var(--color_rgb_white),1);
       box-shadow    : none;
+      border-top    : var(--border_default);
       padding       : 0;
       margin        : var(--space_small) calc(-1 * var(--space_medium)) 0;
     }
@@ -275,6 +279,7 @@
       border-top-right-radius : var(--radius_medium);
     }
     #try details.try_see_how .content ol.mini{
+      margin              : 0;
       padding-left        : 0;
       list-style-position : inside;
     }
