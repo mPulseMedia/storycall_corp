@@ -331,6 +331,25 @@
       width      : min(22rem, 100%);
       text-align : center;
     }
+    #try details.try_see_how{
+      margin-top : var(--space_small);
+      box-shadow : none;
+      background : rgba(var(--color_rgb_white),1);
+    }
+    #try details.try_see_how summary{
+      font-weight : var(--font_weight_regular);
+      background  : rgba(var(--color_rgb_white),1);
+    }
+    #try details.try_see_how[open] summary{
+      font-weight : var(--font_weight_heavy);
+    }
+    #try details.try_see_how .content{
+      padding-top : var(--space_small);
+    }
+    #try details.try_see_how .start_image{
+      width      : min(520px, 100%);
+      margin-top : 0;
+    }
     .start_image{
       width         : 70%;
       height        : auto;
@@ -368,7 +387,7 @@
     .btn.primary{
       border-color : rgba(0,0,0,.08);
       background   : #34c759; /* iOS Messages green */
-      color        : rgba(var(--color_rgb_white),1);
+      color        : rgba(var(--color_rgb_black),1);
     }
     .btn.primary:hover{
       background : #2db84f;
