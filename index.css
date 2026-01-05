@@ -48,7 +48,7 @@
          0   10px 22px rgba(var(--color_rgb_black),var(--opacity_light));
 
       /* shadows */
-      --shadow_soft     : 0 10px 22px rgba(var(--color_rgb_black),var(--opacity_faint));
+      --shadow_soft     : 0 6px 12px rgba(var(--color_rgb_black),var(--opacity_faint));
 
       /* spacing */
       --radius_small    : 14px;
@@ -251,7 +251,10 @@
     }
     /* Make "See how" behave like a single FAQ row (full-width within the box). */
     #try details.try_see_how{
-      border-radius     : var(--radius_medium);
+      border-top-left-radius  : 0;
+      border-top-right-radius : 0;
+      border-bottom-left-radius  : var(--radius_medium);
+      border-bottom-right-radius : var(--radius_medium);
       overflow          : hidden;
       background        : rgba(var(--color_rgb_white),1);
       box-shadow        : none;
@@ -260,8 +263,8 @@
       margin            : var(--space_small) calc(-1 * var(--space_medium)) 0;
     }
     #try details.try_see_how summary{
-      border-top-left-radius : var(--radius_medium);
-      border-top-right-radius: var(--radius_medium);
+      border-top-left-radius : 0;
+      border-top-right-radius: 0;
     }
     #try details.try_see_how .content ol.mini{
       margin             : 0;
@@ -287,8 +290,8 @@
       box-shadow        : none; /* keep off; use drop-shadow to respect transparency */
       background        : transparent;
       filter            : 
-        drop-shadow(0 8px 14px rgba(var(--color_rgb_black),var(--opacity_light)))
-        drop-shadow(0 3px 7px rgba(var(--color_rgb_black),var(--opacity_faint)));
+        drop-shadow(0 4px 7px rgba(var(--color_rgb_black),var(--opacity_light)))
+        drop-shadow(0 1px 3px rgba(var(--color_rgb_black),var(--opacity_faint)));
     }
     .btn{
       display           : inline-block;
@@ -299,7 +302,7 @@
       border-radius     : var(--radius_medium);
       border            : var(--border_default);
       background        : var(--background_neutral);
-      box-shadow        : var(--shadow_soft);
+      box-shadow        : none;
     }
     button.btn{
       appearance        : none;
