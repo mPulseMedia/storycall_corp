@@ -2,213 +2,195 @@
 Sorted index of names used in this repo (internal names prefer `snake_case`).
 
 ```text
-audio_img_png               : image
+about                      : section : section anchor
+about_copy                 : class   : css class
 
-about                       : section
-about_copy                  : class
+app_storycall_org          : domain  : site domain
 
-app_storycall_org           : domain
+back                       : class   : css class
 
-back                        : class
+bar                        : class   : css class
 
-bar                         : class
+border_default             : css     : custom property
+border_transparent         : css     : custom property
 
-border_default              : css
-border_transparent          : css
+box                        : class   : css class
 
-box                         : class
+brand                      : class   : css class
+brand_text                 : class   : css class
+brand_text_shadow          : css     : custom property
+brand_text_size            : css     : custom property
+brand_text_size_mobile     : css     : custom property
 
-brand                       : class
-brand_text                  : class
-brand_text_shadow           : css
-brand_text_size             : css
-brand_text_size_mobile      : css
+btn                        : class   : css class
 
-breakpoint_mobile           : css
+button_gap                 : css     : custom property
+button_padding_x           : css     : custom property
+button_padding_y           : css     : custom property
 
-btn                         : class
+buttons                    : class   : css class
 
-button_gap                  : css
-button_padding_x            : css
-button_padding_y            : css
+caret                      : class   : css class
+caret_size                 : css     : custom property
 
-buttons                     : class
+claude_md                  : file    : repo file
 
-caret                       : class
-caret_size                  : css
+cname                      : file    : repo file
 
-claude_md                   : file
+color_bg_card              : css     : custom property
+color_bg_primary           : css     : custom property
+color_bg_secondary         : css     : custom property
+color_header_bg            : css     : custom property
+color_line                 : css     : custom property
+color_rgb_black            : css     : custom property
+color_rgb_white            : css     : custom property
+color_text_muted           : css     : custom property
+color_text_primary         : css     : custom property
 
-cname                       : file
+content                    : class   : css class
 
-color_bg_card               : css
-color_bg_primary            : css
-color_bg_secondary          : css
-color_line                  : css
-color_rgb_black             : css
-color_rgb_white             : css
-color_text_muted            : css
-color_text_primary          : css
+copy                       : class   : css class
 
-content                     : class
+cta                        : class   : css class
 
-copy                        : class
+doc_index_md               : file    : repo file
 
-cta                         : class
+drawer_shadow_top          : css     : custom property
 
-drawer_shadow_top           : css
+face_float_offset_y        : css     : custom property
+face_granny_offset_y       : css     : custom property
+face_granny_position_y     : css     : custom property
+face_hidden_ratio          : css     : custom property
+face_margin                : css     : custom property
+face_overhang              : css     : custom property
+face_position_y            : css     : custom property
+face_size                  : css     : custom property
+face_text_gap              : css     : custom property
+face_zoom                  : css     : custom property
 
-faq                         : section
-faq_group                   : class
+faq                        : section : section anchor
+faq_group                  : class   : css class
 
-font_family_base            : css
-font_size_body              : css
-font_size_heading           : css
-font_size_title             : css
-font_weight_bold            : css
-font_weight_heavy           : css
-font_weight_regular         : css
+font_family_base           : css     : custom property
+font_size_body             : css     : custom property
+font_size_heading          : css     : custom property
+font_size_title            : css     : custom property
+font_weight_bold           : css     : custom property
+font_weight_heavy          : css     : custom property
+font_weight_regular        : css     : custom property
 
-foot                        : class
+foot                       : class   : css class
 
-footer_padding_bottom       : css
-footer_padding_top          : css
+group_box                  : class   : css class
 
-granny_and_kid_png          : image
-granny_png                  : image
+header_footer_padding_y    : css     : custom property
 
-group_box                   : class
+help                       : section : section anchor
 
-header_padding_y            : css
+hero                       : class   : css class
+hero_copy                  : class   : css class
+hero_face                  : class   : css class
+hero_face_float_left       : class   : css class
+hero_face_float_right      : class   : css class
+hero_face_granny           : class   : css class
+hero_face_kid              : class   : css class
+hero_margin_top            : css     : custom property
+hero_margin_top_mobile     : css     : custom property
 
-help                        : section
+images_granny_png          : image   : asset image
+images_kid_png             : image   : asset image
+images_sms_audio_png       : image   : asset image
 
-hero                        : class
-hero_copy                   : class
-hero_margin_top             : css
-hero_margin_top_mobile      : css
-hero_center_max_width       : css
+index_css                  : file    : repo file
+index_html                 : file    : repo file
 
-face_margin                 : css
-face_hidden_ratio           : css
-face_float_offset_y         : css
-face_granny_offset_y        : css
-face_overhang               : css
-face_position_y             : css
-face_size                   : css
-face_zoom                   : css
+layer_header               : css     : custom property
 
-hero_face                   : class
-hero_face_float_left        : class
-hero_face_float_right       : class
-hero_face_granny            : class
-hero_face_kid               : class
-kid_png                     : image
+layout_max_width           : css     : custom property
+layout_side_padding        : css     : custom property
 
-how                         : section
+legal                      : section : section anchor
+legal_css                  : file    : repo file
+legal_meta                 : class   : css class
 
-index_html                  : file
-index_css                   : file
+letter_spacing_brand       : css     : custom property
+letter_spacing_h2          : css     : custom property
+letter_spacing_h3          : css     : custom property
+letter_spacing_title       : css     : custom property
 
-layer_header                : css
+line_height_base           : css     : custom property
+line_height_title          : css     : custom property
 
-layout_max_width            : css
-layout_content_max_width    : css
-layout_side_padding         : css
+main_padding_bottom        : css     : custom property
+main_padding_bottom_mobile : css     : custom property
+main_padding_top           : css     : custom property
 
-legal                       : section
-legal_meta                  : class
-legal_css                   : file
-site_css                    : file
+mini                       : class   : css class
 
-letter_spacing_brand        : css
-letter_spacing_h2           : css
-letter_spacing_h3           : css
-letter_spacing_title        : css
+motion_duration_fast       : css     : custom property
 
-line_height_base            : css
-line_height_title           : css
+nav                        : class   : css class
+nav_padding_x              : css     : custom property
+nav_padding_y              : css     : custom property
 
+note                       : class   : css class
 
-main_padding_bottom         : css
-main_padding_bottom_mobile  : css
-main_padding_top            : css
+opacity_faint              : css     : custom property
+opacity_heavy              : css     : custom property
+opacity_light              : css     : custom property
+opacity_medium             : css     : custom property
 
-mini                        : class
+open_app_link              : class   : css class
 
-motion_duration_fast        : css
+pill                       : class   : css class
 
-nav                         : class
-nav_padding_x               : css
-nav_padding_y               : css
+primary                    : class   : css class
 
-note                        : class
+privacy_html               : file    : repo file
 
-opacity_faint               : css
-opacity_heavy               : css
-opacity_light               : css
-opacity_medium              : css
+radius_medium              : css     : custom property
+radius_pill                : css     : custom property
+radius_small               : css     : custom property
 
-open_app_link               : class
+readme_md                  : file    : repo file
 
-pill                        : class
+scroll_padding_top         : css     : custom property
+scroll_padding_top_mobile  : css     : custom property
 
-primary                     : class
+section_padding_y          : css     : custom property
 
-privacy_effective           : id
-privacy_html                : file
+shadow_card                : css     : custom property
+shadow_soft                : css     : custom property
 
-radius_medium               : css
-radius_pill                 : css
-radius_small                : css
+site_css                   : file    : repo file
 
-readme_md                   : file
+small                      : class   : css class
 
-scroll_padding_top          : css
-scroll_padding_top_mobile   : css
+sms_link                   : class   : css class
 
-section_padding_y           : css
+space_large                : css     : custom property
+space_medium               : css     : custom property
+space_micro                : css     : custom property
+space_small                : css     : custom property
+space_xsmall               : css     : custom property
 
-shadow_card                 : css
-shadow_soft                 : css
+start_image                : class   : css class
 
-small                       : class
-sms_link                    : class
+storycall_org              : domain  : site domain
 
-space_large                 : css
-space_medium                : css
-space_micro                 : css
-space_small                 : css
-space_xlarge                : css
-space_xsmall                : css
+summary_text               : class   : css class
 
-start_png                   : image
-sms_audio_png               : image
-start_image                 : class
+surface_control            : css     : custom property
+surface_neutral            : css     : custom property
 
-site_2_0_png                : image
+terms_html                 : file    : repo file
 
+text_measure_wide          : css     : custom property
 
-storycall                   : name
-storycall_corp              : name
-storycall_org               : domain
+try                        : section : section anchor
+try_see_how                : class   : css class
 
-summary_text                : class
+wrap                       : class   : css class
 
-surface_control             : css
-surface_neutral             : css
-
-terms_effective             : id
-terms_html                  : file
-
-text_measure_wide           : css
-
-try                         : section
-
-wood_png                    : image
-
-wrap                        : class
-
-year                        : id
+year                       : id      : dom id
 ```
-

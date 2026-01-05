@@ -43,7 +43,6 @@
       --space_small:                12px;
       --space_medium:               18px;
       --space_large:                26px;
-      --space_xlarge:               40px;
 
       /* radius */
       --radius_medium:              18px;
@@ -61,11 +60,9 @@
       --main_padding_bottom:        var(--space_large);
 
       /* components */
-      --header_padding_y:           var(--space_medium);
+      --header_footer_padding_y:    22px;
       --nav_padding_y:              var(--space_xsmall);
       --nav_padding_x:              var(--space_small);
-      --footer_padding_top:         var(--space_large);
-      --footer_padding_bottom:      var(--space_xlarge);
 
       /* layering */
       --layer_header:               10;

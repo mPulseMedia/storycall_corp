@@ -24,7 +24,6 @@
 
       /* layout */
       --text_measure_wide:          64ch;
-      --layout_content_max_width:   var(--text_measure_wide);
       --main_padding_bottom_mobile: 22px;
 
       --section_padding_y:          var(--space_large);
@@ -45,7 +44,6 @@
       /* hero */
       --hero_margin_top:            var(--space_medium);
       --hero_margin_top_mobile:     var(--space_small);
-      --hero_center_max_width:      var(--layout_content_max_width);
 
       --face_size:                  14.4rem;
       --face_zoom:                  175%;
@@ -80,9 +78,14 @@
       display         : flex;
       align-items     : center;
       justify-content : space-between;
-      padding         : var(--header_padding_y) 0;
+      padding         : var(--header_footer_padding_y) 0;
       gap             : var(--space_small);
       container-type  : inline-size;
+    }
+    .bar a{
+      display     : inline-flex;
+      align-items : center;
+      line-height : 1;
     }
     .brand{
       display         : flex;
@@ -226,7 +229,8 @@
       flex-wrap : wrap;
       margin    : var(--space_medium) 0 0;
     }
-    #try .buttons{
+    #try .buttons,
+    #legal .buttons{
       justify-content : center;
     }
     #try .buttons{
@@ -251,7 +255,6 @@
     }
     #try details.try_see_how summary{
       font-weight : var(--font_weight_regular);
-      background  : rgba(var(--color_rgb_white),1);
     }
     #try details.try_see_how[open] summary{
       font-weight : var(--font_weight_heavy);
@@ -384,7 +387,9 @@
     .faq_group details:not([open]) summary{
       background : rgba(var(--color_rgb_white),1);
     }
-    .faq_group details:hover{
+    .faq_group details:hover,
+    #try details.try_see_how:hover{
+      border-color : var(--color_line);
       box-shadow : none;
       transform  : none;
     }
@@ -492,7 +497,7 @@
 
     footer{
       border-top : var(--border_default);
-      padding    : var(--footer_padding_top) 0 var(--footer_padding_bottom);
+      padding    : var(--header_footer_padding_y) 0;
       background : var(--color_header_bg);
     }
     .foot{
@@ -504,7 +509,10 @@
       text-align      : left;
     }
     .copy{
-      color : rgba(var(--color_rgb_white),var(--opacity_medium));
+      display     : flex;
+      align-items : center;
+      line-height : 1;
+      color       : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
 
     @media (max-width: 43.75rem){
@@ -524,7 +532,7 @@
         --scroll_padding_top:      var(--scroll_padding_top_mobile);
       }
       .bar{
-        padding : var(--space_small) 0;
+        padding : var(--header_footer_padding_y) 0;
       }
       .brand{
         gap : var(--space_small);
