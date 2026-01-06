@@ -17,7 +17,7 @@
       --hero_margin_top       : var(--space_medium);
       --hero_margin_top_mobile: var(--space_small);
 
-      --face_size             : 14.4rem;
+      --face_size             : 12.96rem;
       --face_zoom             : 175%;
       --face_granny_zoom      : 190%;
       --face_margin           : 0px;
@@ -218,6 +218,13 @@
       max-width         : var(--text_measure_wide);
       text-align        : left;
     }
+    .note.hero_tagline{
+      font-family       : ui-serif, Georgia, "Times New Roman", Times, serif;
+      font-style        : italic;
+      font-size         : .88em;
+      margin-top        : var(--space_small);
+      margin-bottom     : var(--space_large);
+    }
     .note b{
       color             : var(--color_text_primary);
     }
@@ -271,6 +278,12 @@
       margin             : 0;
       padding-left       : 0;
       list-style-position: inside;
+    }
+    #try details.try_see_how .drawer_note{
+      margin            : calc(-1 * var(--space_small)) 0 var(--space_small);
+      padding-left      : .9em;
+      font-style        : italic;
+      font-size         : .92em;
     }
     #try .try_disclaimer{
       border-top        : var(--border_default);
@@ -555,7 +568,7 @@
         --font_size_body   : 22px;
         --font_size_heading: 28px;
 
-        --face_size     : 12rem;
+        --face_size     : 10.8rem;
       }
       .bar{
         padding         : var(--header_footer_padding_y) 0;
