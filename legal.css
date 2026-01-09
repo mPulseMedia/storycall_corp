@@ -2,16 +2,12 @@
       /* typography */
       --font_size_title  : 46px;
       --line_height_base : 1.45;
-      --line_height_title: 1.10;
+      --line_height_title : 1.10;
 
-      --letter_spacing_title: -.6px;
+      --letter_spacing_title : -.6px;
 
-      /* spacing + radius */
       /* layout */
-      --layout_side_padding: 41px;
-
-      /* scroll + page padding */
-      /* component sizing */
+      --layout_side_padding  : 41px;
     }
     a.sms_link{
       text-decoration   : none;
@@ -153,7 +149,7 @@
       :root{
         --font_size_title    : 38px;
         --font_size_body     : 22px;
-        --layout_side_padding: 22px;
+        --layout_side_padding : 22px;
         --scroll_padding_top : var(--scroll_padding_top_mobile);
       }
       .bar{

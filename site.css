@@ -1,38 +1,38 @@
 :root{
       /* layout */
       --layout_max_width   : 980px;
-      --layout_side_padding: 106px; /* overridden by legal.css */
+      --layout_side_padding : 106px; /* overridden by legal.css */
 
       /* scroll + page padding */
       --scroll_padding_top       : 92px;
-      --scroll_padding_top_mobile: 74px;
+      --scroll_padding_top_mobile : 74px;
 
       --main_padding_top   : var(--scroll_padding_top);
-      --main_padding_bottom: var(--space_large);
+      --main_padding_bottom : var(--space_large);
 
       /* section */
-      --section_padding_y: var(--space_large);
+      --section_padding_y : var(--space_large);
 
       /* components */
-      --header_footer_padding_y: 22px;
+      --header_footer_padding_y : 22px;
       --nav_padding_y          : var(--space_xsmall);
       --nav_padding_x          : var(--space_small);
 
       /* colors */
       --color_bg_primary  : #f3f3f3;
-      --color_bg_secondary: #ffffff;
-      --color_text_primary: #000000;
+      --color_bg_secondary : #ffffff;
+      --color_text_primary : #000000;
       --color_text_muted  : rgba(var(--color_rgb_black),var(--opacity_medium));
       --color_line        : rgba(var(--color_rgb_black),var(--opacity_faint));
       --color_header_bg   : #2b56b3;
 
       /* background */
-      --background_neutral: rgba(var(--color_rgb_white),var(--opacity_medium));
-      --background_control: rgba(var(--color_rgb_white),var(--opacity_heavy));
+      --background_neutral : rgba(var(--color_rgb_white),var(--opacity_medium));
+      --background_control : rgba(var(--color_rgb_white),var(--opacity_heavy));
 
       /* borders */
       --border_default    : 1px solid var(--color_line);
-      --border_transparent: 1px solid transparent;
+      --border_transparent : 1px solid transparent;
 
       /* shadows */
       --shadow_card     : 0 7px 16px rgba(var(--color_rgb_black),var(--opacity_faint));
@@ -41,13 +41,13 @@
       --layer_header    : 10;
 
       /* typography */
-      --font_family_base: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --font_family_base : ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       --font_size_body  : 24px;
 
       --font_weight_bold : 600;
-      --font_weight_heavy: 900;
+      --font_weight_heavy : 900;
 
-      --line_height_base: 1.35; /* overridden by legal.css */
+      --line_height_base : 1.35; /* overridden by legal.css */
 
       /* spacing */
       --space_micro     : 6px;
@@ -99,4 +99,3 @@
       margin            : 0 auto;
       padding           : 0 var(--layout_side_padding);
     }
-

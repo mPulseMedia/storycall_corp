@@ -3,19 +3,19 @@
 
       /* layout */
       --text_measure_wide         : 64ch;
-      --main_padding_bottom_mobile: 22px;
+      --main_padding_bottom_mobile : 22px;
 
       /* components */
-      --button_gap      : var(--space_small);
-      --button_padding_y: var(--space_small);
-      --button_padding_x: var(--space_medium);
+      --button_gap       : var(--space_small);
+      --button_padding_y : var(--space_small);
+      --button_padding_x : var(--space_medium);
 
       --brand_text_size       : 46px;
-      --brand_text_size_mobile: 36px;
+      --brand_text_size_mobile : 36px;
 
       /* hero */
       --hero_margin_top       : var(--space_medium);
-      --hero_margin_top_mobile: var(--space_small);
+      --hero_margin_top_mobile  : var(--space_small);
 
       --face_size             : 12.96rem;
       --face_zoom             : 175%;
@@ -25,24 +25,24 @@
       --face_hidden_ratio     : .3;
       --face_overhang         : calc(var(--layout_side_padding) + (var(--face_size) * var(--face_hidden_ratio)));
       --face_position_y       : 45%;
-      --face_granny_position_y: 35%;
+      --face_granny_position_y  : 35%;
       --face_granny_offset_y  : 0;
       --face_float_offset_y   : 0;
 
       /* drawer */
-      --drawer_caret_size: 44px;
-      --drawer_shadow_top: 140px;
+      --drawer_caret_size      : 44px;
+      --drawer_shadow_top      : 140px;
 
       /* typography */
-      --font_size_heading: 32px;
+      --font_size_heading      : 32px;
 
-      --font_weight_regular: 400;
+      --font_weight_regular    : 400;
 
-      --letter_spacing_brand: -.2px;
-      --letter_spacing_h2   : -.3px;
-      --letter_spacing_h3   : -.2px;
+      --letter_spacing_brand   : -.2px;
+      --letter_spacing_h2      : -.3px;
+      --letter_spacing_h3      : -.2px;
 
-      --brand_text_shadow: 
+      --brand_text_shadow       :
         -1px -1px  0   rgba(255,230,200,           var(--opacity_light)),
          0    1px  0   rgba(255,230,200,           var(--opacity_faint)),
          2px  2px  0   rgba(var(--color_rgb_black),var(--opacity_light)),
@@ -55,7 +55,7 @@
       --radius_small    : 14px;
 
       /* motion */
-      --motion_duration_fast: .15s;
+      --motion_duration_fast   : .15s;
 
     }
     html{
@@ -201,7 +201,7 @@
     /* On touch layouts, start the floats slightly lower so paragraph 1 can span full width. */
     @media (pointer: coarse){
       :root{
-        --face_float_offset_y: 22px;
+        --face_float_offset_y : 22px;
       }
     }
     .hero_face_granny.hero_face_float_left{
@@ -303,7 +303,7 @@
       border            : none;
       box-shadow        : none; /* keep off; use drop-shadow to respect transparency */
       background        : transparent;
-      filter            : 
+      filter            :
         drop-shadow(0 4px 7px rgba(var(--color_rgb_black),var(--opacity_light)))
         drop-shadow(0 1px 3px rgba(var(--color_rgb_black),var(--opacity_faint)));
     }
@@ -463,7 +463,7 @@
       background        : var(--background_neutral);
       box-shadow        : var(--shadow_soft);
       padding           : var(--space_small) var(--space_small);
-      transition        : 
+      transition        :
         box-shadow   var(--motion_duration_fast) ease,
         border-color var(--motion_duration_fast) ease,
         transform    var(--motion_duration_fast) ease;
@@ -559,16 +559,16 @@
 
     @media (max-width: 43.75rem){
       :root{
-        --layout_side_padding: 53px;
-        --main_padding_bottom: var(--main_padding_bottom_mobile);
-        --scroll_padding_top : var(--scroll_padding_top_mobile);
+        --layout_side_padding   : 53px;
+        --main_padding_bottom   : var(--main_padding_bottom_mobile);
+        --scroll_padding_top    : var(--scroll_padding_top_mobile);
 
-        --drawer_caret_size: 36px;
+        --drawer_caret_size     : 36px;
 
-        --font_size_body   : 22px;
-        --font_size_heading: 28px;
+        --font_size_body        : 22px;
+        --font_size_heading      : 28px;
 
-        --face_size     : 10.8rem;
+        --face_size             : 10.8rem;
       }
       .bar{
         padding         : var(--header_footer_padding_y) 0;
