@@ -58,6 +58,29 @@
       --motion_duration_fast   : .15s;
 
     }
+
+    /* Desktop-only hero tweaks (keep touch/mobile layout unchanged). */
+    @media (pointer: fine) and (min-width: 43.75rem){
+      :root{
+        /* Show more of the circles on desktop (less hidden off-screen). */
+        --face_hidden_ratio    : .12;
+
+        /* Pull the circles inward (less negative overhang). */
+        --face_overhang        : calc((var(--layout_side_padding) * .00) + (var(--face_size) * var(--face_hidden_ratio)));
+
+        /* Granny: move the photo DOWN within the cropping circle (the other way). */
+        --face_granny_position_y : 32%;
+
+        /* Move the entire circle UP on the page (layout-aware, so text wraps correctly). */
+        --face_granny_lift     : 44px;
+        --face_granny_offset_y : calc(-1 * var(--face_granny_lift));
+      }
+
+      /* Add room above the Granny circle so it never overlaps the preceding paragraph. */
+      .hero_tagline + .note{
+        margin-bottom     : calc(var(--space_medium) + var(--face_granny_lift));
+      }
+    }
     html{
       overflow-x        : hidden;
     }
@@ -610,6 +633,12 @@
       line-height       : 1;
       color             : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
+    .foot_address{
+      text-align        : right;
+      line-height       : 1;
+      color             : rgba(var(--color_rgb_white),var(--opacity_medium));
+      white-space       : nowrap;
+    }
 
     @media (max-width: 43.75rem){
       :root{
@@ -639,6 +668,10 @@
       footer .foot{
         justify-content : center;
         text-align      : center;
+      }
+      .foot_address{
+        text-align      : center;
+        white-space     : normal;
       }
 
     }
