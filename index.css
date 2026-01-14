@@ -294,6 +294,24 @@
       width             : min(216px, 100%);
       margin-top        : 0;
     }
+
+    /* Help email drawer (matches the "What happens next?" row style) */
+    #help details.help_email{
+      border-top-left-radius  : 0;
+      border-top-right-radius : 0;
+      border-bottom-left-radius  : var(--radius_medium);
+      border-bottom-right-radius : var(--radius_medium);
+      overflow          : hidden;
+      background        : rgba(var(--color_rgb_white),1);
+      box-shadow        : none;
+      border-top        : var(--border_default);
+      padding           : 0;
+      margin            : var(--space_small) calc(-1 * var(--space_medium)) calc(-1 * var(--space_medium));
+    }
+    #help details.help_email summary{
+      border-top-left-radius : 0;
+      border-top-right-radius: 0;
+    }
     .start_image{
       width             : 70%;
       height            : auto;
@@ -534,6 +552,42 @@
     .about_copy{
       margin            : 0;
       color             : var(--color_text_muted);
+    }
+
+    /* Contact form */
+    .contact_form{
+      display           : flex;
+      flex-direction    : column;
+      gap               : var(--space_small);
+      margin-top        : var(--space_small);
+    }
+    .contact_field label{
+      display           : block;
+      margin            : 0 0 var(--space_micro);
+      font-size         : .85em;
+      color             : var(--color_text_muted);
+    }
+    .contact_field input,
+    .contact_field textarea{
+      width             : 100%;
+      font-family       : inherit;
+      font-size         : inherit;
+      line-height       : inherit;
+      padding           : var(--space_small) var(--space_small);
+      border-radius     : var(--radius_medium);
+      border            : var(--border_default);
+      background        : var(--background_control);
+      color             : inherit;
+    }
+    .contact_field textarea{
+      min-height        : 9rem;
+      resize            : vertical;
+    }
+    .contact_field input:focus,
+    .contact_field textarea:focus{
+      outline           : none;
+      border-color      : rgba(0,0,0,.18);
+      box-shadow        : 0 0 0 4px rgba(43,86,179,.14);
     }
 
     footer{

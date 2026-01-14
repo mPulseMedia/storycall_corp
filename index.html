@@ -142,7 +142,7 @@
     </section>
 
     <section id="help">
-      <h2>Need help?</h2>
+      <h2>Contact Us</h2>
       <div class="box">
         <div class="mini">
           Send a text-only message to the same number, <span class="nowrap">844-961-2835</span>, for help.
@@ -150,6 +150,39 @@
         <div class="button_row">
           <a class="btn primary" href="sms:+18449612835?&body=HELP%20">Text Help</a>
         </div>
+
+        <details class="help_email drawer_row">
+          <summary>
+            <span class="summary_text">Send an email</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="content">
+            <form class="contact_form" action="mailto:paul@storycall.org?subject=StoryCall%20Contact" method="post" enctype="text/plain">
+              <div class="contact_field">
+                <label for="contact_name">Name</label>
+                <input id="contact_name" name="name" type="text" autocomplete="name" required />
+              </div>
+
+              <div class="contact_field">
+                <label for="contact_email">Email</label>
+                <input id="contact_email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="contact_field">
+                <label for="contact_message">Message</label>
+                <textarea id="contact_message" name="message" rows="6" required></textarea>
+              </div>
+
+              <div class="mini">
+                This opens your email app to send to Paul at <span class="nowrap">paul@storycall.org</span>.
+              </div>
+
+              <div class="button_row">
+                <button class="btn primary" type="submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </details>
       </div>
     </section>
 

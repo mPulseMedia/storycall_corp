@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"    content="width=device-width,initial-scale=1" />
+  <title>StoryCall — Name Tags</title>
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    /* Workflowy-like outline: clean canvas, indentation, bullets, no “tag chips” */
+    body{
+      background     : #ffffff !important;
+      font-size      : 16px !important;
+      line-height    : 1.55 !important;
+    }
+    header, footer{
+      display        : none;
+    }
+    .wrap{
+      max-width      : 920px;
+      padding        : 0 28px;
+    }
+    .doc{
+      padding        : 30px 0 70px 0;
+    }
+    .doc_head{
+      margin         : 0 0 22px 0;
+    }
+    .doc_head h1{
+      margin         : 0 0 10px 0;
+      font-size      : 22px;
+      letter-spacing : -.2px;
+      font-weight    : 600;
+    }
+    .doc_head p{
+      margin         : 0;
+      color          : rgba(0,0,0,.55);
+      max-width      : 72ch;
+      font-size      : 14px;
+    }
+    .card{
+      background     : transparent;
+      border         : none;
+      box-shadow     : none;
+      border-radius  : 0;
+      padding        : 0;
+      margin         : 0 0 22px 0;
+    }
+    .card h2{
+      margin         : 0 0 8px 0;
+      font-size      : 16px;
+      font-weight    : 600;
+      position       : relative;
+      padding-left   : 18px;
+    }
+    .card h2::before{
+      content        : "";
+      position       : absolute;
+      left           : 0;
+      top            : 10px;
+      width          : 8px;
+      height         : 8px;
+      border         : 1px solid rgba(0,0,0,.35);
+      border-radius  : 50%;
+      background     : #fff;
+    }
+    details.bucket{
+      margin         : 0;
+      padding        : 0;
+      border         : none;
+    }
+    details.bucket > summary{
+      cursor         : pointer;
+      list-style     : none;
+      position       : relative;
+      padding        : 4px 0 4px 36px;
+      font-weight    : 600;
+    }
+    details.bucket > summary::-webkit-details-marker{
+      display        : none;
+    }
+    details.bucket > summary::before{
+      content        : "";
+      position       : absolute;
+      left           : 18px;
+      top            : 11px;
+      width          : 8px;
+      height         : 8px;
+      border         : 1px solid rgba(0,0,0,.35);
+      border-radius  : 50%;
+      background     : #fff;
+    }
+    details.bucket > summary .caret{
+      position       : absolute;
+      left           : 0;
+      top            : 3px;
+      width          : 16px;
+      text-align     : center;
+      opacity        : .6;
+      font-weight    : 700;
+      transform      : none;
+    }
+    details.bucket[open] > summary .caret{
+      transform      : rotate(90deg);
+    }
+    .rows{
+      display        : block;
+      margin         : 2px 0 10px 36px;
+      padding        : 0;
+    }
+    .row{
+      display        : block;
+      position       : relative;
+      padding        : 4px 0 4px 18px;
+      border         : none;
+      border-radius  : 0;
+      background     : transparent;
+      text-decoration: none;
+    }
+    .row::before{
+      content        : "";
+      position       : absolute;
+      left           : 0;
+      top            : 11px;
+      width          : 8px;
+      height         : 8px;
+      border         : 1px solid rgba(0,0,0,.35);
+      border-radius  : 50%;
+      background     : #fff;
+    }
+    .row:hover{
+      background     : rgba(0,0,0,.04);
+    }
+    .tail{
+      font-family    : ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size      : 13px;
+      font-weight    : 700;
+      letter-spacing : -.1px;
+    }
+    .q{
+      margin-top     : 2px;
+      color          : rgba(0,0,0,.55);
+      font-family    : ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size      : 12px;
+      overflow-wrap  : anywhere;
+    }
+    .note{
+      margin         : 10px 0 0 18px;
+      color          : rgba(0,0,0,.55);
+      font-size      : 13px;
+    }
+    @media (max-width: 720px){
+      .wrap{
+        padding      : 0 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="index.html" aria-label="StoryCall home">
+          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap doc">
+    <div class="doc_head">
+      <h1>Name Tags</h1>
+      <p>
+        A map from product/UX concepts to the exact code locations. Links open the
+        full GitHub URL, but the visible text emphasizes the useful tail (file
+        path + query).
+      </p>
+    </div>
+
+    <section class="card">
+      <h2>User Experience Map (what the user sees, step-by-step)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Discover / Start (user learns what to do)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/simple_brain.py?q=Grandma%27s%20got%20a%20new%20way%20to%20text" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/simple_brain.py</div>
+            <div class="q">q=&quot;Grandma's got a new way to text&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=INBOUND_SMS_AUTOREPLY" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;INBOUND_SMS_AUTOREPLY&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Send a message (user action)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.post(%22%2Fsms%2Finbound%22" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.post(&quot;/sms/inbound&quot;'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=Insert%20to%20webhook_inbox" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;Insert to webhook_inbox&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Immediate confirmation (what the user gets right away)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=INBOUND_SMS_AUTOREPLY" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;INBOUND_SMS_AUTOREPLY&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=Return%20auto-reply%20immediately" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;Return auto-reply immediately&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>System delivers the message as a phone call (what the recipient experiences)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.get(%22%2Fcall%2Fplay%2F" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.get(&quot;/call/play/'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=VoiceResponse()" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;VoiceResponse()&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20initiate_call" target="_blank" rel="noreferrer">
+            <div class="tail">back/tools/external.py</div>
+            <div class="q">q=&quot;def initiate_call&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Recipient responds by speaking (recipient action)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=Gather(" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;Gather(&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.get(%22%2Fcall%2Frespond%22" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.get(&quot;/call/respond&quot;'</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>System records the response (behind the scenes)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.api_route(%22%2Fcall%2Frecording%22" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.api_route(&quot;/call/recording&quot;'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20download_recording" target="_blank" rel="noreferrer">
+            <div class="tail">back/tools/external.py</div>
+            <div class="q">q=&quot;def download_recording&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>System transcribes the response (behind the scenes)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20transcribe_audio" target="_blank" rel="noreferrer">
+            <div class="tail">back/tools/external.py</div>
+            <div class="q">q=&quot;def transcribe_audio&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/util.py?q=transcribe_audio_openai" target="_blank" rel="noreferrer">
+            <div class="tail">back/util.py</div>
+            <div class="q">q=&quot;transcribe_audio_openai&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Sender receives the reply by SMS (user outcome)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20send_sms" target="_blank" rel="noreferrer">
+            <div class="tail">back/tools/external.py</div>
+            <div class="q">q=&quot;def send_sms&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/simple_brain.py?q=Send%20SMS%20to%20sender_phone%20with%20the%20transcript" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/simple_brain.py</div>
+            <div class="q">q=&quot;Send SMS to sender_phone with the transcript&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Accessing media (if exposed in the experience)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.get(%22%2Faudio%2F" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.get(&quot;/audio/'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.get(%22%2Frecordings%2F" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.get(&quot;/recordings/'</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Reliability moments (what prevents “weird” UX)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Fast response / no waiting on webhooks</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=background_tasks.add_task" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;background_tasks.add_task&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Retry and recovery (failed steps don’t stall the user forever)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=MAX_RETRY_COUNT" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;MAX_RETRY_COUNT&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=FAILED_STATUSES" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;FAILED_STATUSES&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Avoid infinite loops (bad webhooks don’t spam)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=Filter%20out%20Twilio%20error%20notifications" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;Filter out Twilio error notifications&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>“Behind the curtain” (how the UX is produced)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Work queue (turning webhooks into processable items)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20WebhookInbox" target="_blank" rel="noreferrer">
+            <div class="tail">back/db/models.py</div>
+            <div class="q">q=&quot;class WebhookInbox&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Message lifecycle (what states exist)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20Message" target="_blank" rel="noreferrer">
+            <div class="tail">back/db/models.py</div>
+            <div class="q">q=&quot;class Message&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/database.py?q=def%20update_message_status" target="_blank" rel="noreferrer">
+            <div class="tail">back/tools/database.py</div>
+            <div class="q">q=&quot;def update_message_status&quot;</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>Agent execution loop (how the system keeps processing)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=run_agent(" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;run_agent(&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=APScheduler" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;APScheduler&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Support &amp; Troubleshooting UX (what a PM can use to explain “what happened”)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Run tracking and traces</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/mlflow_logger.py?q=decision_traces" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/mlflow_logger.py</div>
+            <div class="q">q=&quot;decision_traces&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=mlflow_run_id" target="_blank" rel="noreferrer">
+            <div class="tail">back/db/models.py</div>
+            <div class="q">q=&quot;mlflow_run_id&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Product Definition (what are we building?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>StoryCall (Product)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=txtdial%20API" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q=&quot;txtdial API&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/simple_brain.py?q=StoryCall%20is%20a%20small%20team" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/simple_brain.py</div>
+            <div class="q">q=&quot;StoryCall is a small team&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20AgentRun" target="_blank" rel="noreferrer">
+            <div class="tail">back/db/models.py</div>
+            <div class="q">q=&quot;class AgentRun&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20Event" target="_blank" rel="noreferrer">
+            <div class="tail">back/db/models.py</div>
+            <div class="q">q=&quot;class Event&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/mlflow_logger.py?q=class%20MLflowLogger" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/mlflow_logger.py</div>
+            <div class="q">q=&quot;class MLflowLogger&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>User Journey (what does the user experience end-to-end?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>End User entry + system response loop</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.post(%22%2Fsms%2Finbound%22" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.post(&quot;/sms/inbound&quot;'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.get(%22%2Fcall%2Fplay%2F" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.get(&quot;/call/play/'</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/main.py?q=%40app.api_route(%22%2Fcall%2Frecording%22" target="_blank" rel="noreferrer">
+            <div class="tail">back/main.py</div>
+            <div class="q">q='@app.api_route(&quot;/call/recording&quot;'</div>
+          </a>
+        </div>
+      </details>
+
+      <details class="bucket">
+        <summary>
+          <span>API request/response vocabulary (what PMs name on tickets)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/schemas.py?q=class%20SendSmsRequest" target="_blank" rel="noreferrer">
+            <div class="tail">back/schemas.py</div>
+            <div class="q">q=&quot;class SendSmsRequest&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/schemas.py?q=class%20SendSmsResponse" target="_blank" rel="noreferrer">
+            <div class="tail">back/schemas.py</div>
+            <div class="q">q=&quot;class SendSmsResponse&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Core System Behavior (how does the product decide what to do?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Agent System (Decision + Generation Engine)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=Main%20agent%20execution%20loop" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;Main agent execution loop&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=_query_pending_webhooks" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;_query_pending_webhooks&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/orchestrator.py?q=_execute_agent_action" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/orchestrator.py</div>
+            <div class="q">q=&quot;_execute_agent_action&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/simple_brain.py?q=dspy.ReAct" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/simple_brain.py</div>
+            <div class="q">q=&quot;dspy.ReAct&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/simple_brain.py?q=SimpleBrainSignature" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/simple_brain.py</div>
+            <div class="q">q=&quot;SimpleBrainSignature&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Capabilities (what can the system DO?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Tools (Capabilities)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+
+        <details class="bucket">
+          <summary>
+            <span>Database capabilities (read/write)</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/database.py?q=def%20execute_sql" target="_blank" rel="noreferrer">
+              <div class="tail">back/tools/database.py</div>
+              <div class="q">q=&quot;def execute_sql&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/database.py?q=def%20query_routing" target="_blank" rel="noreferrer">
+              <div class="tail">back/tools/database.py</div>
+              <div class="q">q=&quot;def query_routing&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/database.py?q=get_sync_db_connection" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/database.py</div>
+              <div class="q">q=&quot;get_sync_db_connection&quot;</div>
+            </a>
+          </div>
+        </details>
+
+        <details class="bucket">
+          <summary>
+            <span>External capabilities (Twilio, TTS, transcription)</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20generate_tts" target="_blank" rel="noreferrer">
+              <div class="tail">back/tools/external.py</div>
+              <div class="q">q=&quot;def generate_tts&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20initiate_call" target="_blank" rel="noreferrer">
+              <div class="tail">back/tools/external.py</div>
+              <div class="q">q=&quot;def initiate_call&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tools/external.py?q=def%20transcribe_audio" target="_blank" rel="noreferrer">
+              <div class="tail">back/tools/external.py</div>
+              <div class="q">q=&quot;def transcribe_audio&quot;</div>
+            </a>
+          </div>
+        </details>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Data &amp; State (what does the system remember?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Data Layer (Persistence)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+
+        <details class="bucket">
+          <summary>
+            <span>Core domain records</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20User" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class User&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20RoutingNumber" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class RoutingNumber&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20Conversation" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class Conversation&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20Message" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class Message&quot;</div>
+            </a>
+          </div>
+        </details>
+
+        <details class="bucket">
+          <summary>
+            <span>Work queue + run history</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20WebhookInbox" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class WebhookInbox&quot;</div>
+            </a>
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/models.py?q=class%20AgentRun" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/models.py</div>
+              <div class="q">q=&quot;class AgentRun&quot;</div>
+            </a>
+          </div>
+        </details>
+
+        <details class="bucket">
+          <summary>
+            <span>How state is accessed</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/database.py?q=get_db_connection" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/database.py</div>
+              <div class="q">q=&quot;get_db_connection&quot;</div>
+            </a>
+          </div>
+        </details>
+
+        <details class="bucket">
+          <summary>
+            <span>Seed / initial examples</span>
+            <span class="caret" aria-hidden="true">›</span>
+          </summary>
+          <div class="rows">
+            <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/db/seed.sql?q=INSERT%20INTO" target="_blank" rel="noreferrer">
+              <div class="tail">back/db/seed.sql</div>
+              <div class="q">q=&quot;INSERT INTO&quot;</div>
+            </a>
+          </div>
+        </details>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Quality, Debugging, and “What happened?” (how do we trust it?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Observability (Experiment/Run Tracking)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/mlflow_logger.py?q=start_run(" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/mlflow_logger.py</div>
+            <div class="q">q=&quot;start_run(&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/agent/mlflow_logger.py?q=tool_call_context" target="_blank" rel="noreferrer">
+            <div class="tail">back/agent/mlflow_logger.py</div>
+            <div class="q">q=&quot;tool_call_context&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/deploy/docker-compose.yaml?q=MLFLOW_EXPERIMENT_NAME" target="_blank" rel="noreferrer">
+            <div class="tail">deploy/docker-compose.yaml</div>
+            <div class="q">q=&quot;MLFLOW_EXPERIMENT_NAME&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tests/test_mlflow_integration.py?q=End-to-End%20Tests%20for%20MLflow%20Integration" target="_blank" rel="noreferrer">
+            <div class="tail">back/tests/test_mlflow_integration.py</div>
+            <div class="q">q=&quot;End-to-End Tests for MLflow Integration&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Change &amp; Evolution (how do we change safely?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Migrations</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/alembic/env.py?q=run_migrations" target="_blank" rel="noreferrer">
+            <div class="tail">back/alembic/env.py</div>
+            <div class="q">q=&quot;run_migrations&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/back/tests/test_migration_002_ai_agent_architecture.py?q=command.upgrade" target="_blank" rel="noreferrer">
+            <div class="tail">back/tests/test_migration_002_ai_agent_architecture.py</div>
+            <div class="q">q=&quot;command.upgrade&quot;</div>
+          </a>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>Running It (how does it ship / run in environments?)</h2>
+
+      <details class="bucket" open>
+        <summary>
+          <span>Deployment (Containers)</span>
+          <span class="caret" aria-hidden="true">›</span>
+        </summary>
+        <div class="rows">
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/deploy/docker-compose.yaml?q=services%3A" target="_blank" rel="noreferrer">
+            <div class="tail">deploy/docker-compose.yaml</div>
+            <div class="q">q=&quot;services:&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/deploy/Dockerfile.back?q=FROM%20python%3A3.12" target="_blank" rel="noreferrer">
+            <div class="tail">deploy/Dockerfile.back</div>
+            <div class="q">q=&quot;FROM python:3.12&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/deploy/docker-compose.yaml?q=DATABASE_HOST" target="_blank" rel="noreferrer">
+            <div class="tail">deploy/docker-compose.yaml</div>
+            <div class="q">q=&quot;DATABASE_HOST&quot;</div>
+          </a>
+          <a class="row" href="https://github.com/mPulseMedia/storycall/blob/main/deploy/docker-compose.yaml?q=MLFLOW_TRACKING_URI" target="_blank" rel="noreferrer">
+            <div class="tail">deploy/docker-compose.yaml</div>
+            <div class="q">q=&quot;MLFLOW_TRACKING_URI&quot;</div>
+          </a>
+        </div>
+      </details>
+      <p class="note">
+        Tip: The “tail” is what you scan; click any row to open the full GitHub
+        link.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="copy">
+          © <span id="year"></span> StoryCall
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
