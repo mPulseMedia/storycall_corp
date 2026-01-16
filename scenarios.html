@@ -6,6 +6,7 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="Example back-and-forth exchanges between a kid and StoryCall (texts, audio attachments, and transcripts)." />
   <title>StoryCall Scenarios</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="index.css" />
   <style>
@@ -115,7 +116,7 @@
 
     .thread{
       max-width         : calc(var(--bubble_max_width) * 1.2);
-      margin            : 0 auto;
+      margin            : 0;
       display           : flex;
       flex-direction    : column;
       gap               : 10px;
@@ -123,7 +124,12 @@
       border-radius     : var(--radius_medium);
       border            : var(--border_default);
       background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      font-size         : 14px;
+      font-size         : 15px;
+    }
+
+    /* Left-align “phone” mockups, with a slight indent from the scenario text. */
+    .scenario .thread{
+      margin-left       : 14px;
     }
 
     .msg_row{
@@ -138,7 +144,7 @@
       justify-content   : flex-start;
     }
     .msg_row::after{
-      content           : attr(data-msg-id);
+      content           : attr(data-time) "\A" attr(data-msg-id);
       position          : absolute;
       top               : 0;
       right             : -86px;
@@ -150,10 +156,14 @@
       opacity           : .55;
       pointer-events    : none;
       user-select       : none;
-      white-space       : nowrap;
+      white-space       : pre;
     }
     .msg_row:not([data-msg-id])::after{
       content           : "";
+    }
+    .msg_row:not([data-time])::after{
+      content           : attr(data-msg-id);
+      white-space       : nowrap;
     }
 
     .msg{
@@ -478,7 +488,7 @@
         <p class="note">Audio keyword reply, then audio phone number.</p>
 
         <div class="thread" aria-label="Setup 1.A message thread">
-          <div class="msg_row user" data-msg-id="1.A.1">
+          <div class="msg_row user" data-msg-id="1.A.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -488,7 +498,7 @@
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.A.2">
+          <div class="msg_row storycall" data-msg-id="1.A.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -510,7 +520,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.A.3">
+          <div class="msg_row user" data-msg-id="1.A.3" data-time="1:02 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -528,7 +538,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.A.4">
+          <div class="msg_row storycall" data-msg-id="1.A.4" data-time="1:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -555,7 +565,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         <p class="note">StoryCall asks for audio instead.</p>
 
         <div class="thread" aria-label="Setup 1.B message thread">
-          <div class="msg_row user" data-msg-id="1.B.1">
+          <div class="msg_row user" data-msg-id="1.B.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -565,7 +575,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.B.2">
+          <div class="msg_row storycall" data-msg-id="1.B.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -589,7 +599,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             Kid gives phone number as <b>text</b> instead of <b>audio</b> recording.
           </div>
 
-          <div class="msg_row user" data-msg-id="1.B.3">
+          <div class="msg_row user" data-msg-id="1.B.3" data-time="1:02 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -599,7 +609,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.B.4">
+          <div class="msg_row storycall" data-msg-id="1.B.4" data-time="1:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -622,7 +632,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         <p class="note">StoryCall confirms what it heard and asks for a re-send.</p>
 
         <div class="thread" aria-label="Setup 1.C message thread">
-          <div class="msg_row user" data-msg-id="1.C.1">
+          <div class="msg_row user" data-msg-id="1.C.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -637,7 +647,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.C.2">
+          <div class="msg_row storycall" data-msg-id="1.C.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -655,7 +665,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.C.3">
+          <div class="msg_row user" data-msg-id="1.C.3" data-time="1:02 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -673,7 +683,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.C.4">
+          <div class="msg_row storycall" data-msg-id="1.C.4" data-time="1:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -692,7 +702,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         <p class="note">Kid can update the destination by sending a new phone number as audio.</p>
 
         <div class="thread" aria-label="Setup 1.D message thread">
-          <div class="msg_row storycall" data-msg-id="1.D.1">
+          <div class="msg_row storycall" data-msg-id="1.D.1" data-time="1:00 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -704,7 +714,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.D.2">
+          <div class="msg_row user" data-msg-id="1.D.2" data-time="1:01 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -722,7 +732,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.D.3">
+          <div class="msg_row storycall" data-msg-id="1.D.3" data-time="1:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -749,7 +759,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         <p class="note">Kid sends audio. StoryCall returns audio + transcript.</p>
 
         <div class="thread" aria-label="Message exchange 2.A message thread">
-          <div class="msg_row user" data-msg-id="2.A.1">
+          <div class="msg_row user" data-msg-id="2.A.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -767,7 +777,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.A.2">
+          <div class="msg_row storycall" data-msg-id="2.A.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -793,7 +803,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">StoryCall nudges back to voice recording (no text-to-speech).</p>
 
         <div class="thread" aria-label="Message exchange 2.B message thread">
-          <div class="msg_row user" data-msg-id="2.B.1">
+          <div class="msg_row user" data-msg-id="2.B.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -803,7 +813,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.B.2">
+          <div class="msg_row storycall" data-msg-id="2.B.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -818,7 +828,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="2.B.3">
+          <div class="msg_row user" data-msg-id="2.B.3" data-time="1:02 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -836,7 +846,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.B.4">
+          <div class="msg_row storycall" data-msg-id="2.B.4" data-time="1:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -858,7 +868,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Common delivery outcomes and how StoryCall reports them.</p>
 
         <div class="thread" aria-label="Message exchange 2.C message thread">
-          <div class="msg_row user" data-msg-id="2.C.1">
+          <div class="msg_row user" data-msg-id="2.C.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -876,7 +886,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.2">
+          <div class="msg_row storycall" data-msg-id="2.C.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -891,7 +901,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.3">
+          <div class="msg_row storycall" data-msg-id="2.C.3" data-time="1:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -903,7 +913,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.4">
+          <div class="msg_row storycall" data-msg-id="2.C.4" data-time="1:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -927,7 +937,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Kid is confused after starting.</p>
 
         <div class="thread" aria-label="Help 3.A message thread">
-          <div class="msg_row user" data-msg-id="3.A.1">
+          <div class="msg_row user" data-msg-id="3.A.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -937,7 +947,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.A.2">
+          <div class="msg_row storycall" data-msg-id="3.A.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -965,7 +975,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Quick instructions without getting too device-specific.</p>
 
         <div class="thread" aria-label="Help 3.B message thread">
-          <div class="msg_row user" data-msg-id="3.B.1">
+          <div class="msg_row user" data-msg-id="3.B.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -975,7 +985,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.B.2">
+          <div class="msg_row storycall" data-msg-id="3.B.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1006,7 +1016,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Kid wants to switch from Grandma to Grandpa.</p>
 
         <div class="thread" aria-label="Help 3.C message thread">
-          <div class="msg_row user" data-msg-id="3.C.1">
+          <div class="msg_row user" data-msg-id="3.C.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1016,7 +1026,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.C.2">
+          <div class="msg_row storycall" data-msg-id="3.C.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1043,7 +1053,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Kid pauses the service for this thread.</p>
 
         <div class="thread" aria-label="Stop 4.A message thread">
-          <div class="msg_row user" data-msg-id="4.A.1">
+          <div class="msg_row user" data-msg-id="4.A.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1053,7 +1063,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="4.A.2">
+          <div class="msg_row storycall" data-msg-id="4.A.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1075,7 +1085,7 @@ Everyone knew the big songs on the radio.</div>
         <p class="note">Kid restarts, then is guided back into setup if needed.</p>
 
         <div class="thread" aria-label="Stop 4.B message thread">
-          <div class="msg_row user" data-msg-id="4.B.1">
+          <div class="msg_row user" data-msg-id="4.B.1" data-time="1:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1085,7 +1095,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="4.B.2">
+          <div class="msg_row storycall" data-msg-id="4.B.2" data-time="1:01 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
