@@ -80,6 +80,11 @@
       .hero_tagline + .note{
         margin-bottom     : calc(var(--space_medium) + var(--face_granny_lift));
       }
+
+      /* "What happens next?" screenshot: larger on desktop. */
+      #try details.try_see_how .start_image{
+        width             : min(432px, 100%);
+      }
     }
     html{
       overflow-x        : hidden;
@@ -314,7 +319,7 @@
       padding           : var(--space_small) var(--space_medium) var(--space_medium);
     }
     #try details.try_see_how .start_image{
-      width             : min(216px, 100%);
+      width             : min(288px, 100%);
       margin-top        : 0;
     }
 

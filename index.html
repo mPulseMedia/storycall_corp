@@ -61,7 +61,7 @@
         <div class="button_row">
           <a class="btn primary" href="sms:+18449612835?&body=START%20">Text START to StoryCall</a>
         </div>
-        <details class="try_see_how drawer_row" open>
+        <details class="try_see_how drawer_row">
           <summary>
             <span class="summary_text">What happens next?</span>
             <span class="caret" aria-hidden="true">›</span>
@@ -71,12 +71,12 @@
               After you send us a text with the key word START, we send you a welcome message.
             </p>
             <p class="note">
-              Reply with a <b>voice recording</b> of the phone number we should call with your messages — not speech-to-text dictation, but an audio attachment. Here's how:
+              Reply with a <b>voice recording</b> of the phone number we should call with your future messages — not speech-to-text dictation, but an audio attachment. Here's how:
             </p>
             <ol class="mini">
               <li>Tap the <b>+</b> attachment button.</li>
               <li>Choose <b>Audio</b>/<b>Voice</b>.</li>
-              <li>Record your message and hit Send.</li>
+              <li>Record the phone number we should call with your future messages and hit Send.</li>
             </ol>
             <img class="start_image" src="images/sms_relay.png" alt="Example of an SMS phone number to StoryCall" />
           </div>
@@ -153,7 +153,7 @@
             <span class="caret" aria-hidden="true">›</span>
           </summary>
           <div class="content">
-            <form class="contact_form" action="mailto:paul@storycall.org?subject=StoryCall%20Contact" method="post" enctype="text/plain">
+            <form class="contact_form" id="contact_form">
               <div class="contact_field">
                 <label for="contact_name">Name</label>
                 <input id="contact_name" name="name" type="text" autocomplete="name" required />
@@ -220,6 +220,31 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function(){
+      const form = document.getElementById("contact_form");
+      if (!form) return;
+
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const name = (document.getElementById("contact_name")?.value || "").trim();
+        const email = (document.getElementById("contact_email")?.value || "").trim();
+        const message = (document.getElementById("contact_message")?.value || "").trim();
+
+        const subject = "StoryCall Contact";
+        let body = message;
+
+        const signature = [name, email].filter(Boolean).join("\n");
+        if (signature) body += "\n\n—\n" + signature;
+
+        window.location.href =
+          "mailto:paul@storycall.org" +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+      });
+    })();
   </script>
 </body>
 </html>
