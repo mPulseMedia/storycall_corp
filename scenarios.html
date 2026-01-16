@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"    content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="Example back-and-forth exchanges between a kid and StoryCall (texts, audio attachments, and transcripts)." />
+  <title>StoryCall Scenarios</title>
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    :root{
+      --layout_side_padding : 41px;
+      --font_size_body      : 17px;
+
+      /* iPhone-ish bubble colors */
+      --bubble_incoming_bg : #e9e9eb;
+      --bubble_outgoing_bg : #34c759; /* iOS Messages green */
+      --bubble_shadow      : 0 1px 2px rgba(0,0,0,.10);
+
+      /* sizing */
+      --bubble_max_width  : 24rem;
+    }
+
+    html{
+      /* Make in-page anchor jumps land with the flow title visible under the sticky header. */
+      scroll-padding-top : calc(var(--scroll_padding_top) + 10px);
+    }
+    [id]{
+      scroll-margin-top  : calc(var(--scroll_padding_top) + 10px);
+    }
+    html, body{
+      overflow-x         : hidden;
+    }
+
+    .page_title{
+      margin            : 0 0 var(--space_small);
+      letter-spacing    : var(--letter_spacing_h2);
+    }
+
+    .page_intro{
+      margin            : 0 0 var(--space_large);
+      color             : var(--color_text_muted);
+    }
+
+    .jump{
+      margin            : 0 0 var(--space_large);
+      padding           : var(--space_small) var(--space_medium);
+      border-radius     : var(--radius_medium);
+      border            : var(--border_default);
+      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+    }
+    .jump_row{
+      display           : flex;
+      align-items       : baseline;
+      justify-content   : space-between;
+      gap               : var(--space_medium);
+      flex-wrap         : wrap;
+    }
+    .jump_title{
+      margin            : 0;
+      font-weight       : var(--font_weight_heavy);
+    }
+    .legend{
+      margin            : 0;
+      color             : var(--color_text_muted);
+      font-size         : .92em;
+    }
+    .scenario_list{
+      margin            : var(--space_small) 0 0;
+      padding-left      : 1.35em;
+    }
+    .scenario_list ol{
+      margin            : var(--space_small) 0 0;
+      padding-left      : 1.35em;
+    }
+    .scenario_list li{
+      margin            : 4px 0;
+    }
+    .scenario_list a{
+      text-decoration   : none;
+    }
+    .scenario_list a:hover{
+      text-decoration   : underline;
+    }
+
+    .group{
+      margin            : 0 0 var(--space_large);
+    }
+    .group:last-child{
+      margin-bottom     : 0;
+    }
+    .group_title{
+      margin            : 0 0 var(--space_small);
+      letter-spacing    : var(--letter_spacing_h2);
+    }
+    .group_note{
+      margin            : 0 0 var(--space_medium);
+      color             : var(--color_text_muted);
+    }
+
+    .scenario{
+      margin            : 0 0 var(--space_large);
+    }
+    .scenario:last-child{
+      margin-bottom     : 0;
+    }
+    .scenario h2{
+      margin            : 0 0 var(--space_small);
+      letter-spacing    : var(--letter_spacing_h3);
+    }
+    .scenario .note{
+      margin-top        : 0;
+    }
+
+    .thread{
+      max-width         : calc(var(--bubble_max_width) * 1.2);
+      margin            : 0 auto;
+      display           : flex;
+      flex-direction    : column;
+      gap               : 10px;
+      padding           : 14px;
+      border-radius     : var(--radius_medium);
+      border            : var(--border_default);
+      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      font-size         : 14px;
+    }
+
+    .msg_row{
+      position          : relative;
+      display           : flex;
+      width             : 100%;
+    }
+    .msg_row.user{
+      justify-content   : flex-end;
+    }
+    .msg_row.storycall{
+      justify-content   : flex-start;
+    }
+    .msg_row::after{
+      content           : attr(data-msg-id);
+      position          : absolute;
+      top               : 0;
+      right             : -86px;
+      width             : 78px;
+      text-align        : right;
+      font-size         : 11px;
+      letter-spacing    : .7px;
+      color             : rgba(0,0,0,.55);
+      opacity           : .55;
+      pointer-events    : none;
+      user-select       : none;
+      white-space       : nowrap;
+    }
+    .msg_row:not([data-msg-id])::after{
+      content           : "";
+    }
+
+    .msg{
+      max-width         : min(var(--bubble_max_width), 78%);
+      border-radius     : 22px;
+      border            : none;
+      box-shadow        : var(--bubble_shadow);
+      padding           : 10px 12px;
+      position          : relative;
+    }
+    .msg.user{
+      background        : var(--bubble_outgoing_bg);
+      color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      --audio_fg         : rgba(var(--color_rgb_white),.92);
+      --audio_track      : rgba(var(--color_rgb_white),.22);
+    }
+    .msg.storycall{
+      background        : var(--bubble_incoming_bg);
+      color             : rgba(var(--color_rgb_black),var(--opacity_heavy));
+      --audio_fg         : rgba(var(--color_rgb_black),.60);
+      --audio_track      : rgba(var(--color_rgb_black),.12);
+    }
+
+    .msg_header{
+      display           : flex;
+      align-items       : baseline;
+      justify-content   : space-between;
+      gap               : var(--space_small);
+      margin            : 0 0 6px;
+      color             : rgba(var(--color_rgb_black),var(--opacity_medium));
+      font-size         : .78em;
+    }
+    .msg.user .msg_header{
+      color             : rgba(var(--color_rgb_white),.92);
+    }
+
+    .badge_row{
+      display           : inline-flex;
+      gap               : var(--space_micro);
+      flex-wrap         : wrap;
+      justify-content   : flex-end;
+    }
+    .badge{
+      display           : inline-block;
+      padding           : 2px 7px;
+      border-radius     : var(--radius_pill);
+      border            : 1px solid rgba(var(--color_rgb_black),.10);
+      background        : rgba(var(--color_rgb_white),.55);
+      font-size         : .74em;
+      letter-spacing    : .35px;
+      text-transform    : uppercase;
+      white-space       : nowrap;
+    }
+    .msg.user .badge{
+      border-color      : rgba(var(--color_rgb_white),.22);
+      background        : rgba(var(--color_rgb_white),.16);
+      color             : rgba(var(--color_rgb_white),.95);
+    }
+    .badge.audio{
+      background        : rgba(52,199,89,.18);
+      border-color      : rgba(52,199,89,.22);
+    }
+    .badge.text{
+      background        : rgba(43,86,179,.14);
+      border-color      : rgba(43,86,179,.20);
+    }
+    .badge.transcript{
+      background        : rgba(var(--color_rgb_black),.05);
+      border-color      : rgba(var(--color_rgb_black),.10);
+    }
+
+    .msg p{
+      margin            : 0;
+    }
+
+    /* iOS-like audio message bubble UI */
+    .audio_msg{
+      display           : flex;
+      align-items       : center;
+      gap               : 10px;
+      margin-top        : 2px;
+    }
+    .audio_play{
+      width             : 28px;
+      height            : 28px;
+      border-radius     : 999px;
+      border            : 2px solid var(--audio_fg);
+      display           : inline-flex;
+      align-items       : center;
+      justify-content   : center;
+      font-size         : 13px;
+      line-height       : 1;
+      color             : var(--audio_fg);
+      flex              : 0 0 auto;
+    }
+    .audio_wave{
+      height            : 16px;
+      flex              : 0 0 50%;
+      max-width         : 50%;
+      border-radius     : 999px;
+      background        :
+        repeating-linear-gradient(
+          90deg,
+          var(--audio_fg) 0 2px,
+          transparent 2px 5px
+        );
+      opacity           : .65;
+      position          : relative;
+    }
+    .msg.user .audio_wave{
+      /* Make Kid audio look more like iOS “voice message” bars (more legible in green). */
+      background        :
+        repeating-linear-gradient(
+          90deg,
+          var(--audio_fg) 0 3px,
+          transparent 3px 7px
+        );
+      opacity           : .88;
+    }
+    .msg.storycall .audio_wave{
+      opacity           : .60;
+    }
+    .audio_wave::after{
+      content           : "";
+      position          : absolute;
+      inset             : 0;
+      border-radius     : 999px;
+      background        : var(--audio_track);
+      opacity           : .45;
+      mix-blend-mode    : overlay;
+      pointer-events    : none;
+    }
+    .audio_time{
+      font-size         : .86em;
+      color             : var(--audio_fg);
+      opacity           : .86;
+      flex              : 0 0 auto;
+      white-space       : nowrap;
+    }
+    .audio_transcript{
+      margin-top        : 8px;
+      font-size         : .92em;
+      line-height       : 1.35;
+      white-space       : pre-wrap;
+      color             : inherit;
+      opacity           : .92;
+    }
+    .msg.storycall .audio_transcript{
+      opacity           : .78;
+    }
+
+    /* Hide sender headers to mimic iOS 1:1 threads (we keep IDs for reference). */
+    .msg_header{
+      display           : none;
+    }
+
+    .mistake{
+      align-self        : center;
+      max-width         : 54rem;
+      width             : 100%;
+      padding           : 10px 12px;
+      border-radius     : var(--radius_medium);
+      border            : 1px solid rgba(255,59,48,.25);
+      background        : rgba(255,59,48,.07);
+      color             : rgba(var(--color_rgb_black),var(--opacity_medium));
+      font-size         : .92em;
+    }
+    .mistake_title{
+      display           : inline-block;
+      padding           : 2px 8px;
+      border-radius     : var(--radius_pill);
+      border            : 1px solid rgba(255,59,48,.30);
+      background        : rgba(255,59,48,.12);
+      color             : rgba(255,59,48,.92);
+      font-size         : .78em;
+      letter-spacing    : .35px;
+      text-transform    : uppercase;
+      margin-right      : 8px;
+      white-space       : nowrap;
+    }
+
+    .edit_target{
+      cursor            : text;
+    }
+    .edit_target:hover{
+      outline           : 2px solid rgba(0,0,0,.08);
+      outline-offset    : 3px;
+    }
+    .edit_modal{
+      position          : fixed;
+      inset             : 0;
+      background        : rgba(0,0,0,.25);
+      display           : none;
+      align-items       : center;
+      justify-content   : center;
+      padding           : 22px;
+      z-index           : 9999;
+    }
+    .edit_modal.open{
+      display           : flex;
+    }
+    .edit_panel{
+      width             : min(720px, 100%);
+      border-radius     : var(--radius_medium);
+      border            : var(--border_default);
+      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      box-shadow        : 0 18px 60px rgba(0,0,0,.22);
+      padding           : var(--space_medium);
+    }
+    .edit_panel h3{
+      margin            : 0 0 var(--space_small);
+    }
+    .edit_panel textarea{
+      width             : 100%;
+      min-height        : 180px;
+      resize            : vertical;
+      font-family       : var(--font_family_base);
+      font-size         : 14px;
+      line-height       : 1.35;
+      padding           : 12px;
+      border-radius     : 12px;
+      border            : 1px solid rgba(0,0,0,.14);
+      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+    }
+    .edit_actions{
+      display           : flex;
+      justify-content   : flex-end;
+      gap               : var(--space_small);
+      margin-top        : var(--space_small);
+    }
+    .edit_btn{
+      appearance        : none;
+      -webkit-appearance: none;
+      font-family       : inherit;
+      font-weight       : var(--font_weight_heavy);
+      border-radius     : 12px;
+      border            : 1px solid rgba(0,0,0,.12);
+      padding           : 10px 12px;
+      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      cursor            : pointer;
+    }
+    .edit_btn.primary{
+      background        : #34c759;
+      color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      border-color      : rgba(0,0,0,.06);
+    }
+    .edit_hint{
+      margin            : var(--space_small) 0 0;
+      color             : var(--color_text_muted);
+      font-size         : .92em;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
+          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+        </a>
+        <a class="cta" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="page_title">Scenarios</h1>
+    <p class="page_intro">
+      Message examples. Tags: <b>TEXT</b>, <b>AUDIO</b>, <b>TRANSCRIPT</b>.
+    </p>
+
+    <div class="jump">
+      <div class="jump_row">
+        <p class="jump_title">Jump to a scenario</p>
+        <p class="legend"><b>Kid</b> is on the right • <b>StoryCall</b> is on the left</p>
+      </div>
+      <div class="scenario_list" aria-label="Outline">
+        <ol>
+          <li>
+            <a href="#setup">Setup</a>
+            <ol type="A">
+              <li><a href="#setup_1">Successful setup</a></li>
+              <li><a href="#setup_2">Phone number sent as text</a></li>
+              <li><a href="#setup_3">Phone number audio is unclear / incomplete</a></li>
+              <li><a href="#setup_4">Change the call-to number</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#message_exchange">Message exchange</a>
+            <ol type="A">
+              <li><a href="#message_exchange_1">Audio question + audio reply</a></li>
+              <li><a href="#message_exchange_2">Kid sends text instead of audio</a></li>
+              <li><a href="#message_exchange_3">No answer / voicemail / retry</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#text_help">Texting for help</a>
+            <ol type="A">
+              <li><a href="#text_help_1">HELP: what to do next (setup)</a></li>
+              <li><a href="#text_help_2">HELP: how to attach a voice recording</a></li>
+              <li><a href="#text_help_3">HELP: change the number</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#text_stop">Texting to stop</a>
+            <ol type="A">
+              <li><a href="#text_stop_1">STOP: opt out</a></li>
+              <li><a href="#text_stop_2">Restart after STOP</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="group" id="setup">
+      <h2 class="group_title">1. Setup</h2>
+      <p class="group_note">Setup flows + common mistakes.</p>
+
+      <section class="scenario" id="setup_1">
+        <h3>1.A Successful setup</h3>
+        <p class="note">Audio keyword reply, then audio phone number.</p>
+
+        <div class="thread" aria-label="Setup 1.A message thread">
+          <div class="msg_row user" data-msg-id="1.A.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>storycall</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.A.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time edit_target" data-edit-id="setup_1_welcome_file">0:18</div>
+              </div>
+              <div class="audio_transcript edit_target" data-edit-id="setup_1_welcome_transcript">Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.
+
+To begin, tell us the phone number we should call with your messages.
+
+Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.</div>
+            </div>
+          </div>
+
+          <div class="msg_row user" data-msg-id="1.A.3">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:04</div>
+              </div>
+              <div class="audio_transcript">Call four one five, five five five, zero one three four.</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.A.4">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_1_confirm_p1">
+                Great — we’ll call <b>415-555-0134</b> with your future messages. If that’s not correct, send another audio message with the
+                right number.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_1_confirm_p2">
+                From now on, whenever you send an <b>audio</b> message to StoryCall, we’ll call <b>415-555-0134</b> and play your recording.
+                We’ll send you any reply as a text in this same thread.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_1_confirm_p3">
+                Kid can text <b>HELP</b> or <b>STOP</b> anytime. Kid can also text the <b>StoryCall Admin</b> directly here (plain text).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="setup_2">
+        <h3>1.B Phone number sent as text</h3>
+        <p class="note">StoryCall asks for audio instead.</p>
+
+        <div class="thread" aria-label="Setup 1.B message thread">
+          <div class="msg_row user" data-msg-id="1.B.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>storycall</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.B.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge audio">AUDIO</span></span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time edit_target" data-edit-id="setup_2_welcome_file">0:18</div>
+              </div>
+              <div class="audio_transcript edit_target" data-edit-id="setup_2_welcome_transcript">Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.
+
+To begin, tell us the phone number we should call with your messages.
+
+Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.</div>
+            </div>
+          </div>
+
+          <div class="mistake">
+            <span class="mistake_title">Intentional mistake</span>
+            Kid gives phone number as <b>text</b> instead of <b>audio</b> recording.
+          </div>
+
+          <div class="msg_row user" data-msg-id="1.B.3">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>415-555-0134</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.B.4">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_2_reply_p1">
+                We got the phone number (<b>415-555-0134</b>) — but StoryCall works by sending <b>audio</b>, not text-to-speech.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_2_reply_p2">
+                As a quick practice, please send that phone number again as an <b>audio attachment</b> (a voice recording).
+                If you need help with this step, text <b>HELP</b>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="setup_3">
+        <h3>1.C Phone number audio is unclear / incomplete</h3>
+        <p class="note">StoryCall confirms what it heard and asks for a re-send.</p>
+
+        <div class="thread" aria-label="Setup 1.C message thread">
+          <div class="msg_row user" data-msg-id="1.C.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge audio">AUDIO</span></span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:03</div>
+              </div>
+              <div class="audio_transcript">(muffled) …five five five… one three…</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.C.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_3_unclear_p1">
+                I couldn’t confidently pick out a full phone number from that recording.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_3_unclear_p2">
+                Please send the phone number again as an audio recording, saying each digit slowly (example: “four one five…”).
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_3_unclear_p3">
+                Tip: record in a quiet place. If you prefer, you can say it twice in one recording.
+              </p>
+            </div>
+          </div>
+
+          <div class="msg_row user" data-msg-id="1.C.3">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:05</div>
+              </div>
+              <div class="audio_transcript">Four one five. Five five five. Zero one three four.</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.C.4">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_3_confirm_p1">
+                Thanks — I got <b>415-555-0134</b>. We’ll call that number with your future messages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="setup_4">
+        <h3>1.D Change the call-to number</h3>
+        <p class="note">Kid can update the destination by sending a new phone number as audio.</p>
+
+        <div class="thread" aria-label="Setup 1.D message thread">
+          <div class="msg_row storycall" data-msg-id="1.D.1">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_4_intro_p1">
+                Currently set to call: <b>415-555-0134</b>. To change it, send the new phone number as an <b>audio recording</b>.
+              </p>
+            </div>
+          </div>
+
+          <div class="msg_row user" data-msg-id="1.D.2">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:05</div>
+              </div>
+              <div class="audio_transcript">Actually call six five zero, five five five, zero one one zero.</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="1.D.3">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="setup_4_confirm_p1">
+                Updated — we’ll call <b>650-555-0110</b> with your future messages.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="setup_4_confirm_p2">
+                Next step: send an <b>audio</b> message for me to deliver.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group" id="message_exchange">
+      <h2 class="group_title">2. Message exchange</h2>
+      <p class="group_note">Send audio. Get audio replies.</p>
+
+      <section class="scenario" id="message_exchange_1">
+        <h3>2.A Audio question + audio reply</h3>
+        <p class="note">Kid sends audio. StoryCall returns audio + transcript.</p>
+
+        <div class="thread" aria-label="Message exchange 2.A message thread">
+          <div class="msg_row user" data-msg-id="2.A.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:05</div>
+              </div>
+              <div class="audio_transcript">Hey Grandma — what music was popular when you were in high school?</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.A.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time edit_target" data-edit-id="message_exchange_1_reply_file">0:13</div>
+              </div>
+              <div class="audio_transcript edit_target" data-edit-id="message_exchange_1_reply_transcript">Oh honey — we listened to The Beatles and The Supremes a lot. I loved Motown, and later on I got into Simon &amp; Garfunkel.
+Everyone knew the big songs on the radio.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="message_exchange_2">
+        <h3>2.B Kid sends text instead of audio</h3>
+        <p class="note">StoryCall nudges back to voice recording (no text-to-speech).</p>
+
+        <div class="thread" aria-label="Message exchange 2.B message thread">
+          <div class="msg_row user" data-msg-id="2.B.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>Hi Grandma! Miss you. ❤️</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.B.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="message_exchange_2_nudge_p1">
+                I got your message — but StoryCall delivers <b>voice recordings</b>, not text-to-speech.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="message_exchange_2_nudge_p2">
+                Please send that again as an <b>audio attachment</b> (a voice recording). I’ll call it through.
+              </p>
+            </div>
+          </div>
+
+          <div class="msg_row user" data-msg-id="2.B.3">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:04</div>
+              </div>
+              <div class="audio_transcript">Hi Grandma! Miss you. Love you.</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.B.4">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="message_exchange_2_status_p1">
+                Delivered — I called <b>650-555-0110</b> and played your recording.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="message_exchange_2_status_p2">
+                If you send another audio message, I’ll deliver it the same way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="message_exchange_3">
+        <h3>2.C No answer / voicemail / retry</h3>
+        <p class="note">Common delivery outcomes and how StoryCall reports them.</p>
+
+        <div class="thread" aria-label="Message exchange 2.C message thread">
+          <div class="msg_row user" data-msg-id="2.C.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row">
+                  <span class="badge audio">AUDIO</span>
+                  <span class="badge transcript">TRANSCRIPT</span>
+                </span>
+              </div>
+              <div class="audio_msg" aria-label="Audio message">
+                <div class="audio_play" aria-hidden="true">▶</div>
+                <div class="audio_wave" aria-hidden="true"></div>
+                <div class="audio_time">0:07</div>
+              </div>
+              <div class="audio_transcript">Hi Grandma, it’s me. Just checking in — hope your day is going okay.</div>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.C.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="message_exchange_3_no_answer_p1">
+                I tried calling <b>650-555-0110</b>, but there was <b>no answer</b>.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="message_exchange_3_no_answer_p2">
+                I’ll automatically try again soon. If you want to change the number, send a new phone number as audio.
+              </p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.C.3">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="message_exchange_3_voicemail_p1">
+                Update: I called again and it went to <b>voicemail</b>. I left your recording as a voicemail message.
+              </p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="2.C.4">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="message_exchange_3_reply_text_p1">
+                Reply tip: Grandma can’t text StoryCall directly. If she replies to your call, I’ll send her words back to you here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group" id="text_help">
+      <h2 class="group_title">3. Texting for help</h2>
+      <p class="group_note">HELP flows (what to do next, how to record, how to change settings).</p>
+
+      <section class="scenario" id="text_help_1">
+        <h3>3.A HELP: what to do next (setup)</h3>
+        <p class="note">Kid is confused after starting.</p>
+
+        <div class="thread" aria-label="Help 3.A message thread">
+          <div class="msg_row user" data-msg-id="3.A.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>HELP</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="3.A.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="help_1_p1">
+                Here’s what to do:
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_1_p2">
+                1) Send the phone number we should call as a <b>voice recording</b> (audio attachment).
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_1_p3">
+                2) After we confirm the number, send any future message as <b>audio</b> and we’ll call it through.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_1_p4">
+                To change the call-to number later, just send a new phone number as audio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="text_help_2">
+        <h3>3.B HELP: how to attach a voice recording</h3>
+        <p class="note">Quick instructions without getting too device-specific.</p>
+
+        <div class="thread" aria-label="Help 3.B message thread">
+          <div class="msg_row user" data-msg-id="3.B.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>HELP I can’t figure out the audio thing</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="3.B.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="help_2_p1">
+                No problem. In your texting app:
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_2_p2">
+                - Tap the <b>+</b> or <b>attachment</b> button near the message box.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_2_p3">
+                - Choose <b>Audio</b> / <b>Voice</b> / <b>Record</b>.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_2_p4">
+                - Record your message (or the phone number), then tap <b>Send</b>.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_2_p5">
+                Tip: avoid speech-to-text диктation — we need an actual audio recording.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="text_help_3">
+        <h3>3.C HELP: change the number</h3>
+        <p class="note">Kid wants to switch from Grandma to Grandpa.</p>
+
+        <div class="thread" aria-label="Help 3.C message thread">
+          <div class="msg_row user" data-msg-id="3.C.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>HELP I need to change who you call</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="3.C.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="help_3_p1">
+                To change the call-to number, send the new phone number as an <b>audio recording</b>.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="help_3_p2">
+                After I confirm it, I’ll use that new number for your future messages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group" id="text_stop">
+      <h2 class="group_title">4. Texting to stop</h2>
+      <p class="group_note">STOP / opt-out flows.</p>
+
+      <section class="scenario" id="text_stop_1">
+        <h3>4.A STOP: opt out</h3>
+        <p class="note">Kid pauses the service for this thread.</p>
+
+        <div class="thread" aria-label="Stop 4.A message thread">
+          <div class="msg_row user" data-msg-id="4.A.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>STOP</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="4.A.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="stop_1_p1">
+                You’re opted out. StoryCall will not send any calls from this thread.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="stop_1_p2">
+                If you change your mind, text <b>storycall</b> to start again.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario" id="text_stop_2">
+        <h3>4.B Restart after STOP</h3>
+        <p class="note">Kid restarts, then is guided back into setup if needed.</p>
+
+        <div class="thread" aria-label="Stop 4.B message thread">
+          <div class="msg_row user" data-msg-id="4.B.1">
+            <div class="msg user">
+              <div class="msg_header">
+                <span><b>Kid</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p>storycall</p>
+            </div>
+          </div>
+
+          <div class="msg_row storycall" data-msg-id="4.B.2">
+            <div class="msg storycall">
+              <div class="msg_header">
+                <span><b>StoryCall</b></span>
+                <span class="badge_row"><span class="badge text">TEXT</span></span>
+              </div>
+              <p class="edit_target" data-edit-id="stop_2_p1">
+                Welcome back. If you haven’t set a call-to number yet, send it now as an <b>audio recording</b>.
+              </p>
+              <p style="margin-top: var(--space_micro);" class="edit_target" data-edit-id="stop_2_p2">
+                Otherwise, send your next message as <b>audio</b> and I’ll call it through.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="copy">
+          © <span id="year"></span> StoryCall
+        </div>
+        <div class="foot_address">
+          PO Box 330186, SF, CA 94133
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function(){
+      const EDIT_ENDPOINT = "/__save";
+      const FILE = "scenarios.html";
+
+      const modal = document.createElement("div");
+      modal.className = "edit_modal";
+      modal.innerHTML = [
+        '<div class="edit_panel" role="dialog" aria-modal="true" aria-label="Edit text">',
+        "  <h3>Edit</h3>",
+        '  <textarea id="edit_text"></textarea>',
+        '  <div class="edit_actions">',
+        '    <button class="edit_btn" type="button" id="edit_cancel">Cancel</button>',
+        '    <button class="edit_btn primary" type="button" id="edit_save">Save</button>',
+        "  </div>",
+        '  <p class="edit_hint">Double-click StoryCall text to edit. Save writes back to <b>' + FILE + "</b> (local server only).</p>",
+        "</div>",
+      ].join("\n");
+      document.body.appendChild(modal);
+
+      const textarea = modal.querySelector("#edit_text");
+      const btnCancel = modal.querySelector("#edit_cancel");
+      const btnSave = modal.querySelector("#edit_save");
+
+      let currentEl = null;
+      let currentId = null;
+
+      function openEditor(el){
+        currentEl = el;
+        currentId = el.getAttribute("data-edit-id");
+        textarea.value = el.innerText.trimEnd();
+        modal.classList.add("open");
+        setTimeout(() => textarea.focus(), 0);
+      }
+
+      function closeEditor(){
+        modal.classList.remove("open");
+        currentEl = null;
+        currentId = null;
+        textarea.value = "";
+      }
+
+      async function save(){
+        if (!currentEl || !currentId) return;
+        const newText = textarea.value;
+
+        if (window.location.protocol === "file:"){
+          alert(
+            "Save needs the local edit server.\n\n" +
+            "1) Run: node edit_server.js\n" +
+            "2) Open: http://127.0.0.1:8787/scenarios.html\n\n" +
+            "Saving from a file:// page can't write back to scenarios.html."
+          );
+          return;
+        }
+
+        let res;
+        try{
+          res = await fetch(EDIT_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ file: FILE, id: currentId, text: newText }),
+          });
+        }catch(err){
+          alert(
+            "Save failed (can't reach the local edit server).\n\n" +
+            "Run: node edit_server.js\n" +
+            "Then open: http://127.0.0.1:8787/scenarios.html"
+          );
+          return;
+        }
+
+        if (!res.ok){
+          const msg = await res.text().catch(() => "");
+          alert(
+            "Save failed.\n\n" +
+            "Are you running: node edit_server.js ?\n" +
+            "And viewing: http://127.0.0.1:8787/scenarios.html ?\n\n" +
+            msg
+          );
+          return;
+        }
+
+        currentEl.innerText = newText;
+        closeEditor();
+      }
+
+      document.addEventListener("dblclick", function(e){
+        const el = e.target.closest("[data-edit-id]");
+        if (!el) return;
+        const inStoryCall = !!el.closest(".msg.storycall");
+        if (!inStoryCall) return;
+        openEditor(el);
+      });
+
+      btnCancel.addEventListener("click", closeEditor);
+      btnSave.addEventListener("click", save);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeEditor();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape") closeEditor();
+        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") save();
+      });
+    })();
+  </script>
+</body>
+</html>
+
