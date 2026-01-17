@@ -1,6 +1,7 @@
 :root{
   --layout_side_padding : 41px;
   --font_size_body      : 17px;
+  --diagram_font_size   : 13px;
 
   /* iPhone-ish bubble colors */
   --bubble_incoming_bg : #e9e9eb;
@@ -27,6 +28,7 @@
   /* call block geometry (used to align “StoryCall (call)” and “Grandma” headers) */
   --call_block_left_x       : calc(var(--storycall_column_shift) + var(--call_column_extra_shift));
   --call_block_width        : var(--phone_box_width);
+  --call_lane_width         : calc(var(--call_block_left_x) + var(--call_block_width));
 
   /* outside marker column anchor (IDs like 2.A.1) */
   --marker_offset_x         : calc(var(--marker_col_width) + var(--marker_col_gap) + var(--phone_pad));
@@ -119,6 +121,8 @@ html, body{
 .group_title{
   margin            : 0 0 var(--space_small);
   letter-spacing    : var(--letter_spacing_h2);
+  font-size         : var(--diagram_font_size);
+  font-size         : var(--diagram_font_size);
 }
 
 .group_title[id]{
@@ -143,6 +147,7 @@ html, body{
 .scenario h3{
   margin            : 0 0 var(--space_small);
   letter-spacing    : var(--letter_spacing_h3);
+  font-size         : var(--diagram_font_size);
 }
 .scenario h3[id]{
   scroll-margin-top : calc(var(--scenario_anchor_offset) + 6px);
@@ -156,7 +161,7 @@ html, body{
   width             : var(--phone_box_width);
   overflow          : visible;
   color             : var(--color_text_muted);
-  font-size         : 13px;
+  font-size         : var(--diagram_font_size);
   letter-spacing    : .2px;
 }
 .role_row.has_call{
@@ -200,7 +205,7 @@ html, body{
   right             : auto;
   padding-right     : 0;
   text-align        : left;
-  left              : calc(var(--call_block_left_x) + var(--call_block_width) - var(--phone_pad) - var(--bubble_max_width));
+  left              : calc(var(--call_block_left_x) + var(--call_block_width) - var(--phone_pad) - min(var(--bubble_max_width), 78%));
 }
 
 .back_to_outline{
@@ -235,7 +240,7 @@ html, body{
   border-radius     : var(--radius_medium);
   border            : var(--border_default);
   background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-  font-size         : 15px;
+  font-size         : var(--diagram_font_size);
   position          : relative;
   overflow          : visible;
 }
@@ -267,6 +272,13 @@ html, body{
   border            : none;
   background        : transparent;
   border-radius     : 0;
+}
+.phone_stack.has_call .thread{
+  /* Match the call-lane width so Expression markers align under the header column. */
+  width             : var(--call_lane_width);
+}
+.phone_stack.has_call .msg_row{
+  width             : var(--call_lane_width);
 }
 /* Inside the stack, call overlays should sit on top of the white background. */
 .phone_stack .call_block{
@@ -394,7 +406,7 @@ html, body{
   border-radius     : var(--radius_pill);
   border            : 1px solid rgba(var(--color_rgb_black),.10);
   background        : rgba(var(--color_rgb_white),.55);
-  font-size         : .74em;
+  font-size         : var(--diagram_font_size);
   letter-spacing    : .35px;
   text-transform    : uppercase;
   white-space       : nowrap;
@@ -479,7 +491,7 @@ html, body{
   pointer-events    : none;
 }
 .audio_time{
-  font-size         : .86em;
+  font-size         : var(--diagram_font_size);
   color             : var(--audio_fg);
   opacity           : .86;
   flex              : 0 0 auto;
@@ -487,7 +499,7 @@ html, body{
 }
 .audio_transcript{
   margin-top        : 8px;
-  font-size         : .92em;
+  font-size         : var(--diagram_font_size);
   line-height       : 1.35;
   white-space       : pre-wrap;
   color             : inherit;
@@ -546,10 +558,11 @@ html, body{
   padding           : var(--phone_pad);
   border-radius     : var(--radius_medium);
   border            : 1px solid rgba(0,0,0,.10);
-  background        : #bcbcbc;
+  background        : #1a1a1a;
   display           : flex;
   flex-direction    : column;
   gap               : 10px;
+  font-size         : var(--diagram_font_size);
   position          : relative;
   overflow          : visible;
 }
@@ -561,7 +574,7 @@ html, body{
 .call_row::before{
   content           : attr(data-time);
   display           : block;
-  font-size         : 11px;
+  font-size         : var(--diagram_font_size);
   letter-spacing    : .7px;
   color             : rgba(0,0,0,.55);
   opacity           : .55;
@@ -579,7 +592,7 @@ html, body{
   right             : calc(-1 * var(--marker_offset_x));
   width             : var(--marker_col_width);
   text-align        : right;
-  font-size         : 11px;
+  font-size         : var(--diagram_font_size);
   letter-spacing    : .7px;
   color             : rgba(0,0,0,.55);
   opacity           : .55;
