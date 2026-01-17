@@ -817,6 +817,11 @@ html, body{
   padding           : 0 6px 6px;
   border-bottom     : 1px dashed rgba(0,0,0,.18);
 }
+.grid7_head_id{
+  text-align        : right;
+  padding-right     : var(--grid7_inset);
+  padding-left      : 0;
+}
 .grid7_id{
   grid-column       : 1;
   font-size         : 13px;
@@ -825,7 +830,9 @@ html, body{
   /* Align IDs to the top edge of their corresponding message blocks. */
   align-self        : start;
   padding-top       : var(--grid7_inset);
-  padding-left      : 6px;
+  padding-right     : var(--grid7_inset);
+  padding-left      : 0;
+  text-align        : right;
 }
 .grid7_pos_id_1{ grid-row: 2; }
 .grid7_pos_id_2{ grid-row: 3; }
@@ -940,6 +947,12 @@ html, body{
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_1{ grid-column: 1; grid-row: 2; }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_1{ grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset); }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{ grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{
+  /* Match the dark foreground used in the StoryCall phone prompts (e.g. 2.B2.4). */
+  color             : rgba(0,0,0,.88);
+  --audio_fg        : rgba(0,0,0,.60);
+  --audio_track     : rgba(0,0,0,.14);
+}
 
 /* Phone block #1 rows 3–6 */
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_bg{ grid-column: 4 / 8; grid-row: 3 / 7; }

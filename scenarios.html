@@ -430,7 +430,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         <div class="phone_stack has_call" aria-label="2.B1 combined mobile thread">
           <div class="thread" aria-label="Message exchange 2.B1 message thread">
             <div class="msg_row kid user" data-msg-id="2.B1.1" data-time="1:00:00 PM">
-              <div class="msg kid user channel_mobile participant_kid format_voice">
+              <div class="msg kid user channel_sms participant_kid format_voice">
                 <div class="msg_header">
                   <span><b>Kid</b></span>
                   <span class="badge_row">
@@ -471,7 +471,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <div class="thread" aria-label="Message exchange 2.B1 update to kid">
             <div class="msg_row storycall sc" data-msg-id="2.B1.6" data-time="1:00:55 PM">
-              <div class="msg storycall sc_fixed channel_mobile participant_storycall format_text">
+              <div class="msg storycall sc_fixed channel_sms participant_storycall format_text">
                 <div class="msg_header">
                   <span><b>StoryCall</b></span>
                   <span class="badge_row"><span class="badge text">TEXT</span></span>
@@ -507,7 +507,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <div class="thread" aria-label="Message exchange 2.B1 audio back to kid">
             <div class="msg_row storycall sc" data-msg-id="2.B1.11" data-time="2:00:45 PM">
-              <div class="msg storycall sc_fixed channel_mobile participant_storycall format_voice">
+              <div class="msg storycall sc_fixed channel_sms participant_storycall format_voice">
                 <div class="msg_header">
                   <span><b>StoryCall</b></span>
                   <span class="badge_row">
@@ -543,7 +543,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <div class="grid7_mobile_canvas grid7_b2_mobile_canvas" aria-hidden="true"></div>
 
-          <div class="grid7_cell grid7_head">ID</div>
+          <div class="grid7_cell grid7_head grid7_head_id">ID</div>
           <div class="grid7_cell grid7_head">kid</div>
           <div class="grid7_cell grid7_head">storycall</div>
           <div class="grid7_cell grid7_head">storycall</div>
@@ -553,8 +553,8 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <!-- 2.B2.1 Kid → StoryCall (mobile audio) -->
           <div class="grid7_cell grid7_id grid7_b2_id_1">2.B2.1</div>
-          <div class="grid7_timestamp grid7_b2_ts_1">timestamp</div>
-          <div class="grid7_block channel_mobile participant_kid format_voice grid7_b2_msg_1">
+          <div class="grid7_timestamp grid7_b2_ts_1">1:00:00 PM</div>
+          <div class="grid7_block channel_sms participant_kid format_voice grid7_b2_msg_1">
             <div class="grid7_audio" aria-label="Audio file">
               <div class="grid7_audio_play" aria-hidden="true">▶</div>
               <div class="grid7_audio_waveform" aria-hidden="true"></div>
@@ -565,8 +565,8 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <!-- Phone block #1 (StoryCall → Grandma) -->
           <div class="grid7_phone_bg grid7_b2_phone1_bg" aria-hidden="true"></div>
-          <div class="grid7_timestamp grid7_b2_phone1_ts_top">timestamp</div>
-          <div class="grid7_timestamp grid7_b2_phone1_ts_orange">timestamp</div>
+          <div class="grid7_timestamp grid7_b2_phone1_ts_top">1:00:20 PM</div>
+          <div class="grid7_timestamp grid7_b2_phone1_ts_orange">1:00:45 PM</div>
 
           <div class="grid7_cell grid7_id grid7_b2_id_2">2.B2.2</div>
           <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone1_blue1">
@@ -590,15 +590,15 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <!-- 2.B2.6 StoryCall → Kid (mobile text) -->
           <div class="grid7_cell grid7_id grid7_b2_id_6">2.B2.6</div>
-          <div class="grid7_timestamp grid7_b2_ts_6">timestamp</div>
-          <div class="grid7_block channel_mobile participant_storycall format_text grid7_b2_msg_6">
+          <div class="grid7_timestamp grid7_b2_ts_6">1:00:55 PM</div>
+          <div class="grid7_block channel_sms participant_storycall format_text grid7_b2_msg_6">
             SC: Call about Christmas morning rescheduled for in about an hour.
           </div>
 
           <!-- Phone block #2 (call back) -->
           <div class="grid7_phone_bg grid7_b2_phone2_bg" aria-hidden="true"></div>
-          <div class="grid7_timestamp grid7_b2_phone2_ts_top">timestamp</div>
-          <div class="grid7_timestamp grid7_b2_phone2_ts_orange">timestamp</div>
+          <div class="grid7_timestamp grid7_b2_phone2_ts_top">2:00:05 PM</div>
+          <div class="grid7_timestamp grid7_b2_phone2_ts_orange">2:00:35 PM</div>
 
           <div class="grid7_cell grid7_id grid7_b2_id_7">2.B2.7</div>
           <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone2_blue1">
@@ -623,8 +623,8 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <!-- 2.B2.11 StoryCall → Kid (mobile audio) -->
           <div class="grid7_cell grid7_id grid7_b2_id_11">2.B2.11</div>
-          <div class="grid7_timestamp grid7_b2_ts_11">timestamp</div>
-          <div class="grid7_block channel_mobile participant_storycall format_voice grid7_b2_msg_11">
+          <div class="grid7_timestamp grid7_b2_ts_11">2:00:45 PM</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice grid7_b2_msg_11">
             <div class="grid7_audio" aria-label="Audio file">
               <div class="grid7_audio_play" aria-hidden="true">▶</div>
               <div class="grid7_audio_waveform" aria-hidden="true"></div>
@@ -655,7 +655,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
           <div class="grid7_mobile_canvas" aria-hidden="true"></div>
           <div class="grid7_phone_bg" aria-hidden="true"></div>
 
-          <div class="grid7_cell grid7_head">ID</div>
+          <div class="grid7_cell grid7_head grid7_head_id">ID</div>
           <div class="grid7_cell grid7_head">kid</div>
           <div class="grid7_cell grid7_head">storycall</div>
           <div class="grid7_cell grid7_head">storycall</div>
@@ -664,7 +664,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
           <div class="grid7_cell grid7_head">grandma</div>
 
           <div class="grid7_cell grid7_id grid7_pos_id_1">2.B3.1</div>
-          <div class="grid7_block channel_mobile participant_kid format_voice grid7_span_2_4">
+          <div class="grid7_block channel_sms participant_kid format_voice grid7_span_2_4">
             mobile<br />
             kid to storycall<br />
             text or voice
@@ -673,7 +673,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <div class="grid7_cell grid7_id grid7_pos_id_2">2.B3.2</div>
           <div class="grid7_timestamp grid7_at_2_3">timestamp</div>
-          <div class="grid7_block channel_mobile participant_storycall format_text grid7_span_3_5 grid7_row_3">
+          <div class="grid7_block channel_sms participant_storycall format_text grid7_span_3_5 grid7_row_3">
             mobile<br />
             storycall to kid<br />
             text or voice
@@ -710,7 +710,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
 
           <div class="grid7_cell grid7_id grid7_pos_id_4">2.B3.7</div>
           <div class="grid7_timestamp grid7_at_2_9">timestamp</div>
-          <div class="grid7_block channel_mobile participant_grandma format_voice grid7_span_3_5 grid7_row_9">
+          <div class="grid7_block channel_sms participant_grandma format_voice grid7_span_3_5 grid7_row_9">
             mobile<br />
             grandma to kid<br />
             voice
