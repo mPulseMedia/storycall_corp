@@ -2,6 +2,8 @@
   --layout_side_padding : 41px;
   --font_size_body      : 17px;
   --diagram_font_size   : 13px;
+  --diagram_heading_h2  : 26px;
+  --diagram_heading_h3  : 20px;
 
   /* iPhone-ish bubble colors */
   --bubble_incoming_bg : #e9e9eb;
@@ -121,8 +123,7 @@ html, body{
 .group_title{
   margin            : 0 0 var(--space_small);
   letter-spacing    : var(--letter_spacing_h2);
-  font-size         : var(--diagram_font_size);
-  font-size         : var(--diagram_font_size);
+  font-size         : var(--diagram_heading_h2);
 }
 
 .group_title[id]{
@@ -147,7 +148,7 @@ html, body{
 .scenario h3{
   margin            : 0 0 var(--space_small);
   letter-spacing    : var(--letter_spacing_h3);
-  font-size         : var(--diagram_font_size);
+  font-size         : var(--diagram_heading_h3);
 }
 .scenario h3[id]{
   scroll-margin-top : calc(var(--scenario_anchor_offset) + 6px);
@@ -205,7 +206,7 @@ html, body{
   right             : auto;
   padding-right     : 0;
   text-align        : left;
-  left              : calc(var(--call_block_left_x) + var(--call_block_width) - var(--phone_pad) - min(var(--bubble_max_width), 78%));
+  left              : calc(var(--call_block_left_x) + var(--call_block_width) - var(--phone_pad) - var(--bubble_max_width) + var(--bubble_text_pad_x));
 }
 
 .back_to_outline{
@@ -298,6 +299,7 @@ html, body{
   align-items       : flex-start;
   width             : 100%;
 }
+.msg_row.kid,
 .msg_row.user{
   justify-content   : flex-start;
 }
@@ -342,6 +344,7 @@ html, body{
   content           : "";
   display           : none;
 }
+.msg_row.kid::before,
 .msg_row.user::before{
   order             : 2;
   margin-left       : var(--time_col_gap);
@@ -358,14 +361,15 @@ html, body{
 }
 
 .msg{
-  width             : min(var(--bubble_max_width), 78%);
-  max-width         : min(var(--bubble_max_width), 78%);
+  width             : var(--bubble_max_width);
+  max-width         : calc(100% - (var(--time_col_width) + var(--time_col_gap)));
   border-radius     : 22px;
   border            : none;
   box-shadow        : var(--bubble_shadow);
   padding           : 10px 12px;
   position          : relative;
 }
+.msg.kid,
 .msg.user{
   background        : var(--bubble_outgoing_bg);
   color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
@@ -608,8 +612,8 @@ html, body{
   border            : 1px solid rgba(0,0,0,.06);
   border-radius     : 18px;
   padding           : 10px 12px;
-  width             : min(var(--bubble_max_width), 78%);
-  max-width         : min(var(--bubble_max_width), 78%);
+  width             : var(--bubble_max_width);
+  max-width         : calc(100% - (var(--time_col_width) + var(--time_col_gap)));
   box-shadow        : 0 1px 2px rgba(0,0,0,.08);
 }
 .call_row.storycall .call_bubble{
@@ -678,6 +682,27 @@ html, body{
 /* Segment styling inside telephone blocks */
 .call_seg .call_bubble{
   box-shadow        : none;
+}
+
+/* Segment group built out of multiple call rows (so each segment can have its own Expression ID) */
+.call_seg_group{
+  display           : flex;
+  flex-direction    : column;
+  gap               : 0;
+}
+.call_seg_group .call_row + .call_row{
+  margin-top        : -1px; /* merge borders */
+}
+.call_seg_group .call_row:first-child .call_bubble{
+  border-bottom-left-radius : 8px;
+  border-bottom-right-radius: 8px;
+}
+.call_seg_group .call_row:last-child .call_bubble{
+  border-top-left-radius : 8px;
+  border-top-right-radius: 8px;
+}
+.call_seg_group .call_row:not(:first-child):not(:last-child) .call_bubble{
+  border-radius     : 0;
 }
 
 /* Segment styling inside StoryCall audio transcripts (mobile) */
