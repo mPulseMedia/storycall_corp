@@ -9,413 +9,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="index.css" />
-  <style>
-    :root{
-      --layout_side_padding : 41px;
-      --font_size_body      : 17px;
-
-      /* iPhone-ish bubble colors */
-      --bubble_incoming_bg : #e9e9eb;
-      --bubble_outgoing_bg : #34c759; /* iOS Messages green */
-      --bubble_shadow      : 0 1px 2px rgba(0,0,0,.10);
-
-      /* sizing */
-      --bubble_max_width  : 24rem;
-    }
-
-    html{
-      /* Make in-page anchor jumps land with the flow title visible under the sticky header. */
-      scroll-padding-top : calc(var(--scroll_padding_top) + 10px);
-    }
-    [id]{
-      scroll-margin-top  : calc(var(--scroll_padding_top) + 10px);
-    }
-    html, body{
-      overflow-x         : hidden;
-    }
-
-    .page_title{
-      margin            : 0 0 var(--space_small);
-      letter-spacing    : var(--letter_spacing_h2);
-    }
-
-    .page_intro{
-      margin            : 0 0 var(--space_large);
-      color             : var(--color_text_muted);
-    }
-
-    .jump{
-      margin            : 0 0 var(--space_large);
-      padding           : var(--space_small) var(--space_medium);
-      border-radius     : var(--radius_medium);
-      border            : var(--border_default);
-      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-    }
-    .jump_row{
-      display           : flex;
-      align-items       : baseline;
-      justify-content   : space-between;
-      gap               : var(--space_medium);
-      flex-wrap         : wrap;
-    }
-    .jump_title{
-      margin            : 0;
-      font-weight       : var(--font_weight_heavy);
-    }
-    .legend{
-      margin            : 0;
-      color             : var(--color_text_muted);
-      font-size         : .92em;
-    }
-    .scenario_list{
-      margin            : var(--space_small) 0 0;
-      padding-left      : 1.35em;
-    }
-    .scenario_list ol{
-      margin            : var(--space_small) 0 0;
-      padding-left      : 1.35em;
-    }
-    .scenario_list li{
-      margin            : 4px 0;
-    }
-    .scenario_list a{
-      text-decoration   : none;
-    }
-    .scenario_list a:hover{
-      text-decoration   : underline;
-    }
-
-    .group{
-      margin            : 0 0 var(--space_large);
-    }
-    .group:last-child{
-      margin-bottom     : 0;
-    }
-    .group_title{
-      margin            : 0 0 var(--space_small);
-      letter-spacing    : var(--letter_spacing_h2);
-    }
-    .group_note{
-      margin            : 0 0 var(--space_medium);
-      color             : var(--color_text_muted);
-    }
-
-    .scenario{
-      margin            : 0 0 var(--space_large);
-    }
-    .scenario:last-child{
-      margin-bottom     : 0;
-    }
-    .scenario h2{
-      margin            : 0 0 var(--space_small);
-      letter-spacing    : var(--letter_spacing_h3);
-    }
-    .scenario .note{
-      margin-top        : 0;
-    }
-
-    .thread{
-      max-width         : calc(var(--bubble_max_width) * 1.2);
-      margin            : 0;
-      display           : flex;
-      flex-direction    : column;
-      gap               : 10px;
-      padding           : 14px;
-      border-radius     : var(--radius_medium);
-      border            : var(--border_default);
-      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      font-size         : 15px;
-    }
-
-    /* Left-align “phone” mockups, with a slight indent from the scenario text. */
-    .scenario .thread{
-      margin-left       : 14px;
-    }
-
-    .msg_row{
-      position          : relative;
-      display           : flex;
-      width             : 100%;
-    }
-    .msg_row.user{
-      justify-content   : flex-end;
-    }
-    .msg_row.storycall{
-      justify-content   : flex-start;
-    }
-    .msg_row::after{
-      content           : attr(data-time) "\A" attr(data-msg-id);
-      position          : absolute;
-      top               : 0;
-      right             : -86px;
-      width             : 78px;
-      text-align        : right;
-      font-size         : 11px;
-      letter-spacing    : .7px;
-      color             : rgba(0,0,0,.55);
-      opacity           : .55;
-      pointer-events    : none;
-      user-select       : none;
-      white-space       : pre;
-    }
-    .msg_row:not([data-msg-id])::after{
-      content           : "";
-    }
-    .msg_row:not([data-time])::after{
-      content           : attr(data-msg-id);
-      white-space       : nowrap;
-    }
-
-    .msg{
-      max-width         : min(var(--bubble_max_width), 78%);
-      border-radius     : 22px;
-      border            : none;
-      box-shadow        : var(--bubble_shadow);
-      padding           : 10px 12px;
-      position          : relative;
-    }
-    .msg.user{
-      background        : var(--bubble_outgoing_bg);
-      color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      --audio_fg         : rgba(var(--color_rgb_white),.92);
-      --audio_track      : rgba(var(--color_rgb_white),.22);
-    }
-    .msg.storycall{
-      background        : var(--bubble_incoming_bg);
-      color             : rgba(var(--color_rgb_black),var(--opacity_heavy));
-      --audio_fg         : rgba(var(--color_rgb_black),.60);
-      --audio_track      : rgba(var(--color_rgb_black),.12);
-    }
-
-    .msg_header{
-      display           : flex;
-      align-items       : baseline;
-      justify-content   : space-between;
-      gap               : var(--space_small);
-      margin            : 0 0 6px;
-      color             : rgba(var(--color_rgb_black),var(--opacity_medium));
-      font-size         : .78em;
-    }
-    .msg.user .msg_header{
-      color             : rgba(var(--color_rgb_white),.92);
-    }
-
-    .badge_row{
-      display           : inline-flex;
-      gap               : var(--space_micro);
-      flex-wrap         : wrap;
-      justify-content   : flex-end;
-    }
-    .badge{
-      display           : inline-block;
-      padding           : 2px 7px;
-      border-radius     : var(--radius_pill);
-      border            : 1px solid rgba(var(--color_rgb_black),.10);
-      background        : rgba(var(--color_rgb_white),.55);
-      font-size         : .74em;
-      letter-spacing    : .35px;
-      text-transform    : uppercase;
-      white-space       : nowrap;
-    }
-    .msg.user .badge{
-      border-color      : rgba(var(--color_rgb_white),.22);
-      background        : rgba(var(--color_rgb_white),.16);
-      color             : rgba(var(--color_rgb_white),.95);
-    }
-    .badge.audio{
-      background        : rgba(52,199,89,.18);
-      border-color      : rgba(52,199,89,.22);
-    }
-    .badge.text{
-      background        : rgba(43,86,179,.14);
-      border-color      : rgba(43,86,179,.20);
-    }
-    .badge.transcript{
-      background        : rgba(var(--color_rgb_black),.05);
-      border-color      : rgba(var(--color_rgb_black),.10);
-    }
-
-    .msg p{
-      margin            : 0;
-    }
-
-    /* iOS-like audio message bubble UI */
-    .audio_msg{
-      display           : flex;
-      align-items       : center;
-      gap               : 10px;
-      margin-top        : 2px;
-    }
-    .audio_play{
-      width             : 28px;
-      height            : 28px;
-      border-radius     : 999px;
-      border            : 2px solid var(--audio_fg);
-      display           : inline-flex;
-      align-items       : center;
-      justify-content   : center;
-      font-size         : 13px;
-      line-height       : 1;
-      color             : var(--audio_fg);
-      flex              : 0 0 auto;
-    }
-    .audio_wave{
-      height            : 16px;
-      flex              : 0 0 50%;
-      max-width         : 50%;
-      border-radius     : 999px;
-      background        :
-        repeating-linear-gradient(
-          90deg,
-          var(--audio_fg) 0 2px,
-          transparent 2px 5px
-        );
-      opacity           : .65;
-      position          : relative;
-    }
-    .msg.user .audio_wave{
-      /* Make Kid audio look more like iOS “voice message” bars (more legible in green). */
-      background        :
-        repeating-linear-gradient(
-          90deg,
-          var(--audio_fg) 0 3px,
-          transparent 3px 7px
-        );
-      opacity           : .88;
-    }
-    .msg.storycall .audio_wave{
-      opacity           : .60;
-    }
-    .audio_wave::after{
-      content           : "";
-      position          : absolute;
-      inset             : 0;
-      border-radius     : 999px;
-      background        : var(--audio_track);
-      opacity           : .45;
-      mix-blend-mode    : overlay;
-      pointer-events    : none;
-    }
-    .audio_time{
-      font-size         : .86em;
-      color             : var(--audio_fg);
-      opacity           : .86;
-      flex              : 0 0 auto;
-      white-space       : nowrap;
-    }
-    .audio_transcript{
-      margin-top        : 8px;
-      font-size         : .92em;
-      line-height       : 1.35;
-      white-space       : pre-wrap;
-      color             : inherit;
-      opacity           : .92;
-    }
-    .msg.storycall .audio_transcript{
-      opacity           : .78;
-    }
-
-    /* Hide sender headers to mimic iOS 1:1 threads (we keep IDs for reference). */
-    .msg_header{
-      display           : none;
-    }
-
-    .mistake{
-      align-self        : center;
-      max-width         : 54rem;
-      width             : 100%;
-      padding           : 10px 12px;
-      border-radius     : var(--radius_medium);
-      border            : 1px solid rgba(255,59,48,.25);
-      background        : rgba(255,59,48,.07);
-      color             : rgba(var(--color_rgb_black),var(--opacity_medium));
-      font-size         : .92em;
-    }
-    .mistake_title{
-      display           : inline-block;
-      padding           : 2px 8px;
-      border-radius     : var(--radius_pill);
-      border            : 1px solid rgba(255,59,48,.30);
-      background        : rgba(255,59,48,.12);
-      color             : rgba(255,59,48,.92);
-      font-size         : .78em;
-      letter-spacing    : .35px;
-      text-transform    : uppercase;
-      margin-right      : 8px;
-      white-space       : nowrap;
-    }
-
-    .edit_target{
-      cursor            : text;
-    }
-    .edit_target:hover{
-      outline           : 2px solid rgba(0,0,0,.08);
-      outline-offset    : 3px;
-    }
-    .edit_modal{
-      position          : fixed;
-      inset             : 0;
-      background        : rgba(0,0,0,.25);
-      display           : none;
-      align-items       : center;
-      justify-content   : center;
-      padding           : 22px;
-      z-index           : 9999;
-    }
-    .edit_modal.open{
-      display           : flex;
-    }
-    .edit_panel{
-      width             : min(720px, 100%);
-      border-radius     : var(--radius_medium);
-      border            : var(--border_default);
-      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      box-shadow        : 0 18px 60px rgba(0,0,0,.22);
-      padding           : var(--space_medium);
-    }
-    .edit_panel h3{
-      margin            : 0 0 var(--space_small);
-    }
-    .edit_panel textarea{
-      width             : 100%;
-      min-height        : 180px;
-      resize            : vertical;
-      font-family       : var(--font_family_base);
-      font-size         : 14px;
-      line-height       : 1.35;
-      padding           : 12px;
-      border-radius     : 12px;
-      border            : 1px solid rgba(0,0,0,.14);
-      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-    }
-    .edit_actions{
-      display           : flex;
-      justify-content   : flex-end;
-      gap               : var(--space_small);
-      margin-top        : var(--space_small);
-    }
-    .edit_btn{
-      appearance        : none;
-      -webkit-appearance: none;
-      font-family       : inherit;
-      font-weight       : var(--font_weight_heavy);
-      border-radius     : 12px;
-      border            : 1px solid rgba(0,0,0,.12);
-      padding           : 10px 12px;
-      background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      cursor            : pointer;
-    }
-    .edit_btn.primary{
-      background        : #34c759;
-      color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
-      border-color      : rgba(0,0,0,.06);
-    }
-    .edit_hint{
-      margin            : var(--space_small) 0 0;
-      color             : var(--color_text_muted);
-      font-size         : .92em;
-    }
-  </style>
+  <link rel="stylesheet" href="scenarios.css" />
 </head>
 
 <body>
@@ -436,10 +30,10 @@
       Message examples. Tags: <b>TEXT</b>, <b>AUDIO</b>, <b>TRANSCRIPT</b>.
     </p>
 
-    <div class="jump">
+    <div class="jump" id="outline">
       <div class="jump_row">
         <p class="jump_title">Jump to a scenario</p>
-        <p class="legend"><b>Kid</b> is on the right • <b>StoryCall</b> is on the left</p>
+        <p class="legend"><b>Kid</b> is on the left • <b>StoryCall</b> is on the right</p>
       </div>
       <div class="scenario_list" aria-label="Outline">
         <ol>
@@ -456,8 +50,9 @@
             <a href="#message_exchange">Message exchange</a>
             <ol type="A">
               <li><a href="#message_exchange_1">Audio question + audio reply</a></li>
-              <li><a href="#message_exchange_2">Kid sends text instead of audio</a></li>
-              <li><a href="#message_exchange_3">No answer / voicemail / retry</a></li>
+              <li><a href="#message_exchange_2">Reschedule: call back in about an hour</a></li>
+              <li><a href="#message_exchange_3">Kid sends text instead of audio</a></li>
+              <li><a href="#message_exchange_4">No answer / voicemail / retry</a></li>
             </ol>
           </li>
           <li>
@@ -479,16 +74,16 @@
       </div>
     </div>
 
-    <section class="group" id="setup">
-      <h2 class="group_title">1. Setup</h2>
+    <section class="group">
+      <h2 class="group_title" id="setup">1. Setup</h2>
       <p class="group_note">Setup flows + common mistakes.</p>
 
-      <section class="scenario" id="setup_1">
-        <h3>1.A Successful setup</h3>
-        <p class="note">Audio keyword reply, then audio phone number.</p>
+      <section class="scenario">
+        <h3 id="setup_1">1.A. Successful setup <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Setup 1.A message thread">
-          <div class="msg_row user" data-msg-id="1.A.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="1.A.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -498,7 +93,7 @@
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.A.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="1.A.2" data-time="1:00:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -512,15 +107,17 @@
                 <div class="audio_wave" aria-hidden="true"></div>
                 <div class="audio_time edit_target" data-edit-id="setup_1_welcome_file">0:18</div>
               </div>
-              <div class="audio_transcript edit_target" data-edit-id="setup_1_welcome_transcript">Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.
-
-To begin, tell us the phone number we should call with your messages.
-
-Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.</div>
+              <div class="audio_seg" aria-label="Segmented transcript">
+                <div class="seg_group">
+                  <div class="seg_piece">Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.</div>
+                  <div class="seg_piece seg_mid">To begin, tell us the phone number we should call with your messages.</div>
+                  <div class="seg_piece">Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.A.3" data-time="1:02 PM">
+          <div class="msg_row user" data-msg-id="1.A.3" data-time="1:00:35 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -538,7 +135,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.A.4" data-time="1:03 PM">
+          <div class="msg_row storycall" data-msg-id="1.A.4" data-time="1:00:40 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -560,12 +157,12 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         </div>
       </section>
 
-      <section class="scenario" id="setup_2">
-        <h3>1.B Phone number sent as text</h3>
-        <p class="note">StoryCall asks for audio instead.</p>
+      <section class="scenario">
+        <h3 id="setup_2">1.B. Phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Setup 1.B message thread">
-          <div class="msg_row user" data-msg-id="1.B.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="1.B.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -575,7 +172,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.B.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="1.B.2" data-time="1:00:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -599,7 +196,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             Kid gives phone number as <b>text</b> instead of <b>audio</b> recording.
           </div>
 
-          <div class="msg_row user" data-msg-id="1.B.3" data-time="1:02 PM">
+          <div class="msg_row user" data-msg-id="1.B.3" data-time="1:00:25 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -609,7 +206,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.B.4" data-time="1:03 PM">
+          <div class="msg_row storycall" data-msg-id="1.B.4" data-time="1:00:27 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -627,12 +224,12 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         </div>
       </section>
 
-      <section class="scenario" id="setup_3">
-        <h3>1.C Phone number audio is unclear / incomplete</h3>
-        <p class="note">StoryCall confirms what it heard and asks for a re-send.</p>
+      <section class="scenario">
+        <h3 id="setup_3">1.C. Phone number audio is unclear / incomplete <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Setup 1.C message thread">
-          <div class="msg_row user" data-msg-id="1.C.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="1.C.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -647,7 +244,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.C.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="1.C.2" data-time="1:00:05 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -665,7 +262,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.C.3" data-time="1:02 PM">
+          <div class="msg_row user" data-msg-id="1.C.3" data-time="1:00:45 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -683,7 +280,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.C.4" data-time="1:03 PM">
+          <div class="msg_row storycall" data-msg-id="1.C.4" data-time="1:00:50 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -697,12 +294,12 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
         </div>
       </section>
 
-      <section class="scenario" id="setup_4">
-        <h3>1.D Change the call-to number</h3>
-        <p class="note">Kid can update the destination by sending a new phone number as audio.</p>
+      <section class="scenario">
+        <h3 id="setup_4">1.D. Change the call-to number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Setup 1.D message thread">
-          <div class="msg_row storycall" data-msg-id="1.D.1" data-time="1:00 PM">
+          <div class="msg_row storycall" data-msg-id="1.D.1" data-time="1:00:00 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -714,7 +311,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="1.D.2" data-time="1:01 PM">
+          <div class="msg_row user" data-msg-id="1.D.2" data-time="1:00:30 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -732,7 +329,7 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="1.D.3" data-time="1:02 PM">
+          <div class="msg_row storycall" data-msg-id="1.D.3" data-time="1:00:36 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -750,60 +347,176 @@ Tap the attachment button in the bottom left corner of your text app. Make a new
       </section>
     </section>
 
-    <section class="group" id="message_exchange">
-      <h2 class="group_title">2. Message exchange</h2>
+    <section class="group">
+      <h2 class="group_title" id="message_exchange">2. Message exchange</h2>
       <p class="group_note">Send audio. Get audio replies.</p>
 
-      <section class="scenario" id="message_exchange_1">
-        <h3>2.A Audio question + audio reply</h3>
-        <p class="note">Kid sends audio. StoryCall returns audio + transcript.</p>
+      <section class="scenario">
+        <h3 id="message_exchange_1">2.A. Audio question + audio reply <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row has_call" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_storycall_call">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
-        <div class="thread" aria-label="Message exchange 2.A message thread">
-          <div class="msg_row user" data-msg-id="2.A.1" data-time="1:00 PM">
-            <div class="msg user">
-              <div class="msg_header">
-                <span><b>Kid</b></span>
-                <span class="badge_row">
-                  <span class="badge audio">AUDIO</span>
-                  <span class="badge transcript">TRANSCRIPT</span>
-                </span>
+        <div class="phone_stack has_call" aria-label="2.A combined mobile thread">
+          <div class="thread" aria-label="Message exchange 2.A message thread">
+            <div class="msg_row user" data-msg-id="2.A.1" data-time="1:00:00 PM">
+              <div class="msg user">
+                <div class="msg_header">
+                  <span><b>Kid</b></span>
+                  <span class="badge_row">
+                    <span class="badge audio">AUDIO</span>
+                    <span class="badge transcript">TRANSCRIPT</span>
+                  </span>
+                </div>
+                <div class="audio_msg" aria-label="Audio message">
+                  <div class="audio_play" aria-hidden="true">▶</div>
+                  <div class="audio_wave" aria-hidden="true"></div>
+                  <div class="audio_time">0:05</div>
+                </div>
+                <div class="audio_transcript">Hey Grandma — what music was popular when you were in high school?</div>
               </div>
-              <div class="audio_msg" aria-label="Audio message">
-                <div class="audio_play" aria-hidden="true">▶</div>
-                <div class="audio_wave" aria-hidden="true"></div>
-                <div class="audio_time">0:05</div>
-              </div>
-              <div class="audio_transcript">Hey Grandma — what music was popular when you were in high school?</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.A.2" data-time="1:01 PM">
-            <div class="msg storycall">
-              <div class="msg_header">
-                <span><b>StoryCall</b></span>
-                <span class="badge_row">
-                  <span class="badge audio">AUDIO</span>
-                  <span class="badge transcript">TRANSCRIPT</span>
-                </span>
+          <div class="call_block" aria-label="Telephone exchange transcript">
+            <div class="call_thread" aria-label="Telephone exchange thread">
+              <div class="call_row storycall" data-msg-id="2.A.2" data-time="1:01:05 PM">
+                <div class="call_bubble">
+                  <p>You have a new message.</p>
+                  <p>Hey grandma – what music was popular when you were in high school?</p>
+                  <p>Please reply after the beep or tell me to call back and play your message another time.</p>
+                </div>
               </div>
-              <div class="audio_msg" aria-label="Audio message">
-                <div class="audio_play" aria-hidden="true">▶</div>
-                <div class="audio_wave" aria-hidden="true"></div>
-                <div class="audio_time edit_target" data-edit-id="message_exchange_1_reply_file">0:13</div>
+              <div class="call_row grandma" data-msg-id="2.A.3" data-time="1:01:10 PM">
+                <div class="call_bubble">
+                  <p>We listen to Frank Sinatra, and Sam Cooke all the time.</p>
+                </div>
               </div>
-              <div class="audio_transcript edit_target" data-edit-id="message_exchange_1_reply_transcript">Oh honey — we listened to The Beatles and The Supremes a lot. I loved Motown, and later on I got into Simon &amp; Garfunkel.
-Everyone knew the big songs on the radio.</div>
+            </div>
+          </div>
+
+          <div class="thread" aria-label="Message exchange 2.A response to kid">
+            <div class="msg_row storycall" data-msg-id="2.A.4" data-time="1:02:10 PM">
+              <div class="msg storycall">
+                <div class="msg_header">
+                  <span><b>StoryCall</b></span>
+                  <span class="badge_row">
+                    <span class="badge audio">AUDIO</span>
+                    <span class="badge transcript">TRANSCRIPT</span>
+                  </span>
+                </div>
+                <div class="audio_msg" aria-label="Audio message">
+                  <div class="audio_play" aria-hidden="true">▶</div>
+                  <div class="audio_wave" aria-hidden="true"></div>
+                  <div class="audio_time">0:13</div>
+                </div>
+                <div class="audio_transcript">We listen to Frank Sinatra, and Sam Cooke all the time.</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="scenario" id="message_exchange_2">
-        <h3>2.B Kid sends text instead of audio</h3>
-        <p class="note">StoryCall nudges back to voice recording (no text-to-speech).</p>
+      <section class="scenario">
+        <h3 id="message_exchange_2">2.B. Reschedule: call back in about an hour <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row has_call" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_storycall_call">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
-        <div class="thread" aria-label="Message exchange 2.B message thread">
-          <div class="msg_row user" data-msg-id="2.B.1" data-time="1:00 PM">
+        <div class="phone_stack has_call" aria-label="2.B combined mobile thread">
+          <div class="thread" aria-label="Message exchange 2.B message thread">
+            <div class="msg_row user" data-msg-id="2.B.1" data-time="1:00:00 PM">
+              <div class="msg user">
+                <div class="msg_header">
+                  <span><b>Kid</b></span>
+                  <span class="badge_row">
+                    <span class="badge audio">AUDIO</span>
+                    <span class="badge transcript">TRANSCRIPT</span>
+                  </span>
+                </div>
+                <div class="audio_msg" aria-label="Audio message">
+                  <div class="audio_play" aria-hidden="true">▶</div>
+                  <div class="audio_wave" aria-hidden="true"></div>
+                  <div class="audio_time">0:05</div>
+                </div>
+                <div class="audio_transcript">Hi Grandma — what was it like on Christmas morning?</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="call_block" aria-label="Telephone exchange transcript">
+            <div class="call_thread" aria-label="Telephone exchange thread">
+              <div class="call_row storycall" data-msg-id="2.B.2" data-time="1:00:20 PM">
+              <div class="seg_group call_seg" aria-label="Segmented StoryCall call prompt">
+                <div class="call_bubble seg_piece"><p>You have a new message.</p></div>
+                <div class="call_bubble seg_piece seg_mid"><p>Hi Grandma — what was it like on Christmas morning?</p></div>
+                <div class="call_bubble seg_piece"><p>Please reply after the beep or tell me to call back and play your message another time.</p></div>
+              </div>
+              </div>
+              <div class="call_row grandma" data-msg-id="2.B.3" data-time="1:00:45 PM">
+              <div class="call_bubble">
+                <p>Can you call me back in about an hour?</p>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="thread" aria-label="Message exchange 2.B update to kid">
+            <div class="msg_row storycall" data-msg-id="2.B.4" data-time="1:00:55 PM">
+              <div class="msg storycall">
+                <div class="msg_header">
+                  <span><b>StoryCall</b></span>
+                  <span class="badge_row"><span class="badge text">TEXT</span></span>
+                </div>
+                <p>SC: Call about Christmas morning rescheduled for in about an hour.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="call_block" aria-label="Telephone exchange transcript (call back)">
+            <div class="call_thread" aria-label="Telephone exchange thread (call back)">
+              <div class="call_row storycall" data-msg-id="2.B.5" data-time="2:00:05 PM">
+              <div class="seg_group call_seg" aria-label="Segmented StoryCall call-back prompt">
+                <div class="call_bubble seg_piece"><p>Calling back with your new message.</p></div>
+                <div class="call_bubble seg_piece seg_mid"><p>Hi Grandma — what was it like on Christmas morning?</p></div>
+                <div class="call_bubble seg_piece"><p>Please reply after the beep or tell me to call back and play your message another time.</p></div>
+              </div>
+              </div>
+              <div class="call_row grandma" data-msg-id="2.B.6" data-time="2:00:35 PM">
+              <div class="call_bubble">
+                <p>
+                  We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every
+                  present and then had brunch and it was wonderful.
+                </p>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="thread" aria-label="Message exchange 2.B audio back to kid">
+            <div class="msg_row storycall" data-msg-id="2.B.7" data-time="2:00:45 PM">
+              <div class="msg storycall">
+                <div class="msg_header">
+                  <span><b>StoryCall</b></span>
+                  <span class="badge_row">
+                    <span class="badge audio">AUDIO</span>
+                    <span class="badge transcript">TRANSCRIPT</span>
+                  </span>
+                </div>
+                <div class="audio_msg" aria-label="Audio message">
+                  <div class="audio_play" aria-hidden="true">▶</div>
+                  <div class="audio_wave" aria-hidden="true"></div>
+                  <div class="audio_time">0:18</div>
+                </div>
+                <div class="audio_transcript">We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every present and then had brunch and it was wonderful.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="message_exchange_3">2.C. Kid sends text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
+
+        <div class="thread" aria-label="Message exchange 2.C message thread">
+          <div class="msg_row user" data-msg-id="2.C.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -813,7 +526,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.B.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="2.C.2" data-time="1:00:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -828,7 +541,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row user" data-msg-id="2.B.3" data-time="1:02 PM">
+          <div class="msg_row user" data-msg-id="2.C.3" data-time="1:00:40 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -846,7 +559,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.B.4" data-time="1:03 PM">
+          <div class="msg_row storycall" data-msg-id="2.C.4" data-time="1:01:05 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -863,12 +576,12 @@ Everyone knew the big songs on the radio.</div>
         </div>
       </section>
 
-      <section class="scenario" id="message_exchange_3">
-        <h3>2.C No answer / voicemail / retry</h3>
-        <p class="note">Common delivery outcomes and how StoryCall reports them.</p>
+      <section class="scenario">
+        <h3 id="message_exchange_4">2.D. No answer / voicemail / retry <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
-        <div class="thread" aria-label="Message exchange 2.C message thread">
-          <div class="msg_row user" data-msg-id="2.C.1" data-time="1:00 PM">
+        <div class="thread" aria-label="Message exchange 2.D message thread">
+          <div class="msg_row user" data-msg-id="2.D.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -886,7 +599,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="2.D.2" data-time="1:00:45 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -901,7 +614,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.3" data-time="1:02 PM">
+          <div class="msg_row storycall" data-msg-id="2.D.3" data-time="1:15:30 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -913,7 +626,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="2.C.4" data-time="1:03 PM">
+          <div class="msg_row storycall" data-msg-id="2.D.4" data-time="1:15:31 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -928,16 +641,16 @@ Everyone knew the big songs on the radio.</div>
       </section>
     </section>
 
-    <section class="group" id="text_help">
-      <h2 class="group_title">3. Texting for help</h2>
+    <section class="group">
+      <h2 class="group_title" id="text_help">3. Texting for help</h2>
       <p class="group_note">HELP flows (what to do next, how to record, how to change settings).</p>
 
-      <section class="scenario" id="text_help_1">
-        <h3>3.A HELP: what to do next (setup)</h3>
-        <p class="note">Kid is confused after starting.</p>
+      <section class="scenario">
+        <h3 id="text_help_1">3.A. HELP: what to do next (setup) <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Help 3.A message thread">
-          <div class="msg_row user" data-msg-id="3.A.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="3.A.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -947,7 +660,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.A.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="3.A.2" data-time="1:00:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -970,12 +683,12 @@ Everyone knew the big songs on the radio.</div>
         </div>
       </section>
 
-      <section class="scenario" id="text_help_2">
-        <h3>3.B HELP: how to attach a voice recording</h3>
-        <p class="note">Quick instructions without getting too device-specific.</p>
+      <section class="scenario">
+        <h3 id="text_help_2">3.B. HELP: how to attach a voice recording <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Help 3.B message thread">
-          <div class="msg_row user" data-msg-id="3.B.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="3.B.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -985,7 +698,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.B.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="3.B.2" data-time="1:00:03 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1011,12 +724,12 @@ Everyone knew the big songs on the radio.</div>
         </div>
       </section>
 
-      <section class="scenario" id="text_help_3">
-        <h3>3.C HELP: change the number</h3>
-        <p class="note">Kid wants to switch from Grandma to Grandpa.</p>
+      <section class="scenario">
+        <h3 id="text_help_3">3.C. HELP: change the number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Help 3.C message thread">
-          <div class="msg_row user" data-msg-id="3.C.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="3.C.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1026,7 +739,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="3.C.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="3.C.2" data-time="1:00:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1044,16 +757,16 @@ Everyone knew the big songs on the radio.</div>
       </section>
     </section>
 
-    <section class="group" id="text_stop">
-      <h2 class="group_title">4. Texting to stop</h2>
+    <section class="group">
+      <h2 class="group_title" id="text_stop">4. Texting to stop</h2>
       <p class="group_note">STOP / opt-out flows.</p>
 
-      <section class="scenario" id="text_stop_1">
-        <h3>4.A STOP: opt out</h3>
-        <p class="note">Kid pauses the service for this thread.</p>
+      <section class="scenario">
+        <h3 id="text_stop_1">4.A. STOP: opt out <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Stop 4.A message thread">
-          <div class="msg_row user" data-msg-id="4.A.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="4.A.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1063,7 +776,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="4.A.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="4.A.2" data-time="1:00:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1080,12 +793,12 @@ Everyone knew the big songs on the radio.</div>
         </div>
       </section>
 
-      <section class="scenario" id="text_stop_2">
-        <h3>4.B Restart after STOP</h3>
-        <p class="note">Kid restarts, then is guided back into setup if needed.</p>
+      <section class="scenario">
+        <h3 id="text_stop_2">4.B. Restart after STOP <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="role_row" aria-label="Roles"><span class="role_kid">Kid</span><span class="role_storycall">StoryCall</span><span class="role_grandma">Grandma</span><span class="role_expression">Expression</span></div>
 
         <div class="thread" aria-label="Stop 4.B message thread">
-          <div class="msg_row user" data-msg-id="4.B.1" data-time="1:00 PM">
+          <div class="msg_row user" data-msg-id="4.B.1" data-time="1:00:00 PM">
             <div class="msg user">
               <div class="msg_header">
                 <span><b>Kid</b></span>
@@ -1095,7 +808,7 @@ Everyone knew the big songs on the radio.</div>
             </div>
           </div>
 
-          <div class="msg_row storycall" data-msg-id="4.B.2" data-time="1:01 PM">
+          <div class="msg_row storycall" data-msg-id="4.B.2" data-time="1:00:02 PM">
             <div class="msg storycall">
               <div class="msg_header">
                 <span><b>StoryCall</b></span>
@@ -1131,109 +844,82 @@ Everyone knew the big songs on the radio.</div>
     document.getElementById("year").textContent = new Date().getFullYear();
 
     (function(){
-      const EDIT_ENDPOINT = "/__save";
-      const FILE = "scenarios.html";
-
-      const modal = document.createElement("div");
-      modal.className = "edit_modal";
-      modal.innerHTML = [
-        '<div class="edit_panel" role="dialog" aria-modal="true" aria-label="Edit text">',
-        "  <h3>Edit</h3>",
-        '  <textarea id="edit_text"></textarea>',
-        '  <div class="edit_actions">',
-        '    <button class="edit_btn" type="button" id="edit_cancel">Cancel</button>',
-        '    <button class="edit_btn primary" type="button" id="edit_save">Save</button>',
-        "  </div>",
-        '  <p class="edit_hint">Double-click StoryCall text to edit. Save writes back to <b>' + FILE + "</b> (local server only).</p>",
-        "</div>",
-      ].join("\n");
-      document.body.appendChild(modal);
-
-      const textarea = modal.querySelector("#edit_text");
-      const btnCancel = modal.querySelector("#edit_cancel");
-      const btnSave = modal.querySelector("#edit_save");
-
-      let currentEl = null;
-      let currentId = null;
-
-      function openEditor(el){
-        currentEl = el;
-        currentId = el.getAttribute("data-edit-id");
-        textarea.value = el.innerText.trimEnd();
-        modal.classList.add("open");
-        setTimeout(() => textarea.focus(), 0);
+      function setAnchorOffset(){
+        const header = document.querySelector("header");
+        if (!header) return;
+        const h = Math.ceil(header.getBoundingClientRect().height);
+        document.documentElement.style.setProperty("--scenario_anchor_offset", h + "px");
       }
 
-      function closeEditor(){
-        modal.classList.remove("open");
-        currentEl = null;
-        currentId = null;
-        textarea.value = "";
-      }
+      setAnchorOffset();
+      window.addEventListener("resize", setAnchorOffset, { passive: true });
 
-      async function save(){
-        if (!currentEl || !currentId) return;
-        const newText = textarea.value;
-
-        if (window.location.protocol === "file:"){
-          alert(
-            "Save needs the local edit server.\n\n" +
-            "1) Run: node edit_server.js\n" +
-            "2) Open: http://127.0.0.1:8787/scenarios.html\n\n" +
-            "Saving from a file:// page can't write back to scenarios.html."
-          );
-          return;
-        }
-
-        let res;
+      function scrollToHash(hash, opts){
+        const raw = (hash || "").trim();
+        if (!raw || raw === "#") return;
+        let id = raw.startsWith("#") ? raw.slice(1) : raw;
+        if (!id) return;
         try{
-          res = await fetch(EDIT_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ file: FILE, id: currentId, text: newText }),
-          });
-        }catch(err){
-          alert(
-            "Save failed (can't reach the local edit server).\n\n" +
-            "Run: node edit_server.js\n" +
-            "Then open: http://127.0.0.1:8787/scenarios.html"
-          );
+          id = decodeURIComponent(id);
+        }catch(_e){}
+
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        const header = document.querySelector("header");
+        const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        const gap = 2;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
+        const startY = window.scrollY;
+        const endY = Math.max(0, targetTop);
+
+        const duration = Math.max(0, opts?.duration_ms ?? 180);
+        if (!opts?.animate || duration === 0){
+          window.scrollTo(0, endY);
           return;
         }
 
-        if (!res.ok){
-          const msg = await res.text().catch(() => "");
-          alert(
-            "Save failed.\n\n" +
-            "Are you running: node edit_server.js ?\n" +
-            "And viewing: http://127.0.0.1:8787/scenarios.html ?\n\n" +
-            msg
-          );
-          return;
+        const startT = performance.now();
+        function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+        function tick(now){
+          const p = Math.min(1, (now - startT) / duration);
+          const y = startY + (endY - startY) * easeOutCubic(p);
+          window.scrollTo(0, y);
+          if (p < 1) requestAnimationFrame(tick);
         }
-
-        currentEl.innerText = newText;
-        closeEditor();
+        requestAnimationFrame(tick);
       }
 
-      document.addEventListener("dblclick", function(e){
-        const el = e.target.closest("[data-edit-id]");
-        if (!el) return;
-        const inStoryCall = !!el.closest(".msg.storycall");
-        if (!inStoryCall) return;
-        openEditor(el);
+      // Fast, precise anchor scrolling (titles land right under the sticky header).
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest && e.target.closest("a[href^='#']");
+        if (!a) return;
+        const href = a.getAttribute("href") || "";
+        if (!href.startsWith("#")) return;
+        e.preventDefault();
+        history.pushState(null, "", href);
+        scrollToHash(href, { animate: true, duration_ms: 180 });
       });
 
-      btnCancel.addEventListener("click", closeEditor);
-      btnSave.addEventListener("click", save);
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeEditor();
-      });
-      document.addEventListener("keydown", (e) => {
-        if (!modal.classList.contains("open")) return;
-        if (e.key === "Escape") closeEditor();
-        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") save();
-      });
+      window.addEventListener("hashchange", () => scrollToHash(location.hash, { animate: false }));
+      // If the page loads with a hash, make sure it lands precisely.
+      scrollToHash(location.hash, { animate: false });
+
+      // Prefix StoryCall TEXT bubbles with "SC: "
+      (function addStoryCallPrefix(){
+        const rows = document.querySelectorAll(".msg_row.storycall");
+        rows.forEach((row) => {
+          const msg = row.querySelector(".msg.storycall");
+          if (!msg) return;
+          const hasTextBadge = !!msg.querySelector(".badge.text");
+          if (!hasTextBadge) return;
+          const p = msg.querySelector("p");
+          if (!p) return;
+          const current = (p.textContent || "");
+          if (current.trimStart().startsWith("SC:")) return;
+          p.insertAdjacentText("afterbegin", "SC: ");
+        });
+      })();
     })();
   </script>
 </body>

@@ -1,0 +1,682 @@
+:root{
+  --layout_side_padding : 41px;
+  --font_size_body      : 17px;
+
+  /* iPhone-ish bubble colors */
+  --bubble_incoming_bg : #e9e9eb;
+  --bubble_outgoing_bg : #34c759; /* iOS Messages green */
+  --bubble_shadow      : 0 1px 2px rgba(0,0,0,.10);
+
+  /* sizing */
+  --bubble_max_width  : 24rem;
+  --bubble_text_pad_x : 12px;
+
+  /* layout helpers (used to align phone + call transcript boxes) */
+  --scenario_indent   : 14px;
+  --phone_pad         : 14px;
+  --phone_box_width   : calc(var(--bubble_max_width) * 1.2);
+  /* Left edge of StoryCall bubble column inside a phone box (includes padding). */
+  --storycall_col_x   : calc(var(--phone_box_width) - var(--bubble_max_width) - var(--phone_pad));
+  /* How far the call transcript box is shifted right (relative to scenario indent). */
+  --call_block_shift_x : calc(var(--storycall_col_x) - var(--phone_pad));
+  /* Indent for StoryCall column + telephone blocks (keep shared left edge across “SC said to kid” and “SC said to grandma”). */
+  --storycall_column_shift : calc(2 * var(--call_block_shift_x));
+  /* Additional horizontal offset for telephone-call blocks (StoryCall ↔ Grandma) */
+  --call_column_extra_shift : 1.5in;
+
+  /* call block geometry (used to align “StoryCall (call)” and “Grandma” headers) */
+  --call_block_left_x       : calc(var(--storycall_column_shift) + var(--call_column_extra_shift));
+  --call_block_width        : var(--phone_box_width);
+
+  /* outside marker column anchor (IDs like 2.A.1) */
+  --marker_offset_x         : calc(var(--marker_col_width) + var(--marker_col_gap) + var(--phone_pad));
+
+  /* outside marker column (IDs like 2.A.1) */
+  --marker_col_width  : 64px;
+  --marker_col_gap    : 10px;
+
+  /* timestamp column sizing */
+  --time_col_width    : 72px;
+  --time_col_gap      : 8px;
+
+  /* role header colors */
+  --role_kid_color     : var(--bubble_outgoing_bg);
+  --role_grandma_color : #c86f00;
+
+  /* Anchor offset for this page (so titles land right under the sticky header). */
+  --scenario_anchor_offset : var(--scroll_padding_top);
+}
+
+/* For this page, use scroll-margin on the actual headings (more precise than container padding). */
+html{
+  scroll-padding-top : 0;
+  scroll-behavior    : auto;
+}
+html, body{
+  overflow-x         : hidden;
+}
+
+.page_title{
+  margin            : 0 0 var(--space_small);
+  letter-spacing    : var(--letter_spacing_h2);
+}
+
+.page_intro{
+  margin            : 0 0 var(--space_large);
+  color             : var(--color_text_muted);
+}
+
+.jump{
+  margin            : 0 0 var(--space_large);
+  padding           : var(--space_small) var(--space_medium);
+  border-radius     : var(--radius_medium);
+  border            : var(--border_default);
+  background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+}
+.jump_row{
+  display           : flex;
+  align-items       : baseline;
+  justify-content   : space-between;
+  gap               : var(--space_medium);
+  flex-wrap         : wrap;
+}
+.jump_title{
+  margin            : 0;
+  font-weight       : var(--font_weight_heavy);
+}
+.legend{
+  margin            : 0;
+  color             : var(--color_text_muted);
+  font-size         : .92em;
+}
+.scenario_list{
+  margin            : var(--space_small) 0 0;
+  padding-left      : 1.35em;
+}
+.scenario_list ol{
+  margin            : var(--space_small) 0 0;
+  padding-left      : 1.35em;
+}
+.scenario_list li{
+  margin            : 4px 0;
+}
+.scenario_list a{
+  text-decoration   : none;
+}
+.scenario_list a:hover{
+  text-decoration   : underline;
+}
+
+.group{
+  margin            : 0 0 var(--space_large);
+}
+.group:last-child{
+  margin-bottom     : 0;
+}
+.group + .group{
+  padding-top       : var(--space_small);
+}
+.group_title{
+  margin            : 0 0 var(--space_small);
+  letter-spacing    : var(--letter_spacing_h2);
+}
+
+.group_title[id]{
+  scroll-margin-top : calc(var(--scenario_anchor_offset) + 6px);
+}
+.group_note{
+  margin            : 0 0 var(--space_small);
+  color             : var(--color_text_muted);
+}
+
+.scenario{
+  margin            : 0 0 var(--space_large);
+}
+.scenario:last-child{
+  margin-bottom     : 0;
+}
+.scenario h2{
+  margin            : 0 0 var(--space_small);
+  letter-spacing    : var(--letter_spacing_h3);
+}
+
+.scenario h3{
+  margin            : 0 0 var(--space_small);
+  letter-spacing    : var(--letter_spacing_h3);
+}
+.scenario h3[id]{
+  scroll-margin-top : calc(var(--scenario_anchor_offset) + 6px);
+}
+
+.role_row{
+  position          : relative;
+  height            : 18px;
+  margin            : 0 0 var(--space_small);
+  margin-left       : var(--scenario_indent);
+  width             : var(--phone_box_width);
+  overflow          : visible;
+  color             : var(--color_text_muted);
+  font-size         : 13px;
+  letter-spacing    : .2px;
+}
+.role_row.has_call{
+  /* Right edge matches the right edge of the call block (so Expression column lines up). */
+  width             : calc(var(--phone_box_width) + var(--storycall_column_shift) + var(--call_column_extra_shift));
+}
+.role_row span{
+  position          : absolute;
+  top               : 0;
+  white-space       : nowrap;
+}
+.role_row .role_kid{
+  left              : calc(var(--phone_pad) + var(--bubble_text_pad_x));
+  color             : var(--role_kid_color);
+}
+.role_row .role_storycall{
+  left              : calc(var(--phone_pad) + var(--storycall_column_shift) + var(--bubble_text_pad_x));
+}
+.role_row .role_storycall_call{
+  display           : none;
+}
+.role_row.has_call .role_storycall_call{
+  display           : inline;
+  left              : calc(var(--call_block_left_x) + var(--phone_pad) + var(--bubble_text_pad_x));
+}
+.role_row .role_grandma{
+  right             : 0;
+  padding-right     : calc(var(--phone_pad) + var(--bubble_text_pad_x));
+  text-align        : right;
+  color             : var(--role_grandma_color);
+}
+.role_row .role_expression{
+  right             : calc(-1 * var(--marker_offset_x));
+  width             : var(--marker_col_width);
+  text-align        : right;
+  color             : rgba(0,0,0,.55);
+  opacity           : .65;
+}
+.role_row.has_call .role_grandma{
+  /* Align Grandma label to the LEFT edge of the orange Grandma call bubbles. */
+  right             : auto;
+  padding-right     : 0;
+  text-align        : left;
+  left              : calc(var(--call_block_left_x) + var(--call_block_width) - var(--phone_pad) - var(--bubble_max_width));
+}
+
+.back_to_outline{
+  display           : inline-block;
+  margin-left       : 8px;
+  text-decoration   : none;
+  font-weight       : var(--font_weight_heavy);
+  color             : rgba(var(--color_rgb_black),.55);
+  opacity           : .65;
+}
+.back_to_outline:hover{
+  text-decoration   : underline;
+  opacity           : .85;
+}
+.scenario .note{
+  margin-top        : 0;
+}
+
+@media (pointer: coarse){
+  :root{
+    --scenario_anchor_offset : var(--scroll_padding_top_mobile);
+  }
+}
+
+.thread{
+  max-width         : var(--phone_box_width);
+  margin            : 0;
+  display           : flex;
+  flex-direction    : column;
+  gap               : 10px;
+  padding           : var(--phone_pad);
+  border-radius     : var(--radius_medium);
+  border            : var(--border_default);
+  background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+  font-size         : 15px;
+  position          : relative;
+  overflow          : visible;
+}
+
+/* Left-align “phone” mockups, with a slight indent from the scenario text. */
+.scenario .thread{
+  margin-left       : var(--scenario_indent);
+}
+
+/* Optional combined phone stack (one continuous “mobile” box behind call overlays). */
+.phone_stack{
+  max-width         : var(--phone_box_width);
+  margin-left       : var(--scenario_indent);
+  padding           : var(--phone_pad);
+  border-radius     : var(--radius_medium);
+  border            : var(--border_default);
+  background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+  display           : flex;
+  flex-direction    : column;
+  gap               : var(--space_small);
+  position          : relative;
+  overflow          : visible;
+}
+/* Inside the stack, threads should not draw their own boxes. */
+.phone_stack .thread{
+  max-width         : 100%;
+  margin-left       : 0;
+  padding           : 0;
+  border            : none;
+  background        : transparent;
+  border-radius     : 0;
+}
+/* Inside the stack, call overlays should sit on top of the white background. */
+.phone_stack .call_block{
+  position          : relative;
+  z-index           : 2;
+  margin-left       : calc(var(--storycall_column_shift) - var(--phone_pad) + var(--call_column_extra_shift));
+  margin-right      : calc(-1 * (var(--storycall_column_shift) + var(--call_column_extra_shift)));
+  width             : var(--call_block_width);
+  max-width         : var(--call_block_width);
+  margin-top        : 0;
+  margin-bottom     : 0;
+}
+
+.msg_row{
+  position          : relative;
+  display           : flex;
+  align-items       : flex-start;
+  width             : 100%;
+}
+.msg_row.user{
+  justify-content   : flex-start;
+}
+.msg_row.storycall{
+  justify-content   : flex-start;
+}
+.msg_row::after{
+  content           : attr(data-msg-id);
+  position          : absolute;
+  top               : 0;
+  right             : calc(-1 * var(--marker_offset_x));
+  width             : var(--marker_col_width);
+  text-align        : right;
+  font-size         : 11px;
+  letter-spacing    : .7px;
+  color             : rgba(0,0,0,.55);
+  opacity           : .55;
+  pointer-events    : none;
+  user-select       : none;
+  white-space       : nowrap;
+}
+.msg_row:not([data-msg-id])::after{
+  content           : "";
+}
+
+/* Per-message timestamp (in-screen): left of Kid bubbles, right of StoryCall bubbles. */
+.msg_row::before{
+  content           : attr(data-time);
+  display           : block;
+  font-size         : 11px;
+  letter-spacing    : .7px;
+  color             : rgba(0,0,0,.55);
+  opacity           : .55;
+  user-select       : none;
+  white-space       : nowrap;
+  line-height       : 1.1;
+  padding-top       : 2px;
+  width             : var(--time_col_width);
+  flex              : 0 0 var(--time_col_width);
+}
+.msg_row:not([data-time])::before{
+  content           : "";
+  display           : none;
+}
+.msg_row.user::before{
+  order             : 2;
+  margin-left       : var(--time_col_gap);
+  text-align        : right;
+}
+.msg_row.storycall::before{
+  order             : 0;
+  margin-left       : calc(var(--storycall_column_shift) - (var(--time_col_width) + var(--time_col_gap)));
+  margin-right      : var(--time_col_gap);
+  text-align        : left;
+}
+.msg_row > .msg{
+  order             : 1;
+}
+
+.msg{
+  width             : min(var(--bubble_max_width), 78%);
+  max-width         : min(var(--bubble_max_width), 78%);
+  border-radius     : 22px;
+  border            : none;
+  box-shadow        : var(--bubble_shadow);
+  padding           : 10px 12px;
+  position          : relative;
+}
+.msg.user{
+  background        : var(--bubble_outgoing_bg);
+  color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
+  --audio_fg         : rgba(var(--color_rgb_white),.92);
+  --audio_track      : rgba(var(--color_rgb_white),.22);
+}
+.msg.storycall{
+  background        : var(--bubble_incoming_bg);
+  color             : rgba(var(--color_rgb_black),var(--opacity_heavy));
+  --audio_fg         : rgba(var(--color_rgb_black),.60);
+  --audio_track      : rgba(var(--color_rgb_black),.12);
+  /* Lock StoryCall bubbles to a single column (align left edge across scenarios). */
+  margin-left       : 0;
+}
+
+.msg_header{
+  display           : flex;
+  align-items       : baseline;
+  justify-content   : space-between;
+  gap               : var(--space_small);
+  margin            : 0 0 6px;
+  color             : rgba(var(--color_rgb_black),var(--opacity_medium));
+  font-size         : .78em;
+}
+.msg.user .msg_header{
+  color             : rgba(var(--color_rgb_white),.92);
+}
+
+.badge_row{
+  display           : inline-flex;
+  gap               : var(--space_micro);
+  flex-wrap         : wrap;
+  justify-content   : flex-end;
+}
+.badge{
+  display           : inline-block;
+  padding           : 2px 7px;
+  border-radius     : var(--radius_pill);
+  border            : 1px solid rgba(var(--color_rgb_black),.10);
+  background        : rgba(var(--color_rgb_white),.55);
+  font-size         : .74em;
+  letter-spacing    : .35px;
+  text-transform    : uppercase;
+  white-space       : nowrap;
+}
+.msg.user .badge{
+  border-color      : rgba(var(--color_rgb_white),.22);
+  background        : rgba(var(--color_rgb_white),.16);
+  color             : rgba(var(--color_rgb_white),.95);
+}
+.badge.audio{
+  background        : rgba(52,199,89,.18);
+  border-color      : rgba(52,199,89,.22);
+}
+.badge.text{
+  background        : rgba(43,86,179,.14);
+  border-color      : rgba(43,86,179,.20);
+}
+.badge.transcript{
+  background        : rgba(var(--color_rgb_black),.05);
+  border-color      : rgba(var(--color_rgb_black),.10);
+}
+
+.msg p{
+  margin            : 0;
+}
+
+/* iOS-like audio message bubble UI */
+.audio_msg{
+  display           : flex;
+  align-items       : center;
+  gap               : 10px;
+  margin-top        : 2px;
+}
+.audio_play{
+  width             : 28px;
+  height            : 28px;
+  border-radius     : 999px;
+  border            : 2px solid var(--audio_fg);
+  display           : inline-flex;
+  align-items       : center;
+  justify-content   : center;
+  font-size         : 13px;
+  line-height       : 1;
+  color             : var(--audio_fg);
+  flex              : 0 0 auto;
+}
+.audio_wave{
+  height            : 16px;
+  flex              : 0 0 50%;
+  max-width         : 50%;
+  border-radius     : 999px;
+  background        :
+    repeating-linear-gradient(
+      90deg,
+      var(--audio_fg) 0 2px,
+      transparent 2px 5px
+    );
+  opacity           : .65;
+  position          : relative;
+}
+.msg.user .audio_wave{
+  /* Make Kid audio look more like iOS “voice message” bars (more legible in green). */
+  background        :
+    repeating-linear-gradient(
+      90deg,
+      var(--audio_fg) 0 3px,
+      transparent 3px 7px
+    );
+  opacity           : .88;
+}
+.msg.storycall .audio_wave{
+  opacity           : .60;
+}
+.audio_wave::after{
+  content           : "";
+  position          : absolute;
+  inset             : 0;
+  border-radius     : 999px;
+  background        : var(--audio_track);
+  opacity           : .45;
+  mix-blend-mode    : overlay;
+  pointer-events    : none;
+}
+.audio_time{
+  font-size         : .86em;
+  color             : var(--audio_fg);
+  opacity           : .86;
+  flex              : 0 0 auto;
+  white-space       : nowrap;
+}
+.audio_transcript{
+  margin-top        : 8px;
+  font-size         : .92em;
+  line-height       : 1.35;
+  white-space       : pre-wrap;
+  color             : inherit;
+  opacity           : .92;
+}
+.msg.storycall .audio_transcript{
+  opacity           : .78;
+}
+
+/* Hide sender headers to mimic iOS 1:1 threads (we keep IDs for reference). */
+.msg_header{
+  display           : none;
+}
+
+.mistake{
+  align-self        : center;
+  max-width         : 54rem;
+  width             : 100%;
+  padding           : 10px 12px;
+  border-radius     : var(--radius_medium);
+  border            : 1px solid rgba(255,59,48,.25);
+  background        : rgba(255,59,48,.07);
+  color             : rgba(var(--color_rgb_black),var(--opacity_medium));
+  font-size         : .92em;
+}
+.mistake_title{
+  display           : inline-block;
+  padding           : 2px 8px;
+  border-radius     : var(--radius_pill);
+  border            : 1px solid rgba(255,59,48,.30);
+  background        : rgba(255,59,48,.12);
+  color             : rgba(255,59,48,.92);
+  font-size         : .78em;
+  letter-spacing    : .35px;
+  text-transform    : uppercase;
+  margin-right      : 8px;
+  white-space       : nowrap;
+}
+
+/* Telephone exchange (StoryCall ↔ Grandma) — not a messaging UI */
+.call_block{
+  margin-top        : var(--space_small);
+  margin-bottom     : var(--space_small);
+}
+.call_block{
+  position          : relative;
+  width             : var(--call_block_width);
+  max-width         : var(--call_block_width);
+  margin-left       : calc(var(--scenario_indent) + var(--storycall_column_shift) + var(--call_column_extra_shift));
+  margin-right      : calc(-1 * (var(--storycall_column_shift) + var(--call_column_extra_shift)));
+}
+.call_thread{
+  width             : 100%;
+  max-width         : 100%;
+  margin            : 0;
+  padding           : var(--phone_pad);
+  border-radius     : var(--radius_medium);
+  border            : 1px solid rgba(0,0,0,.10);
+  background        : #bcbcbc;
+  display           : flex;
+  flex-direction    : column;
+  gap               : 10px;
+  position          : relative;
+  overflow          : visible;
+}
+.call_row{
+  display           : flex;
+  align-items       : flex-start;
+  position          : relative;
+}
+.call_row::before{
+  content           : attr(data-time);
+  display           : block;
+  font-size         : 11px;
+  letter-spacing    : .7px;
+  color             : rgba(0,0,0,.55);
+  opacity           : .55;
+  user-select       : none;
+  white-space       : nowrap;
+  line-height       : 1.1;
+  padding-top       : 2px;
+  width             : var(--time_col_width);
+  flex              : 0 0 var(--time_col_width);
+}
+.call_row::after{
+  content           : attr(data-msg-id);
+  position          : absolute;
+  top               : 0;
+  right             : calc(-1 * var(--marker_offset_x));
+  width             : var(--marker_col_width);
+  text-align        : right;
+  font-size         : 11px;
+  letter-spacing    : .7px;
+  color             : rgba(0,0,0,.55);
+  opacity           : .55;
+  pointer-events    : none;
+  user-select       : none;
+  white-space       : nowrap;
+}
+.call_row:not([data-msg-id])::after{
+  content           : "";
+}
+.call_bubble{
+  background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
+  border            : 1px solid rgba(0,0,0,.06);
+  border-radius     : 18px;
+  padding           : 10px 12px;
+  width             : min(var(--bubble_max_width), 78%);
+  max-width         : min(var(--bubble_max_width), 78%);
+  box-shadow        : 0 1px 2px rgba(0,0,0,.08);
+}
+.call_row.storycall .call_bubble{
+  background        : var(--bubble_incoming_bg);
+  color             : rgba(var(--color_rgb_black),var(--opacity_heavy));
+}
+.call_row.grandma .call_bubble{
+  background        : #ff9500;
+  border-color      : rgba(0,0,0,.06);
+  color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
+}
+.call_row.storycall{
+  justify-content   : flex-start;
+}
+.call_row.storycall::before{
+  order             : 2;
+  margin-left       : 8px;
+  text-align        : right;
+}
+.call_row.storycall .call_bubble{
+  order             : 1;
+}
+.call_row.grandma{
+  justify-content   : flex-end;
+}
+.call_row.grandma::before{
+  order             : 0;
+  margin-right      : var(--time_col_gap);
+  text-align        : left;
+}
+.call_row.grandma .call_bubble{
+  order             : 1;
+}
+.call_bubble p{
+  margin            : 0;
+}
+.call_bubble p + p{
+  margin-top        : var(--space_micro);
+}
+
+/* Segmented “one audio component, multiple pieces” blocks */
+.seg_group{
+  display           : flex;
+  flex-direction    : column;
+  gap               : 0;
+}
+.seg_piece{
+  border-radius     : 18px;
+}
+.seg_group .seg_piece + .seg_piece{
+  margin-top        : -1px; /* visually merges borders */
+}
+.seg_group .seg_piece:first-child{
+  border-bottom-left-radius : 8px;
+  border-bottom-right-radius: 8px;
+}
+.seg_group .seg_piece:last-child{
+  border-top-left-radius : 8px;
+  border-top-right-radius: 8px;
+}
+.seg_mid{
+  background        : var(--bubble_outgoing_bg) !important;
+  color             : rgba(var(--color_rgb_white),var(--opacity_heavy)) !important;
+}
+
+/* Segment styling inside telephone blocks */
+.call_seg .call_bubble{
+  box-shadow        : none;
+}
+
+/* Segment styling inside StoryCall audio transcripts (mobile) */
+.audio_seg{
+  margin-top        : 8px;
+}
+.audio_seg .seg_piece{
+  padding           : 8px 10px;
+  border            : 1px solid rgba(0,0,0,.06);
+  background        : var(--bubble_incoming_bg);
+  color             : rgba(var(--color_rgb_black),var(--opacity_heavy));
+  font-size         : .92em;
+  line-height       : 1.35;
+  white-space       : pre-wrap;
+}
