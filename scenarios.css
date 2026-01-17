@@ -731,7 +731,7 @@ html, body{
    2.B2 — seven-column grid diagram (new component)
    ============================================================ */
 .grid7_diagram{
-  --grid7_col_id        : 92px;
+  --grid7_col_id        : 56px;
   --grid7_col           : 128px;
   /* Slightly taller rows so phone rows 2.B2.3–2.B2.5 comfortably fit their 3 lines. */
   --grid7_row_h         : 66px;
@@ -761,6 +761,7 @@ html, body{
   column-gap        : 0;
   row-gap           : var(--grid7_row_gap);
 }
+
 .grid7_diagram > *:not(.grid7_guides){
   position          : relative;
   z-index           : 1;
@@ -818,9 +819,9 @@ html, body{
   border-bottom     : 1px dashed rgba(0,0,0,.18);
 }
 .grid7_head_id{
-  text-align        : right;
-  padding-right     : var(--grid7_inset);
+  text-align        : center;
   padding-left      : 0;
+  padding-right     : 0;
 }
 .grid7_id{
   grid-column       : 1;
@@ -830,9 +831,9 @@ html, body{
   /* Align IDs to the top edge of their corresponding message blocks. */
   align-self        : start;
   padding-top       : var(--grid7_inset);
-  padding-right     : var(--grid7_inset);
   padding-left      : 0;
-  text-align        : right;
+  padding-right     : 0;
+  text-align        : center;
 }
 .grid7_pos_id_1{ grid-row: 2; }
 .grid7_pos_id_2{ grid-row: 3; }

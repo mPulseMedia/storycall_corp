@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="StoryCall scenarios encoded as seven-column diagrams (v2)." />
+  <title>StoryCall Scenarios (v2)</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="scenarios.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
+          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+        </a>
+        <a class="cta" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="page_title">Scenarios (v2)</h1>
+    <p class="page_intro">
+      Same scenario set, but depicted as consistent seven‑column diagrams based on the (v1) 2.B2 grid contract.
+    </p>
+
+    <div class="jump" id="outline">
+      <div class="jump_row">
+        <p class="jump_title">Jump to a scenario</p>
+        <p class="legend"><b>Kid</b> is on the left • <b>StoryCall</b> is on the right</p>
+      </div>
+      <div class="scenario_list" aria-label="Outline">
+        <ol>
+          <li>
+            <a href="#v2_setup">Setup</a>
+            <ol type="A">
+              <li><a href="#v2_setup_1">Successful setup</a></li>
+              <li><a href="#v2_setup_2">Phone number sent as text</a></li>
+              <li><a href="#v2_setup_3">Phone number audio is unclear / incomplete</a></li>
+              <li><a href="#v2_setup_4">Change the call-to number</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#v2_message_exchange">Message exchange</a>
+            <ol type="A">
+              <li><a href="#v2_message_exchange_1">Audio question + audio reply</a></li>
+              <li><a href="#v2_message_exchange_2">Reschedule: call back in about an hour</a></li>
+              <li><a href="#v2_message_exchange_3">Kid sends text instead of audio</a></li>
+              <li><a href="#v2_message_exchange_4">No answer / voicemail / retry</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#v2_text_help">Texting for help</a>
+            <ol type="A">
+              <li><a href="#v2_text_help_1">HELP: what to do next (setup)</a></li>
+              <li><a href="#v2_text_help_2">HELP: how to attach a voice recording</a></li>
+              <li><a href="#v2_text_help_3">HELP: change the number</a></li>
+            </ol>
+          </li>
+          <li>
+            <a href="#v2_text_stop">Texting to stop</a>
+            <ol type="A">
+              <li><a href="#v2_text_stop_1">STOP: opt out</a></li>
+              <li><a href="#v2_text_stop_2">Restart after STOP</a></li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <section class="group">
+      <h2 class="group_title" id="v2_setup">1. Setup</h2>
+
+      <section class="scenario">
+        <h3 id="v2_setup_1">1.A. Successful setup <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.A diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">storycall</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:03</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:18</div>
+            </div>
+            <div class="grid7_audio_transcript">
+              Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.
+              <br><br>
+              To begin, tell us the phone number we should call with your messages.
+              <br><br>
+              Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.
+            </div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:35</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:04</div>
+            </div>
+            <div class="grid7_audio_transcript">Call four one five, five five five, zero one three four.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:40</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            <p>
+              Great — we’ll call <b>415-555-0134</b> with your future messages. If that’s not correct, send another audio message with the
+              right number.
+            </p>
+            <p style="margin-top: var(--space_micro);">
+              From now on, whenever you send an <b>audio</b> message to StoryCall, we’ll call <b>415-555-0134</b> and play your recording.
+              We’ll send you any reply as a text in this same thread.
+            </p>
+            <p style="margin-top: var(--space_micro);">
+              Kid can text <b>HELP</b> or <b>STOP</b> anytime. Kid can also text the <b>StoryCall Admin</b> directly here (plain text).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_setup_2">1.B. Phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.B diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">storycall</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:03</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:18</div>
+            </div>
+            <div class="grid7_audio_transcript">
+              Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.
+              <br><br>
+              To begin, tell us the phone number we should call with your messages.
+              <br><br>
+              Tap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us.
+            </div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:25</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">415-555-0134</div>
+
+          <div class="mistake">
+            <span class="mistake_title">Intentional mistake</span>
+            Kid gives phone number as <b>text</b> instead of <b>audio</b> recording.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:27</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            <p>We got the phone number (<b>415-555-0134</b>) — but StoryCall works by sending <b>audio</b>, not text-to-speech.</p>
+            <p style="margin-top: var(--space_micro);">
+              As a quick practice, please send that phone number again as an <b>audio attachment</b> (a voice recording).
+              If you need help with this step, text <b>HELP</b>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_setup_3">1.C. Phone number audio is unclear / incomplete <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.C diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:03</div>
+            </div>
+            <div class="grid7_audio_transcript">(muffled) …five five five… one three…</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:05</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>I couldn’t confidently pick out a full phone number from that recording.</p>
+            <p style="margin-top: var(--space_micro);">
+              Please send the phone number again as an audio recording, saying each digit slowly (example: “four one five…”).
+            </p>
+            <p style="margin-top: var(--space_micro);">Tip: record in a quiet place. If you prefer, you can say it twice in one recording.</p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:45</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:05</div>
+            </div>
+            <div class="grid7_audio_transcript">Four one five. Five five five. Zero one three four.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:50</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            Thanks — I got <b>415-555-0134</b>. We’ll call that number with your future messages.
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_setup_4">1.D. Change the call-to number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.D diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 2; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 2; margin-top: var(--grid7_inset);">
+            Currently set to call: <b>415-555-0134</b>. To change it, send the new number as an <b>audio recording</b>.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 3; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:30</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 3; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:05</div>
+            </div>
+            <div class="grid7_audio_transcript">Actually call six five zero, five five five, zero one one zero.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:36</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
+            <p>Updated — we’ll call <b>650-555-0110</b> with your future messages.</p>
+            <p style="margin-top: var(--space_micro);">Next step: send an <b>audio</b> message for me to deliver.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group">
+      <h2 class="group_title" id="v2_message_exchange">2. Message exchange</h2>
+
+      <section class="scenario">
+        <h3 id="v2_message_exchange_1">2.A. Audio question + audio reply <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 2.A diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:05</div>
+            </div>
+            <div class="grid7_audio_transcript">Hey Grandma — what music was popular when you were in high school?</div>
+          </div>
+
+          <div class="grid7_phone_bg" aria-hidden="true" style="grid-column: 4 / 8; grid-row: 3 / 5;"></div>
+          <div class="grid7_timestamp" style="grid-column: 7; grid-row: 3; align-self: start; justify-self: start; color: rgba(255,255,255,.38); margin-top: var(--grid7_inset);">1:01:05</div>
+          <div class="grid7_timestamp" style="grid-column: 4; grid-row: 4; align-self: start; justify-self: end; color: rgba(255,255,255,.38);">1:01:10</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_phone_msg channel_phone participant_storycall format_voice" style="grid-column: 4 / 7; grid-row: 3; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px;">
+            <p>You have a new message.</p>
+            <p>Hey grandma – what music was popular when you were in high school?</p>
+            <p>Please reply after the beep or tell me to call back and play your message another time.</p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_phone_msg channel_phone participant_grandma format_voice" style="grid-column: 5 / 8; grid-row: 4; border-radius: 14px; margin-bottom: var(--grid7_inset);">
+            We listen to Frank Sinatra, and Sam Cooke all the time.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:02:10</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:13</div>
+            </div>
+            <div class="grid7_audio_transcript">We listen to Frank Sinatra, and Sam Cooke all the time.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_message_exchange_2">2.B. Reschedule: call back in about an hour <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <!-- Reused verbatim from v1 2.B2 (grid contract). -->
+        <div class="grid7_diagram" aria-label="2.B2 seven-column diagram">
+          <div class="grid7_guides" aria-hidden="true">
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+            <div class="grid7_guide"></div>
+          </div>
+
+          <div class="grid7_mobile_canvas grid7_b2_mobile_canvas" aria-hidden="true"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id">ID</div>
+          <div class="grid7_cell grid7_head">kid</div>
+          <div class="grid7_cell grid7_head">storycall</div>
+          <div class="grid7_cell grid7_head">storycall</div>
+          <div class="grid7_cell grid7_head" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head">storycall</div>
+          <div class="grid7_cell grid7_head">grandma</div>
+
+          <!-- 2.B2.1 Kid → StoryCall (mobile audio) -->
+          <div class="grid7_cell grid7_id grid7_b2_id_1">1</div>
+          <div class="grid7_timestamp grid7_b2_ts_1">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_voice grid7_b2_msg_1">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:05</div>
+            </div>
+            <div class="grid7_audio_transcript">Hi Grandma — what was it like on Christmas morning?</div>
+          </div>
+
+          <!-- Phone block #1 (StoryCall → Grandma) -->
+          <div class="grid7_phone_bg grid7_b2_phone1_bg" aria-hidden="true"></div>
+          <div class="grid7_timestamp grid7_b2_phone1_ts_top">1:00:20</div>
+          <div class="grid7_timestamp grid7_b2_phone1_ts_orange">1:00:45</div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_2">2</div>
+          <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone1_blue1">
+            You have a new message.
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_3">3</div>
+          <div class="grid7_phone_msg channel_phone participant_kid format_voice grid7_b2_phone1_green">
+            Hi Grandma — what was it like on Christmas morning?
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_4">4</div>
+          <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone1_blue2">
+            Please reply after the beep or tell me to call back and play your message another time.
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_5">5</div>
+          <div class="grid7_phone_msg channel_phone participant_grandma format_voice grid7_b2_phone1_orange">
+            Can you call me back in about an hour?
+          </div>
+
+          <!-- 2.B2.6 StoryCall → Kid (mobile text) -->
+          <div class="grid7_cell grid7_id grid7_b2_id_6">6</div>
+          <div class="grid7_timestamp grid7_b2_ts_6">1:00:55</div>
+          <div class="grid7_block channel_sms participant_storycall format_text grid7_b2_msg_6">
+            SC: Call about Christmas morning rescheduled for in about an hour.
+          </div>
+
+          <!-- Phone block #2 (call back) -->
+          <div class="grid7_phone_bg grid7_b2_phone2_bg" aria-hidden="true"></div>
+          <div class="grid7_timestamp grid7_b2_phone2_ts_top">2:00:05</div>
+          <div class="grid7_timestamp grid7_b2_phone2_ts_orange">2:00:35</div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_7">7</div>
+          <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone2_blue1">
+            Calling back with your new message.
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_8">8</div>
+          <div class="grid7_phone_msg channel_phone participant_kid format_voice grid7_b2_phone2_green">
+            Hi Grandma — what was it like on Christmas morning?
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_9">9</div>
+          <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone2_blue2">
+            Please reply after the beep or tell me to call back and play your message another time.
+          </div>
+
+          <div class="grid7_cell grid7_id grid7_b2_id_10">10</div>
+          <div class="grid7_phone_msg channel_phone participant_grandma format_voice grid7_b2_phone2_orange">
+            We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every present
+            and then had brunch and it was wonderful.
+          </div>
+
+          <!-- 2.B2.11 StoryCall → Kid (mobile audio) -->
+          <div class="grid7_cell grid7_id grid7_b2_id_11">11</div>
+          <div class="grid7_timestamp grid7_b2_ts_11">2:00:45</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice grid7_b2_msg_11">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:18</div>
+            </div>
+            <div class="grid7_audio_transcript">
+              We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every
+              present and then had brunch and it was wonderful.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_message_exchange_3">2.C. Kid sends text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 2.C diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">Hi Grandma! Miss you. ❤️</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>I got your message — but StoryCall delivers <b>voice recordings</b>, not text-to-speech.</p>
+            <p style="margin-top: var(--space_micro);">Please send that again as an <b>audio attachment</b> (a voice recording). I’ll call it through.</p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:40</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:04</div>
+            </div>
+            <div class="grid7_audio_transcript">Hi Grandma! Miss you. Love you.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:01:05</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            <p>Delivered — I called <b>650-555-0110</b> and played your recording.</p>
+            <p style="margin-top: var(--space_micro);">If you send another audio message, I’ll deliver it the same way.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_message_exchange_4">2.D. No answer / voicemail / retry <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 2.D diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_voice" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:07</div>
+            </div>
+            <div class="grid7_audio_transcript">Hi Grandma, it’s me. Just checking in — hope your day is going okay.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:45</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>I tried calling <b>650-555-0110</b>, but there was <b>no answer</b>.</p>
+            <p style="margin-top: var(--space_micro);">I’ll automatically try again soon. If you want to change the number, send a new phone number as audio.</p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:15:30</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
+            Update: I called again and it went to <b>voicemail</b>. I left your recording as a voicemail message.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:15:31</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
+            Reply tip: Grandma can’t text StoryCall directly. If she replies to your call, I’ll send her words back to you here.
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group">
+      <h2 class="group_title" id="v2_text_help">3. Texting for help</h2>
+
+      <section class="scenario">
+        <h3 id="v2_text_help_1">3.A. HELP: what to do next (setup) <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 3.A diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">HELP</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>Here’s what to do:</p>
+            <p style="margin-top: var(--space_micro);">1) Send the phone number we should call as a <b>voice recording</b> (audio attachment).</p>
+            <p style="margin-top: var(--space_micro);">2) After we confirm the number, send any future message as <b>audio</b> and we’ll call it through.</p>
+            <p style="margin-top: var(--space_micro);">To change the call-to number later, just send a new phone number as audio.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_text_help_2">3.B. HELP: how to attach a voice recording <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 3.B diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">HELP I can’t figure out the audio thing</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:03</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>No problem. In your texting app:</p>
+            <p style="margin-top: var(--space_micro);">- Tap the <b>+</b> or <b>attachment</b> button near the message box.</p>
+            <p style="margin-top: var(--space_micro);">- Choose <b>Audio</b> / <b>Voice</b> / <b>Record</b>.</p>
+            <p style="margin-top: var(--space_micro);">- Record your message (or the phone number), then tap <b>Send</b>.</p>
+            <p style="margin-top: var(--space_micro);">Tip: avoid speech-to-text диктation — we need an actual audio recording.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_text_help_3">3.C. HELP: change the number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 3.C diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">HELP I need to change who you call</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>To change the call-to number, send the new phone number as an <b>audio recording</b>.</p>
+            <p style="margin-top: var(--space_micro);">After I confirm it, I’ll use that new number for your future messages.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="group">
+      <h2 class="group_title" id="v2_text_stop">4. Texting to stop</h2>
+
+      <section class="scenario">
+        <h3 id="v2_text_stop_1">4.A. STOP: opt out <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 4.A diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">STOP</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>You’re opted out. StoryCall will not send any calls from this thread.</p>
+            <p style="margin-top: var(--space_micro);">If you change your mind, text <b>storycall</b> to start again.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="v2_text_stop_2">4.B. Restart after STOP <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 4.B diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column"></div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">storycall</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
+            <p>Welcome back. If you haven’t set a call-to number yet, send it now as an <b>audio recording</b>.</p>
+            <p style="margin-top: var(--space_micro);">Otherwise, send your next message as <b>audio</b> and I’ll call it through.</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div class="copy">© <span id="year"></span> StoryCall</div>
+          <div class="foot_address">PO Box 330186, SF, CA 94133</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      (function(){
+        function setAnchorOffset(){
+          const header = document.querySelector("header");
+          if (!header) return;
+          const h = Math.ceil(header.getBoundingClientRect().height);
+          document.documentElement.style.setProperty("--scenario_anchor_offset", h + "px");
+        }
+
+        setAnchorOffset();
+        window.addEventListener("resize", setAnchorOffset, { passive: true });
+
+        function scrollToHash(hash, opts){
+          const raw = (hash || "").trim();
+          if (!raw || raw === "#") return;
+          let id = raw.startsWith("#") ? raw.slice(1) : raw;
+          if (!id) return;
+          try{ id = decodeURIComponent(id); }catch(_e){}
+
+          const target = document.getElementById(id);
+          if (!target) return;
+
+          const header = document.querySelector("header");
+          const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+          const gap = 2;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
+          const startY = window.scrollY;
+          const endY = Math.max(0, targetTop);
+
+          const duration = Math.max(0, opts?.duration_ms ?? 180);
+          if (!opts?.animate || duration === 0){
+            window.scrollTo(0, endY);
+            return;
+          }
+
+          const startT = performance.now();
+          function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+          function tick(now){
+            const p = Math.min(1, (now - startT) / duration);
+            const y = startY + (endY - startY) * easeOutCubic(p);
+            window.scrollTo(0, y);
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+
+        document.addEventListener("click", (e) => {
+          const a = e.target.closest && e.target.closest("a[href^='#']");
+          if (!a) return;
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("#")) return;
+          e.preventDefault();
+          history.pushState(null, "", href);
+          scrollToHash(href, { animate: true, duration_ms: 180 });
+        });
+
+        window.addEventListener("hashchange", () => scrollToHash(location.hash, { animate: false }));
+        scrollToHash(location.hash, { animate: false });
+      })();
+    </script>
+
+  </main>
+</body>
+</html>
