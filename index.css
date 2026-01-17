@@ -79,7 +79,7 @@
       /* Add room above the Granny circle so it never overlaps the preceding paragraph. */
       .hero_tagline + .note{
         margin-bottom     : calc(var(--space_medium) + var(--face_granny_lift));
-      }
+    }
 
       /* "What happens next?" screenshot: larger on desktop. */
       #try details.try_see_how .start_image{
