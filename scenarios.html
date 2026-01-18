@@ -737,13 +737,21 @@
           }
         }
 
+        function getAnchorTop(target){
+          if (!target) return window.scrollY;
+          const rectTop = target.getBoundingClientRect().top + window.scrollY;
+          // Compensate for top margins (important for h3 titles and inset message blocks).
+          const mt = Number.parseFloat(getComputedStyle(target).marginTop || "0") || 0;
+          return rectTop - mt;
+        }
+
         function scrollToEl(target, opts){
           if (!target) return;
 
           const header = document.querySelector("header");
           const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
           const gap = 2;
-          const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
+          const targetTop = getAnchorTop(target) - headerH - gap;
           const startY = window.scrollY;
           const endY = Math.max(0, targetTop);
 
@@ -794,7 +802,7 @@
           const header = document.querySelector("header");
           const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
           const gap = 2;
-          const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
+          const targetTop = getAnchorTop(target) - headerH - gap;
           const startY = window.scrollY;
           const endY = Math.max(0, targetTop);
 
@@ -832,8 +840,11 @@
         let touchStartY = 0;
         let touchStartX = 0;
         let touchStartT = 0;
+        let touchStartAnchorIdx = 0;
         let isSnapping = false;
         let snapTimer = null;
+        let pendingSnapIdx = null;
+        let scrollIdleTimer = null;
 
         function findCurrentAnchorIndex(){
           if (!anchorTargets.length) return 0;
@@ -844,7 +855,7 @@
           let bestIdx = 0;
           let bestTop = -Infinity;
           for (let i = 0; i < anchorTargets.length; i++){
-            const top = window.scrollY + anchorTargets[i].getBoundingClientRect().top;
+            const top = getAnchorTop(anchorTargets[i]);
             if (top <= y && top > bestTop){
               bestTop = top;
               bestIdx = i;
@@ -853,6 +864,27 @@
           return bestIdx;
         }
 
+        function scheduleSnapAfterIdle(){
+          if (pendingSnapIdx == null) return;
+          clearTimeout(scrollIdleTimer);
+          scrollIdleTimer = setTimeout(() => {
+            if (pendingSnapIdx == null) return;
+            isSnapping = true;
+            scrollToEl(anchorTargets[pendingSnapIdx], { animate: true, duration_ms: 220 });
+            pendingSnapIdx = null;
+
+            clearTimeout(snapTimer);
+            snapTimer = setTimeout(() => { isSnapping = false; }, 500);
+          }, 140);
+        }
+
+        window.addEventListener("scroll", () => {
+          // iOS often continues momentum scrolling after touchend; snap once scrolling settles.
+          if (isSnapping) return;
+          if (pendingSnapIdx == null) return;
+          scheduleSnapAfterIdle();
+        }, { passive: true });
+
         document.addEventListener("touchstart", (e) => {
           if (!isFlickNavEnabled()) return;
           if (!e.touches || e.touches.length !== 1) return;
@@ -860,6 +892,7 @@
           touchStartY = t.clientY;
           touchStartX = t.clientX;
           touchStartT = performance.now();
+          touchStartAnchorIdx = findCurrentAnchorIndex();
         }, { passive: true });
 
         document.addEventListener("touchend", (e) => {
@@ -886,15 +919,11 @@
           if (velocity < 0.8) return; // require "fast flick"
 
           const dir = dy < 0 ? 1 : -1; // up => next, down => prev
-          const cur = findCurrentAnchorIndex();
-          const next = Math.max(0, Math.min(anchorTargets.length - 1, cur + dir));
-          if (next === cur) return;
+          const next = Math.max(0, Math.min(anchorTargets.length - 1, touchStartAnchorIdx + dir));
+          if (next === touchStartAnchorIdx) return;
 
-          isSnapping = true;
-          scrollToEl(anchorTargets[next], { animate: true, duration_ms: 220 });
-
-          clearTimeout(snapTimer);
-          snapTimer = setTimeout(() => { isSnapping = false; }, 500);
+          pendingSnapIdx = next;
+          scheduleSnapAfterIdle();
         }, { passive: true });
       })();
     </script>
