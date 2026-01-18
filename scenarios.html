@@ -722,6 +722,65 @@
         setAnchorOffset();
         window.addEventListener("resize", setAnchorOffset, { passive: true });
 
+        // Mobile fast-flick navigation:
+        // - Flick up   => snap to next anchor
+        // - Flick down => snap to previous anchor
+        // Anchors include: scenario headings, each SMS block, and each phone-call block.
+        function isFlickNavEnabled(){
+          try{
+            return (
+              window.matchMedia("(pointer: coarse)").matches &&
+              window.matchMedia("(max-width: 900px)").matches
+            );
+          }catch(_e){
+            return false;
+          }
+        }
+
+        function scrollToEl(target, opts){
+          if (!target) return;
+
+          const header = document.querySelector("header");
+          const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+          const gap = 2;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
+          const startY = window.scrollY;
+          const endY = Math.max(0, targetTop);
+
+          const duration = Math.max(0, opts?.duration_ms ?? 180);
+          if (!opts?.animate || duration === 0){
+            window.scrollTo(0, endY);
+            return;
+          }
+
+          const startT = performance.now();
+          function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+          function tick(now){
+            const p = Math.min(1, (now - startT) / duration);
+            const y = startY + (endY - startY) * easeOutCubic(p);
+            window.scrollTo(0, y);
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        }
+
+        function getAnchorTargets(){
+          const main = document.querySelector("main");
+          if (!main) return [];
+          const all = Array.from(
+            main.querySelectorAll("section.scenario h3[id], .grid7_block, .grid7_phone_bg")
+          );
+          return all.filter((el) => !el.closest("#outline"));
+        }
+
+        let anchorTargets = [];
+        function rebuildAnchorTargets(){
+          anchorTargets = getAnchorTargets();
+          for (const el of anchorTargets) el.classList.add("nav_anchor_target");
+        }
+        rebuildAnchorTargets();
+        window.addEventListener("resize", rebuildAnchorTargets, { passive: true });
+
         function scrollToHash(hash, opts){
           const raw = (hash || "").trim();
           if (!raw || raw === "#") return;
@@ -768,6 +827,75 @@
 
         window.addEventListener("hashchange", () => scrollToHash(location.hash, { animate: false }));
         scrollToHash(location.hash, { animate: false });
+
+        // Fast flick up/down => snap between anchors (leave casual scrolling alone).
+        let touchStartY = 0;
+        let touchStartX = 0;
+        let touchStartT = 0;
+        let isSnapping = false;
+        let snapTimer = null;
+
+        function findCurrentAnchorIndex(){
+          if (!anchorTargets.length) return 0;
+          const header = document.querySelector("header");
+          const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+          const y = window.scrollY + headerH + 2;
+
+          let bestIdx = 0;
+          let bestTop = -Infinity;
+          for (let i = 0; i < anchorTargets.length; i++){
+            const top = window.scrollY + anchorTargets[i].getBoundingClientRect().top;
+            if (top <= y && top > bestTop){
+              bestTop = top;
+              bestIdx = i;
+            }
+          }
+          return bestIdx;
+        }
+
+        document.addEventListener("touchstart", (e) => {
+          if (!isFlickNavEnabled()) return;
+          if (!e.touches || e.touches.length !== 1) return;
+          const t = e.touches[0];
+          touchStartY = t.clientY;
+          touchStartX = t.clientX;
+          touchStartT = performance.now();
+        }, { passive: true });
+
+        document.addEventListener("touchend", (e) => {
+          if (!isFlickNavEnabled()) return;
+          if (isSnapping) return;
+          if (!anchorTargets || anchorTargets.length < 2) return;
+
+          const dt = performance.now() - touchStartT;
+          if (dt <= 0 || dt > 260) return; // casual scrolls usually take longer
+
+          const t = (e.changedTouches && e.changedTouches[0]) || null;
+          if (!t) return;
+
+          const dy = t.clientY - touchStartY;
+          const dx = t.clientX - touchStartX;
+
+          // Ignore mostly-horizontal swipes.
+          if (Math.abs(dx) > Math.abs(dy)) return;
+
+          const absDy = Math.abs(dy);
+          if (absDy < 90) return;
+
+          const velocity = absDy / dt; // px per ms
+          if (velocity < 0.8) return; // require "fast flick"
+
+          const dir = dy < 0 ? 1 : -1; // up => next, down => prev
+          const cur = findCurrentAnchorIndex();
+          const next = Math.max(0, Math.min(anchorTargets.length - 1, cur + dir));
+          if (next === cur) return;
+
+          isSnapping = true;
+          scrollToEl(anchorTargets[next], { animate: true, duration_ms: 220 });
+
+          clearTimeout(snapTimer);
+          snapTimer = setTimeout(() => { isSnapping = false; }, 500);
+        }, { passive: true });
       })();
     </script>
 
