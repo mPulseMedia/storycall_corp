@@ -874,7 +874,8 @@ html, body{
   margin-inline     : var(--grid7_inset);
 }
 
-.grid7_block{
+.grid7_block,
+.grid7_sms_block{
   border            : 1px solid transparent;
   border-radius     : 14px;
   padding           : 14px 16px;
@@ -884,21 +885,27 @@ html, body{
   margin-inline     : var(--grid7_inset);
 }
 /* Participant color should apply to message blocks (not containers). */
-.grid7_block.participant_kid{ background: var(--grid7_kid_bg); }
-.grid7_block.participant_storycall{ background: var(--grid7_storycall_bg); }
-.grid7_block.participant_grandma{ background: var(--grid7_grandma_bg); }
+.grid7_block.participant_kid,
+.grid7_sms_block.participant_kid{ background: var(--grid7_kid_bg); }
+.grid7_block.participant_storycall,
+.grid7_sms_block.participant_storycall{ background: var(--grid7_storycall_bg); }
+.grid7_block.participant_grandma,
+.grid7_sms_block.participant_grandma{ background: var(--grid7_grandma_bg); }
 
 /* Audio UI inside grid blocks (reuse the same “audio file” widget as the phone mockups). */
-.grid7_diagram .grid7_block{
+.grid7_diagram .grid7_block,
+.grid7_diagram .grid7_sms_block{
   --audio_fg     : rgba(0,0,0,.60);
   --audio_track  : rgba(0,0,0,.14);
 }
-.grid7_diagram .grid7_block.participant_kid{
+.grid7_diagram .grid7_block.participant_kid,
+.grid7_diagram .grid7_sms_block.participant_kid{
   --audio_fg     : rgba(var(--color_rgb_white),.92);
   --audio_track  : rgba(var(--color_rgb_white),.22);
   color          : rgba(var(--color_rgb_white),var(--opacity_heavy));
 }
-.grid7_diagram .grid7_block.participant_grandma{
+.grid7_diagram .grid7_block.participant_grandma,
+.grid7_diagram .grid7_sms_block.participant_grandma{
   --audio_fg     : rgba(0,0,0,.55);
   --audio_track  : rgba(0,0,0,.12);
 }
@@ -1075,7 +1082,8 @@ html, body{
 
 /* Phone interaction canvas (columns 4–7). */
 /* ---- 2.B2 phone block (outer grid items) ---- */
-.grid7_phone_bg{
+.grid7_phone_bg,
+.grid7_phone_block{
   grid-column       : 4 / 8; /* columns 4–7 */
   grid-row          : 4 / 8; /* rows 4–7 */
   background        : var(--grid7_call_bg);

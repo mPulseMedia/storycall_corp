@@ -776,7 +776,9 @@
           const main = document.querySelector("main");
           if (!main) return [];
           const all = Array.from(
-            main.querySelectorAll("section.scenario h3[id], .grid7_block, .grid7_phone_bg")
+            // Preferred names: .grid7_sms_block, .grid7_phone_block
+            // Legacy names:    .grid7_block, .grid7_phone_bg (kept for backward compatibility)
+            main.querySelectorAll("section.scenario h3[id], .grid7_sms_block, .grid7_phone_block, .grid7_block, .grid7_phone_bg")
           );
           return all.filter((el) => !el.closest("#outline"));
         }
@@ -784,7 +786,12 @@
         let anchorTargets = [];
         function rebuildAnchorTargets(){
           anchorTargets = getAnchorTargets();
-          for (const el of anchorTargets) el.classList.add("nav_anchor_target");
+          for (const el of anchorTargets){
+            // Normalize anchor naming on existing markup.
+            if (el.classList.contains("grid7_block")) el.classList.add("grid7_sms_block");
+            if (el.classList.contains("grid7_phone_bg")) el.classList.add("grid7_phone_block");
+            el.classList.add("nav_anchor_target");
+          }
         }
         rebuildAnchorTargets();
         window.addEventListener("resize", rebuildAnchorTargets, { passive: true });
@@ -843,8 +850,6 @@
         let touchStartAnchorIdx = 0;
         let isSnapping = false;
         let snapTimer = null;
-        let pendingSnapIdx = null;
-        let scrollIdleTimer = null;
 
         function findCurrentAnchorIndex(){
           if (!anchorTargets.length) return 0;
@@ -864,27 +869,6 @@
           return bestIdx;
         }
 
-        function scheduleSnapAfterIdle(){
-          if (pendingSnapIdx == null) return;
-          clearTimeout(scrollIdleTimer);
-          scrollIdleTimer = setTimeout(() => {
-            if (pendingSnapIdx == null) return;
-            isSnapping = true;
-            scrollToEl(anchorTargets[pendingSnapIdx], { animate: true, duration_ms: 220 });
-            pendingSnapIdx = null;
-
-            clearTimeout(snapTimer);
-            snapTimer = setTimeout(() => { isSnapping = false; }, 500);
-          }, 140);
-        }
-
-        window.addEventListener("scroll", () => {
-          // iOS often continues momentum scrolling after touchend; snap once scrolling settles.
-          if (isSnapping) return;
-          if (pendingSnapIdx == null) return;
-          scheduleSnapAfterIdle();
-        }, { passive: true });
-
         document.addEventListener("touchstart", (e) => {
           if (!isFlickNavEnabled()) return;
           if (!e.touches || e.touches.length !== 1) return;
@@ -901,7 +885,7 @@
           if (!anchorTargets || anchorTargets.length < 2) return;
 
           const dt = performance.now() - touchStartT;
-          if (dt <= 0 || dt > 260) return; // casual scrolls usually take longer
+          if (dt <= 0 || dt > 420) return; // allow slower real-world flicks
 
           const t = (e.changedTouches && e.changedTouches[0]) || null;
           if (!t) return;
@@ -913,17 +897,20 @@
           if (Math.abs(dx) > Math.abs(dy)) return;
 
           const absDy = Math.abs(dy);
-          if (absDy < 90) return;
+          if (absDy < 64) return;
 
           const velocity = absDy / dt; // px per ms
-          if (velocity < 0.8) return; // require "fast flick"
+          if (velocity < 0.55) return; // require "fast flick"
 
           const dir = dy < 0 ? 1 : -1; // up => next, down => prev
           const next = Math.max(0, Math.min(anchorTargets.length - 1, touchStartAnchorIdx + dir));
           if (next === touchStartAnchorIdx) return;
 
-          pendingSnapIdx = next;
-          scheduleSnapAfterIdle();
+          isSnapping = true;
+          scrollToEl(anchorTargets[next], { animate: true, duration_ms: 180 });
+
+          clearTimeout(snapTimer);
+          snapTimer = setTimeout(() => { isSnapping = false; }, 260);
         }, { passive: true });
       })();
     </script>
