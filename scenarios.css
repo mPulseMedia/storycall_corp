@@ -60,6 +60,11 @@ html, body{
   overflow-x         : hidden;
 }
 
+.nav_anchor_target{
+  /* Ensure snap targets land just below the sticky header. */
+  scroll-margin-top  : var(--scenario_anchor_offset);
+}
+
 .page_title{
   margin            : 0 0 var(--space_small);
   letter-spacing    : var(--letter_spacing_h2);
