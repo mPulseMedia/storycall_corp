@@ -746,6 +746,68 @@
         // Run once at startup (diagram markup is static).
         migrateGrid7IdsIntoTimestamps();
 
+        // Column headers: remove text and show kid/grandma circular avatars at the extremes.
+        // Note: the diagrams are mirrored in CSS, so:
+        // - The "kid" header cell (grid-column 2) appears on the RIGHT.
+        // - The "grandma" header cell (grid-column 7) appears on the LEFT.
+        function decorateGrid7ColumnHeaders(){
+          const heads = Array.from(document.querySelectorAll(".grid7_diagram .grid7_head"));
+          for (const el of heads){
+            const label = (el.textContent || "").trim().toLowerCase();
+            if (!label) continue;
+            if (label === "kid"){
+              el.classList.add("grid7_head_avatar", "grid7_head_kid");
+            }else if (label === "grandma"){
+              el.classList.add("grid7_head_avatar", "grid7_head_grandma");
+            }
+          }
+        }
+        decorateGrid7ColumnHeaders();
+
+        // Scenario title nav:
+        // - ↓ jumps to the next scenario title
+        // - ↑ jumps back to outline
+        function decorateScenarioTitleNav(){
+          const titles = Array.from(document.querySelectorAll("section.scenario h3[id]"));
+          for (let i = 0; i < titles.length; i++){
+            const h3 = titles[i];
+            h3.classList.add("scenario_title_row");
+
+            // Remove any existing arrow links so we can render a consistent pair.
+            for (const a of Array.from(h3.querySelectorAll("a.back_to_outline, a.scenario_next"))){
+              a.remove();
+            }
+
+            const nav = document.createElement("span");
+            nav.className = "scenario_title_nav";
+
+            if (i < titles.length - 1){
+              const next = document.createElement("a");
+              next.className = "scenario_next";
+              next.href = "#" + titles[i + 1].id;
+              next.setAttribute("aria-label", "Next scenario");
+              next.textContent = "↓";
+              nav.appendChild(next);
+            }else{
+              // Keep spacing consistent on the final scenario.
+              const spacer = document.createElement("span");
+              spacer.className = "scenario_next_spacer";
+              spacer.textContent = "";
+              nav.appendChild(spacer);
+            }
+
+            const up = document.createElement("a");
+            up.className = "back_to_outline";
+            up.href = "#outline";
+            up.setAttribute("aria-label", "Back to outline");
+            up.textContent = "↑";
+            nav.appendChild(up);
+
+            h3.appendChild(nav);
+          }
+        }
+        decorateScenarioTitleNav();
+
         function setAnchorOffset(){
           const header = document.querySelector("header");
           if (!header) return;
@@ -755,21 +817,6 @@
 
         setAnchorOffset();
         window.addEventListener("resize", setAnchorOffset, { passive: true });
-
-        // Mobile fast-flick navigation:
-        // - Flick up   => snap to next anchor
-        // - Flick down => snap to previous anchor
-        // Anchors include: scenario headings, each SMS block, and each phone-call block.
-        function isFlickNavEnabled(){
-          try{
-            return (
-              window.matchMedia("(pointer: coarse)").matches &&
-              window.matchMedia("(max-width: 900px)").matches
-            );
-          }catch(_e){
-            return false;
-          }
-        }
 
         function getAnchorTop(target){
           if (!target) return window.scrollY;
@@ -805,30 +852,6 @@
           }
           requestAnimationFrame(tick);
         }
-
-        function getAnchorTargets(){
-          const main = document.querySelector("main");
-          if (!main) return [];
-          const all = Array.from(
-            // Preferred names: .grid7_sms_block, .grid7_phone_block
-            // Legacy names:    .grid7_block, .grid7_phone_bg (kept for backward compatibility)
-            main.querySelectorAll("section.scenario h3[id], .grid7_sms_block, .grid7_phone_block, .grid7_block, .grid7_phone_bg")
-          );
-          return all.filter((el) => !el.closest("#outline"));
-        }
-
-        let anchorTargets = [];
-        function rebuildAnchorTargets(){
-          anchorTargets = getAnchorTargets();
-          for (const el of anchorTargets){
-            // Normalize anchor naming on existing markup.
-            if (el.classList.contains("grid7_block")) el.classList.add("grid7_sms_block");
-            if (el.classList.contains("grid7_phone_bg")) el.classList.add("grid7_phone_block");
-            el.classList.add("nav_anchor_target");
-          }
-        }
-        rebuildAnchorTargets();
-        window.addEventListener("resize", rebuildAnchorTargets, { passive: true });
 
         function scrollToHash(hash, opts){
           const raw = (hash || "").trim();
@@ -876,76 +899,6 @@
 
         window.addEventListener("hashchange", () => scrollToHash(location.hash, { animate: false }));
         scrollToHash(location.hash, { animate: false });
-
-        // Fast flick up/down => snap between anchors (leave casual scrolling alone).
-        let touchStartY = 0;
-        let touchStartX = 0;
-        let touchStartT = 0;
-        let touchStartAnchorIdx = 0;
-        let isSnapping = false;
-        let snapTimer = null;
-
-        function findCurrentAnchorIndex(){
-          if (!anchorTargets.length) return 0;
-          const header = document.querySelector("header");
-          const headerH = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-          const y = window.scrollY + headerH + 2;
-
-          let bestIdx = 0;
-          let bestTop = -Infinity;
-          for (let i = 0; i < anchorTargets.length; i++){
-            const top = getAnchorTop(anchorTargets[i]);
-            if (top <= y && top > bestTop){
-              bestTop = top;
-              bestIdx = i;
-            }
-          }
-          return bestIdx;
-        }
-
-        document.addEventListener("touchstart", (e) => {
-          if (!isFlickNavEnabled()) return;
-          if (!e.touches || e.touches.length !== 1) return;
-          const t = e.touches[0];
-          touchStartY = t.clientY;
-          touchStartX = t.clientX;
-          touchStartT = performance.now();
-          touchStartAnchorIdx = findCurrentAnchorIndex();
-        }, { passive: true });
-
-        document.addEventListener("touchend", (e) => {
-          if (!isFlickNavEnabled()) return;
-          if (isSnapping) return;
-          if (!anchorTargets || anchorTargets.length < 2) return;
-
-          const dt = performance.now() - touchStartT;
-          if (dt <= 0 || dt > 420) return; // allow slower real-world flicks
-
-          const t = (e.changedTouches && e.changedTouches[0]) || null;
-          if (!t) return;
-
-          const dy = t.clientY - touchStartY;
-          const dx = t.clientX - touchStartX;
-
-          // Ignore mostly-horizontal swipes.
-          if (Math.abs(dx) > Math.abs(dy)) return;
-
-          const absDy = Math.abs(dy);
-          if (absDy < 64) return;
-
-          const velocity = absDy / dt; // px per ms
-          if (velocity < 0.55) return; // require "fast flick"
-
-          const dir = dy < 0 ? 1 : -1; // up => next, down => prev
-          const next = Math.max(0, Math.min(anchorTargets.length - 1, touchStartAnchorIdx + dir));
-          if (next === touchStartAnchorIdx) return;
-
-          isSnapping = true;
-          scrollToEl(anchorTargets[next], { animate: true, duration_ms: 180 });
-
-          clearTimeout(snapTimer);
-          snapTimer = setTimeout(() => { isSnapping = false; }, 260);
-        }, { passive: true });
       })();
     </script>
 

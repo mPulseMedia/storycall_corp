@@ -155,6 +155,36 @@ html, body{
   letter-spacing    : var(--letter_spacing_h3);
   font-size         : var(--diagram_heading_h3);
 }
+.scenario h3.scenario_title_row{
+  display           : flex;
+  align-items       : baseline;
+  gap               : 10px;
+}
+.scenario_title_nav{
+  margin-left       : auto;
+  display           : inline-flex;
+  align-items       : center;
+  gap               : 10px;
+}
+.scenario_title_nav a{
+  text-decoration   : none;
+  font-weight       : var(--font_weight_heavy);
+  color             : rgba(var(--color_rgb_black),.55);
+  opacity           : .70;
+  /* Bigger tap target */
+  padding           : 6px 8px;
+  border-radius     : 10px;
+}
+.scenario_title_nav a:hover{
+  text-decoration   : none;
+  opacity           : .90;
+  background        : rgba(0,0,0,.05);
+}
+.scenario_next_spacer{
+  display           : inline-block;
+  width             : 28px;
+  height            : 1px;
+}
 .scenario h3[id]{
   scroll-margin-top : calc(var(--scenario_anchor_offset) + 6px);
 }
@@ -803,11 +833,17 @@ html, body{
   grid-auto-rows    : max-content;
   column-gap        : 0;
   row-gap           : var(--grid7_row_gap);
+
+  /* Flip the visual order of the 6 visible columns (kid…grandma) without rewriting all inline grid placements. */
+  transform         : scaleX(-1);
+  transform-origin  : center;
 }
 
 .grid7_diagram > *:not(.grid7_guides){
   position          : relative;
   z-index           : 1;
+  /* Undo the mirror for the contents so text/icons are readable, while the layout stays flipped. */
+  transform         : scaleX(-1);
 }
 .grid7_guides{
   position          : absolute;
@@ -864,9 +900,15 @@ html, body{
   color             : rgba(0,0,0,.70);
   padding           : 0 6px 6px;
   border-bottom     : 1px dashed rgba(0,0,0,.18);
+  /* Titles are now icon-only. Keep the row height, hide the text. */
+  font-size         : 0;
+  color             : transparent;
+  position          : relative;
+  min-height        : calc((var(--face_size, 10rem) * .25) + 8px);
 }
 .grid7_head_id{
-  display           : none; /* ID column removed */
+  /* Keep in layout for diagrams that rely on auto-placement (but make it invisible). */
+  visibility        : hidden;
 }
 .grid7_id{
   display           : none; /* ID column removed (IDs move into timestamps via JS) */
@@ -900,6 +942,30 @@ html, body{
   content           : attr(data-id);
   font-weight       : 700;
   letter-spacing    : .2px;
+}
+
+/* Column header avatars (reuse homepage crop/zoom vars from index.css; 25% of the homepage circle size). */
+.grid7_head.grid7_head_avatar::after{
+  content            : "";
+  display            : block;
+  width              : calc(var(--face_size, 10rem) * .25);
+  height             : calc(var(--face_size, 10rem) * .25);
+  border-radius      : 50%;
+  background-color   : rgba(var(--color_rgb_white),1);
+  background-repeat  : no-repeat;
+  box-shadow         : 0 2px 6px rgba(0,0,0,.10);
+  /* Center within the header cell */
+  margin             : 0 auto;
+}
+.grid7_head.grid7_head_kid::after{
+  background-image   : url("images/kid.png");
+  background-position: 50% var(--face_position_y, 45%);
+  background-size    : var(--face_zoom, 175%);
+}
+.grid7_head.grid7_head_grandma::after{
+  background-image   : url("images/granny.png");
+  background-position: 50% var(--face_granny_position_y, 35%);
+  background-size    : var(--face_granny_zoom, 190%);
 }
 
 .grid7_block,
