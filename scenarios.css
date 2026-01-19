@@ -236,6 +236,30 @@ html, body{
   }
 }
 
+/* Mobile-only typography + page gutters (do not affect desktop). */
+@media (pointer: coarse) and (max-width: 900px){
+  :root{
+    /* Reduce side gutters so content matches the “near edge-to-edge” mobile look. */
+    --layout_side_padding : 14px;
+
+    /* Slightly smaller overall typography to match the reference screenshot. */
+    --font_size_body      : 16px;
+    --diagram_font_size   : 12px;
+    --diagram_heading_h2  : 22px;
+    --diagram_heading_h3  : 18px;
+  }
+
+  /* Tighten diagram padding + slightly reduce internal type sizes on mobile. */
+  .grid7_diagram{
+    --grid7_padding : 10px;
+    --grid7_inset   : 8px;
+  }
+  .grid7_cell{ font-size: 13px; }
+  .grid7_timestamp{ font-size: 13px; }
+  .grid7_diagram .grid7_audio_transcript{ font-size: 13px; }
+  .grid7_diagram .grid7_audio_duration{ font-size: 12px; }
+}
+
 .thread{
   max-width         : var(--phone_box_width);
   margin            : 0;
@@ -748,7 +772,9 @@ html, body{
    2.B2 — seven-column grid diagram (new component)
    ============================================================ */
 .grid7_diagram{
-  --grid7_col_id        : 56px;
+  /* ID column removed: keep the first grid track but collapse it to 0 so we don't have
+     to renumber every diagram's inline grid-column placements. */
+  --grid7_col_id        : 0px;
   --grid7_col           : 128px;
   /* Slightly taller rows so phone rows 2.B2.3–2.B2.5 comfortably fit their 3 lines. */
   --grid7_row_h         : 66px;
@@ -797,6 +823,10 @@ html, body{
   height            : 100%;
   border-right      : 1px dashed rgba(0,0,0,.45);
 }
+.grid7_guide:first-child{
+  /* Avoid an “extra” dashed line at the far left now that the ID column is collapsed. */
+  border-right      : none;
+}
 .grid7_guide:last-child{
   border-right      : none;
 }
@@ -836,21 +866,10 @@ html, body{
   border-bottom     : 1px dashed rgba(0,0,0,.18);
 }
 .grid7_head_id{
-  text-align        : center;
-  padding-left      : 0;
-  padding-right     : 0;
+  display           : none; /* ID column removed */
 }
 .grid7_id{
-  grid-column       : 1;
-  font-size         : 13px;
-  color             : rgba(0,0,0,.50);
-  letter-spacing    : .35px;
-  /* Align IDs to the top edge of their corresponding message blocks. */
-  align-self        : start;
-  padding-top       : var(--grid7_inset);
-  padding-left      : 0;
-  padding-right     : 0;
-  text-align        : center;
+  display           : none; /* ID column removed (IDs move into timestamps via JS) */
 }
 .grid7_pos_id_1{ grid-row: 2; }
 .grid7_pos_id_2{ grid-row: 3; }
@@ -872,6 +891,15 @@ html, body{
   align-self        : center;
   justify-self      : start;
   margin-inline     : var(--grid7_inset);
+}
+.grid7_timestamp:not([data-id]){
+  /* Timestamp is no longer shown; only render this element when it carries an ID. */
+  display           : none;
+}
+.grid7_timestamp[data-id]::before{
+  content           : attr(data-id);
+  font-weight       : 700;
+  letter-spacing    : .2px;
 }
 
 .grid7_block,

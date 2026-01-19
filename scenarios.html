@@ -712,6 +712,40 @@
       document.getElementById("year").textContent = new Date().getFullYear();
 
       (function(){
+        // Move grid7 “ID column” numbers into the timestamp for the same row, and hide the ID column via CSS.
+        // This keeps diagram markup stable (no renumbering of grid-column inline styles) while changing how IDs are displayed.
+        function migrateGrid7IdsIntoTimestamps(){
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            const ids = Array.from(diagram.querySelectorAll(".grid7_id"));
+            if (!ids.length) continue;
+
+            // Map grid-row-start -> idText
+            const rowToId = new Map();
+            for (const idEl of ids){
+              const idText = (idEl.textContent || "").trim();
+              if (!idText) continue;
+              const row = (getComputedStyle(idEl).gridRowStart || "").trim();
+              if (!row) continue;
+              rowToId.set(row, idText);
+            }
+
+            const ts = Array.from(diagram.querySelectorAll(".grid7_timestamp"));
+            for (const tsEl of ts){
+              const row = (getComputedStyle(tsEl).gridRowStart || "").trim();
+              if (!row) continue;
+              const idText = rowToId.get(row);
+              if (!idText) continue;
+              tsEl.setAttribute("data-id", idText);
+              // We no longer show timestamps; the timestamp slot now renders only the ID via CSS.
+              tsEl.textContent = "";
+            }
+          }
+        }
+
+        // Run once at startup (diagram markup is static).
+        migrateGrid7IdsIntoTimestamps();
+
         function setAnchorOffset(){
           const header = document.querySelector("header");
           if (!header) return;
