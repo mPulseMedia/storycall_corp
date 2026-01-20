@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="About StoryCall, the team, and why it exists." />
+  <title>About StoryCall</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="scenarios.css" />
+  <style>
+    .about_card{
+      margin: 0 0 var(--space_large);
+      padding: var(--space_medium);
+      border-radius: var(--radius_medium);
+      border: var(--border_default);
+      background: rgba(var(--color_rgb_white),var(--opacity_heavy));
+    }
+    .about_row{
+      display: flex;
+      gap: var(--space_medium);
+      align-items: flex-start;
+    }
+    .about_avatar{
+      flex: 0 0 auto;
+      width: 92px;
+      height: 92px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(0,0,0,.06);
+      display: grid;
+      place-items: center;
+      font-weight: var(--font_weight_heavy);
+      color: rgba(0,0,0,.55);
+      letter-spacing: .6px;
+      user-select: none;
+      overflow: hidden;
+      position: relative;
+    }
+    .about_avatar_img{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      /* Crop focus: slightly above center tends to keep eyes/face framed. */
+      object-position: 50% 35%;
+    }
+    .about_avatar_initials{
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+    .about_avatar.has_photo .about_avatar_initials{
+      display: none;
+    }
+    .about_body{
+      min-width: 0;
+    }
+    .about_name{
+      margin: 0 0 var(--space_micro);
+      font-weight: var(--font_weight_heavy);
+    }
+    .about_copy{
+      margin: 0;
+      color: var(--color_text_muted);
+      max-width: 64ch;
+    }
+    @media (max-width: 43.75rem){
+      .about_row{
+        flex-direction: column;
+      }
+      .about_avatar{
+        width: 76px;
+        height: 76px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
+          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+        </a>
+        <a class="cta" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="page_title">About</h1>
+
+    <section class="about_card" aria-label="About StoryCall">
+      <p class="about_copy">
+        StoryCall is a small team based in San Francisco and Florida.
+      </p>
+      <p class="about_copy" style="margin-top: var(--space_small);">
+        StoryCall.org is a service of <b>theMoment.tv, LLC</b>, located at 1640 Stockton #330186, San Francisco, CA 94133.
+      </p>
+    </section>
+
+    <section class="about_card" aria-label="Founder">
+      <div class="about_row">
+        <div class="about_avatar" aria-label="Founder photo">
+          <!-- Put Paul’s photo at: images/paul.jpg (or change the src to match your filename). -->
+          <img
+            class="about_avatar_img"
+            src="images/paul.png"
+            alt="Paul Smith"
+            onload="this.closest('.about_avatar')?.classList.add('has_photo')"
+            onerror="this.style.display='none'"
+          />
+          <span class="about_avatar_initials" aria-hidden="true">PS</span>
+        </div>
+        <div class="about_body">
+          <div class="about_name">Founder: Paul Smith</div>
+          <p class="about_copy">
+            Paul built StoryCall to help his nieces and nephews connect more easily with his parents. He now hopes to bring this solution to other families to connect generations. Previously Paul started and sold companies that provided online marketplaces and video services.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div class="copy">© <span id="year"></span> StoryCall</div>
+        <div class="foot_address">StoryCall is a service of theMoment.tv, LLC</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
