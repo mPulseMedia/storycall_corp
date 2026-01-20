@@ -424,7 +424,7 @@
           <div class="grid7_cell grid7_id grid7_b2_id_6">6</div>
           <div class="grid7_timestamp grid7_b2_ts_6">1:00:55</div>
           <div class="grid7_block channel_sms participant_storycall format_text grid7_b2_msg_6">
-            SC: Call about Christmas morning rescheduled for in about an hour.
+            StoryCall: We'll call back Grandma in about an hour to deliver your message about Christmas morning stories.
           </div>
 
           <!-- Phone block #2 (call back) -->
@@ -756,6 +756,29 @@
 
         // Run once at startup (diagram markup is static).
         migrateGrid7IdsIntoTimestamps();
+
+        // Any SMS text message that StoryCall sends to Kid should be prefixed with "StoryCall: ".
+        function prefixStoryCallSmsToKid(){
+          const blocks = Array.from(document.querySelectorAll(
+            ".grid7_diagram .grid7_block.channel_sms.participant_storycall.format_text, " +
+            ".grid7_diagram .grid7_sms_block.channel_sms.participant_storycall.format_text"
+          ));
+          for (const block of blocks){
+            // Prefer prefixing the first paragraph so we preserve formatting.
+            const firstP = block.querySelector("p");
+            if (firstP){
+              const t = (firstP.textContent || "").trim().toLowerCase();
+              if (t.startsWith("storycall:")) continue;
+              firstP.innerHTML = "StoryCall: " + firstP.innerHTML.trimStart();
+              continue;
+            }
+
+            const t = (block.textContent || "").trim().toLowerCase();
+            if (t.startsWith("storycall:")) continue;
+            block.insertAdjacentText("afterbegin", "StoryCall: ");
+          }
+        }
+        prefixStoryCallSmsToKid();
 
         // Phone-block IDs: mark which grid7 timestamps live inside a dark phone block so we can
         // align their vertical inset below the "telephone" label (same as the first phone message row).
