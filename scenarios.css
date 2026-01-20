@@ -282,10 +282,11 @@ html, body{
   /* Tighten diagram padding + slightly reduce internal type sizes on mobile. */
   .grid7_diagram{
     --grid7_padding : 10px;
-    --grid7_inset   : 8px;
+    --grid7_inset_base : 8px;
+    --grid7_inset      : var(--grid7_inset_base);
+    --grid7_id_font_size : 13px;
   }
   .grid7_cell{ font-size: 13px; }
-  .grid7_timestamp{ font-size: 13px; }
   .grid7_diagram .grid7_audio_transcript{ font-size: 13px; }
   .grid7_diagram .grid7_audio_duration{ font-size: 12px; }
 }
@@ -809,9 +810,17 @@ html, body{
   /* Slightly taller rows so phone rows 2.B2.3–2.B2.5 comfortably fit their 3 lines. */
   --grid7_row_h         : 66px;
   --grid7_padding       : 14px;
-  --grid7_inset         : 10px;
+  --grid7_inset_base    : 10px;
+  --grid7_inset         : var(--grid7_inset_base);
   --grid7_row_gap       : 14px;
   --grid7_guide_opacity : .10; /* set to 0 to hide; bump up to ~0.18 for clearer guides */
+
+  /* ID typography (used for ID labels + in-block channel titles). */
+  --grid7_id_font_size  : 14px;
+  --grid7_id_color      : rgba(0,0,0,.45);
+  --grid7_phone_id_color: rgba(255,255,255,.38);
+  --grid7_channel_label_pad : 14px;
+  --grid7_phone_label_pad   : 16px;
 
   /* Reference-image palette (pastel fills; outlines intentionally transparent) */
   --grid7_kid_bg        : #97c47a;
@@ -922,8 +931,8 @@ html, body{
 .grid7_pos_id_4{ grid-row: 8; }
 
 .grid7_timestamp{
-  font-size         : 14px;
-  color             : rgba(0,0,0,.45);
+  font-size         : var(--grid7_id_font_size);
+  color             : var(--grid7_id_color);
   /* Remove timestamp outline (no border box). */
   border            : none;
   background        : transparent;
@@ -942,6 +951,68 @@ html, body{
   content           : attr(data-id);
   font-weight       : 700;
   letter-spacing    : .2px;
+}
+
+/* Phone-block IDs (IDs that live inside the dark phone canvas) should align below the "telephone" title,
+   consistently across segments. */
+.grid7_timestamp.grid7_phone_id{
+  --grid7_inset      : calc(var(--grid7_inset_base) + var(--grid7_phone_label_pad));
+  margin-top         : var(--grid7_inset);
+  color              : var(--grid7_phone_id_color);
+}
+
+/* In-block channel labels (same typographic treatment as IDs). */
+.grid7_block.channel_sms,
+.grid7_sms_block.channel_sms{
+  position          : relative;
+  /* Reserve space so the "SMS" title doesn't overlap message content. */
+  padding-top       : calc(14px + var(--grid7_channel_label_pad));
+}
+.grid7_block.channel_sms::after,
+.grid7_sms_block.channel_sms::after{
+  content           : "SMS";
+  position          : absolute;
+  top               : 8px;
+  right             : 10px;
+  font-size         : var(--grid7_id_font_size);
+  font-weight       : 700;
+  letter-spacing    : .2px;
+  color             : var(--grid7_id_color);
+  opacity           : .9;
+  pointer-events    : none;
+}
+
+.grid7_phone_bg,
+.grid7_phone_block{
+  /* Ensure phone header label can sit above the dark background but below phone message bubbles. */
+  z-index           : 1;
+  position          : relative;
+  color             : var(--grid7_phone_id_color);
+}
+.grid7_phone_bg::before,
+.grid7_phone_block::before{
+  content           : "telephone";
+  position          : absolute;
+  top               : 8px;
+  left              : 10px;
+  font-size         : var(--grid7_id_font_size);
+  font-weight       : 700;
+  letter-spacing    : .2px;
+  color             : currentColor;
+  opacity           : .95;
+  pointer-events    : none;
+}
+.grid7_phone_msg{
+  z-index           : 2;
+  /* Increase the top inset used by inline margin-top: var(--grid7_inset) on phone segments,
+     without shifting the whole grid item (which breaks layout). */
+  --grid7_inset      : calc(var(--grid7_inset_base) + var(--grid7_phone_label_pad));
+}
+.grid7_phone_msg p{
+  margin            : 0;
+}
+.grid7_phone_msg p + p{
+  margin-top        : var(--space_micro);
 }
 
 /* Column header avatars (reuse homepage crop/zoom vars from index.css; 25% of the homepage circle size). */
