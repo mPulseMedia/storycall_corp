@@ -50,7 +50,7 @@
             <ol type="A">
               <li><a href="#2A">Audio question + audio reply</a></li>
               <li><a href="#2B">Reschedule: call back in about an hour</a></li>
-              <li><a href="#2C">Kid sends text instead of audio</a></li>
+              <li><a href="#2C">You send text instead of audio</a></li>
               <li><a href="#2D">No answer / voicemail / retry</a></li>
             </ol>
           </li>
@@ -134,7 +134,7 @@
               We’ll send you any reply as a text in this same thread.
             </p>
             <p style="margin-top: var(--space_micro);">
-              Kid can text <b>HELP</b> or <b>STOP</b> anytime. Kid can also text the <b>StoryCall Admin</b> directly here (plain text).
+              You can text <b>HELP</b> or <b>STOP</b> anytime. You can also text the <b>StoryCall Admin</b> directly here (plain text).
             </p>
           </div>
         </div>
@@ -177,7 +177,7 @@
 
           <div class="mistake" style="grid-column: 2 / 6; grid-row: 4; margin-block: 6px;">
             <span class="mistake_title">Mistake</span>
-            Kid gives phone number as <b>text</b> instead of <b>audio</b> recording.
+            You send the phone number as <b>text</b> instead of an <b>audio</b> recording.
           </div>
 
           <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
@@ -424,7 +424,7 @@
           <div class="grid7_cell grid7_id grid7_b2_id_6">6</div>
           <div class="grid7_timestamp grid7_b2_ts_6">1:00:55</div>
           <div class="grid7_block channel_sms participant_storycall format_text grid7_b2_msg_6">
-            StoryCall: We'll call back Grandma in about an hour to deliver your message about Christmas morning stories.
+            StoryCall: We'll call Grandma in about an hour to deliver your message with stories about Christmas morning.
           </div>
 
           <!-- Phone block #2 (call back) -->
@@ -471,7 +471,7 @@
       </section>
 
       <section class="scenario">
-        <h3 id="2C">2.C. Kid sends text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <h3 id="2C">2.C. You send text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
         <div class="grid7_diagram" aria-label="v2 2.C diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
@@ -852,13 +852,6 @@
             const nav = document.createElement("span");
             nav.className = "scenario_title_nav";
 
-            const up = document.createElement("a");
-            up.className = "back_to_outline";
-            up.href = "#outline";
-            up.setAttribute("aria-label", "Back to outline");
-            up.textContent = "↑";
-            nav.appendChild(up);
-
             if (i < titles.length - 1){
               const next = document.createElement("a");
               next.className = "scenario_next";
@@ -873,6 +866,13 @@
               spacer.textContent = "";
               nav.appendChild(spacer);
             }
+
+            const up = document.createElement("a");
+            up.className = "back_to_outline";
+            up.href = "#outline";
+            up.setAttribute("aria-label", "Back to outline");
+            up.textContent = "↑";
+            nav.appendChild(up);
 
             h3.appendChild(nav);
           }
