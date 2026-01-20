@@ -819,7 +819,7 @@ html, body{
   --grid7_id_font_size  : 14px;
   --grid7_id_color      : rgba(0,0,0,.45);
   --grid7_phone_id_color: rgba(255,255,255,.38);
-  --grid7_channel_label_pad : 14px;
+  --grid7_sms_label_row_h   : 18px;
   --grid7_phone_label_pad   : 16px;
 
   /* Reference-image palette (pastel fills; outlines intentionally transparent) */
@@ -953,6 +953,27 @@ html, body{
   letter-spacing    : .2px;
 }
 
+/* Generic in-canvas notice row (e.g. "1 hour later"). */
+.grid7_notice{
+  grid-column       : 2 / 6; /* SMS canvas span */
+  background        : rgba(0,0,0,.08);
+  color             : rgba(0,0,0,.55);
+  font-size         : var(--grid7_id_font_size);
+  font-weight       : 700;
+  letter-spacing    : .3px;
+  border-radius     : 12px;
+  padding           : 8px 10px;
+  text-align        : center;
+  align-self        : center;
+  margin-inline     : var(--grid7_inset);
+}
+
+/* 2.B-specific placement for the "1 hour later" notice. */
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_notice_1h{
+  grid-column       : 2 / 6;
+  grid-row          : 8;
+}
+
 /* Phone-block IDs (IDs that live inside the dark phone canvas) should align below the "telephone" title,
    consistently across segments. */
 .grid7_timestamp.grid7_phone_id{
@@ -961,19 +982,15 @@ html, body{
   color              : var(--grid7_phone_id_color);
 }
 
-/* In-block channel labels (same typographic treatment as IDs). */
-.grid7_block.channel_sms,
-.grid7_sms_block.channel_sms{
+/* Label the whole SMS canvas (not each message). */
+.grid7_mobile_canvas{
   position          : relative;
-  /* Reserve space so the "SMS" title doesn't overlap message content. */
-  padding-top       : calc(14px + var(--grid7_channel_label_pad));
 }
-.grid7_block.channel_sms::after,
-.grid7_sms_block.channel_sms::after{
+.grid7_mobile_canvas::before{
   content           : "SMS";
   position          : absolute;
   top               : 8px;
-  right             : 10px;
+  left              : 10px;
   font-size         : var(--grid7_id_font_size);
   font-weight       : 700;
   letter-spacing    : .2px;
@@ -1167,27 +1184,27 @@ html, body{
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_6{ grid-column: 2; grid-row: 7; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_6{ grid-column: 3 / 6; grid-row: 7; margin-top: var(--grid7_inset); }
 
-/* Phone block #2 rows 8–11 */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_bg{ grid-column: 4 / 8; grid-row: 8 / 12; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_top{ grid-column: 7; grid-row: 8; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 4; grid-row: 11; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); }
+/* Phone block #2 (shifted down by 1 row to make room for the "1 hour later" notice at row 8) */
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_bg{ grid-column: 4 / 8; grid-row: 9 / 13; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_top{ grid-column: 7; grid-row: 9; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 4; grid-row: 12; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_7{ grid-column: 1; grid-row: 8; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue1{ grid-column: 4 / 7; grid-row: 8; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_7{ grid-column: 1; grid-row: 9; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue1{ grid-column: 4 / 7; grid-row: 9; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_8{ grid-column: 1; grid-row: 9; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_green{ grid-column: 4 / 7; grid-row: 9; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_8{ grid-column: 1; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_green{ grid-column: 4 / 7; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_9{ grid-column: 1; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue2{ grid-column: 4 / 7; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_9{ grid-column: 1; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue2{ grid-column: 4 / 7; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_10{ grid-column: 1; grid-row: 11; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_orange{ grid-column: 5 / 8; grid-row: 11; border-radius: 14px; margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_10{ grid-column: 1; grid-row: 12; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_orange{ grid-column: 5 / 8; grid-row: 12; border-radius: 14px; margin-bottom: var(--grid7_inset); }
 
-/* 2.B2.11 StoryCall → Kid audio (row 12) */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_11{ grid-column: 1; grid-row: 12; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_11{ grid-column: 2; grid-row: 12; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_11{ grid-column: 3 / 6; grid-row: 12; margin-top: var(--grid7_inset); }
+/* 2.B2.11 StoryCall → Kid audio (shifted down by 1 row) */
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_11{ grid-column: 1; grid-row: 13; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_11{ grid-column: 2; grid-row: 13; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_11{ grid-column: 3 / 6; grid-row: 13; margin-top: var(--grid7_inset); margin-bottom: var(--grid7_inset); }
 
 .grid7_call_block.participant_kid{ background: var(--grid7_kid_bg); }
 .grid7_call_block.participant_storycall{ background: var(--grid7_storycall_bg); }
