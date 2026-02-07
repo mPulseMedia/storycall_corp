@@ -800,7 +800,7 @@ html, body{
 }
 
 /* ============================================================
-   2.B2 — seven-column grid diagram (new component)
+   2.B2 — five-column grid diagram (new component)
    ============================================================ */
 .grid7_diagram{
   /* ID column removed: keep the first grid track but collapse it to 0 so we don't have
@@ -836,23 +836,17 @@ html, body{
   overflow          : hidden;
 
   display           : grid;
-  /* Fit-to-container (prevents horizontal scrolling) while preserving 7 distinct columns. */
-  grid-template-columns : var(--grid7_col_id) repeat(6, minmax(0, 1fr));
+  /* Fit-to-container (prevents horizontal scrolling) while preserving 5 visible columns. */
+  grid-template-columns : var(--grid7_col_id) repeat(5, minmax(0, 1fr));
   /* Auto-size every row to content so each bubble fits its text tightly. */
   grid-auto-rows    : max-content;
   column-gap        : 0;
   row-gap           : var(--grid7_row_gap);
-
-  /* Flip the visual order of the 6 visible columns (kid…grandma) without rewriting all inline grid placements. */
-  transform         : scaleX(-1);
-  transform-origin  : center;
 }
 
 .grid7_diagram > *:not(.grid7_guides){
   position          : relative;
   z-index           : 1;
-  /* Undo the mirror for the contents so text/icons are readable, while the layout stays flipped. */
-  transform         : scaleX(-1);
 }
 .grid7_guides{
   position          : absolute;
@@ -861,8 +855,71 @@ html, body{
   pointer-events    : none;
 
   display           : grid;
-  grid-template-columns : var(--grid7_col_id) repeat(6, minmax(0, 1fr));
+  grid-template-columns : var(--grid7_col_id) repeat(5, minmax(0, 1fr));
   opacity           : var(--grid7_guide_opacity);
+}
+.grid7_guides .grid7_guide:nth-child(n+7){
+  /* Grid is now: 1 collapsed ID column + 5 visible columns (6 total). Hide any extra guide divs. */
+  display           : none;
+}
+
+/* Five-column lane mapping (excluding 2.B2, which has its own placement rules):
+   - Phone lane: columns 2–4 (grandma ↔ storycall)
+   - SMS lane  : columns 4–6 (storycall ↔ kid)
+   - Shared boundary column: 4 */
+.grid7_diagram .grid7_head{
+  /* Neutralize legacy inline grid-column values (prevents implicit columns). */
+  grid-column       : auto !important;
+}
+.grid7_diagram .grid7_head:not(.grid7_head_id):not(.grid7_head_avatar){
+  /* Only show avatar heads (kid + grandma). Other headers are decorative and not rendered. */
+  display           : none;
+}
+.grid7_diagram .grid7_head.grid7_head_kid{
+  display           : block;
+  grid-column       : 6 !important;
+}
+.grid7_diagram .grid7_head.grid7_head_grandma{
+  display           : block;
+  grid-column       : 2 !important;
+}
+.grid7_diagram .grid7_head.grid7_head_storycall{
+  display           : block;
+  grid-column       : 4 !important; /* center column (of 5 visible columns) */
+}
+
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_mobile_canvas{
+  grid-column       : 4 / 7 !important;
+}
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .mistake{
+  grid-column       : 4 / 7 !important;
+}
+
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_kid,
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_kid{
+  grid-column       : 5 / 7 !important;
+}
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_storycall,
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_storycall,
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_grandma,
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_grandma{
+  grid-column       : 4 / 6 !important;
+}
+
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_bg,
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_block{
+  grid-column       : 2 / 5 !important;
+}
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_msg.channel_phone.participant_grandma{
+  grid-column       : 2 / 4 !important;
+}
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_msg.channel_phone:not(.participant_grandma){
+  grid-column       : 3 / 5 !important;
+}
+
+.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_timestamp{
+  /* Keep legacy inline placements from creating implicit columns. */
+  grid-column       : 4 !important;
 }
 .grid7_guide{
   height            : 100%;
@@ -877,7 +934,7 @@ html, body{
 }
 
 .grid7_mobile_canvas{
-  grid-column       : 2 / 6;   /* columns 2–5 */
+  grid-column       : 4 / 7;   /* columns 4–6 (SMS lane) */
   /* Stop the canvas right after the last mobile row (removes the big blank gap after 2.B2.7). */
   grid-row          : 2 / 9;
   background        : rgba(var(--color_rgb_white),var(--opacity_heavy));
@@ -886,7 +943,7 @@ html, body{
   z-index           : 0;
 }
 .grid7_phone_canvas_bg{
-  grid-column       : 4 / 8;   /* columns 4–7 */
+  grid-column       : 2 / 5;   /* columns 2–4 (phone lane) */
   grid-row          : 4 / 8;
   background        : var(--grid7_call_bg);
   border-radius     : 18px;
@@ -955,7 +1012,7 @@ html, body{
 
 /* Generic in-canvas notice row (e.g. "1 hour later"). */
 .grid7_notice{
-  grid-column       : 2 / 6; /* SMS canvas span */
+  grid-column       : 4 / 7; /* SMS canvas span */
   background        : rgba(0,0,0,.08);
   color             : rgba(0,0,0,.55);
   font-size         : var(--grid7_id_font_size);
@@ -970,7 +1027,7 @@ html, body{
 
 /* 2.B-specific placement for the "1 hour later" notice. */
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_notice_1h{
-  grid-column       : 2 / 6;
+  grid-column       : 4 / 7;
   grid-row          : 8;
 }
 
@@ -1054,6 +1111,23 @@ html, body{
   background-image   : url("images/granny.png");
   background-position: 50% var(--face_granny_position_y, 35%);
   background-size    : var(--face_granny_zoom, 190%);
+}
+
+/* StoryCall header icon (center): blue circle with white "S". */
+.grid7_head.grid7_head_storycall::after{
+  content            : "S";
+  display            : grid;
+  place-items        : center;
+  width              : calc(var(--face_size, 10rem) * .25);
+  height             : calc(var(--face_size, 10rem) * .25);
+  border-radius      : 9999px;
+  background         : var(--grid7_storycall_bg);
+  color              : rgba(var(--color_rgb_white),var(--opacity_heavy));
+  font-size          : 18px;
+  font-weight        : 800;
+  letter-spacing     : .2px;
+  line-height        : 1;
+  margin             : 0 auto;
 }
 
 .grid7_block,
@@ -1152,8 +1226,8 @@ html, body{
   grid-row         : 2 / 14;
 }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_1{ grid-column: 1; grid-row: 2; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_1{ grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{ grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_1{ grid-column: 4; grid-row: 2; align-self: start; justify-self: end; margin-top: var(--grid7_inset); text-align: right; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{ grid-column: 5 / 7; grid-row: 2; margin-top: var(--grid7_inset); }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{
   /* Match the dark foreground used in the StoryCall phone prompts (e.g. 2.B2.4). */
   color             : rgba(0,0,0,.88);
@@ -1162,49 +1236,49 @@ html, body{
 }
 
 /* Phone block #1 rows 3–6 */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_bg{ grid-column: 4 / 8; grid-row: 3 / 7; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_top{ grid-column: 7; grid-row: 3; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_orange{ grid-column: 4; grid-row: 6; align-self: start; justify-self: end; color: rgba(255,255,255,.38); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_bg{ grid-column: 2 / 5; grid-row: 3 / 7; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_top{ grid-column: 4; grid-row: 3; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); margin-inline: 0; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_orange{ grid-column: 2; grid-row: 6; align-self: start; justify-self: end; color: rgba(255,255,255,.38); margin-inline: 0; text-align: right; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_2{ grid-column: 1; grid-row: 3; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue1{ grid-column: 4 / 7; grid-row: 3; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue1{ grid-column: 3 / 5; grid-row: 3; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_3{ grid-column: 1; grid-row: 4; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_green{ grid-column: 4 / 7; grid-row: 4; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_green{ grid-column: 3 / 5; grid-row: 4; margin-top: calc(-1 * var(--grid7_row_gap)); }
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_3{ margin-top: calc(-1 * var(--grid7_row_gap)); }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_4{ grid-column: 1; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue2{ grid-column: 4 / 7; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue2{ grid-column: 3 / 5; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_5{ grid-column: 1; grid-row: 6; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_orange{ grid-column: 5 / 8; grid-row: 6; border-radius: 14px; margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_orange{ grid-column: 2 / 4; grid-row: 6; border-radius: 14px; margin-bottom: var(--grid7_inset); }
 
 /* 2.B2.6 StoryCall → Kid text (row 7) */
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_6{ grid-column: 1; grid-row: 7; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_6{ grid-column: 2; grid-row: 7; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_6{ grid-column: 3 / 6; grid-row: 7; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_6{ grid-column: 4; grid-row: 7; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_6{ grid-column: 4 / 6; grid-row: 7; margin-top: var(--grid7_inset); }
 
 /* Phone block #2 (shifted down by 1 row to make room for the "1 hour later" notice at row 8) */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_bg{ grid-column: 4 / 8; grid-row: 9 / 13; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_top{ grid-column: 7; grid-row: 9; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 4; grid-row: 12; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_bg{ grid-column: 2 / 5; grid-row: 9 / 13; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_top{ grid-column: 4; grid-row: 9; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); margin-inline: 0; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 2; grid-row: 12; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); margin-inline: 0; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_7{ grid-column: 1; grid-row: 9; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue1{ grid-column: 4 / 7; grid-row: 9; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue1{ grid-column: 3 / 5; grid-row: 9; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_8{ grid-column: 1; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_green{ grid-column: 4 / 7; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_green{ grid-column: 3 / 5; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_9{ grid-column: 1; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue2{ grid-column: 4 / 7; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue2{ grid-column: 3 / 5; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
 
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_10{ grid-column: 1; grid-row: 12; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_orange{ grid-column: 5 / 8; grid-row: 12; border-radius: 14px; margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_orange{ grid-column: 2 / 4; grid-row: 12; border-radius: 14px; margin-bottom: var(--grid7_inset); }
 
 /* 2.B2.11 StoryCall → Kid audio (shifted down by 1 row) */
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_11{ grid-column: 1; grid-row: 13; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_11{ grid-column: 2; grid-row: 13; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_11{ grid-column: 3 / 6; grid-row: 13; margin-top: var(--grid7_inset); margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_11{ grid-column: 4; grid-row: 13; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_11{ grid-column: 4 / 6; grid-row: 13; margin-top: var(--grid7_inset); margin-bottom: var(--grid7_inset); }
 
 .grid7_call_block.participant_kid{ background: var(--grid7_kid_bg); }
 .grid7_call_block.participant_storycall{ background: var(--grid7_storycall_bg); }
@@ -1266,7 +1340,7 @@ html, body{
 /* ---- 2.B2 phone block (outer grid items) ---- */
 .grid7_phone_bg,
 .grid7_phone_block{
-  grid-column       : 4 / 8; /* columns 4–7 */
+  grid-column       : 2 / 5; /* columns 2–4 */
   grid-row          : 4 / 8; /* rows 4–7 */
   background        : var(--grid7_call_bg);
   border-radius     : 18px;
@@ -1282,20 +1356,20 @@ html, body{
   margin-right      : var(--grid7_inset);
 }
 .grid7_phone_blue_top{
-  grid-column       : 4 / 7; /* cols 4–6 */
+  grid-column       : 3 / 5; /* cols 3–4 */
   grid-row          : 4;
   margin-top        : var(--grid7_inset); /* inset from the top of the dark phone bg */
   border-top-left-radius : 14px;
   border-top-right-radius: 14px;
 }
 .grid7_phone_green{
-  grid-column       : 4 / 7;
+  grid-column       : 3 / 5;
   grid-row          : 5;
   /* Remove the outer row-gap between .3 and .4 so they touch. */
   margin-top        : calc(-1 * var(--grid7_row_gap));
 }
 .grid7_phone_blue_bottom{
-  grid-column       : 4 / 7;
+  grid-column       : 3 / 5;
   grid-row          : 6;
   /* Remove the outer row-gap between .4 and .5 so they touch. */
   margin-top        : calc(-1 * var(--grid7_row_gap));
@@ -1303,7 +1377,7 @@ html, body{
   border-bottom-right-radius : 14px;
 }
 .grid7_phone_orange{
-  grid-column       : 5 / 8; /* cols 5–7 */
+  grid-column       : 2 / 4; /* cols 2–3 */
   grid-row          : 7;
   border-radius     : 14px;
   /* Gap between .5 and .6 is preserved (normal row-gap). */
@@ -1324,7 +1398,7 @@ html, body{
 
 /* Phone timestamps (placed INSIDE the phone canvas so they align to the phone rows). */
 .grid7_phone_ts_top{
-  grid-column       : 7; /* timestamp strip */
+  grid-column       : 4; /* timestamp strip */
   grid-row          : 4; /* aligns with .3 (top blue) */
   align-self        : start;
   justify-self      : start;
@@ -1334,7 +1408,7 @@ html, body{
   margin-top        : var(--grid7_inset);
 }
 .grid7_phone_ts_grandma{
-  grid-column       : 4; /* left of orange bubble */
+  grid-column       : 2; /* left of orange bubble */
   grid-row          : 7; /* aligns with .6 */
   align-self        : start; /* align with top edge of the orange bubble */
   justify-self      : end;   /* hug the orange bubble */

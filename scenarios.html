@@ -40,10 +40,10 @@
             <a href="#1">Setup</a>
             <ol type="A">
               <li><a href="#1A">Successful setup</a></li>
-              <li><a href="#1B">Phone number sent as text</a></li>
-              <li><a href="#1C">Phone number audio is unclear / incomplete</a></li>
-              <li><a href="#1D">Change the call-to number</a></li>
-              <li><a href="#1E">Wrong keyword: “story” instead of “storycall”</a></li>
+              <li><a href="#1B">Wrong keyword: “story” instead of “storycall”</a></li>
+              <li><a href="#1C">Phone number sent as text</a></li>
+              <li><a href="#1D">Phone number audio is unclear / incomplete</a></li>
+              <li><a href="#1E">Change the call-to number</a></li>
             </ol>
           </li>
           <li>
@@ -142,8 +142,62 @@
       </section>
 
       <section class="scenario">
-        <h3 id="1B">1.B. Phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <h3 id="1B">1.B. Wrong keyword: you text “story” <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
         <div class="grid7_diagram" aria-label="v2 1.B diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column">&#8203;</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">story</div>
+
+          <div class="mistake" style="grid-column: 2 / 6; grid-row: 3; margin-block: 6px;">
+            <span class="mistake_title">Mistake</span>
+            You text <b>story</b> instead of the official keyword <b>storycall</b>.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
+            <p>Sorry — <b>storycall</b> is the official keyword.</p>
+            <p style="margin-top: var(--space_micro);">
+              Please text <b>storycall</b> to officially opt in and approve receiving messages from us.
+            </p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 5; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:10</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 5; margin-top: var(--grid7_inset);">storycall</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 6;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 6; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:12</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 6; margin-top: var(--grid7_inset);">
+            <p>
+              Great — we’ll call <b>415-555-1234</b> with your future messages. If that’s not correct, send another audio message with the
+              right number.
+            </p>
+            <p style="margin-top: var(--space_micro);">
+              From now on, whenever you send an <b>audio</b> message to StoryCall, we’ll call <b>415-555-1234</b> and play your recording.
+              We’ll send you any reply as a text in this same thread.
+            </p>
+            <p style="margin-top: var(--space_micro);">
+              You can text <b>HELP</b> or <b>STOP</b> anytime. You can also text the <b>StoryCall Admin</b> directly here (plain text).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="1C">1.C. Phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.C diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
 
@@ -198,8 +252,8 @@
       </section>
 
       <section class="scenario">
-        <h3 id="1C">1.C. Phone number audio is unclear / incomplete <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
-        <div class="grid7_diagram" aria-label="v2 1.C diagram">
+        <h3 id="1D">1.D. Phone number audio is unclear / incomplete <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.D diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
 
@@ -252,8 +306,8 @@
       </section>
 
       <section class="scenario">
-        <h3 id="1D">1.D. Change the call-to number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
-        <div class="grid7_diagram" aria-label="v2 1.D diagram">
+        <h3 id="1E">1.E. Change the call-to number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.E diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
 
@@ -287,57 +341,6 @@
           <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
             <p>Updated — we’ll call <b>650-555-1234</b> with your future messages.</p>
             <p style="margin-top: var(--space_micro);">Next step: send an <b>audio</b> message for me to deliver.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="scenario">
-        <h3 id="1E">1.E. Wrong keyword: you text “story” <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
-        <div class="grid7_diagram" aria-label="v2 1.E diagram">
-          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
-          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
-
-          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column">&#8203;</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
-          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
-          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
-          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">story</div>
-
-          <div class="mistake" style="grid-column: 2 / 6; grid-row: 3; margin-block: 6px;">
-            <span class="mistake_title">Mistake</span>
-            You text <b>story</b> instead of the official keyword <b>storycall</b>.
-          </div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 4;">2</div>
-          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
-          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
-            <p>Sorry — <b>storycall</b> is the official keyword.</p>
-            <p style="margin-top: var(--space_micro);">
-              Please text <b>storycall</b> to officially opt in and approve receiving messages from us.
-            </p>
-          </div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
-          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 5; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:10</div>
-          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 5; margin-top: var(--grid7_inset);">storycall</div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 6;">4</div>
-          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 6; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:12</div>
-          <div class="grid7_block channel_sms participant_storycall format_voice" style="grid-column: 3 / 6; grid-row: 6; margin-top: var(--grid7_inset);">
-            <div class="grid7_audio" aria-label="Audio file">
-              <div class="grid7_audio_play" aria-hidden="true">▶</div>
-              <div class="grid7_audio_waveform" aria-hidden="true"></div>
-              <div class="grid7_audio_duration">0:14</div>
-            </div>
-            <div class="grid7_audio_transcript">
-              Welcome to StoryCall. To begin, tell us the phone number we should call with your messages.
-            </div>
           </div>
         </div>
       </section>
@@ -844,7 +847,7 @@
         }
         decorateGrid7SmsCanvasSpacing();
 
-        // Any SMS text message that StoryCall sends to Kid should be prefixed with "StoryCall: ".
+        // Any SMS message that StoryCall sends to Kid should be prefixed with "StoryCall: ".
         function prefixStoryCallSmsToKid(){
           const blocks = Array.from(document.querySelectorAll(
             ".grid7_diagram .grid7_block.channel_sms.participant_storycall.format_text, " +
@@ -863,6 +866,18 @@
             const t = (block.textContent || "").trim().toLowerCase();
             if (t.startsWith("storycall:")) continue;
             block.insertAdjacentText("afterbegin", "StoryCall: ");
+          }
+
+          // Voice attachments can carry "text" as the visible transcript; prefix those too.
+          const transcripts = Array.from(document.querySelectorAll(
+            ".grid7_diagram .grid7_block.channel_sms.participant_storycall.format_voice .grid7_audio_transcript, " +
+            ".grid7_diagram .grid7_sms_block.channel_sms.participant_storycall.format_voice .grid7_audio_transcript"
+          ));
+          for (const el of transcripts){
+            const t = (el.textContent || "").trim().toLowerCase();
+            if (!t) continue;
+            if (t.startsWith("storycall:")) continue;
+            el.innerHTML = "StoryCall: " + el.innerHTML.trimStart();
           }
         }
         prefixStoryCallSmsToKid();
@@ -904,19 +919,28 @@
         }
         decorateGrid7PhoneIds();
 
-        // Column headers: remove text and show kid/grandma circular avatars at the extremes.
-        // Note: the diagrams are mirrored in CSS, so:
-        // - The "kid" header cell (grid-column 2) appears on the RIGHT.
-        // - The "grandma" header cell (grid-column 7) appears on the LEFT.
+        // Column headers: render kid/grandma avatars and a centered StoryCall "S".
         function decorateGrid7ColumnHeaders(){
-          const heads = Array.from(document.querySelectorAll(".grid7_diagram .grid7_head"));
-          for (const el of heads){
-            const label = (el.textContent || "").trim().toLowerCase();
-            if (!label) continue;
-            if (label === "kid"){
-              el.classList.add("grid7_head_avatar", "grid7_head_kid");
-            }else if (label === "grandma"){
-              el.classList.add("grid7_head_avatar", "grid7_head_grandma");
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            const heads = Array.from(diagram.querySelectorAll(".grid7_head"));
+            for (const el of heads){
+              const label = (el.textContent || "").trim().toLowerCase();
+              if (!label) continue;
+              if (label === "kid"){
+                el.classList.add("grid7_head_avatar", "grid7_head_kid");
+              }else if (label === "grandma"){
+                el.classList.add("grid7_head_avatar", "grid7_head_grandma");
+              }
+            }
+
+            // Add a centered StoryCall icon in the header row (once per diagram).
+            if (!diagram.querySelector(".grid7_head_storycall")){
+              const sc = document.createElement("div");
+              sc.className = "grid7_cell grid7_head grid7_head_avatar grid7_head_storycall";
+              sc.setAttribute("aria-label", "StoryCall");
+              sc.textContent = "storycall";
+              diagram.appendChild(sc);
             }
           }
         }
@@ -1027,10 +1051,10 @@
 
             // Scenarios
             "v2_setup_1": "1A",
-            "v2_setup_2": "1B",
-            "v2_setup_3": "1C",
-            "v2_setup_4": "1D",
-            "v2_setup_5": "1E",
+            "v2_setup_2": "1C",
+            "v2_setup_3": "1D",
+            "v2_setup_4": "1E",
+            "v2_setup_5": "1B",
 
             "v2_message_exchange_1": "2A",
             "v2_message_exchange_2": "2B",
@@ -1092,10 +1116,10 @@
             "v2_text_help": "3",
             "v2_text_stop": "4",
             "v2_setup_1": "1A",
-            "v2_setup_2": "1B",
-            "v2_setup_3": "1C",
-            "v2_setup_4": "1D",
-            "v2_setup_5": "1E",
+            "v2_setup_2": "1C",
+            "v2_setup_3": "1D",
+            "v2_setup_4": "1E",
+            "v2_setup_5": "1B",
             "v2_message_exchange_1": "2A",
             "v2_message_exchange_2": "2B",
             "v2_message_exchange_3": "2C",
