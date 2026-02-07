@@ -43,6 +43,7 @@
               <li><a href="#1B">Phone number sent as text</a></li>
               <li><a href="#1C">Phone number audio is unclear / incomplete</a></li>
               <li><a href="#1D">Change the call-to number</a></li>
+              <li><a href="#1E">Wrong keyword: “story” instead of “storycall”</a></li>
             </ol>
           </li>
           <li>
@@ -286,6 +287,57 @@
           <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
             <p>Updated — we’ll call <b>650-555-1234</b> with your future messages.</p>
             <p style="margin-top: var(--space_micro);">Next step: send an <b>audio</b> message for me to deliver.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="scenario">
+        <h3 id="1E">1.E. Wrong keyword: you text “story” <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <div class="grid7_diagram" aria-label="v2 1.E diagram">
+          <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
+          <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
+
+          <div class="grid7_cell grid7_head grid7_head_id" style="grid-column: 1;">ID</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 2;">kid</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 3;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 4;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 5;" aria-label="reserved column">&#8203;</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 6;">storycall</div>
+          <div class="grid7_cell grid7_head" style="grid-column: 7;">grandma</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">story</div>
+
+          <div class="mistake" style="grid-column: 2 / 6; grid-row: 3; margin-block: 6px;">
+            <span class="mistake_title">Mistake</span>
+            You text <b>story</b> instead of the official keyword <b>storycall</b>.
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
+            <p>Sorry — <b>storycall</b> is the official keyword.</p>
+            <p style="margin-top: var(--space_micro);">
+              Please text <b>storycall</b> to officially opt in and approve receiving messages from us.
+            </p>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 5; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:10</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 5; margin-top: var(--grid7_inset);">storycall</div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 6;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 6; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:12</div>
+          <div class="grid7_block channel_sms participant_storycall format_voice" style="grid-column: 3 / 6; grid-row: 6; margin-top: var(--grid7_inset);">
+            <div class="grid7_audio" aria-label="Audio file">
+              <div class="grid7_audio_play" aria-hidden="true">▶</div>
+              <div class="grid7_audio_waveform" aria-hidden="true"></div>
+              <div class="grid7_audio_duration">0:14</div>
+            </div>
+            <div class="grid7_audio_transcript">
+              Welcome to StoryCall. To begin, tell us the phone number we should call with your messages.
+            </div>
           </div>
         </div>
       </section>
@@ -978,6 +1030,7 @@
             "v2_setup_2": "1B",
             "v2_setup_3": "1C",
             "v2_setup_4": "1D",
+            "v2_setup_5": "1E",
 
             "v2_message_exchange_1": "2A",
             "v2_message_exchange_2": "2B",
@@ -1042,6 +1095,7 @@
             "v2_setup_2": "1B",
             "v2_setup_3": "1C",
             "v2_setup_4": "1D",
+            "v2_setup_5": "1E",
             "v2_message_exchange_1": "2A",
             "v2_message_exchange_2": "2B",
             "v2_message_exchange_3": "2C",
