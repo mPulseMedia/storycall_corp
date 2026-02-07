@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="StoryCall scenario examples (texts, audio attachments, and transcripts)." />
+  <meta name="storycall_scenarios_meta_selector" content="#storycall_scenarios_meta" />
+  <meta name="storycall_scenarios_jason_selector" content="#storycall_scenarios_index" />
   <title>What are some sample exchanges with StoryCall?</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="site.css" />
@@ -35,6 +37,9 @@
         "source": "storycall_corp/scenarios.html",
         "parse_instructions": {
           "prefer": "jason",
+          "page_jason_index_selector": "#storycall_scenarios_index",
+          "scenario_jason_selector_template": "#storycall_scenario_jason_{scenario_id}",
+          "legacy_page_jason_map_selector": "",
           "scenario_container_selector": "section.scenario",
           "scenario_id_source": "section.scenario h3[id]",
           "jason_toggle_selector": "button.scenario_jason_toggle",
@@ -42,9 +47,756 @@
           "jason_payload_selector": ".scenario_jason_inline script.scenario_jason_payload",
           "jason_fallback_payload_selector": ".scenario_jason_inline pre code",
           "diagram_selector": ".grid7_diagram",
-          "notes": "for application parsing, treat the jason payload as the source of truth; diagrams are for humans; execute page JS if you want auto-generated jason"
+          "scrape_policy": {
+            "treat_page_jason_as_source_of_truth": true,
+            "avoid_html_css_parsing": true,
+            "avoid_diagram_parsing_unless_missing_jason": true
+          },
+          "notes": "apps: read #storycall_scenarios_index then read #storycall_scenario_jason_{scenario_id}. treat these as source-of-truth; ignore HTML/CSS/diagrams unless JSON is missing"
         }
       }
+    </script>
+
+    <!-- Legacy: storycall_scenarios_jason removed (redundant). -->
+    <script type="application/json" id="storycall_scenarios_index">
+      {
+        "schema_version"             : "storycall_scenarios_index_v1",
+        "scenario_ids"               : ["1A", "1B", "1C", "1D", "1E", "2A", "2B", "2C", "2D", "3A", "3B", "3C", "4A", "4B"],
+        "scenario_jason_id_template" : "storycall_scenario_jason_{scenario_id}",
+        "scenario_jason_selector"    : "#storycall_scenario_jason_{scenario_id}"
+      }
+    </script>
+
+    <!-- Source-of-truth scenario JSON (for apps). -->
+    <!-- These are pre-rendered and are the single master data for this page. -->
+    <!-- The on-page JSON viewer shows these exact bytes (no re-stringify). -->
+    <script type="application/json" id="storycall_scenario_jason_1A">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "1A",
+  "title"            : "1.A. Successful setup",
+  "precursor_group"  : "Precursor: Kid has had no interaction with StoryCall.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "storycall"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "voice",
+      "duration_s"   : 18,
+      "text"         : "Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.\n\nTo begin, tell us the phone number we should call with your messages.\n\nTap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 4,
+      "text"         : "Call four one five, five five five, one two three four."
+    },
+    {
+      "id"           : 4,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Great — we’ll call 415-555-1234 with your future messages. If that’s not correct, send another audio message with the\nright number.\n\nFrom now on, whenever Kid sends an audio message to StoryCall, we’ll call 415-555-1234 and play Kid’s recording.\nWe’ll send you any reply as a text in this same thread.\n\nKid can text HELP or STOP anytime. Kid can also text the StoryCall Admin directly here (plain text)."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_1B">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "1B",
+  "title"            : "1.B. Kid error: incorrect keyword",
+  "precursor_group"  : "Precursor: Kid has had no interaction with StoryCall.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "story",
+      "mistakes"     : [
+        {
+          "kind"     : "incorrect_keyword",
+          "message"  : "kid texts story"
+        }
+      ]
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Sorry — storycall is the official keyword.\n\nPlease text storycall to officially opt in and approve receiving messages from us."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "storycall"
+    },
+    {
+      "id"           : 4,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Great — we’ll call 415-555-1234 with your future messages. If that’s not correct, send another audio message with the\nright number.\n\nFrom now on, whenever Kid sends an audio message to StoryCall, we’ll call 415-555-1234 and play Kid’s recording.\nWe’ll send you any reply as a text in this same thread.\n\nKid can text HELP or STOP anytime. Kid can also text the StoryCall Admin directly here (plain text)."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_1C">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "1C",
+  "title"            : "1.C. Kid error: phone number sent as text",
+  "precursor_group"  : "Precursor: Kid has had no interaction with StoryCall.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "storycall"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "voice",
+      "duration_s"   : 18,
+      "text"         : "Welcome to StoryCall, where we deliver your voice recordings as phone calls. Text STOP or HELP at any time.\n\nTo begin, tell us the phone number we should call with your messages.\n\nTap the attachment button in the bottom left corner of your text app. Make a new voice recording of that phone number and send it to us."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "415-555-1234",
+      "mistakes"     : [
+        {
+          "kind"     : "phone_number_sent_as_text",
+          "message"  : "kid texts 415-555-1234"
+        }
+      ]
+    },
+    {
+      "id"           : 4,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "We got the phone number (415-555-1234) — but StoryCall works by sending audio, not text-to-speech.\n\nAs a quick practice, please send that phone number again as an audio attachment (a voice recording).\nIf you need help with this step, text HELP."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_1D">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "1D",
+  "title"            : "1.D. Phone number audio is unclear / incomplete",
+  "precursor_group"  : "Precursor: Kid has had no interaction with StoryCall.",
+  "precursor"        : "Precursor: Kid has successfully texted the keyword story call.",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 3,
+      "text"         : "(muffled) …five five five… one three…"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "I couldn’t confidently pick out a full phone number from that recording.\n\nPlease send the phone number again as an audio recording, saying each digit slowly (example: “four one five…”).\n\nTip: record in a quiet place. If you prefer, you can say it twice in one recording."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 5,
+      "text"         : "Four one five. Five five five. One two three four."
+    },
+    {
+      "id"           : 4,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Thanks — I got 415-555-1234. We’ll call that number with your future messages."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_1E">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "1E",
+  "title"            : "1.E. Change the call-to number",
+  "precursor_group"  : "Precursor: Kid has had no interaction with StoryCall.",
+  "precursor"        : "Precursor: Kid has previously provided the phone number with area code 415–555–1234.",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Currently set to call: 415-555-1234. To change it, send the new number as an audio recording."
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 5,
+      "text"         : "Actually call six five zero, five five five, one two three four."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Updated — we’ll call 650-555-1234 with your future messages.\nNext step: send an audio message for me to deliver."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_2A">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "2A",
+  "title"            : "2.A. Audio question + audio reply",
+  "precursor_group"  : "Precursor: Kids successfully joined and set up grandma phone number.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 5,
+      "text"         : "Hey Grandma — what music was popular when you were in high school?"
+    },
+    {
+      "channel"                  : "telephone",
+      "from"                     : "storycall",
+      "to"                       : "grandma",
+      "speaker"                  : "storycall",
+      "telephone_call_index"     : 1,
+      "utterance_ids"            : [
+        2,
+        3,
+        4
+      ],
+      "parts"                    : [
+        {
+          "id"                   : 2,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Grandma has a new message."
+        },
+        {
+          "id"                   : 3,
+          "format"               : "voice",
+          "speaker"              : "kid",
+          "text"                 : "Hey grandma – what music was popular when you were in high school?",
+          "derived_from"         : {
+            "utterance_id"       : 1,
+            "kind"              : "relay",
+            "via"               : "telephone_playback"
+          }
+        },
+        {
+          "id"                   : 4,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Please reply after the beep or tell me to call back and play your message another time."
+        }
+      ]
+    },
+    {
+      "id"           : 5,
+      "channel"      : "telephone",
+      "speaker"      : "grandma",
+      "format"       : "voice",
+      "text"         : "We listen to Frank Sinatra, and Sam Cooke all the time."
+    },
+    {
+      "id"           : 6,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "voice",
+      "duration_s"   : 13,
+      "text"         : "We listen to Frank Sinatra, and Sam Cooke all the time.",
+      "derived_from" : {
+        "utterance_id": 5,
+        "kind"        : "relay",
+        "via"         : "sms_audio_relay"
+      }
+    },
+    {
+      "id"           : 7,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "We listen to Frank Sinatra, and Sam Cooke all the time.",
+      "derived_from" : {
+        "utterance_id": 5,
+        "kind"        : "transcript",
+        "via"         : "sms_text_transcript"
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_2B">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "2B",
+  "title"            : "2.B. Reschedule: call back in about an hour",
+  "precursor_group"  : "Precursor: Kids successfully joined and set up grandma phone number.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 5,
+      "text"         : "Hi Grandma — what was it like on Christmas morning?"
+    },
+    {
+      "channel"                  : "telephone",
+      "from"                     : "storycall",
+      "to"                       : "grandma",
+      "speaker"                  : "storycall",
+      "telephone_call_index"     : 1,
+      "utterance_ids"            : [
+        2,
+        3,
+        4
+      ],
+      "parts"                    : [
+        {
+          "id"                   : 2,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Grandma has a new message."
+        },
+        {
+          "id"                   : 3,
+          "format"               : "voice",
+          "speaker"              : "kid",
+          "text"                 : "Hi Grandma — what was it like on Christmas morning?",
+          "derived_from"         : {
+            "utterance_id"       : 1,
+            "kind"              : "relay",
+            "via"               : "telephone_playback"
+          }
+        },
+        {
+          "id"                   : 4,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Please reply after the beep or tell me to call back and play your message another time."
+        }
+      ]
+    },
+    {
+      "id"           : 5,
+      "channel"      : "telephone",
+      "speaker"      : "grandma",
+      "format"       : "voice",
+      "text"         : "Can you call me back in about an hour?"
+    },
+    {
+      "type"              : "time_passes",
+      "label"             : "1 hour later",
+      "seconds"           : 3600,
+      "after_utterance_id": 5,
+      "before_utterance_id": 6
+    },
+    {
+      "id"           : 6,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Grandma asked me to call her back in one hour."
+    },
+    {
+      "channel"                  : "telephone",
+      "from"                     : "storycall",
+      "to"                       : "grandma",
+      "speaker"                  : "storycall",
+      "telephone_call_index"     : 2,
+      "utterance_ids"            : [
+        7,
+        8,
+        9
+      ],
+      "parts"                    : [
+        {
+          "id"                   : 7,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Calling back with your new message."
+        },
+        {
+          "id"                   : 8,
+          "format"               : "voice",
+          "speaker"              : "kid",
+          "text"                 : "Hi Grandma — what was it like on Christmas morning?",
+          "derived_from"         : {
+            "utterance_id"       : 1,
+            "kind"              : "relay",
+            "via"               : "telephone_playback"
+          }
+        },
+        {
+          "id"                   : 9,
+          "format"               : "voice",
+          "speaker"              : "storycall",
+          "text"                 : "Please reply after the beep or tell me to call back and play your message another time."
+        }
+      ]
+    },
+    {
+      "id"           : 10,
+      "channel"      : "telephone",
+      "speaker"      : "grandma",
+      "format"       : "voice",
+      "text"         : "We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every present\nand then had brunch and it was wonderful."
+    },
+    {
+      "id"           : 11,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "voice",
+      "duration_s"   : 18,
+      "text"         : "We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every present and then had brunch and it was wonderful.",
+      "derived_from" : {
+        "utterance_id": 10,
+        "kind"        : "relay",
+        "via"         : "sms_audio_relay"
+      }
+    },
+    {
+      "id"           : 12,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every\npresent and then had brunch and it was wonderful.",
+      "derived_from" : {
+        "utterance_id": 10,
+        "kind"        : "transcript",
+        "via"         : "sms_text_transcript"
+      }
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_2C">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "2C",
+  "title"            : "2.C. kid error: Kid sends text instead of audio",
+  "precursor_group"  : "Precursor: Kids successfully joined and set up grandma phone number.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "Hi Grandma! Miss you. ❤️"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "I got your message — but StoryCall delivers voice recordings, not text-to-speech.\nPlease send that again as an audio attachment (a voice recording). I’ll call it through."
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 4,
+      "text"         : "Hi Grandma! Miss you. Love you."
+    },
+    {
+      "id"           : 4,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "StoryCall: Thanks. I'll delivered this and your future audio recordings."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_2D">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "2D",
+  "title"            : "2.D. No answer / voicemail / retry",
+  "precursor_group"  : "Precursor: Kids successfully joined and set up grandma phone number.",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "voice",
+      "duration_s"   : 7,
+      "text"         : "Hi Grandma, it’s me. Just checking in — hope your day is going okay."
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "StoryCall: I could not reach Grandma and will try again in an hour."
+    },
+    {
+      "type"              : "time_passes",
+      "label"             : "1 hour later",
+      "seconds"           : 3600,
+      "after_utterance_id": 2,
+      "before_utterance_id": 3
+    },
+    {
+      "id"           : 3,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "StoryCall: I could not reach Grandma and will try again tomrrow."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_3A">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "3A",
+  "title"            : "3.A. HELP: what to do next (setup)",
+  "precursor_group"  : "",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "HELP"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Here’s what to do:\n1) Text us the phone number we should call as a voice recordings.\n2) After we confirm the number, we'll deliver any future recordings you enter.\nTo change the call-to number later, just send a new phone number as audio."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_3B">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "3B",
+  "title"            : "3.B. HELP: how to attach a voice recording",
+  "precursor_group"  : "",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "HELP I can’t figure out the audio thing"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "No problem. In your texting app:\n- Tap the + or attachment button near the message box.\n- Choose Audio / Voice / Record.\n- Record your message (or the phone number), then tap Send.\nTip: avoid speech-to-text dictation — we need an actual audio recording."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_3C">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "3C",
+  "title"            : "3.C. HELP: change the number",
+  "precursor_group"  : "",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "HELP I need to change who you call"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "To change the call-to number, send the new phone number as an audio recording.\nAfter I confirm it, I’ll use that new number for your future messages."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_4A">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "4A",
+  "title"            : "4.A. STOP: opt out",
+  "precursor_group"  : "",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "STOP"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Kid is opted out. StoryCall will not send any calls from this thread.\nIf Kid changes their mind, text storycall to start again."
+    }
+  ]
+}
+    </script>
+
+    <script type="application/json" id="storycall_scenario_jason_4B">
+{
+  "schema_version"   : "storycall_scenario_jason_v1",
+  "scenario_id"      : "4B",
+  "title"            : "4.B. Restart after STOP",
+  "precursor_group"  : "",
+  "precursor"        : "",
+  "participants"     : [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps"            : [
+    {
+      "id"           : 1,
+      "channel"      : "sms",
+      "speaker"      : "kid",
+      "format"       : "text",
+      "text"         : "storycall"
+    },
+    {
+      "id"           : 2,
+      "channel"      : "sms",
+      "speaker"      : "storycall",
+      "format"       : "text",
+      "text"         : "Welcome back. If you haven’t set a call-to number yet, send it now as an audio recording.\nOtherwise, send your next message as audio and I’ll call it through."
+    }
+  ]
+}
     </script>
 
     <div class="jump" id="outline">
@@ -1211,9 +1963,14 @@
           const raw = (h3.textContent || "").replace(/\s+/g, " ").trim();
           return raw
             .replace(/\s*[↓↑]\s*/g, " ")
-            .replace(/\s*jason\s*/gi, " ")
+            .replace(/\s*(?:jason|json)\s*/gi, " ")
             .replace(/\s+/g, " ")
             .trim();
+        }
+
+        function readScenarioJasonSourceText(scenario_id){
+          const el = document.getElementById(`storycall_scenario_jason_${scenario_id}`);
+          return el ? (el.textContent || "").trim() : "";
         }
 
         function renderScenarioJasonForScenario(scenarioEl){
@@ -1238,12 +1995,24 @@
             precursor_group: groupPrecursorEl ? (groupPrecursorEl.textContent || "").trim() : "",
             precursor   : precursorEl ? (precursorEl.textContent || "").trim() : "",
           };
-          const obj = buildScenarioJasonFromDiagram(diagram, meta);
-          code.textContent = stringifyJasonAligned(obj, 0);
-          if (payload){
-            // Machine-first payload: standard JSON (no alignment padding).
-            payload.textContent = JSON.stringify(obj, null, 2);
+          const raw = readScenarioJasonSourceText(h3.id);
+          if (!raw){
+            const missing = {
+              schema_version : "storycall_scenario_jason_missing_v1",
+              scenario_id    : meta.scenario_id,
+              title          : meta.title,
+              precursor_group: meta.precursor_group,
+              precursor      : meta.precursor,
+              message        : `missing from #storycall_scenario_jason_${h3.id}`,
+            };
+            code.textContent = stringifyJasonAligned(missing, 0);
+            if (payload) payload.textContent = JSON.stringify(missing, null, 2);
+            return;
           }
+
+          // Show the exact pre-rendered JSON bytes from view-source.
+          code.textContent = raw;
+          if (payload) payload.textContent = raw;
         }
 
         function renderScenarioJasonForOpenScenarios(){
@@ -1778,8 +2547,8 @@
               const btn = document.createElement("button");
               btn.className = "scenario_jason_toggle";
               btn.type = "button";
-              btn.textContent = "jason";
-              btn.setAttribute("aria-label", "Toggle Jason (JSON) block");
+              btn.textContent = "JSON";
+              btn.setAttribute("aria-label", "Toggle JSON block");
               btn.setAttribute("aria-pressed", "false");
 
               btn.addEventListener("click", () => {
