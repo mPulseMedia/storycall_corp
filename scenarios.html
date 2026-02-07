@@ -29,6 +29,24 @@
       The following are examples of what it’s like to use StoryCall to communicate with your grandma.
     </p>
 
+    <script type="application/json" id="storycall_scenarios_meta">
+      {
+        "schema_version": "storycall_scenarios_page_meta_v1",
+        "source": "storycall_corp/scenarios.html",
+        "parse_instructions": {
+          "prefer": "jason",
+          "scenario_container_selector": "section.scenario",
+          "scenario_id_source": "section.scenario h3[id]",
+          "jason_toggle_selector": "button.scenario_jason_toggle",
+          "jason_block_selector": ".scenario_jason_inline",
+          "jason_payload_selector": ".scenario_jason_inline script.scenario_jason_payload",
+          "jason_fallback_payload_selector": ".scenario_jason_inline pre code",
+          "diagram_selector": ".grid7_diagram",
+          "notes": "for application parsing, treat the jason payload as the source of truth; diagrams are for humans; execute page JS if you want auto-generated jason"
+        }
+      }
+    </script>
+
     <div class="jump" id="outline">
       <div class="jump_row">
         <p class="jump_title">Jump to a scenario</p>
@@ -37,11 +55,11 @@
       <div class="scenario_list" aria-label="Outline">
         <ol>
           <li>
-            <a href="#1">Setup</a>
+            <a href="#1">Kids successfully set up</a>
             <ol type="A">
               <li><a href="#1A">Successful setup</a></li>
-              <li><a href="#1B">Wrong keyword: “story” instead of “storycall”</a></li>
-              <li><a href="#1C">Phone number sent as text</a></li>
+              <li><a href="#1B">Kid error: incorrect keyword</a></li>
+              <li><a href="#1C">Kid error: phone number sent as text</a></li>
               <li><a href="#1D">Phone number audio is unclear / incomplete</a></li>
               <li><a href="#1E">Change the call-to number</a></li>
             </ol>
@@ -51,7 +69,7 @@
             <ol type="A">
               <li><a href="#2A">Audio question + audio reply</a></li>
               <li><a href="#2B">Reschedule: call back in about an hour</a></li>
-              <li><a href="#2C">You send text instead of audio</a></li>
+              <li><a href="#2C">kid error: Kid sends text instead of audio</a></li>
               <li><a href="#2D">No answer / voicemail / retry</a></li>
             </ol>
           </li>
@@ -75,10 +93,16 @@
     </div>
 
     <section class="group">
-      <h2 class="group_title" id="1">1. Setup</h2>
+      <h2 class="group_title" id="1">1. Kids successfully set up</h2>
+      <p class="group_precursor">Precursor: Kid has had no interaction with StoryCall.</p>
 
       <section class="scenario">
         <h3 id="1A">1.A. Successful setup <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <p class="scenario_precursor"></p>
+        <div class="scenario_jason_inline is_closed" data-scenario_id="1A">
+          <script type="application/json" class="scenario_jason_payload" data-scenario_id="1A"></script>
+          <pre aria-label="Jason (JSON) description of scenario 1.A"><code></code></pre>
+        </div>
         <div class="grid7_diagram" aria-label="v2 1.A diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
@@ -131,18 +155,19 @@
               right number.
             </p>
             <p style="margin-top: var(--space_micro);">
-              From now on, whenever you send an <b>audio</b> message to StoryCall, we’ll call <b>415-555-1234</b> and play your recording.
+              From now on, whenever Kid sends an <b>audio</b> message to StoryCall, we’ll call <b>415-555-1234</b> and play Kid’s recording.
               We’ll send you any reply as a text in this same thread.
             </p>
             <p style="margin-top: var(--space_micro);">
-              You can text <b>HELP</b> or <b>STOP</b> anytime. You can also text the <b>StoryCall Admin</b> directly here (plain text).
+              Kid can text <b>HELP</b> or <b>STOP</b> anytime. Kid can also text the <b>StoryCall Admin</b> directly here (plain text).
             </p>
           </div>
         </div>
       </section>
 
       <section class="scenario">
-        <h3 id="1B">1.B. Wrong keyword: you text “story” <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <h3 id="1B">1.B. Kid error: incorrect keyword <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <p class="scenario_precursor"></p>
         <div class="grid7_diagram" aria-label="v2 1.B diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
@@ -157,46 +182,42 @@
 
           <div class="grid7_cell grid7_id" style="grid-row: 2;">1</div>
           <div class="grid7_timestamp" style="grid-column: 5; grid-row: 2; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:00</div>
-          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">story</div>
+          <div class="grid7_block grid7_error channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 2; margin-top: var(--grid7_inset);">story</div>
 
-          <div class="mistake" style="grid-column: 2 / 6; grid-row: 3; margin-block: 6px;">
-            <span class="mistake_title">Mistake</span>
-            You text <b>story</b> instead of the official keyword <b>storycall</b>.
-          </div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 4;">2</div>
-          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 4; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
-          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 4; margin-top: var(--grid7_inset);">
+          <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
             <p>Sorry — <b>storycall</b> is the official keyword.</p>
             <p style="margin-top: var(--space_micro);">
               Please text <b>storycall</b> to officially opt in and approve receiving messages from us.
             </p>
           </div>
 
-          <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
-          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 5; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:10</div>
-          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 5; margin-top: var(--grid7_inset);">storycall</div>
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:10</div>
+          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">storycall</div>
 
-          <div class="grid7_cell grid7_id" style="grid-row: 6;">4</div>
-          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 6; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:12</div>
-          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 6; margin-top: var(--grid7_inset);">
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:12</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
             <p>
               Great — we’ll call <b>415-555-1234</b> with your future messages. If that’s not correct, send another audio message with the
               right number.
             </p>
             <p style="margin-top: var(--space_micro);">
-              From now on, whenever you send an <b>audio</b> message to StoryCall, we’ll call <b>415-555-1234</b> and play your recording.
+              From now on, whenever Kid sends an <b>audio</b> message to StoryCall, we’ll call <b>415-555-1234</b> and play Kid’s recording.
               We’ll send you any reply as a text in this same thread.
             </p>
             <p style="margin-top: var(--space_micro);">
-              You can text <b>HELP</b> or <b>STOP</b> anytime. You can also text the <b>StoryCall Admin</b> directly here (plain text).
+              Kid can text <b>HELP</b> or <b>STOP</b> anytime. Kid can also text the <b>StoryCall Admin</b> directly here (plain text).
             </p>
           </div>
         </div>
       </section>
 
       <section class="scenario">
-        <h3 id="1C">1.C. Phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <h3 id="1C">1.C. Kid error: phone number sent as text <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <p class="scenario_precursor"></p>
         <div class="grid7_diagram" aria-label="v2 1.C diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 9;"></div>
@@ -230,18 +251,13 @@
             </div>
           </div>
 
-          <div class="mistake" style="grid-column: 2 / 6; grid-row: 4; margin-block: 6px;">
-            <span class="mistake_title">Mistake</span>
-            You send the phone number as <b>text</b> instead of an <b>audio</b> recording.
-          </div>
+          <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
+          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 4; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:25</div>
+          <div class="grid7_block grid7_error channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 4; margin-top: var(--grid7_inset);">415-555-1234</div>
 
-          <div class="grid7_cell grid7_id" style="grid-row: 5;">3</div>
-          <div class="grid7_timestamp" style="grid-column: 5; grid-row: 5; align-self: start; justify-self: start; margin-top: var(--grid7_inset);">1:00:25</div>
-          <div class="grid7_block channel_sms participant_kid format_text" style="grid-column: 2 / 5; grid-row: 5; margin-top: var(--grid7_inset);">415-555-1234</div>
-
-          <div class="grid7_cell grid7_id" style="grid-row: 6;">4</div>
-          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 6; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:27</div>
-          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 6; margin-top: var(--grid7_inset);">
+          <div class="grid7_cell grid7_id" style="grid-row: 5;">4</div>
+          <div class="grid7_timestamp" style="grid-column: 2; grid-row: 5; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:27</div>
+          <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 5; margin-top: var(--grid7_inset);">
             <p>We got the phone number (<b>415-555-1234</b>) — but StoryCall works by sending <b>audio</b>, not text-to-speech.</p>
             <p style="margin-top: var(--space_micro);">
               As a quick practice, please send that phone number again as an <b>audio attachment</b> (a voice recording).
@@ -253,6 +269,7 @@
 
       <section class="scenario">
         <h3 id="1D">1.D. Phone number audio is unclear / incomplete <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <p class="scenario_precursor">Precursor: Kid has successfully texted the keyword story call.</p>
         <div class="grid7_diagram" aria-label="v2 1.D diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
@@ -307,6 +324,7 @@
 
       <section class="scenario">
         <h3 id="1E">1.E. Change the call-to number <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <p class="scenario_precursor">Precursor: Kid has previously provided the phone number with area code 415–555–1234.</p>
         <div class="grid7_diagram" aria-label="v2 1.E diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 7;"></div>
@@ -348,6 +366,7 @@
 
     <section class="group">
       <h2 class="group_title" id="2">2. Message exchange</h2>
+      <p class="group_precursor">Precursor: Kids successfully joined and set up grandma phone number.</p>
 
       <section class="scenario">
         <h3 id="2A">2.A. Audio question + audio reply <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
@@ -380,7 +399,7 @@
           <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
           <div class="grid7_timestamp" style="grid-column: 7; grid-row: 3; align-self: start; justify-self: start; color: rgba(255,255,255,.38); margin-top: var(--grid7_inset);">1:01:05</div>
           <div class="grid7_phone_msg channel_phone participant_storycall format_voice" style="grid-column: 4 / 7; grid-row: 3; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px;">
-            <p>You have a new message.</p>
+            <p>Grandma has a new message.</p>
           </div>
 
           <div class="grid7_cell grid7_id" style="grid-row: 4;">3</div>
@@ -409,7 +428,12 @@
               <div class="grid7_audio_waveform" aria-hidden="true"></div>
               <div class="grid7_audio_duration">0:13</div>
             </div>
-            <div class="grid7_audio_transcript">We listen to Frank Sinatra, and Sam Cooke all the time.</div>
+            <div class="grid7_audio_transcript" style="display:none;">We listen to Frank Sinatra, and Sam Cooke all the time.</div>
+          </div>
+
+          <div class="grid7_cell grid7_id" style="grid-row: 8;">7</div>
+          <div class="grid7_block channel_sms participant_grandma format_text" style="grid-column: 3 / 6; grid-row: 8; margin-top: var(--grid7_inset); margin-bottom: var(--grid7_inset);">
+            We listen to Frank Sinatra, and Sam Cooke all the time.
           </div>
         </div>
       </section>
@@ -457,7 +481,7 @@
 
           <div class="grid7_cell grid7_id grid7_b2_id_2">2</div>
           <div class="grid7_phone_msg channel_phone participant_storycall format_voice grid7_b2_phone1_blue1">
-            You have a new message.
+            Grandma has a new message.
           </div>
 
           <div class="grid7_cell grid7_id grid7_b2_id_3">3</div>
@@ -475,11 +499,11 @@
             Can you call me back in about an hour?
           </div>
 
-          <!-- 2.B2.6 StoryCall → Kid (mobile text) -->
+          <!-- 2.B2.6 StoryCall → Kid (mobile text status update) -->
           <div class="grid7_cell grid7_id grid7_b2_id_6">6</div>
           <div class="grid7_timestamp grid7_b2_ts_6">1:00:55</div>
           <div class="grid7_block channel_sms participant_storycall format_text grid7_b2_msg_6">
-            StoryCall: Grandma asked me to call back in about an hour to deliver your message about Christmas stories.
+            Grandma asked me to call her back in one hour.
           </div>
 
           <div class="grid7_notice grid7_b2_notice_1h">1 hour later</div>
@@ -519,16 +543,22 @@
               <div class="grid7_audio_waveform" aria-hidden="true"></div>
               <div class="grid7_audio_duration">0:18</div>
             </div>
-            <div class="grid7_audio_transcript">
-              We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every
-              present and then had brunch and it was wonderful.
+            <div class="grid7_audio_transcript" style="display:none;">
+              We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every present and then had brunch and it was wonderful.
             </div>
+          </div>
+
+          <!-- 2.B2.12 StoryCall → Kid (mobile text transcript of Grandma) -->
+          <div class="grid7_cell grid7_id" style="grid-column: 1; grid-row: 14;">12</div>
+          <div class="grid7_block channel_sms participant_grandma format_text" style="grid-column: 4 / 6; grid-row: 14; margin-top: var(--grid7_inset); margin-bottom: var(--grid7_inset);">
+            We got up early and we all sat at the top of the steps and we opened the stockings first and then ripped through every
+            present and then had brunch and it was wonderful.
           </div>
         </div>
       </section>
 
       <section class="scenario">
-        <h3 id="2C">2.C. You send text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
+        <h3 id="2C">2.C. kid error: Kid sends text instead of audio <a class="back_to_outline" href="#outline" aria-label="Back to outline">↑</a></h3>
         <div class="grid7_diagram" aria-label="v2 2.C diagram">
           <div class="grid7_guides" aria-hidden="true"><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div><div class="grid7_guide"></div></div>
           <div class="grid7_mobile_canvas" aria-hidden="true" style="grid-column: 2 / 6; grid-row: 2 / 8;"></div>
@@ -727,8 +757,8 @@
           <div class="grid7_cell grid7_id" style="grid-row: 3;">2</div>
           <div class="grid7_timestamp" style="grid-column: 2; grid-row: 3; align-self: start; justify-self: end; margin-top: var(--grid7_inset);">1:00:02</div>
           <div class="grid7_block channel_sms participant_storycall format_text" style="grid-column: 3 / 6; grid-row: 3; margin-top: var(--grid7_inset);">
-            <p>You’re opted out. StoryCall will not send any calls from this thread.</p>
-            <p style="margin-top: var(--space_micro);">If you change your mind, text <b>storycall</b> to start again.</p>
+            <p>Kid is opted out. StoryCall will not send any calls from this thread.</p>
+            <p style="margin-top: var(--space_micro);">If Kid changes their mind, text <b>storycall</b> to start again.</p>
           </div>
         </div>
       </section>
@@ -774,6 +804,456 @@
       document.getElementById("year").textContent = new Date().getFullYear();
 
       (function(){
+        // Naming convention migration:
+        // Add `grid_*` classes as aliases for existing `grid7_*` classes so CSS/JS can
+        // move from `grid7_` → `grid_` without breaking legacy markup.
+        function aliasGrid7ClassesToGrid(){
+          const els = Array.from(document.querySelectorAll('[class*="grid7_"]'));
+          for (const el of els){
+            for (const cls of Array.from(el.classList)){
+              if (!cls.startsWith("grid7_")) continue;
+              el.classList.add("grid_" + cls.slice("grid7_".length));
+            }
+          }
+        }
+        aliasGrid7ClassesToGrid();
+
+        function parseClockToSeconds(s){
+          const t = (s || "").trim();
+          const m = t.match(/^(\d+):(\d{2})$/);
+          if (!m) return null;
+          return (parseInt(m[1], 10) * 60) + parseInt(m[2], 10);
+        }
+
+        function readTextWithParagraphs(el){
+          // Preserve paragraph boundaries where possible.
+          const ps = Array.from(el.querySelectorAll("p"));
+          if (ps.length){
+            return ps.map((p) => (p.textContent || "").trim()).filter(Boolean).join("\n\n");
+          }
+          return (el.textContent || "").trim();
+        }
+
+        function stringifyJasonAligned(value, indent){
+          // Align `:` to ONE absolute column for the entire JSON block
+          // (same `:` position on every line, regardless of nesting).
+          const indentUnit = "  ";
+          const pad = (n) => indentUnit.repeat(n);
+          const start = Number.isFinite(indent) ? indent : 0;
+
+          const indentUnitLen = indentUnit.length;
+          let maxColonCol = 0;
+          function noteKey(level, key){
+            const keyJsonLen = JSON.stringify(key).length;
+            // Keys render at indentation `level + 1`.
+            const colonCol = ((level + 1) * indentUnitLen) + keyJsonLen;
+            maxColonCol = Math.max(maxColonCol, colonCol);
+          }
+          function scan(v, level){
+            if (v === null || typeof v !== "object") return;
+            if (Array.isArray(v)){
+              for (const item of v) scan(item, level);
+              return;
+            }
+            for (const k of Object.keys(v)){
+              noteKey(level, k);
+              scan(v[k], level + 1);
+            }
+          }
+          scan(value, start);
+          const COLON_GUTTER = 2; // move `:` slightly right for readability
+          const targetColonCol = maxColonCol + COLON_GUTTER;
+
+          function str(v, level){
+            if (v === null) return "null";
+            if (typeof v !== "object") return JSON.stringify(v);
+
+            if (Array.isArray(v)){
+              if (!v.length) return "[]";
+              const items = v.map((item) => pad(level + 1) + str(item, level + 1));
+              return "[\n" + items.join(",\n") + "\n" + pad(level) + "]";
+            }
+
+            const keys = Object.keys(v);
+            if (!keys.length) return "{}";
+            const lines = keys.map((k) => {
+              const keyJson = JSON.stringify(k);
+              const colonCol = ((level + 1) * indentUnitLen) + keyJson.length;
+              const spaces = " ".repeat(Math.max(0, targetColonCol - colonCol));
+              return pad(level + 1) + keyJson + spaces + ": " + str(v[k], level + 1);
+            });
+            return "{\n" + lines.join(",\n") + "\n" + pad(level) + "}";
+          }
+
+          return str(value, start);
+        }
+
+        function buildScenarioJasonFromDiagram(diagram, meta){
+          const stamps = Array.from(diagram.querySelectorAll(".grid7_timestamp[data-id]"));
+          let items = [];
+          const idMeta = new Map();
+          for (const ts of stamps){
+            const idRaw = (ts.getAttribute("data-id") || "").trim();
+            const id = parseInt(idRaw, 10);
+            if (!Number.isFinite(id)) continue;
+
+            const row = parseInt(getComputedStyle(ts).gridRowStart, 10);
+            if (!Number.isFinite(row)) continue;
+
+            const phoneMsg = Array.from(diagram.querySelectorAll(".grid7_phone_msg.channel_phone"))
+              .find((el) => parseInt(getComputedStyle(el).gridRowStart, 10) === row);
+            const smsMsg = Array.from(diagram.querySelectorAll(
+              ".grid7_block.channel_sms, .grid7_sms_block.channel_sms"
+            )).find((el) => parseInt(getComputedStyle(el).gridRowStart, 10) === row);
+
+            const el = phoneMsg || smsMsg;
+            if (!el) continue;
+            const isError = el.classList.contains("grid7_error");
+
+            const channel = phoneMsg ? "telephone" : "sms";
+            const format = el.classList.contains("format_voice") ? "voice" : "text";
+
+            // Speaker attribution:
+            // - Telephone: speaker is the participant.
+            // - SMS: kid is kid; everything else is StoryCall (even if the content is a relay).
+            let speaker = "storycall";
+            const isSmsRelayFromGrandma = (!phoneMsg && el.classList.contains("participant_grandma"));
+            if (channel === "telephone"){
+              if (el.classList.contains("participant_grandma")) speaker = "grandma";
+              else if (el.classList.contains("participant_kid")) speaker = "kid";
+              else speaker = "storycall";
+            }else{
+              if (el.classList.contains("participant_kid")) speaker = "kid";
+              else speaker = "storycall";
+            }
+
+            let text = "";
+            let duration_s = null;
+            if (format === "voice"){
+              const tr = el.querySelector(".grid7_audio_transcript");
+              text = tr ? (tr.textContent || "").trim() : readTextWithParagraphs(el);
+              const durEl = el.querySelector(".grid7_audio_duration");
+              duration_s = durEl ? parseClockToSeconds(durEl.textContent || "") : null;
+            }else{
+              text = readTextWithParagraphs(el);
+            }
+
+            const step = {
+              id,
+              channel,
+              speaker,
+              format,
+              ...(duration_s != null ? { duration_s } : {}),
+              text,
+            };
+            if (isError){
+              const compact = (text || "").replace(/\s+/g, " ").trim();
+              let msg = "user error";
+              if (channel === "sms" && speaker === "kid" && format === "text" && compact){
+                const needsQuotes = !/^[a-z0-9_-]+$/i.test(compact);
+                msg = "kid texts " + (needsQuotes ? JSON.stringify(compact) : compact);
+              }
+              let category = "user_error";
+              if (meta.scenario_id === "1B") category = "incorrect_keyword";
+              if (meta.scenario_id === "1C") category = "phone_number_sent_as_text";
+              step.mistakes = [{ kind: category, message: msg }];
+            }
+            items.push(step);
+
+            idMeta.set(id, {
+              row,
+              channel,
+              speaker,
+              format,
+              is_sms_relay_from_grandma: isSmsRelayFromGrandma,
+            });
+          }
+
+          items.sort((a, b) => a.id - b.id);
+
+          // Derived-from semantics (for app consumption):
+          // - SMS relay bubbles (orange) are derived from the most recent Grandma telephone utterance.
+          // - Telephone kid playback is derived from the most recent kid SMS voice utterance before the call.
+          const grandmaTelephoneIds = items
+            .filter((it) => it.channel === "telephone" && it.speaker === "grandma")
+            .map((it) => it.id);
+
+          function latestBefore(list, id){
+            let best = null;
+            for (const v of list){
+              if (v < id) best = v;
+              else break;
+            }
+            return best;
+          }
+
+          for (const it of items){
+            const m = idMeta.get(it.id);
+            if (!m) continue;
+            if (it.channel !== "sms") continue;
+            if (!m.is_sms_relay_from_grandma) continue;
+
+            const src = latestBefore(grandmaTelephoneIds, it.id);
+            if (!src) continue;
+
+            if (it.format === "voice"){
+              it.derived_from = { utterance_id: src, kind: "relay", via: "sms_audio_relay" };
+            }else{
+              it.derived_from = { utterance_id: src, kind: "transcript", via: "sms_text_transcript" };
+            }
+          }
+
+          // Telephone call wrappers (StoryCall voice → kid playback → StoryCall voice).
+          // Build wrappers per phone background block to correctly handle scenarios like 2.B (two calls).
+          const phoneBlocks = Array.from(diagram.querySelectorAll(".grid7_phone_bg, .grid7_phone_block"));
+          const blocks = [];
+          for (const pb of phoneBlocks){
+            const cs = getComputedStyle(pb);
+            const c1 = parseInt(cs.gridColumnStart, 10);
+            const c2 = parseInt(cs.gridColumnEnd, 10);
+            const r1 = parseInt(cs.gridRowStart, 10);
+            const r2 = parseInt(cs.gridRowEnd, 10);
+            if (!Number.isFinite(r1) || !Number.isFinite(r2) || !Number.isFinite(c1) || !Number.isFinite(c2)) continue;
+            blocks.push({ r1, r2, c1, c2 });
+          }
+          blocks.sort((a, b) => (a.r1 - b.r1) || (a.c1 - b.c1));
+
+          // For linking kid playback to its source recording.
+          const kidSmsVoiceIds = items
+            .filter((it) => it.channel === "sms" && it.speaker === "kid" && it.format === "voice")
+            .map((it) => it.id);
+
+          for (let callIdx = 0; callIdx < blocks.length; callIdx++){
+            const b = blocks[callIdx];
+            const callIndex = callIdx + 1;
+
+            // Find telephone step IDs that fall within this phone block by grid row.
+            const telIds = items
+              .filter((it) => it.channel === "telephone")
+              .filter((it) => {
+                const m = idMeta.get(it.id);
+                return m && Number.isFinite(m.row) && m.row >= b.r1 && m.row < b.r2;
+              })
+              .map((it) => it.id)
+              .sort((a, b) => a - b);
+
+            if (telIds.length < 3) continue;
+            const a = telIds[0], c = telIds[1], d = telIds[2];
+            const ia = items.find((x) => x.id === a);
+            const ic = items.find((x) => x.id === c);
+            const id = items.find((x) => x.id === d);
+            if (!ia || !ic || !id) continue;
+
+            const isWrapper =
+              ia.speaker === "storycall" && ia.format === "voice" &&
+              ic.speaker === "kid"      && ic.format === "voice" &&
+              id.speaker === "storycall" && id.format === "voice";
+            if (!isWrapper) continue;
+
+            const srcKid = latestBefore(kidSmsVoiceIds, a);
+            const parts = [ia, ic, id].map((it) => ({
+              id      : it.id,
+              format  : it.format,
+              speaker : it.speaker,
+              ...(it.duration_s != null ? { duration_s: it.duration_s } : {}),
+              ...(it.derived_from ? { derived_from: it.derived_from } : {}),
+              text    : it.text,
+            }));
+
+            // Attach derived-from to the kid playback part (telephone relay of the kid's SMS audio).
+            if (srcKid){
+              const kidPart = parts.find((p) => p.speaker === "kid");
+              if (kidPart){
+                kidPart.derived_from = { utterance_id: srcKid, kind: "relay", via: "telephone_playback" };
+              }
+            }
+
+            const call_step = {
+              channel             : "telephone",
+              from                : "storycall",
+              to                  : "grandma",
+              speaker             : "storycall",
+              telephone_call_index: callIndex,
+              utterance_ids       : [a, c, d],
+              parts,
+            };
+
+            // Remove the three utterances and insert the wrapper at the first one's position.
+            const idx = items.findIndex((it) => it.id === a);
+            if (idx === -1) continue;
+            items = items.filter((it) => !([a, c, d].includes(it.id) && it.channel === "telephone"));
+            items.splice(idx, 0, call_step);
+          }
+
+          // Timeline markers (for apps scanning this page).
+          //
+          // Represent time passing as an inline step inserted between utterances,
+          // so apps don't have to look for a separate `events[]` list.
+          const idRows = Array.from(idMeta.entries())
+            .map(([id, m]) => ({ id, row: m.row }))
+            .filter((x) => Number.isFinite(x.row))
+            .sort((a, b) => a.row - b.row);
+
+          function nearestUtterancesAroundRow(row){
+            let prev = null;
+            let next = null;
+            for (const it of idRows){
+              if (it.row < row) prev = it.id;
+              else if (it.row > row){
+                next = it.id;
+                break;
+              }
+            }
+            return { after_utterance_id: prev, before_utterance_id: next };
+          }
+
+          function parseTimePassSeconds(label){
+            const t = (label || "").trim().toLowerCase();
+            let m = t.match(/^(\d+)\s*hour(s)?\s*later$/);
+            if (m) return parseInt(m[1], 10) * 3600;
+            m = t.match(/^(\d+)\s*minute(s)?\s*later$/);
+            if (m) return parseInt(m[1], 10) * 60;
+            m = t.match(/^(\d+)\s*second(s)?\s*later$/);
+            if (m) return parseInt(m[1], 10);
+            return null;
+          }
+
+          const timeMarkers = [];
+          for (const el of Array.from(diagram.querySelectorAll(".grid7_notice"))){
+            const row = parseInt(getComputedStyle(el).gridRowStart, 10);
+            if (!Number.isFinite(row)) continue;
+
+            const around = nearestUtterancesAroundRow(row);
+            const label = (el.textContent || "").replace(/\s+/g, " ").trim();
+
+            const seconds = parseTimePassSeconds(label);
+
+            // Special-case: 2.B wants the "1 hour later" marker between 5 and 6.
+            if (meta.scenario_id === "2B" && label.toLowerCase().includes("hour later")){
+              around.after_utterance_id = 5;
+              around.before_utterance_id = 6;
+            }
+
+            // Special-case: 2.D expects the "1 hour later" marker between 2 and 3.
+            if (meta.scenario_id === "2D" && label.toLowerCase().includes("hour later")){
+              around.after_utterance_id = 2;
+              around.before_utterance_id = 3;
+            }
+
+            timeMarkers.push({
+              type                 : "time_passes",
+              label,
+              ...(seconds != null ? { seconds } : {}),
+              ...around,
+            });
+          }
+
+          function findStepIndexContainingUtteranceId(utterance_id){
+            for (let i = 0; i < items.length; i++){
+              const it = items[i];
+              if (!it || typeof it !== "object") continue;
+              if (it.id === utterance_id) return i;
+              if (Array.isArray(it.utterance_ids) && it.utterance_ids.includes(utterance_id)) return i;
+            }
+            return -1;
+          }
+
+          // Insert time markers into `steps[]` after the relevant utterance.
+          // Insert later markers first so indices don't shift under us.
+          timeMarkers.sort((a, b) => (b.after_utterance_id ?? -Infinity) - (a.after_utterance_id ?? -Infinity));
+          for (const m of timeMarkers){
+            if (m.after_utterance_id == null) continue;
+            const idx = findStepIndexContainingUtteranceId(m.after_utterance_id);
+            if (idx === -1) continue;
+            items.splice(idx + 1, 0, m);
+          }
+
+          return {
+            schema_version : "storycall_scenario_jason_v1",
+            scenario_id    : meta.scenario_id,
+            title          : meta.title,
+            precursor_group: meta.precursor_group || "",
+            precursor      : meta.precursor || "",
+            participants   : ["kid", "storycall", "grandma"],
+            steps          : items,
+          };
+        }
+
+        function ensureScenarioJasonBlock(scenarioEl){
+          const h3 = scenarioEl.querySelector("h3[id]");
+          const diagram = scenarioEl.querySelector(".grid7_diagram");
+          if (!h3 || !diagram) return null;
+
+          let block = scenarioEl.querySelector(`.scenario_jason_inline[data-scenario_id="${h3.id}"]`);
+          if (!block){
+            block = document.createElement("div");
+            block.className = "scenario_jason_inline is_closed";
+            block.setAttribute("data-scenario_id", h3.id);
+            const payload = document.createElement("script");
+            payload.type = "application/json";
+            payload.className = "scenario_jason_payload";
+            payload.setAttribute("data-scenario_id", h3.id);
+
+            const pre = document.createElement("pre");
+            pre.setAttribute("aria-label", `Jason (JSON) description of scenario ${h3.id}`);
+            const code = document.createElement("code");
+            pre.appendChild(code);
+
+            block.appendChild(payload);
+            block.appendChild(pre);
+            scenarioEl.insertBefore(block, diagram);
+          }
+          return block;
+        }
+
+        function readScenarioTitle(h3){
+          // Use the visible prefix up to the first nav arrow/button (best-effort, stable enough for apps).
+          const raw = (h3.textContent || "").replace(/\s+/g, " ").trim();
+          return raw
+            .replace(/\s*[↓↑]\s*/g, " ")
+            .replace(/\s*jason\s*/gi, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        }
+
+        function renderScenarioJasonForScenario(scenarioEl){
+          const h3 = scenarioEl.querySelector("h3[id]");
+          const diagram = scenarioEl.querySelector(".grid7_diagram");
+          if (!h3 || !diagram) return;
+
+          const block = ensureScenarioJasonBlock(scenarioEl);
+          if (!block) return;
+
+          const code = block.querySelector("code");
+          if (!code) return;
+          const payload = block.querySelector("script.scenario_jason_payload");
+
+          const precursorEl = scenarioEl.querySelector(".scenario_precursor");
+          const groupEl = scenarioEl.closest("section.group");
+          const groupPrecursorEl = groupEl ? groupEl.querySelector(".group_precursor") : null;
+
+          const meta = {
+            scenario_id : h3.id,
+            title       : readScenarioTitle(h3),
+            precursor_group: groupPrecursorEl ? (groupPrecursorEl.textContent || "").trim() : "",
+            precursor   : precursorEl ? (precursorEl.textContent || "").trim() : "",
+          };
+          const obj = buildScenarioJasonFromDiagram(diagram, meta);
+          code.textContent = stringifyJasonAligned(obj, 0);
+          if (payload){
+            // Machine-first payload: standard JSON (no alignment padding).
+            payload.textContent = JSON.stringify(obj, null, 2);
+          }
+        }
+
+        function renderScenarioJasonForOpenScenarios(){
+          const openBlocks = Array.from(document.querySelectorAll(".scenario_jason_inline.is_open"));
+          for (const block of openBlocks){
+            const scenario = block.closest("section.scenario");
+            if (scenario) renderScenarioJasonForScenario(scenario);
+          }
+        }
+
         // Move grid7 “ID column” numbers into the timestamp for the same row, and hide the ID column via CSS.
         // This keeps diagram markup stable (no renumbering of grid-column inline styles) while changing how IDs are displayed.
         function migrateGrid7IdsIntoTimestamps(){
@@ -782,19 +1262,51 @@
             const ids = Array.from(diagram.querySelectorAll(".grid7_id"));
             if (!ids.length) continue;
 
+            function readGridRowStart(el){
+              // Prefer inline authoring (`style="grid-row: X"`) because computed placement can be `auto`
+              // when elements are visually hidden or the ID column is collapsed.
+              const inlineStart = (el.style.getPropertyValue("grid-row-start") || "").trim();
+              if (inlineStart) return inlineStart;
+
+              const inlineRow = (el.style.getPropertyValue("grid-row") || "").trim();
+              if (inlineRow) return inlineRow.split("/")[0].trim();
+
+              const csRow = (getComputedStyle(el).gridRowStart || "").trim();
+              if (csRow && csRow !== "auto") return csRow;
+
+              return "";
+            }
+
             // Map grid-row-start -> idText
             const rowToId = new Map();
             for (const idEl of ids){
               const idText = (idEl.textContent || "").trim();
               if (!idText) continue;
-              const row = (getComputedStyle(idEl).gridRowStart || "").trim();
+              const row = readGridRowStart(idEl);
               if (!row) continue;
               rowToId.set(row, idText);
             }
 
             const ts = Array.from(diagram.querySelectorAll(".grid7_timestamp"));
+
+            // Some diagrams (notably 2.B2 phone rows) do not include a timestamp element on every
+            // utterance row. Create a placeholder timestamp element for any row that has an ID
+            // but no existing timestamp, so the ID can still be displayed via CSS `data-id`.
+            const tsRows = new Set(ts.map((el) => readGridRowStart(el)).filter(Boolean));
+            for (const [row] of rowToId.entries()){
+              if (tsRows.has(row)) continue;
+              const holder = document.createElement("div");
+              holder.className = "grid7_timestamp";
+              // Put it somewhere visible; the placement decorator will move it to the proper lane.
+              holder.style.gridColumn = "2";
+              holder.style.gridRow = row;
+              diagram.appendChild(holder);
+              ts.push(holder);
+              tsRows.add(row);
+            }
+
             for (const tsEl of ts){
-              const row = (getComputedStyle(tsEl).gridRowStart || "").trim();
+              const row = readGridRowStart(tsEl);
               if (!row) continue;
               const idText = rowToId.get(row);
               if (!idText) continue;
@@ -807,6 +1319,10 @@
 
         // Run once at startup (diagram markup is static).
         migrateGrid7IdsIntoTimestamps();
+        // Run again after first layout pass to ensure SMS timestamps reliably get data-id.
+        requestAnimationFrame(migrateGrid7IdsIntoTimestamps);
+        // Render any open Jason blocks after IDs have been migrated.
+        requestAnimationFrame(renderScenarioJasonForOpenScenarios);
 
         // Labeling: SMS label belongs to the whole white SMS canvas (not each SMS message).
         // Reserve space by pushing down only the FIRST SMS row in each diagram.
@@ -835,17 +1351,128 @@
 
             for (const el of smsBlocks){
               const r = parseInt(getComputedStyle(el).gridRowStart, 10);
-              if (r !== minRow) continue;
-              // Create a "label row" above the first message by increasing its top inset.
-              el.style.marginTop = "calc(var(--grid7_inset) + var(--grid7_sms_label_row_h))";
+              const mt = (el.style.marginTop || "").trim();
+
+              if (r === minRow){
+                // Create a "label row" above the first message by increasing its top inset.
+                el.style.marginTop = "calc(var(--scenario_block_inset) + var(--sms_block_label_row_h))";
+              }else{
+                // Normalize vertical spacing: rely on grid row-gap, not per-bubble extra top/bottom margins.
+                // Keep intentional negative margins (used to merge stacks).
+                if (!mt.startsWith("calc(-1")) el.style.marginTop = "0";
+              }
+
+              if ((el.style.marginBottom || "").trim()){
+                el.style.marginBottom = "0";
+              }
             }
 
             for (const ts of smsRowTimestamps){
-              ts.style.marginTop = "calc(var(--grid7_inset) + var(--grid7_sms_label_row_h))";
+              ts.style.marginTop = "calc(var(--scenario_block_inset) + var(--sms_block_label_row_h))";
+            }
+
+            // Normalize phone utterance vertical spacing inside the phone lane too.
+            // (Skip 2.B2, which has bespoke placements.)
+            if ((diagram.getAttribute("aria-label") || "") !== "2.B2 seven-column diagram"){
+              const phoneMsgs = Array.from(diagram.querySelectorAll(".grid7_phone_msg.channel_phone"));
+              if (phoneMsgs.length){
+                let minPhoneRow = Infinity;
+                for (const el of phoneMsgs){
+                  const r = parseInt(getComputedStyle(el).gridRowStart, 10);
+                  if (Number.isFinite(r)) minPhoneRow = Math.min(minPhoneRow, r);
+                }
+
+                for (const el of phoneMsgs){
+                  const r = parseInt(getComputedStyle(el).gridRowStart, 10);
+                  const mt = (el.style.marginTop || "").trim();
+
+                  if (mt.startsWith("calc(-1")) continue; // preserve merged stacks
+                  if (Number.isFinite(minPhoneRow) && r === minPhoneRow){
+                    // Keep a consistent top inset on the first phone row.
+                    el.style.marginTop = "var(--scenario_block_inset)";
+                  }else{
+                    el.style.marginTop = "0";
+                  }
+
+                  if ((el.style.marginBottom || "").trim()){
+                    el.style.marginBottom = "0";
+                  }
+                }
+
+                // Ensure a consistent bottom inset inside EACH phone background block:
+                // keep a little breathing room below Grandma’s last utterance (the call "ends" after Grandma),
+                // without extending the phone background into unrelated rows (e.g. SMS relay rows).
+                const phoneBgs = Array.from(diagram.querySelectorAll(".grid7_phone_bg, .grid7_phone_block"));
+                for (const bg of phoneBgs){
+                  const bgCs = getComputedStyle(bg);
+                  const c1 = parseInt(bgCs.gridColumnStart, 10);
+                  const c2 = parseInt(bgCs.gridColumnEnd, 10);
+                  const r1 = parseInt(bgCs.gridRowStart, 10);
+                  const r2 = parseInt(bgCs.gridRowEnd, 10);
+                  if (!Number.isFinite(c1) || !Number.isFinite(c2) || !Number.isFinite(r1) || !Number.isFinite(r2)) continue;
+
+                  let lastGrandma = null;
+                  let lastAny     = null;
+                  let lastGrandmaRow = -Infinity;
+                  let lastAnyRow     = -Infinity;
+
+                  for (const msg of phoneMsgs){
+                    const cs = getComputedStyle(msg);
+                    const c = parseInt(cs.gridColumnStart, 10);
+                    const r = parseInt(cs.gridRowStart, 10);
+                    if (!Number.isFinite(c) || !Number.isFinite(r)) continue;
+                    if (c < c1 || c >= c2) continue;
+                    if (r < r1 || r >= r2) continue;
+
+                    if (r >= lastAnyRow){
+                      lastAnyRow = r;
+                      lastAny    = msg;
+                    }
+                    if (msg.classList.contains("participant_grandma") && r >= lastGrandmaRow){
+                      lastGrandmaRow = r;
+                      lastGrandma    = msg;
+                    }
+                  }
+
+                  const target = lastGrandma || lastAny;
+                  if (target) target.style.marginBottom = "var(--scenario_block_inset)";
+                }
+              }
             }
           }
         }
         decorateGrid7SmsCanvasSpacing();
+
+        // Normalize the SMS canvas height so the bottom padding is consistent across scenarios.
+        // This prevents some diagrams (e.g. 1.A vs 1.B) from having different "breathing room"
+        // below the last SMS bubble.
+        function decorateGrid7SmsCanvasExtents(){
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            // 2.B2 uses bespoke layout rules.
+            if ((diagram.getAttribute("aria-label") || "") === "2.B2 seven-column diagram") continue;
+
+            const canvas = diagram.querySelector(".grid7_mobile_canvas");
+            if (!canvas) continue;
+
+            const smsItems = Array.from(diagram.querySelectorAll(
+              ".grid7_block.channel_sms, .grid7_sms_block.channel_sms, .grid7_notice, .mistake"
+            ));
+            if (!smsItems.length) continue;
+
+            let maxRow = -Infinity;
+            for (const el of smsItems){
+              const r = parseInt(getComputedStyle(el).gridRowStart, 10);
+              if (!Number.isFinite(r)) continue;
+              maxRow = Math.max(maxRow, r);
+            }
+            if (!Number.isFinite(maxRow) || maxRow === -Infinity) continue;
+
+            // Extend one full extra row below the last SMS row.
+            canvas.style.gridRowEnd = String(maxRow + 2);
+          }
+        }
+        decorateGrid7SmsCanvasExtents();
 
         // Any SMS message that StoryCall sends to Kid should be prefixed with "StoryCall: ".
         function prefixStoryCallSmsToKid(){
@@ -887,37 +1514,150 @@
         function decorateGrid7PhoneIds(){
           const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
           for (const diagram of diagrams){
-            const phoneBlocks = Array.from(diagram.querySelectorAll(".grid7_phone_bg, .grid7_phone_block"));
-            if (!phoneBlocks.length) continue;
+            const phoneMsgs = Array.from(diagram.querySelectorAll(".grid7_phone_msg.channel_phone"));
+            if (!phoneMsgs.length) continue;
 
-            const phoneAreas = [];
-            for (const pb of phoneBlocks){
-              const cs = getComputedStyle(pb);
-              const c1 = parseInt(cs.gridColumnStart, 10);
-              const c2 = parseInt(cs.gridColumnEnd, 10);
-              const r1 = parseInt(cs.gridRowStart, 10);
-              const r2 = parseInt(cs.gridRowEnd, 10);
-              if (!Number.isFinite(c1) || !Number.isFinite(c2) || !Number.isFinite(r1) || !Number.isFinite(r2)) continue;
-              phoneAreas.push({ c1, c2, r1, r2 });
+            // Determine phone rows by the presence of an actual phone utterance.
+            // This avoids accidentally tagging SMS IDs that share overlapping grid columns/rows.
+            const phoneRows = new Set();
+            for (const msg of phoneMsgs){
+              const r = parseInt(getComputedStyle(msg).gridRowStart, 10);
+              if (Number.isFinite(r)) phoneRows.add(r);
             }
-            if (!phoneAreas.length) continue;
+            if (!phoneRows.size) continue;
+
+            // Determine SMS rows too, so SMS IDs don't inherit phone-only styling.
+            const smsMsgs = Array.from(diagram.querySelectorAll(
+              ".grid7_block.channel_sms, .grid7_sms_block.channel_sms"
+            ));
+            const smsRows = new Set();
+            for (const msg of smsMsgs){
+              const r = parseInt(getComputedStyle(msg).gridRowStart, 10);
+              if (Number.isFinite(r)) smsRows.add(r);
+            }
 
             const stamps = Array.from(diagram.querySelectorAll(".grid7_timestamp[data-id]"));
             for (const ts of stamps){
-              const cs = getComputedStyle(ts);
-              const c = parseInt(cs.gridColumnStart, 10);
-              const r = parseInt(cs.gridRowStart, 10);
-              if (!Number.isFinite(c) || !Number.isFinite(r)) continue;
-              for (const a of phoneAreas){
-                if (c >= a.c1 && c < a.c2 && r >= a.r1 && r < a.r2){
-                  ts.classList.add("grid7_phone_id");
-                  break;
+              ts.classList.remove("grid7_phone_id");
+              const r = parseInt(getComputedStyle(ts).gridRowStart, 10);
+              if (!Number.isFinite(r)) continue;
+              if (phoneRows.has(r) && !smsRows.has(r)) ts.classList.add("grid7_phone_id");
+            }
+          }
+        }
+        decorateGrid7PhoneIds();
+
+        // Normalize the phone canvas height so the bottom padding is consistent across scenarios.
+        // (Covers both single-phone-block diagrams and 2.B2, which has two phone blocks.)
+        function decorateGrid7PhoneCanvasExtents(){
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            const phoneBgs = Array.from(diagram.querySelectorAll(".grid7_phone_bg, .grid7_phone_block"));
+            if (!phoneBgs.length) continue;
+
+            const phoneMsgs = Array.from(diagram.querySelectorAll(".grid7_phone_msg.channel_phone"));
+            if (!phoneMsgs.length) continue;
+
+            for (const bg of phoneBgs){
+              const bgCs = getComputedStyle(bg);
+              const c1 = parseInt(bgCs.gridColumnStart, 10);
+              const c2 = parseInt(bgCs.gridColumnEnd, 10);
+              const r1 = parseInt(bgCs.gridRowStart, 10);
+              const r2 = parseInt(bgCs.gridRowEnd, 10);
+              if (!Number.isFinite(c1) || !Number.isFinite(c2) || !Number.isFinite(r1) || !Number.isFinite(r2)) continue;
+
+              let maxGrandmaRow = -Infinity;
+              let maxAnyRow     = -Infinity;
+              for (const msg of phoneMsgs){
+                const cs = getComputedStyle(msg);
+                const c = parseInt(cs.gridColumnStart, 10);
+                const r = parseInt(cs.gridRowStart, 10);
+                if (!Number.isFinite(c) || !Number.isFinite(r)) continue;
+                if (c < c1 || c >= c2) continue;
+                // Keep each phone block scoped to its own exchange.
+                if (r < r1 || r >= r2) continue;
+                maxAnyRow = Math.max(maxAnyRow, r);
+                if (msg.classList.contains("participant_grandma")){
+                  maxGrandmaRow = Math.max(maxGrandmaRow, r);
+                }
+              }
+              const targetMaxRow = (Number.isFinite(maxGrandmaRow) && maxGrandmaRow !== -Infinity)
+                ? maxGrandmaRow
+                : maxAnyRow;
+              if (!Number.isFinite(targetMaxRow) || targetMaxRow === -Infinity) continue;
+
+              // End the phone background right after Grandma’s last utterance row
+              // (i.e. 2A5, 2B5, 2B10), without extending into the next row (often SMS relay).
+              bg.style.gridRowEnd = String(targetMaxRow + 1);
+            }
+          }
+        }
+        decorateGrid7PhoneCanvasExtents();
+
+        // Utterance numbering (IDs): place next to the utterance, by lane + speaker.
+        //
+        // Visible columns (5) map to grid columns (because col 1 is collapsed ID track):
+        // - visible col 1 => grid-column 2
+        // - visible col 3 => grid-column 4
+        // - visible col 5 => grid-column 6
+        //
+        // Rules:
+        // - SMS kid         => visible col 3, right-justified
+        // - SMS storycall   => visible col 5, left-justified
+        // - phone storycall => visible col 1, right-justified
+        // - phone grandma   => visible col 3, left-justified
+        function decorateGrid7UtteranceNumberPlacement(){
+          const GRID_COL_VISIBLE_1 = "2";
+          const GRID_COL_VISIBLE_3 = "4";
+          const GRID_COL_VISIBLE_5 = "6";
+
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            const stamps = Array.from(diagram.querySelectorAll(".grid7_timestamp[data-id]"));
+            for (const ts of stamps){
+              const row = parseInt(getComputedStyle(ts).gridRowStart, 10);
+              if (!Number.isFinite(row)) continue;
+
+              // Identify the utterance element on this row.
+              const phoneMsg = Array.from(diagram.querySelectorAll(".grid7_phone_msg.channel_phone"))
+                .find((el) => parseInt(getComputedStyle(el).gridRowStart, 10) === row);
+              const smsMsg = Array.from(diagram.querySelectorAll(
+                ".grid7_block.channel_sms, .grid7_sms_block.channel_sms"
+              )).find((el) => parseInt(getComputedStyle(el).gridRowStart, 10) === row);
+
+              ts.style.marginInline = "0";
+
+              if (phoneMsg){
+                if (phoneMsg.classList.contains("participant_grandma")){
+                  ts.style.gridColumn  = GRID_COL_VISIBLE_3;
+                  ts.style.justifySelf = "start";
+                  ts.style.textAlign   = "left";
+                }else{
+                  // StoryCall (and any other non-grandma phone utterance)
+                  ts.style.gridColumn  = GRID_COL_VISIBLE_1;
+                  ts.style.justifySelf = "end";
+                  ts.style.textAlign   = "right";
+                }
+                continue;
+              }
+
+              if (smsMsg){
+                if (smsMsg.classList.contains("participant_kid")){
+                  // Kid → StoryCall (SMS): number in visible col 3, right aligned.
+                  ts.style.gridColumn  = GRID_COL_VISIBLE_3;
+                  ts.style.justifySelf = "end";
+                  ts.style.textAlign   = "right";
+                }else{
+                  // StoryCall (and any non-kid SMS utterance)
+                  ts.style.gridColumn  = GRID_COL_VISIBLE_5;
+                  ts.style.justifySelf = "start";
+                  ts.style.textAlign   = "left";
                 }
               }
             }
           }
         }
-        decorateGrid7PhoneIds();
+        decorateGrid7UtteranceNumberPlacement();
 
         // Column headers: render kid/grandma avatars and a centered StoryCall "S".
         function decorateGrid7ColumnHeaders(){
@@ -946,6 +1686,76 @@
         }
         decorateGrid7ColumnHeaders();
 
+        // Add small “speaker pointer” triangles on top of each utterance bubble,
+        // aligned under the speaker's header circle.
+        function decorateGrid7UtteranceTriangles(){
+          const diagrams = Array.from(document.querySelectorAll(".grid7_diagram"));
+          for (const diagram of diagrams){
+            const headKid = diagram.querySelector(".grid7_head_kid");
+            const headSc  = diagram.querySelector(".grid7_head_storycall");
+            const headGm  = diagram.querySelector(".grid7_head_grandma");
+            if (!headKid || !headSc || !headGm) continue;
+
+            const kidCx = headKid.getBoundingClientRect().left + headKid.getBoundingClientRect().width / 2;
+            const scCx  = headSc.getBoundingClientRect().left  + headSc.getBoundingClientRect().width  / 2;
+            const gmCx  = headGm.getBoundingClientRect().left  + headGm.getBoundingClientRect().width  / 2;
+
+            const utterances = Array.from(diagram.querySelectorAll(
+              ".grid7_block.channel_sms, .grid7_sms_block.channel_sms, .grid7_phone_msg.channel_phone"
+            ));
+            for (const el of utterances){
+              el.classList.remove("grid7_tail_up");
+              el.style.removeProperty("--grid7_tail_x");
+              el.style.removeProperty("--grid7_tail_color");
+
+              const isSms = el.classList.contains("channel_sms");
+
+              // Attribution rules:
+              // - SMS lane: kid bubbles => kid; all other bubbles => StoryCall (even if the content is Grandma's).
+              // - Phone lane: use the explicit participant.
+              let cx = null;
+              if (isSms){
+                if (el.classList.contains("participant_kid")){
+                  cx = kidCx;
+                }else{
+                  cx = scCx;
+                  // Force StoryCall color for relayed SMS bubbles (keeps attribution consistent).
+                  el.style.setProperty("--grid7_tail_color", "var(--speaker_storycall_bg)");
+                }
+              }else{
+                if (el.classList.contains("participant_kid")){
+                  // Phone lane: kid audio is being delivered by StoryCall (relay playback).
+                  // Keep kid fill via CSS, but attribute the tail to StoryCall.
+                  cx = scCx;
+                  el.style.setProperty("--grid7_tail_color", "var(--speaker_storycall_bg)");
+                }
+                else if (el.classList.contains("participant_storycall")) cx = scCx;
+                else if (el.classList.contains("participant_grandma")) cx = gmCx;
+              }
+              if (!Number.isFinite(cx)) continue;
+
+              const rect = el.getBoundingClientRect();
+              if (!rect.width) continue;
+
+              // Suppress tails on the generic phone prompt (“Please reply after the beep…”),
+              // which appears as 2.A.4 and 2.B.4 in the examples.
+              if (!isSms && el.classList.contains("participant_storycall")){
+                const t = (el.textContent || "").trim().toLowerCase();
+                if (t.includes("please reply after the beep")){
+                  continue;
+                }
+              }
+
+              const rawX = cx - rect.left;
+              const pad  = 10;
+              const x    = Math.max(pad, Math.min(rect.width - pad, rawX));
+              el.style.setProperty("--grid7_tail_x", x.toFixed(2) + "px");
+              el.classList.add("grid7_tail_up");
+            }
+          }
+        }
+        decorateGrid7UtteranceTriangles();
+
         // Scenario title nav:
         // - ↓ jumps to the next scenario title
         // - ↑ jumps back to outline
@@ -962,6 +1772,36 @@
 
             const nav = document.createElement("span");
             nav.className = "scenario_title_nav";
+
+            // Add a "jason" toggle button for every scenario (to the left of the ↓ arrow).
+            {
+              const btn = document.createElement("button");
+              btn.className = "scenario_jason_toggle";
+              btn.type = "button";
+              btn.textContent = "jason";
+              btn.setAttribute("aria-label", "Toggle Jason (JSON) block");
+              btn.setAttribute("aria-pressed", "false");
+
+              btn.addEventListener("click", () => {
+                const scenario = h3.closest("section.scenario");
+                if (!scenario) return;
+
+                const block = ensureScenarioJasonBlock(scenario);
+                if (!block) return;
+
+                const isOpen = block.classList.contains("is_open");
+                block.classList.toggle("is_open", !isOpen);
+                block.classList.toggle("is_closed", isOpen);
+                btn.setAttribute("aria-pressed", String(!isOpen));
+
+                if (!isOpen){
+                  // Ensure the JSON is populated before showing.
+                  renderScenarioJasonForScenario(scenario);
+                }
+              });
+
+              nav.appendChild(btn);
+            }
 
             if (i < titles.length - 1){
               const next = document.createElement("a");
@@ -998,7 +1838,17 @@
         }
 
         setAnchorOffset();
-        window.addEventListener("resize", setAnchorOffset, { passive: true });
+        window.addEventListener("resize", () => {
+          setAnchorOffset();
+          migrateGrid7IdsIntoTimestamps();
+          renderScenarioJasonForOpenScenarios();
+          decorateGrid7SmsCanvasSpacing();
+          decorateGrid7SmsCanvasExtents();
+          decorateGrid7PhoneIds();
+          decorateGrid7PhoneCanvasExtents();
+          decorateGrid7UtteranceNumberPlacement();
+          decorateGrid7UtteranceTriangles();
+        }, { passive: true });
 
         function getAnchorTop(target){
           if (!target) return window.scrollY;

@@ -1,0 +1,66 @@
+{
+  "schema_version": "storycall_scenario_jason_v1",
+  "scenario_id": "2A",
+  "title": "2.A. Audio question + audio reply",
+  "participants": [
+    "kid",
+    "storycall",
+    "grandma"
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "channel": "sms",
+      "speaker": "kid",
+      "format": "voice",
+      "duration_s": 5,
+      "text": "Hey Grandma — what music was popular when you were in high school?"
+    },
+    {
+
+        "channel": "telephone",
+        "speaker": "storycall",
+        parts {
+        {
+            "id": 2,
+            "format": "voice",
+        "speaker": "storycall",
+            "text": "You have a new message."
+            },
+            {
+            "id": 3,
+            "format": "voice",
+           "speaker": "kid",
+            "text": "Hey grandma – what music was popular when you were in high school?"
+            },
+            {
+            "id": 4,
+            "format": "voice",
+        "speaker": "storycall",
+            "text": "Please reply after the beep or tell me to call back and play your message another time."
+            }
+        }
+    },
+    {
+      "id": 5,
+      "channel": "telephone",
+      "speaker": "grandma",
+      "format": "voice",
+      "text": "We listen to Frank Sinatra, and Sam Cooke all the time."
+    },
+    {
+      "id": 6,
+      "channel": "sms",
+      "speaker": "storycall",
+      "format": "voice",
+      "duration_s": 13,
+      "text": "We listen to Frank Sinatra, and Sam Cooke all the time."
+    },
+    {
+      "id": 7,
+      "channel": "sms",
+      "speaker": "storycall",
+      "format": "text",
+      "text": "We listen to Frank Sinatra, and Sam Cooke all the time."
+    }
+  ],
