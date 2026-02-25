@@ -888,6 +888,7 @@ html, body{
   --scenario_block_inset_base : 10px;
   --scenario_block_inset      : var(--scenario_block_inset_base);
   --scenario_block_row_gap    : 14px;
+  --phone_block_inset_top     : 18px;
   --scenario_block_bg         : #e9e9e9; /* gray background behind everything */
   --scenario_block_border     : rgba(0,0,0,.10);
   --scenario_block_guides_opacity : .10; /* set to 0 to hide */
@@ -1013,32 +1014,32 @@ html, body{
   grid-column       : 4 !important; /* center column (of 5 visible columns) */
 }
 
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_mobile_canvas{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_mobile_canvas{
   grid-column       : 4 / 7 !important;
 }
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .mistake{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .mistake{
   grid-column       : 4 / 7 !important;
 }
 
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_kid,
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_kid{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_block.channel_sms.participant_kid,
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_sms_block.channel_sms.participant_kid{
   grid-column       : 5 / 7 !important;
 }
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_storycall,
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_storycall,
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_block.channel_sms.participant_grandma,
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_sms_block.channel_sms.participant_grandma{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_block.channel_sms.participant_storycall,
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_sms_block.channel_sms.participant_storycall,
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_block.channel_sms.participant_grandma,
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_sms_block.channel_sms.participant_grandma{
   grid-column       : 4 / 6 !important;
 }
 
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_bg,
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_block{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_phone_bg,
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_phone_block{
   grid-column       : 2 / 5 !important;
 }
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_msg.channel_phone.participant_grandma{
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_phone_msg.channel_phone.participant_grandma{
   grid-column       : 2 / 4 !important;
 }
-.grid7_diagram:not([aria-label="2.B2 seven-column diagram"]) .grid7_phone_msg.channel_phone:not(.participant_grandma){
+.grid7_diagram:not([aria-label="v2 3.A diagram"]) .grid7_phone_msg.channel_phone:not(.participant_grandma){
   grid-column       : 3 / 5 !important;
 }
 
@@ -1156,8 +1157,26 @@ html, body{
   margin-inline     : var(--grid7_inset);
 }
 
+/* Notice inside a dark phone block (e.g. NO ANSWER). */
+.grid7_phone_notice{
+  background        : rgba(255,255,255,.12);
+  color             : rgba(255,255,255,.65);
+  font-family       : var(--utterance_text_font_family);
+  font-size         : var(--utterance_text_font_size);
+  line-height       : var(--utterance_text_line_h);
+  font-weight       : 700;
+  letter-spacing    : .5px;
+  text-transform    : uppercase;
+  border-radius     : 12px;
+  padding           : 8px 10px;
+  text-align        : center;
+  align-self        : center;
+  margin-inline     : var(--grid7_inset);
+  margin-bottom     : var(--grid7_inset);
+}
+
 /* 2.B-specific placement for the "1 hour later" notice. */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_notice_1h{
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_notice_1h{
   grid-column       : 4 / 7;
   grid-row          : 8;
 }
@@ -1461,13 +1480,13 @@ html, body{
 }
 
 /* 2.B2-specific placement overrides (two phone blocks + two StoryCall→Kid messages). */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_mobile_canvas{
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_mobile_canvas{
   grid-row         : 2 / 15;
 }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_1{ grid-column: 1; grid-row: 2; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_1{ grid-column: 4; grid-row: 2; align-self: start; justify-self: end; margin-top: var(--grid7_inset); text-align: right; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{ grid-column: 5 / 7; grid-row: 2; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_1{
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_1{ grid-column: 1; grid-row: 2; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_ts_1{ grid-column: 4; grid-row: 2; align-self: start; justify-self: end; margin-top: var(--grid7_inset); text-align: right; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_msg_1{ grid-column: 5 / 7; grid-row: 2; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_msg_1{
   /* Match the dark foreground used in the StoryCall phone prompts (e.g. 2.B2.4). */
   color             : rgba(0,0,0,.88);
   --audio_fg        : rgba(0,0,0,.60);
@@ -1475,49 +1494,49 @@ html, body{
 }
 
 /* Phone block #1 rows 3–6 */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_bg{ grid-column: 2 / 5; grid-row: 3 / 7; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_top{ grid-column: 4; grid-row: 3; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); margin-inline: 0; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_ts_orange{ grid-column: 2; grid-row: 6; align-self: start; justify-self: end; color: rgba(255,255,255,.38); margin-inline: 0; text-align: right; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_bg{ grid-column: 2 / 5; grid-row: 3 / 7; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_ts_top{ grid-column: 4; grid-row: 3; align-self: start; justify-self: start; margin-top: var(--phone_block_inset_top); color: rgba(255,255,255,.38); margin-inline: 0; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_ts_orange{ grid-column: 2; grid-row: 6; align-self: start; justify-self: end; color: rgba(255,255,255,.38); margin-inline: 0; text-align: right; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_2{ grid-column: 1; grid-row: 3; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue1{ grid-column: 3 / 5; grid-row: 3; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_2{ grid-column: 1; grid-row: 3; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_blue1{ grid-column: 3 / 5; grid-row: 3; margin-top: var(--phone_block_inset_top); border-top-left-radius: 14px; border-top-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_3{ grid-column: 1; grid-row: 4; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_green{ grid-column: 3 / 5; grid-row: 4; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_3{ margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_3{ grid-column: 1; grid-row: 4; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_green{ grid-column: 3 / 5; grid-row: 4; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_3{ margin-top: calc(-1 * var(--grid7_row_gap)); }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_4{ grid-column: 1; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_blue2{ grid-column: 3 / 5; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_4{ grid-column: 1; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_blue2{ grid-column: 3 / 5; grid-row: 5; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_5{ grid-column: 1; grid-row: 6; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone1_orange{ grid-column: 2 / 4; grid-row: 6; border-radius: 14px; margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_5{ grid-column: 1; grid-row: 6; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone1_orange{ grid-column: 2 / 4; grid-row: 6; border-radius: 14px; margin-bottom: var(--grid7_inset); }
 
 /* 2.B2.6 StoryCall → Kid text (row 7) */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_6{ grid-column: 1; grid-row: 7; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_6{ grid-column: 4; grid-row: 7; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_6{ grid-column: 4 / 6; grid-row: 7; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_6{ grid-column: 1; grid-row: 7; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_ts_6{ grid-column: 4; grid-row: 7; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_msg_6{ grid-column: 4 / 6; grid-row: 7; margin-top: var(--grid7_inset); }
 
 /* Phone block #2 (shifted down by 1 row to make room for the "1 hour later" notice at row 8) */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_bg{ grid-column: 2 / 5; grid-row: 9 / 13; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_top{ grid-column: 4; grid-row: 9; align-self: start; justify-self: start; margin-top: var(--grid7_inset); color: rgba(255,255,255,.38); margin-inline: 0; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 2; grid-row: 12; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); margin-inline: 0; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_bg{ grid-column: 2 / 5; grid-row: 9 / 13; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_ts_top{ grid-column: 4; grid-row: 9; align-self: start; justify-self: start; margin-top: var(--phone_block_inset_top); color: rgba(255,255,255,.38); margin-inline: 0; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_ts_orange{ grid-column: 2; grid-row: 12; align-self: start; justify-self: end; text-align: right; color: rgba(255,255,255,.38); margin-inline: 0; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_7{ grid-column: 1; grid-row: 9; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue1{ grid-column: 3 / 5; grid-row: 9; margin-top: var(--grid7_inset); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_7{ grid-column: 1; grid-row: 9; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_blue1{ grid-column: 3 / 5; grid-row: 9; margin-top: var(--phone_block_inset_top); border-top-left-radius: 14px; border-top-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_8{ grid-column: 1; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_green{ grid-column: 3 / 5; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_8{ grid-column: 1; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_green{ grid-column: 3 / 5; grid-row: 10; margin-top: calc(-1 * var(--grid7_row_gap)); }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_9{ grid-column: 1; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_blue2{ grid-column: 3 / 5; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_9{ grid-column: 1; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_blue2{ grid-column: 3 / 5; grid-row: 11; margin-top: calc(-1 * var(--grid7_row_gap)); border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; }
 
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_10{ grid-column: 1; grid-row: 12; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_phone2_orange{ grid-column: 2 / 4; grid-row: 12; border-radius: 14px; margin-bottom: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_10{ grid-column: 1; grid-row: 12; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_phone2_orange{ grid-column: 2 / 4; grid-row: 12; border-radius: 14px; margin-bottom: var(--grid7_inset); }
 
 /* 2.B2.11 StoryCall → Kid audio (shifted down by 1 row) */
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_id_11{ grid-column: 1; grid-row: 13; }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_ts_11{ grid-column: 4; grid-row: 13; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
-.grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_msg_11{ grid-column: 4 / 6; grid-row: 13; margin-top: var(--grid7_inset); margin-bottom: 0; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_id_11{ grid-column: 1; grid-row: 13; }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_ts_11{ grid-column: 4; grid-row: 13; align-self: start; justify-self: end; text-align: right; margin-top: var(--grid7_inset); }
+.grid7_diagram[aria-label="v2 3.A diagram"] .grid7_b2_msg_11{ grid-column: 4 / 6; grid-row: 13; margin-top: var(--grid7_inset); margin-bottom: 0; }
 
 .grid7_call_block.participant_kid{ background: var(--grid7_kid_bg); }
 .grid7_call_block.participant_storycall{ background: var(--grid7_storycall_bg); }
