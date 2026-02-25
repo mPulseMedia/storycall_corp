@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="StoryCall scenario examples." />
+  <title>What are some sample exchanges with StoryCall?</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="scenarios.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="bar">
+        <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
+          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+        </a>
+        <a class="cta" href="index.html">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1 class="page_title">What are some sample exchanges with StoryCall?</h1>
+    <p class="page_intro">
+      The following are examples of what it’s like to use StoryCall.
+    </p>
+
+    <div id="scenarios_content" aria-label="Scenarios" aria-busy="true">
+      <p style="color: #777; font-size: 0.95rem; margin: 1.25rem 0;">
+        Loading scenarios…
+      </p>
+    </div>
+
+    <noscript>
+      <p style="color: #777; font-size: 0.95rem; margin: 1.25rem 0;">
+        This page requires JavaScript to display the scenarios.
+      </p>
+    </noscript>
+
+    <script>
+      (function(){
+        const host = document.getElementById("scenarios_content");
+        if (!host) return;
+
+        function loadScript(src){
+          return new Promise((resolve, reject) => {
+            const s = document.createElement("script");
+            s.src = src;
+            s.async = true;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.body.appendChild(s);
+          });
+        }
+
+        fetch("scenarios_content.html", { cache: "no-cache" })
+          .then((r) => {
+            if (!r.ok) throw new Error("failed to load scenarios content");
+            return r.text();
+          })
+          .then((html) => {
+            host.innerHTML = html;
+            host.setAttribute("aria-busy", "false");
+            return loadScript("scenarios_runtime.js");
+          })
+          .catch((_err) => {
+            host.setAttribute("aria-busy", "false");
+            host.innerHTML = "<p style=\\"color:#777;font-size:0.95rem;margin:1.25rem 0;\\">Failed to load scenarios.</p>";
+          });
+      })();
+    </script>
+  </main>
+</body>
+</html>
+

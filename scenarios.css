@@ -1425,6 +1425,41 @@ html, body{
   color           : inherit;
 }
 
+/* Phone audio icon — distinguishes spoken phone audio from SMS audio files. */
+/* Uses three concentric arcs (like a speaker) instead of ▶ + waveform.      */
+.grid7_phone_audio_icon{
+  display      : block;
+  position     : relative;
+  width        : 18px;
+  height       : 18px;
+  margin-bottom : 4px;
+  flex         : 0 0 auto;
+}
+.grid7_phone_audio_icon::before{
+  content        : "";
+  position       : absolute;
+  left           : 0;
+  top            : 50%;
+  transform      : translateY(-50%);
+  width          : 0;
+  height         : 0;
+  border-top     : 5px solid transparent;
+  border-bottom  : 5px solid transparent;
+  border-left    : 6px solid currentColor;
+  opacity        : .7;
+}
+.grid7_phone_audio_icon::after{
+  content        : ")))";
+  position       : absolute;
+  left           : 7px;
+  top            : 50%;
+  transform      : translateY(-50%);
+  font-size      : 10px;
+  letter-spacing : -1px;
+  line-height    : 1;
+  opacity        : .55;
+}
+
 /* 2.B2-specific placement overrides (two phone blocks + two StoryCall→Kid messages). */
 .grid7_diagram[aria-label="2.B2 seven-column diagram"] .grid7_b2_mobile_canvas{
   grid-row         : 2 / 15;

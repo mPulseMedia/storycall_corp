@@ -1,0 +1,32 @@
+---
+alwaysApply: true
+---
+# maintenence of codenames
+
+when selecting names for methods, files, and anything else you have influence over it's name -- use these naming conventions.
+
+1.  codename_structure
+    A.  Use lowercase snake_case with a root (left most) term
+        defining the broad concept.
+    B.  Subject: the root term names the subject (domain,
+        area, or entity) the codename refers to.
+        1. Start a name using an existing root when possible
+    C.  Subsequent terms refine object and action.
+        1.  Object: what is acted on (e.g. state_list,
+            card_rect).
+        2.  Action: verb last (e.g. _get, _set, _build).
+
+2.  term_rule
+    A.  Keep terms short and singular.
+    B.  Abbreviate frequently used terms.
+
+3.  codename_maintenance
+    A.  Engage iteratively to refine conventions.
+    B.  Keep the index updated for easy sorting.
+        1.  list all codenames in index.
+        2.  Show count of occuance listed 36 characters in
+        3.  Update paul/codename_index.txt every time
+            codenames are added, removed, or changed.
+    C.  Create/maintain codenames
+        1.  Iterativly, in related groups, add commented lines
+            with a double-underscore before the codename related to that code
