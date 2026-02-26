@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="210" style="background:#fff">
+  <rect x="0" y="0" width="480" height="210" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_10 json_colon_align</text>
+
+  <!-- Before -->
+  <text x="115" y="50" font-family="monospace" font-size="11" text-anchor="middle" fill="#c53929" font-weight="bold">Before</text>
+
+  <rect x="15" y="60" width="210" height="80" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="25" y="78" font-family="monospace" font-size="8" fill="#a02919">"id"                    : "1A"</text>
+  <text x="25" y="94" font-family="monospace" font-size="8" fill="#a02919">"schema_version"        : "v1"</text>
+  <text x="25" y="110" font-family="monospace" font-size="8" fill="#a02919">"telephone_call_index"  : 1</text>
+  <text x="25" y="128" font-family="monospace" font-size="8" fill="#888">: at varying columns</text>
+
+  <!-- Arrow -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <line x1="233" y1="100" x2="253" y2="100" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- After -->
+  <text x="370" y="50" font-family="monospace" font-size="11" text-anchor="middle" fill="#34a853" font-weight="bold">After</text>
+
+  <rect x="260" y="60" width="210" height="80" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="270" y="78" font-family="monospace" font-size="8" fill="#1b7a2b">"id"                  : "1A"</text>
+  <text x="270" y="94" font-family="monospace" font-size="8" fill="#1b7a2b">"schema_version"      : "v1"</text>
+  <text x="270" y="110" font-family="monospace" font-size="8" fill="#1b7a2b">"telephone_call_index" : 1</text>
+  <text x="270" y="128" font-family="monospace" font-size="8" fill="#1b7a2b">: all at column 35</text>
+
+  <!-- File -->
+  <rect x="150" y="162" width="180" height="28" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="181" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js (734 lines)</text>
+</svg>

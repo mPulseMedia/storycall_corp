@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="220" style="background:#fff">
+  <rect x="0" y="0" width="480" height="220" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_37 event_split_3c</text>
+
+  <!-- BEFORE -->
+  <text x="20" y="48" font-family="monospace" font-size="9" fill="#888">BEFORE</text>
+  <rect x="20" y="55" width="200" height="20" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="120" y="68" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d">3C4 (phone call ends)</text>
+  <rect x="20" y="78" width="200" height="20" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="120" y="91" font-family="monospace" font-size="8" text-anchor="middle" fill="#1e40af">3C5 SC text to kid</text>
+  <rect x="20" y="101" width="200" height="24" rx="3" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="120" y="116" font-family="monospace" font-size="8" text-anchor="middle" fill="#999" font-style="italic">3C6 Call-No answer-1hr</text>
+  <rect x="20" y="128" width="200" height="20" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1"/>
+  <text x="120" y="141" font-family="monospace" font-size="8" text-anchor="middle" fill="#9a3412">3C7 (2nd call starts)</text>
+
+  <!-- arrow -->
+  <text x="235" y="108" font-family="monospace" font-size="16" fill="#555">→</text>
+
+  <!-- AFTER -->
+  <text x="260" y="48" font-family="monospace" font-size="9" fill="#888">AFTER</text>
+  <rect x="260" y="55" width="200" height="18" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="360" y="66" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">3C4 (phone call ends)</text>
+  <rect x="260" y="76" width="200" height="22" rx="3" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="360" y="90" font-family="monospace" font-size="8" text-anchor="middle" fill="#999" font-style="italic">3C5 Call — No answer</text>
+  <rect x="260" y="101" width="200" height="18" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="360" y="113" font-family="monospace" font-size="7" text-anchor="middle" fill="#1e40af">3C6 SC text to kid</text>
+  <rect x="260" y="122" width="200" height="22" rx="3" fill="#f7f7f7" stroke="#ddd" stroke-width="1"/>
+  <text x="360" y="136" font-family="monospace" font-size="8" text-anchor="middle" fill="#999" font-style="italic">3C7 1 hour later</text>
+  <rect x="260" y="147" width="200" height="18" rx="3" fill="#ffedd5" stroke="#ea580c" stroke-width="1"/>
+  <text x="360" y="158" font-family="monospace" font-size="7" text-anchor="middle" fill="#9a3412">3C8 (2nd call starts)</text>
+
+  <!-- summary -->
+  <text x="240" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">split 3C6 → 3C5 "Call — No answer"</text>
+  <text x="240" y="198" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">+ 3C7 "1 hour later" | renumber 3C5-12</text>
+  <rect x="150" y="205" width="180" height="14" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="215" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">scenarios.js</text>
+</svg>

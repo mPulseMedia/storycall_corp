@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" style="background:#fff">
+  <rect x="0" y="0" width="480" height="150" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_42 json_wrap_align</text>
+
+  <!-- column ruler -->
+  <line x1="40" y1="35" x2="440" y2="35" stroke="#ddd" stroke-width="0.5"/>
+  <text x="245" y="33" font-family="monospace" font-size="7" fill="#999">col 35</text>
+  <line x1="245" y1="35" x2="245" y2="105" stroke="#16a34a" stroke-width="1" stroke-dasharray="3"/>
+  <text x="266" y="33" font-family="monospace" font-size="7" fill="#999">col 38</text>
+  <line x1="266" y1="35" x2="266" y2="105" stroke="#3b82f6" stroke-width="1" stroke-dasharray="3"/>
+
+  <!-- before -->
+  <text x="40" y="52" font-family="monospace" font-size="8" fill="#888">BEFORE</text>
+  <text x="40" y="64" font-family="monospace" font-size="7" fill="#333">"text"                : ["first line...",</text>
+  <text x="40" y="74" font-family="monospace" font-size="7" fill="#dc2626">                                        "col 41"</text>
+
+  <!-- after -->
+  <text x="40" y="92" font-family="monospace" font-size="8" fill="#888">AFTER</text>
+  <text x="40" y="104" font-family="monospace" font-size="7" fill="#333">"text"                : ["first line...",</text>
+  <text x="40" y="114" font-family="monospace" font-size="7" fill="#16a34a">                                     "col 38"</text>
+
+  <!-- summary -->
+  <text x="240" y="135" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">: at col 35 | continuations at col 38</text>
+  <rect x="150" y="139" width="180" height="14" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="149" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">scenarios.js</text>
+</svg>

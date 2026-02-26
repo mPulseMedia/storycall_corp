@@ -40,6 +40,9 @@ button_row                           : class
 
 caret                                : class
 
+cell_gma_to_sc                       : class
+cell_kid_to_sc                       : class
+
 claude_md                            : file
 
 cname                                : file
@@ -65,6 +68,8 @@ contact_name                         : id
 copy                                 : class
 
 doc_index_md                         : file
+
+event_row                            : class
 
 drawer_caret_size                    : css
 drawer_group                         : class
@@ -127,6 +132,8 @@ hero_margin_top_mobile               : css
 hero_tagline                         : class
 
 how_to_audio_image                   : class
+
+id_copy_click                        : function
 
 image_about_paul_png                 : image
 image_face_granny_png                : image
@@ -255,6 +262,7 @@ scn_bubble_shadow                    : css
 scn_bubble_text_pad_x                : css
 
 scn_call_bg                          : css
+scn_call_render                      : function
 scn_call_block                       : class
 scn_call_block_left_x                : css
 scn_call_block_shift_x               : css
@@ -305,6 +313,8 @@ scn_guides                           : class
 
 scn_has_call                         : class
 
+scn_html_escape                      : function
+
 scn_head                             : class
 scn_head_avatar                      : class
 scn_head_grandma                     : class
@@ -343,6 +353,7 @@ scn_mobile_canvas                    : class
 scn_msg                              : class
 scn_msg_header                       : class
 scn_msg_row                          : class
+scn_msg_row_build                    : function
 
 scn_nav_anchor_target                : class
 
@@ -409,6 +420,7 @@ scn_scenario_jason_inline            : class
 scn_scenario_jason_payload           : class
 scn_scenario_jason_toggle            : class
 scn_scenario_list                    : class
+scn_scenario_render                  : function
 scn_scenario_next                    : class
 scn_scenario_next_spacer             : class
 scn_scenario_precursor               : class
@@ -442,6 +454,8 @@ scn_tail_w                           : css
 scn_telephone_block_bg               : css
 scn_telephone_block_label_pad        : css
 scn_telephone_id_color               : css
+
+scn_text_get                         : function
 
 scn_thread                           : class
 
@@ -491,3 +505,5 @@ try_it_see_how                       : class
 wrap                                 : class
 
 year                                 : id
+
+zone_gap                             : class

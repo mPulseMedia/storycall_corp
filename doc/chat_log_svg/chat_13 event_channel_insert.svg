@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="230" style="background:#fff">
+  <rect x="0" y="0" width="480" height="230" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_13 event_channel_insert</text>
+
+  <!-- New events -->
+  <text x="240" y="50" font-family="monospace" font-size="11" text-anchor="middle" fill="#555" font-weight="bold">scenarios.js — 16 total events</text>
+
+  <rect x="20" y="64" width="210" height="70" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="125" y="84" font-family="monospace" font-size="10" text-anchor="middle" fill="#1b7a2b" font-weight="bold">13 new inserts</text>
+  <text x="125" y="100" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">10x SMS events</text>
+  <text x="125" y="116" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">3x Call events</text>
+
+  <rect x="250" y="64" width="210" height="70" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="355" y="84" font-family="monospace" font-size="10" text-anchor="middle" fill="#333" font-weight="bold">2 modified</text>
+  <text x="355" y="100" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">3C5: Call — No answer</text>
+  <text x="355" y="116" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">3C8: SMS — No answer</text>
+
+  <!-- Scenario coverage -->
+  <text x="240" y="158" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Scenarios touched</text>
+
+  <rect x="20" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="54" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">1A</text>
+
+  <rect x="96" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="130" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">2A</text>
+
+  <rect x="172" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="206" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">2B</text>
+
+  <rect x="248" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="282" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">2C</text>
+
+  <rect x="324" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="358" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">3A-3C</text>
+
+  <rect x="400" y="168" width="68" height="24" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="434" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">3B</text>
+</svg>

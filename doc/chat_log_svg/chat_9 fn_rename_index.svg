@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="260" style="background:#fff">
+  <rect x="0" y="0" width="500" height="260" fill="#fff"/>
+
+  <text x="250" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_9 fn_rename_index</text>
+
+  <!-- Before -->
+  <text x="120" y="50" font-family="monospace" font-size="11" text-anchor="middle" fill="#c53929" font-weight="bold">Before</text>
+
+  <rect x="20" y="60" width="200" height="120" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="30" y="80" font-family="monospace" font-size="9" fill="#a02919">T</text>
+  <text x="30" y="96" font-family="monospace" font-size="9" fill="#a02919">E</text>
+  <text x="30" y="112" font-family="monospace" font-size="9" fill="#a02919">msgRow</text>
+  <text x="30" y="128" font-family="monospace" font-size="9" fill="#a02919">renderCall</text>
+  <text x="30" y="144" font-family="monospace" font-size="9" fill="#a02919">renderScenario</text>
+  <text x="30" y="168" font-family="monospace" font-size="8" fill="#888">Not in index</text>
+
+  <!-- Arrow -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <line x1="228" y1="120" x2="268" y2="120" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- After -->
+  <text x="385" y="50" font-family="monospace" font-size="11" text-anchor="middle" fill="#34a853" font-weight="bold">After</text>
+
+  <rect x="278" y="60" width="210" height="120" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="288" y="80" font-family="monospace" font-size="9" fill="#1b7a2b">scn_text_get</text>
+  <text x="288" y="96" font-family="monospace" font-size="9" fill="#1b7a2b">scn_html_escape</text>
+  <text x="288" y="112" font-family="monospace" font-size="9" fill="#1b7a2b">scn_msg_row_build</text>
+  <text x="288" y="128" font-family="monospace" font-size="9" fill="#1b7a2b">scn_call_render</text>
+  <text x="288" y="144" font-family="monospace" font-size="9" fill="#1b7a2b">scn_scenario_render</text>
+  <text x="288" y="168" font-family="monospace" font-size="8" fill="#1b7a2b">All in index : function</text>
+
+  <!-- File -->
+  <rect x="140" y="210" width="220" height="28" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="250" y="229" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html + codename_index</text>
+</svg>

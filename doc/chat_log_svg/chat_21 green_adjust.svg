@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="170" style="background:#fff">
+  <rect x="0" y="0" width="480" height="170" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_21 green_adjust</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Kid bubble green adjustments</text>
+
+  <!-- Light bubble -->
+  <text x="120" y="72" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">Light (text) bubble</text>
+  <rect x="30" y="78" width="80" height="28" rx="8" fill="#f0fdf4" stroke="#ccc" stroke-width="1"/>
+  <text x="70" y="97" font-family="monospace" font-size="8" text-anchor="middle" fill="#666">#f0fdf4</text>
+  <text x="130" y="97" font-family="monospace" font-size="10" text-anchor="middle" fill="#555">→</text>
+  <rect x="145" y="78" width="80" height="28" rx="8" fill="#dcfce7" stroke="#ccc" stroke-width="1"/>
+  <text x="185" y="97" font-family="monospace" font-size="8" text-anchor="middle" fill="#666">#dcfce7</text>
+
+  <!-- Dark bubble -->
+  <text x="360" y="72" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">Dark (voice) bubble</text>
+  <rect x="270" y="78" width="80" height="28" rx="8" fill="#22c55e" stroke="#ccc" stroke-width="1"/>
+  <text x="310" y="97" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d">#22c55e</text>
+  <text x="370" y="97" font-family="monospace" font-size="10" text-anchor="middle" fill="#555">→</text>
+  <rect x="385" y="78" width="80" height="28" rx="8" fill="#4ade80" stroke="#ccc" stroke-width="1"/>
+  <text x="425" y="97" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d">#4ade80</text>
+
+  <!-- File -->
+  <rect x="165" y="126" width="150" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="141" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+</svg>

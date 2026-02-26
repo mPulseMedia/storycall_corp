@@ -45,6 +45,7 @@
   font-weight:800;
   border-bottom:3px solid;
 }
+.lane_hdr img { width:32px; height:32px; border-radius:50%; vertical-align:middle; object-fit:cover; }
 .lane_hdr_kid       { grid-column:1/3; background:#f0fdf4; border-color:#16a34a; color:#166534; font-size:.95rem; }
 .lane_hdr_storycall { grid-column:3/5; background:#eff6ff; border-color:#3b82f6; color:#1e40af; font-size:.95rem; }
 .lane_hdr_grandma   { grid-column:5/7; background:#fff7ed; border-color:#ea580c; color:#9a3412; font-size:.95rem; }
@@ -65,16 +66,20 @@
 .cell_sc   { grid-column:3/5; }
 .cell_gma  { grid-column:5/7; }
 
+/* messages: span own lane + half of SC lane */
+.cell_kid_to_sc { grid-column:1/4; }   /* kid + half-storycall */
+.cell_gma_to_sc { grid-column:4/7; }   /* half-storycall + grandma */
+
 /* storycall messages: span SC lane + half of adjacent lane */
 .cell_sc_to_kid { grid-column:2/5; }   /* half-kid + storycall */
 .cell_sc_to_gma { grid-column:3/6; }   /* storycall + half-grandma */
 
-/* empty tinted cells */
-.cell_ek1 { grid-column:1/2; background:rgba(220,252,231,.15); }   /* left half kid */
-.cell_ek  { grid-column:1/3; background:rgba(220,252,231,.15); }   /* full kid */
-.cell_es  { grid-column:3/5; background:rgba(219,234,254,.08); }   /* full storycall */
-.cell_eg  { grid-column:5/7; background:rgba(255,237,213,.15); }   /* full grandma */
-.cell_eg1 { grid-column:6/7; background:rgba(255,237,213,.15); }   /* right half grandma */
+/* empty cells — inactive column gets light gray */
+.cell_ek1 { grid-column:1/2; }                        /* half kid (active side) */
+.cell_ek  { grid-column:1/3; background:#f7f7f7; }    /* kid col gray in SC↔gma rows */
+.cell_es  { grid-column:3/5; }                        /* SC col (always active) */
+.cell_eg  { grid-column:5/7; background:#f7f7f7; }    /* gma col gray in kid↔SC rows */
+.cell_eg1 { grid-column:6/7; }                        /* half gma (active side) */
 
 /* the bubble */
 .bubble {
@@ -84,7 +89,9 @@
   line-height:1.45;
   white-space:pre-wrap;
   position:relative;
+  cursor:pointer;
 }
+.event_row { cursor:pointer; }
 
 /* conversation-colored bubbles: kid = green, storycall = blue, grandma = orange */
 .bubble_kid   { background:#dcfce7; color:#14532d; }
@@ -92,7 +99,7 @@
 .bubble_phone { background:#ffedd5; color:#7c2d12; }
 
 /* voice treatment — solid, darker background */
-.bubble_voice.bubble_kid   { background:#86efac; color:#14532d; }
+.bubble_voice.bubble_kid   { background:#4ade80; color:#14532d; }
 .bubble_voice.bubble_sc    { background:#93c5fd; color:#1e3a5f; }
 .bubble_voice.bubble_phone { background:#fdba74; color:#7c2d12; }
 
@@ -127,16 +134,26 @@
   background:#fef2f2; padding:3px 6px; border-radius:4px;
 }
 
-/* time-passes */
-.time_row {
+/* zone gap — separates kid↔SC rows from SC↔grandma rows */
+.zone_gap {
+  grid-column:1 / 7;
+  height:8px;
+  background:#f7f7f7;
+}
+
+/* event row (time passes, no answer, etc.) */
+.event_row {
   grid-column:1 / 7;
   text-align:center; padding:14px 8px;
+  margin:8px 0;
   font-size:.82rem; color:#999; font-style:italic;
-  background:#fafafa; border-top:2px dashed #ddd; border-bottom:2px dashed #ddd;
+  background:#f7f7f7; border-top:2px dashed #ddd; border-bottom:2px dashed #ddd;
+  box-shadow:0 -8px 0 #f7f7f7, 0 8px 0 #f7f7f7;
+  position:relative;
 }
 
 /* step number */
 .step_num {
-  position:absolute; top:5px; right:7px;
+  position:absolute; bottom:4px; right:7px;
   font-size:.6rem; color:#666; font-weight:400;
 }

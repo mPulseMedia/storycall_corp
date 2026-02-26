@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="220" style="background:#fff">
+  <rect x="0" y="0" width="460" height="220" fill="#fff"/>
+
+  <text x="230" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_7 reverse_order</text>
+
+  <!-- Before -->
+  <text x="115" y="52" font-family="monospace" font-size="11" text-anchor="middle" fill="#c53929" font-weight="bold">Before</text>
+
+  <rect x="15" y="62" width="200" height="105" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="25" y="80" font-family="monospace" font-size="9" fill="#a02919">chat_1  (oldest)</text>
+  <text x="25" y="94" font-family="monospace" font-size="9" fill="#a02919">chat_2</text>
+  <text x="25" y="108" font-family="monospace" font-size="9" fill="#a02919">...</text>
+  <text x="25" y="122" font-family="monospace" font-size="9" fill="#a02919">chat_6  (newest)</text>
+  <text x="25" y="140" font-family="monospace" font-size="9" fill="#a02919">------------------</text>
+  <text x="25" y="156" font-family="monospace" font-size="9" fill="#a02919">## NEXT PROMPT</text>
+
+  <!-- Arrow -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <line x1="223" y1="115" x2="243" y2="115" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- After -->
+  <text x="350" y="52" font-family="monospace" font-size="11" text-anchor="middle" fill="#34a853" font-weight="bold">After</text>
+
+  <rect x="250" y="62" width="200" height="105" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="260" y="80" font-family="monospace" font-size="9" fill="#1b7a2b">chat_7  (newest)</text>
+  <text x="260" y="94" font-family="monospace" font-size="9" fill="#1b7a2b">chat_6</text>
+  <text x="260" y="108" font-family="monospace" font-size="9" fill="#1b7a2b">...</text>
+  <text x="260" y="122" font-family="monospace" font-size="9" fill="#1b7a2b">chat_1  (oldest)</text>
+  <text x="260" y="140" font-family="monospace" font-size="9" fill="#1b7a2b">------------------</text>
+  <text x="260" y="156" font-family="monospace" font-size="9" fill="#1b7a2b">## NEXT PROMPT</text>
+
+  <!-- Label -->
+  <rect x="100" y="182" width="260" height="26" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="230" y="200" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">Reverse chrono; queue at bottom</text>
+</svg>

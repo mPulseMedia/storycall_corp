@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chat Log SVG Viewer</title>
+<style>
+  body { font-family: monospace; background: #f5f5f5; margin: 2em; }
+  h1 { font-size: 16px; }
+  .svg-frame { margin: 1em 0; }
+  img { max-width: 100%; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<h1>Chat Log SVG Viewer</h1>
+<div id="gallery"></div>
+<script>
+const svgFiles = [
+  "chat_42 json_wrap_align.svg",
+  "chat_41 bottom_gap_remove.svg",
+  "chat_40 msg_5b2_replace.svg",
+  "chat_39 precursor_2b.svg",
+  "chat_38 id_copy_click.svg",
+  "chat_37 event_split_3c.svg",
+  "chat_36 gray_mid.svg",
+  "chat_35 gray_unified.svg",
+  "chat_34 faint_gray.svg",
+  "chat_33 bottom_gap_gray.svg",
+  "chat_32 event_gap_bottom.svg",
+  "chat_31 event_id_renum.svg",
+  "chat_30 insert_3c4a.svg",
+  "chat_29 event_id.svg",
+  "chat_28 transcript_orange.svg",
+  "chat_27 mistake_3a1.svg",
+  "chat_26 remove_precursor_group.svg",
+  "chat_25 scenario_reorder.svg",
+  "chat_24 rename_titles.svg",
+  "chat_23 header_img_circle.svg",
+  "chat_22 mistake_msg_update.svg",
+  "chat_21 green_adjust.svg",
+  "chat_20 header_face_img.svg",
+  "chat_19 zone_gap_color.svg",
+  "chat_18 event_label_green_match.svg",
+  "chat_17 zone_gap.svg",
+  "chat_16 bubble_span_half_sc.svg",
+  "chat_15 event_bare_remove.svg",
+  "chat_14 lane_gray_inactive.svg",
+  "chat_13 event_channel_insert.svg",
+  "chat_12 event_type.svg",
+  "chat_11 bubble_id_bottom.svg",
+  "chat_10 json_colon_align.svg",
+  "chat_9 fn_rename_index.svg",
+  "chat_8 method_name_rule.svg",
+  "chat_7 reverse_order.svg",
+  "chat_6 indent_entry_body.svg",
+  "chat_5 svg_name_rule.svg",
+  "chat_4 rename_paul_to_doc.svg",
+  "chat_3 rule_fix_apply.svg",
+  "chat_2 rule_audit.svg",
+  "chat_1 chat_log_test.svg"
+];
+const gallery = document.getElementById("gallery");
+svgFiles.forEach(f => {
+  const div = document.createElement("div");
+  div.className = "svg-frame";
+  const img = document.createElement("img");
+  img.src = f;
+  img.alt = f;
+  div.appendChild(img);
+  gallery.appendChild(div);
+});
+</script>
+</body>
+</html>

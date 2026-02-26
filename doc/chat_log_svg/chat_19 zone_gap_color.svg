@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="160" style="background:#fff">
+  <rect x="0" y="0" width="480" height="160" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_19 zone_gap_color</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">.zone_gap background change</text>
+
+  <!-- Before -->
+  <rect x="40" y="64" width="160" height="30" rx="4" fill="#e8e8e8" stroke="#ccc" stroke-width="1"/>
+  <text x="120" y="84" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">#e8e8e8 (before)</text>
+
+  <text x="240" y="84" font-family="monospace" font-size="11" text-anchor="middle" fill="#555">→</text>
+
+  <!-- After -->
+  <rect x="280" y="64" width="160" height="30" rx="4" fill="#f3f3f3" stroke="#ccc" stroke-width="1"/>
+  <text x="360" y="84" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">#f3f3f3 (after)</text>
+
+  <text x="240" y="118" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">Same gray as cell_ek / cell_eg</text>
+
+  <!-- File -->
+  <rect x="165" y="130" width="150" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="145" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+</svg>

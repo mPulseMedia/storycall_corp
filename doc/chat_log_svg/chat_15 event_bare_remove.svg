@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="220" style="background:#fff">
+  <rect x="0" y="0" width="480" height="220" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_15 event_bare_remove</text>
+
+  <!-- Before -->
+  <text x="120" y="52" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Before (16 events)</text>
+
+  <rect x="20" y="62" width="200" height="56" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="120" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#dc2626" font-weight="bold">13 bare events removed</text>
+  <text x="120" y="94" font-family="monospace" font-size="9" text-anchor="middle" fill="#dc2626">10x "SMS"  3x "Call"</text>
+  <text x="120" y="108" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">label had no extra info</text>
+
+  <!-- After -->
+  <text x="360" y="52" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">After (3 events)</text>
+
+  <rect x="260" y="62" width="200" height="56" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="360" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b" font-weight="bold">3 descriptive events kept</text>
+  <text x="360" y="94" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">1 hour later</text>
+  <text x="360" y="104" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">Call - No answer - 1hr</text>
+  <text x="360" y="114" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">SMS - No answer - 1hr</text>
+
+  <!-- File -->
+  <rect x="150" y="140" width="180" height="28" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="159" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js</text>
+
+  <!-- Scenarios touched -->
+  <text x="240" y="186" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">1A  2A  2B  2C  3A  3B  3C</text>
+</svg>

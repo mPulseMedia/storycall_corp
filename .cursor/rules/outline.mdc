@@ -4,7 +4,7 @@ alwaysApply: true
 # Outline Format Rules
 
 1.  Purpose
-    A.  Defines the layout rules for files in `paul/`.
+    A.  Defines the layout rules for files in `doc/`.
     B.  Each line shows only its local marker; uniqueness
         comes from the marker path.
 

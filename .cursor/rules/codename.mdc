@@ -1,43 +1,61 @@
 ---
 alwaysApply: true
 ---
-# maintenence of codenames
+# Maintenance of Codenames
 
-when selecting names for methods, files, and anything else you have influence over it's name -- use these naming conventions.
+When selecting names for methods, files, and
+anything else you have influence over its
+name, use these naming conventions.
 
-1.  codename_structure
-    A.  Use lowercase snake_case with a root (left most) term
-        defining the broad concept.
-    B.  Subject: the root term names the subject (domain,
-        area, or entity) the codename refers to.
-        1. Start a name using an existing root when possible
-    C.  Subsequent terms refine object and action.
-        1.  Object: what is acted on (e.g. state_list,
-            card_rect).
-        2.  Action: verb last (e.g. _get, _set, _build).
+A.  Codename structure
+    1.  Use lowercase snake_case with a root
+        (leftmost) term defining the broad
+        concept.
+    2.  Applies to all nameable things: methods,
+        functions, classes, files, CSS custom
+        properties, IDs, variables, etc.
+    3.  Subject: the root term names the subject
+        (domain, area, or entity) the codename
+        refers to.
+        a.  Start a name using an existing root
+            when possible.
+    4.  Subsequent terms refine object and
+        action.
+        a.  Object: what is acted on (e.g.
+            state_list, card_rect).
+        b.  Action: verb last (e.g. _get, _set,
+            _build).
 
-2.  term_rule
-    A.  Keep terms short and singular.
-    B.  Abbreviate frequently used terms.
+B.  Term rules
+    1.  Keep terms short and singular.
+    2.  Abbreviate frequently used terms.
 
-3.  codename_maintenance
-    A.  Engage iteratively to refine conventions.
-    B.  Keep the index updated for easy sorting.
-        1.  list all codenames in index.
-        2.  Show count of occuance listed 36 characters in
-        3.  Update paul/codename_index.txt every time
-            codenames are added, removed, or changed.
-    C.  Create/maintain codenames
-        1.  Iterativly, in related groups, add commented
-            lines with a double-underscore before the
+C.  Codename maintenance
+    1.  Engage iteratively to refine
+        conventions.
+    2.  Keep the index updated for easy sorting.
+        a.  List all codenames in index.
+        b.  Show count of occurrence listed 36
+            characters in.
+        c.  Update doc/codename_index.txt every
+            time codenames are added, removed,
+            or changed.
+    3.  Create/maintain codenames.
+        a.  Iteratively, in related groups, add
+            commented lines with a
+            double-underscore before the
             codename related to that code.
+    4.  When creating or renaming a method,
+        function, or variable, name it per
+        section A and add it to the index.
 
-4.  name_index (doc/codename_index.md)
-    A.  Keep lexicographic order by name.
-    B.  Insert blank line when root term changes
+D.  Name index (doc/codename_index.txt)
+    1.  Keep lexicographic order by name.
+    2.  Insert blank line when root term changes
         (first term before `_`).
-    C.  Use `name : type` format.
-    D.  Align `:` column vertically.
-    E.  Keep `type` short and lowercase (`css`,
-        `class`, `id`, `file`, `image`, `domain`,
-        `section`, `field`).
+    3.  Use `name : type` format.
+    4.  Align `:` column vertically.
+    5.  Keep `type` short and lowercase (`css`,
+        `class`, `id`, `file`, `image`,
+        `domain`, `section`, `field`,
+        `method`, `function`, `var`).

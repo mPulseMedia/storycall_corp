@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="220" style="background:#fff">
+  <rect x="0" y="0" width="480" height="220" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_18 event_label_green_match</text>
+
+  <!-- Event label change -->
+  <text x="120" y="52" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">3C event label</text>
+
+  <rect x="20" y="60" width="200" height="26" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="120" y="78" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">SMS - No answer - 1 hour later</text>
+
+  <text x="120" y="103" font-family="monospace" font-size="10" text-anchor="middle" fill="#555">becomes</text>
+
+  <rect x="20" y="112" width="200" height="26" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="120" y="130" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">SMS - No answer</text>
+
+  <!-- Green color matching -->
+  <text x="360" y="52" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Kid bubble colors</text>
+
+  <rect x="270" y="62" width="90" height="26" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+  <text x="315" y="80" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d">light #f0fdf4</text>
+
+  <rect x="370" y="62" width="90" height="26" rx="8" fill="#22c55e" stroke="#16a34a" stroke-width="1"/>
+  <text x="415" y="80" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d">voice #22c55e</text>
+
+  <text x="360" y="106" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">Matches header colors</text>
+
+  <rect x="270" y="114" width="180" height="24" rx="0" fill="#f0fdf4" stroke="none"/>
+  <rect x="270" y="138" width="180" height="3" rx="0" fill="#16a34a" stroke="none"/>
+  <text x="360" y="132" font-family="monospace" font-size="9" text-anchor="middle" fill="#166534" font-weight="bold">Kid</text>
+
+  <!-- Files -->
+  <rect x="70" y="168" width="140" height="24" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="140" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js</text>
+  <rect x="270" y="168" width="140" height="24" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="340" y="185" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+</svg>

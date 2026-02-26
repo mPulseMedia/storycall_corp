@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="150" style="background:#fff">
+  <rect x="0" y="0" width="480" height="150" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_26 remove_precursor_group</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">precursor_group removed from all scenarios</text>
+
+  <rect x="40" y="62" width="400" height="36" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="240" y="78" font-family="monospace" font-size="9" text-anchor="middle" fill="#dc2626">12 precursor_group fields deleted (scenarios.js)</text>
+  <text x="240" y="92" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">renderer simplified (scenarios.html)</text>
+
+  <rect x="80" y="114" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="150" y="129" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js</text>
+  <rect x="260" y="114" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="330" y="129" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html</text>
+</svg>

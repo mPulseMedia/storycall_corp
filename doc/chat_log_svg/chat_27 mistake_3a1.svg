@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="130" style="background:#fff">
+  <rect x="0" y="0" width="480" height="130" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_27 mistake_3a1</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">3A1 mistake added</text>
+
+  <rect x="60" y="60" width="360" height="34" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="240" y="76" font-family="monospace" font-size="9" text-anchor="middle" fill="#dc2626" font-weight="bold">⚠ Kid sends text to Grandma</text>
+  <text x="240" y="88" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">kind: text_instead_of_voice</text>
+
+  <rect x="150" y="106" width="180" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="121" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js : 3A1</text>
+</svg>

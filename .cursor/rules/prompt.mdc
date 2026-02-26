@@ -9,15 +9,18 @@ A.  Scope
     2.  They do not replace any other spec/rule
         files.
 
-B.  Apply rule files to paul files
-    1.  When editing any file in `paul/`, apply
+B.  Apply rule files to doc files
+    1.  When editing any file in `doc/`, apply
         the formatting + layout rules in
         `.cursor/rules/outline.mdc`.
 
 C.  Chat log
-    1.  For every prompt, append a new entry to
-        `paul/chat_log.txt`. Do this unless the
-        user explicitly asks you not to.
+    1.  For every prompt, prepend a new entry
+        to the top of `doc/chat_log.txt`. Do
+        this unless the user explicitly asks
+        you not to. Newest entry first; older
+        entries follow in reverse chronological
+        order.
     2.  Never skip chat log updates. Treat it as
         mandatory for every response that
         addresses a prompt.
@@ -32,7 +35,8 @@ C.  Chat log
         for the timestamp. Run `date` to get
         accurate local time. Do not guess or use
         placeholder times.
-    6.  Entry body format:
+    6.  Entry body format: indent A/B/C 4
+        spaces under the chat_NNN header.
         a.  A.  Prompt
             1.  Quote the prompt verbatim.
         b.  B.  Response
@@ -41,8 +45,8 @@ C.  Chat log
             2.  Include a local link to the SVG
                 diagram for this entry, e.g.:
                 file:///Users/pauldsmith/Desktop/
-                pops/paul/chat_log_svg/
-                N.short_label.svg
+                storycall_corp/doc/chat_log_svg/
+                chat_N short_label.svg
         c.  C.  Codenames
             1.  List codenames involved in the
                 prompt effort, sorted.
@@ -50,7 +54,7 @@ C.  Chat log
                 "new:" or append "(new)").
             3.  If none, write "None."
             4.  Role executed every prompt: update
-                paul/codename_index.txt when
+                doc/codename_index.txt when
                 codenames are added, removed, or
                 changed (codename.mdc C3).
     7.  For very small changes, keep Response to
@@ -62,7 +66,7 @@ C.  Chat log
         the prompt is about manipulating/creating
         the queued `##  NEXT PROMPT` entry or
         about doing other work. Either way,
-        update `paul/chat_log.txt` (and apply the
+        update `doc/chat_log.txt` (and apply the
         queue rules in section D when relevant).
 
 D.  Processed vs queued prompts
@@ -72,12 +76,12 @@ D.  Processed vs queued prompts
         PROMPT` entry in place with the new
         options. Also add a chat log entry for
         that prompt.
-    2.  `paul/chat_log.txt` contains one separator
+    2.  `doc/chat_log.txt` contains one separator
         line: `------------------`
-    3.  Entries above the separator are PROCESSED
-        prompts.
-    4.  The separator must appear immediately
-        after the most recent processed entry.
+    3.  Processed entries appear above the
+        separator (newest first).
+    4.  The separator and `##  NEXT PROMPT`
+        appear at the very bottom of the file.
     5.  Entries below the separator are QUEUED
         prompts.
     6.  QUEUED prompt entries:
@@ -157,18 +161,19 @@ D.  Processed vs queued prompts
 
 E.  Resetting the chat log
     1.  If a prompt asks to delete/reset the chat
-        log, replace `paul/chat_log.txt` with a
+        log, replace `doc/chat_log.txt` with a
         fresh log starting at entry `1.`.
     2.  Preserve the separator + exactly one
         queued `##  NEXT PROMPT` entry below it.
 
 F.  SVG diagrams
     1.  For every processed prompt, create an SVG
-        diagram in `paul/chat_log_svg/`.
-    2.  File name: `N.short_label.svg` where N is
-        the chat log entry number and short_label
-        is a snake_case summary (e.g.
-        `131.card_title_centered.svg`).
+        diagram in `doc/chat_log_svg/`.
+    2.  File name: use the chat log codename,
+        e.g. `chat_4 rename_paul_to_doc.svg`.
+        Format: `chat_NNN short_label.svg`
+        (space-separated, matching the entry
+        header).
     3.  The SVG should depict a diagram that
         explains the response in context of the
         chat: before/after, data flow, layout
@@ -200,16 +205,17 @@ F.  SVG diagrams
             accordingly.
     7.  Use a non-transparent background color
         (e.g. white) on the root SVG element.
-    8.  After creating the numbered SVG, append
-        its filename to the `svgFiles` array in
-        `paul/chat_log_svg/current.html`.
-        The viewer auto-reloads.
+    8.  After creating the SVG, prepend its
+        filename to the top of the `svgFiles`
+        array in `doc/chat_log_svg/current.html`
+        (newest first). The viewer
+        auto-reloads.
 
 G.  Spec maintenance (primary app features)
     1.  If a prompt creates or modifies a feature
         in the primary application (outside
-        `paul/`), update the relevant spec
-        file(s) in `paul/` (spec_*.txt)
+        `doc/`), update the relevant spec
+        file(s) in `doc/` (spec_*.txt)
         accordingly.
     2.  Use the outline format rules in
         `.cursor/rules/outline.mdc`.
@@ -243,10 +249,3 @@ H.  Chat entry codenames
         section of the chat log entry.
     4.  This links code to the chat log entry
         that created or modified it.
-
-I.  Chat log current file
-    1.  After adding each chat log entry, copy
-        the most recently added entry into
-        `paul/chat_log_current.txt` (overwrite).
-    2.  This keeps one file with only the latest
-        entry for quick reference.

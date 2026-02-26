@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="120" style="background:#fff">
+  <rect x="0" y="0" width="480" height="120" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_41 bottom_gap_remove</text>
+
+  <!-- before -->
+  <text x="80" y="44" font-family="monospace" font-size="9" text-anchor="middle" fill="#888">BEFORE</text>
+  <rect x="30" y="50" width="100" height="24" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="80" y="66" font-family="monospace" font-size="8" text-anchor="middle" fill="#1e3a5f">last bubble</text>
+  <rect x="30" y="74" width="100" height="12" rx="0" fill="#f7f7f7" stroke="#ddd" stroke-width="0.5"/>
+  <text x="80" y="83" font-family="monospace" font-size="6" text-anchor="middle" fill="#999">.lanes::after</text>
+  <rect x="30" y="86" width="100" height="4" rx="0" rx="0" fill="none" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2"/>
+
+  <!-- arrow -->
+  <text x="175" y="70" font-family="monospace" font-size="14" fill="#555">→</text>
+
+  <!-- after -->
+  <text x="280" y="44" font-family="monospace" font-size="9" text-anchor="middle" fill="#888">AFTER</text>
+  <rect x="230" y="50" width="100" height="24" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="280" y="66" font-family="monospace" font-size="8" text-anchor="middle" fill="#1e3a5f">last bubble</text>
+  <rect x="230" y="74" width="100" height="4" rx="0" fill="none" stroke="#ddd" stroke-width="0.5" stroke-dasharray="2"/>
+
+  <text x="240" y="108" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">removed .lanes::after (12px #f7f7f7)</text>
+  <rect x="150" y="112" width="180" height="14" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="122" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">scenarios.css</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="160" style="background:#fff">
+  <rect x="0" y="0" width="480" height="160" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_29 event_id</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">IDs added to 3 event rows</text>
+
+  <rect x="30" y="62" width="120" height="28" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1" stroke-dasharray="4"/>
+  <text x="90" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#999" font-style="italic">3BE1</text>
+
+  <rect x="180" y="62" width="120" height="28" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1" stroke-dasharray="4"/>
+  <text x="240" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#999" font-style="italic">3CE1</text>
+
+  <rect x="330" y="62" width="120" height="28" rx="4" fill="#fafafa" stroke="#ddd" stroke-width="1" stroke-dasharray="4"/>
+  <text x="390" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#999" font-style="italic">3CE2</text>
+
+  <text x="240" y="114" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">event_row gets position:relative for step_num</text>
+
+  <rect x="70" y="126" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="140" y="141" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js</text>
+  <rect x="270" y="126" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="340" y="141" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html/css</text>
+</svg>

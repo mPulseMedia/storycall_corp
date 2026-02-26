@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="340" style="background:#fff">
+  <rect x="0" y="0" width="520" height="340" fill="#fff"/>
+
+  <text x="260" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_3 — Rule Fixes Applied</text>
+
+  <!-- Before column -->
+  <text x="140" y="52" font-family="monospace" font-size="11" text-anchor="middle" fill="#c53929" font-weight="bold">Before</text>
+
+  <rect x="30" y="62" width="220" height="30" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="140" y="82" font-family="monospace" font-size="9" text-anchor="middle" fill="#a02919">Section I: chat_log_current.txt</text>
+
+  <rect x="30" y="100" width="220" height="30" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="140" y="120" font-family="monospace" font-size="9" text-anchor="middle" fill="#a02919">SVG path: .../pops/paul/...</text>
+
+  <rect x="30" y="138" width="220" height="30" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="140" y="158" font-family="monospace" font-size="9" text-anchor="middle" fill="#a02919">Index: doc/codename_index.md</text>
+
+  <rect x="30" y="176" width="220" height="30" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="140" y="196" font-family="monospace" font-size="9" text-anchor="middle" fill="#a02919">L1: numeric (1. 2. 3.)</text>
+
+  <rect x="30" y="214" width="220" height="30" rx="4" fill="#fce8e6" stroke="#c53929" stroke-width="1"/>
+  <text x="140" y="234" font-family="monospace" font-size="9" text-anchor="middle" fill="#a02919">maintenence, occuance ...</text>
+
+  <!-- Arrows -->
+  <line x1="258" y1="77" x2="278" y2="77" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="258" y1="115" x2="278" y2="115" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="258" y1="153" x2="278" y2="153" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="258" y1="191" x2="278" y2="191" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="258" y1="229" x2="278" y2="229" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- After column -->
+  <text x="390" y="52" font-family="monospace" font-size="11" text-anchor="middle" fill="#34a853" font-weight="bold">After</text>
+
+  <rect x="286" y="62" width="220" height="30" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="396" y="82" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">Removed (redundant)</text>
+
+  <rect x="286" y="100" width="220" height="30" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="396" y="120" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">.../storycall_corp/paul/...</text>
+
+  <rect x="286" y="138" width="220" height="30" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="396" y="158" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">paul/codename_index.txt</text>
+
+  <rect x="286" y="176" width="220" height="30" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="396" y="196" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">L1: uppercase (A. B. C.)</text>
+
+  <rect x="286" y="214" width="220" height="30" rx="4" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="396" y="234" font-family="monospace" font-size="9" text-anchor="middle" fill="#1b7a2b">maintenance, occurrence ...</text>
+
+  <!-- Files touched -->
+  <text x="260" y="275" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Files Modified</text>
+  <rect x="60" y="285" width="180" height="28" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="150" y="304" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">prompt.mdc (2 edits)</text>
+  <rect x="280" y="285" width="180" height="28" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="370" y="304" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">codename.mdc (rewrite)</text>
+</svg>

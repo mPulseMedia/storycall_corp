@@ -1,0 +1,822 @@
+chat_41  bottom_gap_remove -- 2026-02-26 12:24:58 PM
+
+    A.  Prompt
+        1.  Remove the light gray gap at the bottom
+            of each scenario.
+
+    B.  Response
+        1.  Removed .lanes::after pseudo-element
+            (12px #f7f7f7 bar) from scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_41%20bottom_gap_remove.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_42  json_wrap_align -- 2026-02-26 12:31:00 PM
+
+    A.  Prompt
+        1.  Erroneous "4.A." title was inserted in
+            multiple places in .js. Audit .js JSON.
+            Maintain indent to 35 and wrap to 38.
+
+    B.  Response
+        1.  Audited JSON — parses OK, no duplicate
+            title lines remaining (user had already
+            cleaned those up).
+        2.  Realigned all text array continuation
+            lines to column 38 (matching `:` at 35).
+            Step-level moved from col 41, part-level
+            from col 47. Also removed .lanes::after.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_42%20json_wrap_align.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_40  msg_5b2_replace -- 2026-02-26 12:22:00 PM
+
+    A.  Prompt
+        1.  Replace 5B2 with 1A2.
+
+    B.  Response
+        1.  Replaced 5B2 text (welcome back message)
+            with 1A2 text (initial StoryCall greeting
+            with setup instructions).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_40%20msg_5b2_replace.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_39  precursor_2b -- 2026-02-26 12:15:36 PM
+
+    A.  Prompt
+        1.  Set the context or precursor for 2: kid
+            has submitted the keyword correctly but
+            seems to be having trouble with setup.
+
+    B.  Response
+        1.  Updated 2B precursor from "Kid has
+            successfully texted the keyword story
+            call" to "Kid has submitted the keyword
+            correctly but is having trouble with
+            setup."
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_39%20precursor_2b.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_38  id_copy_click -- 2026-02-26 12:12:53 PM
+
+    A.  Prompt
+        1.  Make it so if I tap a bubble or event
+            or anything with an ID, it copies that
+            ID within quotation marks to my
+            clipboard so I can easily search for it
+            in the .js file.
+
+    B.  Response
+        1.  Added click handler on #out using event
+            delegation: clicking a .bubble or
+            .event_row copies its step_num text
+            wrapped in double quotes to clipboard.
+        2.  Added cursor:pointer to .bubble and
+            .event_row in CSS.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_38%20id_copy_click.svg
+
+    C.  Codenames
+        1.  id_copy_click (new)
+
+chat_37  event_split_3c -- 2026-02-26 12:08:45 PM
+
+    A.  Prompt
+        1.  Split 3C6 to have "Call — No answer"
+            between 3C4 and 3C5. But have "1 hour
+            later" after 3C5.
+
+    B.  Response
+        1.  Split old event 3C6 ("Call — No answer
+            — 1 hour later") into two events: 3C5
+            "Call — No answer" and 3C7 "1 hour
+            later", with the SC text to kid (now
+            3C6) between them.
+        2.  Renumbered 3C5-3C11 → 3C6-3C12 to
+            accommodate the two new events.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_37%20event_split_3c.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_36  gray_mid -- 2026-02-26 12:04:14 PM
+
+    A.  Prompt
+        1.  But more faint than that. In between.
+
+    B.  Response
+        1.  Changed all grays from #f3f3f3 to
+            #f7f7f7 (midpoint between #f3f3f3
+            and #fafafa).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_36%20gray_mid.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_35  gray_unified -- 2026-02-26 12:03:49 PM
+
+    A.  Prompt
+        1.  All of them, not that faint. Make the
+            gap above and below the events the
+            same gray.
+
+    B.  Response
+        1.  Reverted all grays from #fafafa back
+            to #f3f3f3: inactive columns, zone
+            gap, event row (background +
+            box-shadow), and lanes::after.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_35%20gray_unified.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_34  faint_gray -- 2026-02-26 12:02:26 PM
+
+    A.  Prompt
+        1.  Make the light gray of the grandma
+            when not involved, and kid when not
+            involved and the gaps between and at
+            the bottom — make that gray very faint.
+
+    B.  Response
+        1.  Changed all 4 occurrences of #f3f3f3
+            to #fafafa in scenarios.css (cell_ek,
+            cell_eg, zone_gap, lanes::after).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_34%20faint_gray.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_33  bottom_gap_gray -- 2026-02-26 12:01:31 PM
+
+    A.  Prompt
+        1.  Make the gap at the bottom of the
+            scenario the light gray shown
+            elsewhere.
+
+    B.  Response
+        1.  Replaced padding-bottom:12px with a
+            .lanes::after pseudo-element (12px
+            tall, background:#f3f3f3) matching
+            the inactive column gray.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_33%20bottom_gap_gray.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_32  event_gap_bottom -- 2026-02-26 11:54:08 AM
+
+    A.  Prompt
+        1.  Have a gap above and below the events.
+            Have a gap below the last bubble or
+            event within a scenario.
+
+    B.  Response
+        1.  Added margin:8px 0 to .event_row for
+            spacing above and below events.
+        2.  Added padding-bottom:12px to .lanes
+            for space after the last item.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_32%20event_gap_bottom.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_31  event_id_renum -- 2026-02-26 11:53:23 AM
+
+    A.  Prompt
+        1.  For event, just fit in the numbering
+            scheme of the other bubbles.
+
+    B.  Response
+        1.  Renumbered events into sequential step
+            IDs: 3BE1→3B7 (shifted 3B7-12 to
+            3B8-13), 3CE1→3C6, 3CE2→3C10,
+            3C4a→3C5 (shifted 3C5-8 to 3C7-11).
+            All cross-references updated.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_31%20event_id_renum.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_30  insert_3c4a -- 2026-02-26 11:51:24 AM
+
+    A.  Prompt
+        1.  Insert a text from SC to Kid after
+            3C4 that says "StoryCall: They did not
+            answer, so I'll call back in an hour."
+
+    B.  Response
+        1.  Inserted step 3C4a (sms, storycall→kid,
+            text) between the telephone call block
+            and event 3CE1 in scenarios.js.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_30%20insert_3c4a.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_29  event_id -- 2026-02-26 11:50:46 AM
+
+    A.  Prompt
+        1.  Add an ID to the Events.
+
+    B.  Response
+        1.  Added IDs to all 3 events in
+            scenarios.js: 3BE1, 3CE1, 3CE2.
+        2.  Updated event_row renderer in
+            scenarios.html to display step_num.
+            Added position:relative to .event_row
+            in scenarios.css.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_29%20event_id.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_28  transcript_orange -- 2026-02-26 11:48:58 AM
+
+    A.  Prompt
+        1.  Make the color of 3B12 the light
+            orange to indicate that it is text but
+            it is text coming from grandma.
+
+    B.  Response
+        1.  Expanded relay check in scenarios.html
+            to include sms_text_transcript (not
+            just sms_audio_relay). 3B12 now renders
+            as bubble_phone (light orange #ffedd5).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_28%20transcript_orange.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_27  mistake_3a1 -- 2026-02-26 11:47:27 AM
+
+    A.  Prompt
+        1.  In 3A1, add mistake "Kid sends text
+            to Grandma".
+
+    B.  Response
+        1.  Added mistakes array to step 3A1 in
+            scenarios.js with kind
+            "text_instead_of_voice" and message
+            "Kid sends text to Grandma".
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_27%20mistake_3a1.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_26  remove_precursor_group -- 2026-02-26 11:45:08 AM
+
+    A.  Prompt
+        1.  Remove group precursors.
+
+    B.  Response
+        1.  Removed all 12 precursor_group fields
+            from scenarios.js.
+        2.  Simplified renderer in scenarios.html
+            to use only precursor field.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_26%20remove_precursor_group.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_25  scenario_reorder -- 2026-02-26 11:44:12 AM
+
+    A.  Prompt
+        1.  Move 3B to 3A. Change keyword of 4B
+            to VOICE. Rename 4 to Help. Remove
+            2A4.
+
+    B.  Response
+        1.  Swapped 3A↔3B in scenarios.js: "Kid
+            error: Text to Grandma" is now 3A,
+            "Grandma: Call back" is now 3B. All
+            step IDs and cross-references updated.
+        2.  Changed 4B title keyword from HELP to
+            VOICE; kid text changed to "VOICE".
+        3.  Renamed group 4 label from "Texting
+            for help" to "Help" in scenarios.html.
+        4.  Removed step 2A4 (duplicate welcome
+            message) from scenarios.js.
+        5.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_25%20scenario_reorder.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_24  rename_titles -- 2026-02-26 11:41:25 AM
+
+    A.  Prompt
+        1.  Rename: Setup issues / Kid error:
+            Keyword wrong / Kid error: Phone
+            number incomplete / Message issues /
+            Grandma: Call back / Kid error: Text
+            to Grandma / Grandma: No answer.
+
+    B.  Response
+        1.  Renamed 2 group labels in
+            scenarios.html (Setup issues, Message
+            issues).
+        2.  Renamed 5 scenario titles in
+            scenarios.js (2A, 2B, 3A, 3B, 3C).
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_24%20rename_titles.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_23  header_img_circle -- 2026-02-26 11:36:50 AM
+
+    A.  Prompt
+        1.  Make the circles with kid and grandma
+            in the header be circles. They seem
+            squished. And make them 33% bigger.
+
+    B.  Response
+        1.  Changed .lane_hdr img from 24px to 32px
+            and added object-fit:cover to prevent
+            squishing on non-square source images.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_23%20header_img_circle.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_22  mistake_msg_update -- 2026-02-26 11:36:07 AM
+
+    A.  Prompt
+        1.  Change the alert in 2a1 to "Kid texts
+            incorrect keyword".
+
+    B.  Response
+        1.  Changed 2A1 mistake message from "kid
+            texts story" to "Kid texts incorrect
+            keyword" in scenarios.js.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_22%20mistake_msg_update.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_21  green_adjust -- 2026-02-26 11:35:08 AM
+
+    A.  Prompt
+        1.  Make the dark green a little lighter,
+            and the light green a little darker.
+
+    B.  Response
+        1.  Light bubble: #f0fdf4 → #dcfce7
+            (darker). Voice bubble: #22c55e →
+            #4ade80 (lighter). Both in
+            scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_21%20green_adjust.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_20  header_face_img -- 2026-02-26 11:34:36 AM
+
+    A.  Prompt
+        1.  Put the small image of kid to the left
+            of the Kid name in the header. And put
+            the grandma circle image to the right
+            of Grandma in the header.
+
+    B.  Response
+        1.  Added face_kid.png left of "Kid" and
+            face_granny.png right of "Grandma" in
+            lane headers (scenarios.html).
+        2.  Added .lane_hdr img style (24px circle)
+            in scenarios.css.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_20%20header_face_img.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_19  zone_gap_color -- 2026-02-26 11:33:56 AM
+
+    A.  Prompt
+        1.  Make that gap the same light gray
+            color as when grandma is not in the
+            exchange, or kid is not in the
+            exchange.
+
+    B.  Response
+        1.  Changed .zone_gap background from
+            #e8e8e8 to #f3f3f3, matching the
+            inactive column gray (cell_ek/cell_eg).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_19%20zone_gap_color.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_18  event_label_green_match -- 2026-02-26 11:33:24 AM
+
+    A.  Prompt
+        1.  Remove 1 hour later in the event that
+            follows 3c7. Make the green colors of
+            the light and dark bubbles the same as
+            the colors used in the header for Kid.
+            Well, make the dark green a little
+            lighter than the header line under the
+            title.
+
+    B.  Response
+        1.  Changed 3C event label from "SMS — No
+            answer — 1 hour later" to "SMS — No
+            answer" in scenarios.js.
+        2.  Changed bubble_kid background from
+            #dcfce7 to #f0fdf4 (matches Kid header
+            bg). Changed bubble_voice.bubble_kid
+            from #86efac to #22c55e (one step
+            lighter than header line #16a34a).
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_18%20event_label_green_match.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_17  zone_gap -- 2026-02-26 11:31:55 AM
+
+    A.  Prompt
+        1.  Introduce a gap between the white that
+            contains the exchanges between kid and
+            SC and the white that contains exchanges
+            between SC and grandma.
+
+    B.  Response
+        1.  Added .zone_gap class in scenarios.css
+            (8px gray bar spanning all columns).
+        2.  Updated scn_scenario_render in
+            scenarios.html to detect zone transitions
+            (sms=kid, telephone=grandma) and insert
+            gap divs. Event rows are zone-neutral.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_17%20zone_gap.svg
+
+    C.  Codenames
+        1.  zone_gap (new)
+
+chat_16  bubble_span_half_sc -- 2026-02-26 11:28:13 AM
+
+    A.  Prompt
+        1.  Have the bubbles from kid to SC fill
+            the kid column and span into 1/2 of
+            the SC column. Likewise with bubble
+            from grandma to SC, have them extend
+            1/2 into SC column. But keep things
+            as CSS simple as possible.
+
+    B.  Response
+        1.  Added cell_kid_to_sc (grid-column:1/4)
+            and cell_gma_to_sc (grid-column:4/7)
+            in scenarios.css.
+        2.  Updated scenarios.html: kid bubbles now
+            use cell_kid_to_sc, grandma answers
+            use cell_gma_to_sc.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_16%20bubble_span_half_sc.svg
+
+    C.  Codenames
+        1.  cell_gma_to_sc (new)
+        2.  cell_kid_to_sc (new)
+
+chat_15  event_bare_remove -- 2026-02-26 11:28:13 AM
+
+    A.  Prompt
+        1.  Remove the events that are only Call
+            or SMS.
+
+    B.  Response
+        1.  Removed 13 bare event objects (10 SMS,
+            3 Call) from scenarios.js. Kept 3
+            descriptive events (1 hour later,
+            Call — No answer, SMS — No answer).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_15%20event_bare_remove.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_14  lane_gray_inactive -- 2026-02-26 11:22:00 AM
+
+    A.  Prompt
+        1.  Can you do a simple html css thing
+            where the portion of the scenario
+            with exchange between kid and SC is
+            on white, and the right column is
+            light gray. And the portion between
+            SC and grandma is white and kid
+            column is light gray.
+
+    B.  Response
+        1.  Set cell_ek and cell_eg to
+            background:#f3f3f3 (light gray) for
+            inactive columns. Cleared tints from
+            cell_ek1, cell_es, cell_eg1 (active
+            sides stay white).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_14%20lane_gray_inactive.svg
+
+    C.  Codenames
+        1.  cell_ek
+        2.  cell_eg
+
+chat_13  event_channel_insert -- 2026-02-26 11:09:13 AM
+
+    A.  Prompt
+        1.  Insert event SMS before 1a1, Call
+            before 1a6, sms before 1a10. sms
+            before 2a1. sms before 2b1. text
+            before 2c1. text before 3a1. call
+            before 3a2. text before 3a6. text
+            before 3a11. text before 3b1. text
+            before 3c1. call before 3c2. in
+            event before 3c5, add call. add
+            Text to event before 3c8. When I
+            say text event, make that SMS.
+
+    B.  Response
+        1.  Inserted 13 new channel events
+            (10 SMS, 3 Call) in scenarios.js.
+        2.  Modified 2 existing events: added
+            "Call —" prefix before 3C5, "SMS —"
+            prefix before 3C8.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_13%20event_channel_insert.svg
+
+    C.  Codenames
+        1.  scn_scenario_render
+
+chat_12  event_type -- 2026-02-26 11:03:50 AM
+
+    A.  Prompt
+        1.  Change the "1 hour later" items in
+            js to "event" type so it can include
+            other strings like calls, no answer,
+            etc.
+
+    B.  Response
+        1.  Renamed type "time_passes" to
+            "event" in scenarios.js (3
+            occurrences).
+        2.  Renamed .time_row to .event_row in
+            scenarios.css and scenarios.html.
+        3.  Added event_row to codename index.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_12%20event_type.svg
+
+    C.  Codenames
+        1.  event_row (new)
+        2.  scn_scenario_render
+
+chat_11  bubble_id_bottom -- 2026-02-26 10:58:35 AM
+
+    A.  Prompt
+        1.  Put the bubble ID in the bottom
+            right corner.
+
+    B.  Response
+        1.  Changed .step_num from top:5px to
+            bottom:4px in scenarios.css. ID now
+            renders bottom-right of each bubble.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_11%20bubble_id_bottom.svg
+
+    C.  Codenames
+        1.  step_num
+
+chat_10  json_colon_align -- 2026-02-26 10:54:26 AM
+
+    A.  Prompt
+        1.  Index the : to column 35 within
+            scenarios.js.
+
+    B.  Response
+        1.  Aligned all `:` in scenarios.js to
+            column 35. Long keys that exceed
+            column 34 get a single space before
+            `:`.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_10%20json_colon_align.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_9  fn_rename_index -- 2026-02-26 10:51:19 AM
+
+    A.  Prompt
+        1.  Add function to codename index and
+            to follow naming convention of
+            codenames. renderScenario does not
+            for example.
+
+    B.  Response
+        1.  Renamed 5 functions in
+            scenarios.html to snake_case with
+            scn_ root: T -> scn_text_get,
+            E -> scn_html_escape,
+            msgRow -> scn_msg_row_build,
+            renderCall -> scn_call_render,
+            renderScenario -> scn_scenario_render.
+        2.  Added all 5 to codename_index.txt
+            as type function.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_9%20fn_rename_index.svg
+
+    C.  Codenames
+        1.  scn_call_render (new)
+        2.  scn_html_escape (new)
+        3.  scn_msg_row_build (new)
+        4.  scn_scenario_render (new)
+        5.  scn_text_get (new)
+
+chat_8  method_name_rule -- 2026-02-26 10:49:27 AM
+
+    A.  Prompt
+        1.  Make sure method names follow
+            codename convention and are added to
+            the index. Update rules.
+
+    B.  Response
+        1.  Updated codename.mdc A.2: explicitly
+            lists methods, functions, classes,
+            files, CSS, IDs, variables.
+        2.  Added C.4: when creating or renaming
+            a method/function/variable, name per
+            convention and add to index.
+        3.  Added method, function, var to D.5
+            type list.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_8%20method_name_rule.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_7  reverse_order -- 2026-02-26 10:46:37 AM
+
+    A.  Prompt
+        1.  Change the rules and put the latest
+            chat segment at the TOP of the
+            chat_log file, and list the others
+            going back in time. And put the NEXT
+            PROMPT suggestion at the very bottom
+            for now.
+
+    B.  Response
+        1.  Updated prompt.mdc C.1 and D.2-4:
+            newest entry first, separator +
+            NEXT PROMPT at bottom.
+        2.  Reversed all existing entries.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_7%20reverse_order.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_6  indent_entry_body -- 2026-02-26 10:43:03 AM
+
+    A.  Prompt
+        1.  Indent A and B... under the chat_#
+            thing in the log. Update rule.
+
+    B.  Response
+        1.  Updated prompt.mdc C.6: A/B/C
+            sections now indent 4 spaces under
+            the chat_NNN header.
+        2.  Reflowed all existing chat log
+            entries to match.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_6%20indent_entry_body.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_5  svg_name_rule -- 2026-02-26 10:40:38 AM
+
+    A.  Prompt
+        1.  Update the svg rules to use the chat
+            log codename for that chat as the
+            title and file name, ie "chat_4
+            rename_paul_to_doc"
+
+    B.  Response
+        1.  Updated prompt.mdc F.2 and C.6.b.2:
+            SVG filenames now use
+            `chat_NNN short_label.svg` format.
+        2.  Renamed all 4 existing SVGs and
+            updated current.html + chat log
+            links.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_5%20svg_name_rule.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_4  rename_paul_to_doc -- 2026-02-26 10:19:33 AM
+
+    A.  Prompt
+        1.  Regarding L1, yeah we should have
+            only one codename_index for now
+            let's make it .TXT and the content
+            of the file you have in the doc
+            directory is good content and so put
+            that into the .TXT file in the paul
+            directory. But rename the paul
+            directory to doc and remove the old
+            doc directory.
+
+    B.  Response
+        1.  Copied codename_index.md content
+            into codename_index.txt (494
+            entries).
+        2.  Removed old doc/ directory, renamed
+            paul/ to doc/.
+        3.  Updated all paul/ references to doc/
+            across prompt.mdc, codename.mdc,
+            and outline.mdc.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_4%20rename_paul_to_doc.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_3  rule_fix_apply -- 2026-02-26 10:15:24 AM
+
+    A.  Prompt
+        1.  Fix.
+            Executed next prompt.
+
+    B.  Response
+        1.  Removed section I from prompt.mdc;
+            deleted chat_log_current.txt.
+        2.  Fixed SVG example path: pops ->
+            storycall_corp.
+        3.  Unified codename index to
+            doc/codename_index.txt in
+            codename.mdc header.
+        4.  Reformatted codename.mdc to
+            outline.mdc format (uppercase L1,
+            ~60 char wrap) and fixed 4 typos.
+        5.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_3%20rule_fix_apply.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_2  rule_audit -- 2026-02-26 10:13:16 AM
+
+    A.  Prompt
+        1.  Check if there are any
+            inconsistencies or kind of stray
+            rules that don't seem to be used.
+            I'm kind of surprised that there's a
+            chat log Current.TXT I forget what
+            that does but I don't even think it's
+            necessary. I could be wrong though
+            but to have chat log and chat log
+            Current seems incorrect.
+
+    B.  Response
+        1.  Found 5 issues: section I redundant
+            (chat_log_current.txt), stale SVG
+            path (pops vs storycall_corp),
+            codename index location conflict
+            (doc/ vs paul/), codename.mdc
+            doesn't follow outline format, and
+            4 typos.
+        2.  Awaiting user approval to apply
+            fixes.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_2%20rule_audit.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_1  chat_log_test -- 2026-02-26 10:09:47 AM
+
+    A.  Prompt
+        1.  This is a prompt which is a test to
+            see if you now populate the
+            chat_log.TXT within the paul
+            directory that I've created and that
+            the prompt.MDC within the dot
+            Cursor/rules folder would tell you
+            to populate
+
+    B.  Response
+        1.  Confirmed prompt.mdc rules are
+            active; chat_log.txt is now being
+            populated.
+        2.  Created chat_log_svg directory, SVG
+            viewer, and supporting files.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_1%20chat_log_test.svg
+
+    C.  Codenames
+        1.  None.
+
+------------------
+
+##  NEXT PROMPT
+
+A.  Codename_dual_type
+    a.  Update codename.mdc to formally define
+        both codename types: scraped (class,
+        css, file names) and tagged (manual
+        // __codename markers in code).
+    b.  Update index format to accommodate both.
+
+B.  Codename_scaffold
+    a.  Add codenames to existing code blocks
+        across the primary app files.
+    b.  Verify doc/codename_index.txt matches
+        all discovered codenames.
+
+C.  Spec_bootstrap
+    a.  Create initial spec_*.txt files in
+        doc/ describing the current state of
+        the primary application.

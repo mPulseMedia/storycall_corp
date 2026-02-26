@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="160" style="background:#fff">
+  <rect x="0" y="0" width="480" height="160" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_40 msg_5b2_replace</text>
+
+  <!-- 5B2 before -->
+  <text x="30" y="42" font-family="monospace" font-size="8" fill="#888">5B2 BEFORE</text>
+  <rect x="30" y="47" width="420" height="28" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="240" y="58" font-family="monospace" font-size="7" text-anchor="middle" fill="#1e3a5f">Welcome back. If you haven't set a call-to</text>
+  <text x="240" y="68" font-family="monospace" font-size="7" text-anchor="middle" fill="#1e3a5f">number yet, send it now as an audio recording.</text>
+
+  <!-- arrow -->
+  <text x="240" y="92" font-family="monospace" font-size="12" text-anchor="middle" fill="#555">↓ copied from 1A2</text>
+
+  <!-- 5B2 after -->
+  <text x="30" y="110" font-family="monospace" font-size="8" fill="#888">5B2 AFTER</text>
+  <rect x="30" y="115" width="420" height="28" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="240" y="126" font-family="monospace" font-size="7" text-anchor="middle" fill="#1e3a5f">Hi. StoryCall will convert your voice recordings</text>
+  <text x="240" y="136" font-family="monospace" font-size="7" text-anchor="middle" fill="#1e3a5f">into scheduled phone calls. To begin, text me...</text>
+</svg>

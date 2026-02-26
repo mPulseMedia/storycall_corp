@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" style="background:#fff">
+  <rect x="0" y="0" width="480" height="300" fill="#fff"/>
+
+  <text x="240" y="28" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_1 — Chat Log Bootstrap</text>
+
+  <!-- prompt.mdc box -->
+  <rect x="30" y="50" width="180" height="50" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5"/>
+  <text x="120" y="72" font-family="monospace" font-size="10" text-anchor="middle" fill="#333">prompt.mdc</text>
+  <text x="120" y="86" font-family="monospace" font-size="9" text-anchor="middle" fill="#666">.cursor/rules/</text>
+
+  <!-- arrow -->
+  <line x1="210" y1="75" x2="260" y2="75" stroke="#888" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- chat_log.txt box -->
+  <rect x="270" y="50" width="180" height="50" rx="6" fill="#e6f4ea" stroke="#34a853" stroke-width="1.5"/>
+  <text x="360" y="72" font-family="monospace" font-size="10" text-anchor="middle" fill="#333">chat_log.txt</text>
+  <text x="360" y="86" font-family="monospace" font-size="9" text-anchor="middle" fill="#666">paul/</text>
+
+  <!-- created files -->
+  <text x="240" y="135" font-family="monospace" font-size="11" text-anchor="middle" fill="#555" font-weight="bold">Files Created</text>
+
+  <rect x="30" y="150" width="200" height="36" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="130" y="173" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">paul/chat_log.txt</text>
+
+  <rect x="250" y="150" width="200" height="36" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="350" y="173" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">paul/chat_log_current.txt</text>
+
+  <rect x="30" y="200" width="200" height="36" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="130" y="223" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">paul/chat_log_svg/</text>
+
+  <rect x="250" y="200" width="200" height="36" rx="4" fill="#fef7e0" stroke="#f9ab00" stroke-width="1"/>
+  <text x="350" y="223" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">paul/chat_log_svg/current.html</text>
+
+  <!-- status -->
+  <rect x="120" y="255" width="240" height="32" rx="6" fill="#e6f4ea" stroke="#34a853" stroke-width="1.5"/>
+  <text x="240" y="276" font-family="monospace" font-size="10" text-anchor="middle" fill="#1b7a2b" font-weight="bold">Status: Rules active, log live</text>
+</svg>

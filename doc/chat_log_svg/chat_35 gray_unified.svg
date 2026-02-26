@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="140" style="background:#fff">
+  <rect x="0" y="0" width="480" height="140" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_35 gray_unified</text>
+
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">All grays unified to #f3f3f3</text>
+
+  <rect x="80" y="62" width="320" height="40" rx="4" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="240" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">cell_ek  cell_eg  zone_gap  event_row</text>
+  <text x="240" y="94" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">lanes::after  event box-shadow</text>
+
+  <rect x="150" y="114" width="180" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="129" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+</svg>

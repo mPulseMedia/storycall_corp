@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280" style="background:#fff">
+  <rect x="0" y="0" width="480" height="280" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_16 bubble_span_half_sc</text>
+
+  <!-- Before layout -->
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Before: bubbles stay in own lane</text>
+
+  <rect x="20" y="60" width="140" height="30" rx="0" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="90" y="80" font-family="monospace" font-size="9" text-anchor="middle" fill="#14532d">Kid bubble</text>
+  <rect x="160" y="60" width="140" height="30" rx="0" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="230" y="80" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">SC (empty)</text>
+  <rect x="300" y="60" width="160" height="30" rx="0" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="380" y="80" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">gray</text>
+
+  <!-- After layout kid -->
+  <text x="240" y="116" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">After: kid spans into half SC</text>
+
+  <rect x="20" y="126" width="210" height="30" rx="0" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="125" y="146" font-family="monospace" font-size="9" text-anchor="middle" fill="#14532d">Kid bubble (1/4)</text>
+  <rect x="300" y="126" width="160" height="30" rx="0" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="380" y="146" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">gray</text>
+
+  <!-- After layout grandma -->
+  <text x="240" y="182" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">After: grandma spans into half SC</text>
+
+  <rect x="20" y="192" width="140" height="30" rx="0" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="90" y="212" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">gray</text>
+  <rect x="230" y="192" width="230" height="30" rx="0" fill="#ffedd5" stroke="#ea580c" stroke-width="1"/>
+  <text x="345" y="212" font-family="monospace" font-size="9" text-anchor="middle" fill="#7c2d12">Grandma bubble (4/7)</text>
+
+  <!-- Files -->
+  <rect x="40" y="240" width="130" height="24" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="105" y="257" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+  <rect x="180" y="240" width="130" height="24" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="245" y="257" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html</text>
+  <rect x="320" y="240" width="140" height="24" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="390" y="257" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">cell_kid_to_sc</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="250" style="background:#fff">
+  <rect x="0" y="0" width="480" height="250" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_17 zone_gap</text>
+
+  <!-- Before -->
+  <text x="240" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Gap inserted at zone transitions</text>
+
+  <!-- Kid↔SC zone -->
+  <rect x="30" y="64" width="200" height="28" rx="0" fill="#fff" stroke="#16a34a" stroke-width="1"/>
+  <text x="130" y="83" font-family="monospace" font-size="9" text-anchor="middle" fill="#16a34a">Kid ↔ SC rows (white)</text>
+  <rect x="230" y="64" width="100" height="28" rx="0" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="280" y="83" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">gray</text>
+
+  <!-- Gap bar -->
+  <rect x="30" y="92" width="300" height="10" rx="0" fill="#e8e8e8" stroke="none"/>
+  <text x="370" y="101" font-family="monospace" font-size="9" text-anchor="start" fill="#e8e8e8" font-weight="bold">&#x25C0;</text>
+  <text x="385" y="101" font-family="monospace" font-size="9" text-anchor="start" fill="#555">.zone_gap</text>
+
+  <!-- SC↔Grandma zone -->
+  <rect x="30" y="102" width="100" height="28" rx="0" fill="#f3f3f3" stroke="#ddd" stroke-width="1"/>
+  <text x="80" y="121" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">gray</text>
+  <rect x="130" y="102" width="200" height="28" rx="0" fill="#fff" stroke="#ea580c" stroke-width="1"/>
+  <text x="230" y="121" font-family="monospace" font-size="9" text-anchor="middle" fill="#ea580c">SC ↔ Grandma rows (white)</text>
+
+  <!-- Logic -->
+  <text x="240" y="156" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Detection logic (scenarios.html)</text>
+
+  <rect x="30" y="166" width="420" height="50" rx="4" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="184" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">zone = sms ? "kid" : telephone ? "gma"</text>
+  <text x="240" y="200" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">event rows = neutral (no zone change)</text>
+
+  <!-- Files -->
+  <rect x="100" y="226" width="130" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="165" y="241" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.css</text>
+  <rect x="250" y="226" width="130" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="315" y="241" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html</text>
+</svg>

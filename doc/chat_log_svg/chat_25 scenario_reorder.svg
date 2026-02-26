@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="210" style="background:#fff">
+  <rect x="0" y="0" width="480" height="210" fill="#fff"/>
+
+  <text x="240" y="24" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_25 scenario_reorder</text>
+
+  <!-- 3A/3B swap -->
+  <text x="140" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">3A ↔ 3B swap</text>
+
+  <rect x="20" y="58" width="120" height="22" rx="3" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="80" y="73" font-family="monospace" font-size="8" text-anchor="middle" fill="#1b7a2b">3A Text to Grandma</text>
+  <rect x="150" y="58" width="120" height="22" rx="3" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="210" y="73" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">3B Grandma: Call back</text>
+
+  <!-- 4B keyword -->
+  <text x="380" y="50" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">4B keyword</text>
+
+  <rect x="310" y="58" width="60" height="22" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="340" y="73" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">HELP</text>
+  <text x="380" y="73" font-family="monospace" font-size="9" fill="#555">→</text>
+  <rect x="390" y="58" width="70" height="22" rx="3" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="425" y="73" font-family="monospace" font-size="8" text-anchor="middle" fill="#1b7a2b">VOICE</text>
+
+  <!-- Group 4 rename -->
+  <text x="140" y="104" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">Group 4 label</text>
+
+  <rect x="20" y="112" width="120" height="22" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="80" y="127" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">Texting for help</text>
+  <text x="152" y="127" font-family="monospace" font-size="9" fill="#555">→</text>
+  <rect x="162" y="112" width="60" height="22" rx="3" fill="#e6f4ea" stroke="#34a853" stroke-width="1"/>
+  <text x="192" y="127" font-family="monospace" font-size="8" text-anchor="middle" fill="#1b7a2b">Help</text>
+
+  <!-- 2A4 removed -->
+  <text x="380" y="104" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">2A4 removed</text>
+
+  <rect x="310" y="112" width="140" height="22" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="380" y="127" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">welcome msg after keyword fix</text>
+
+  <!-- Files -->
+  <rect x="60" y="156" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="130" y="171" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.js</text>
+  <rect x="280" y="156" width="140" height="22" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="350" y="171" font-family="monospace" font-size="9" text-anchor="middle" fill="#333">scenarios.html</text>
+</svg>
