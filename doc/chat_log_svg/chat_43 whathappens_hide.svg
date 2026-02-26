@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="130" style="background:#fff">
+  <rect x="0" y="0" width="480" height="130" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_43 whathappens_hide</text>
+
+  <!-- Try it section -->
+  <rect x="60" y="35" width="360" height="75" rx="6" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="240" y="52" font-family="monospace" font-size="10" text-anchor="middle" fill="#333" font-weight="bold">Try it</text>
+  <rect x="100" y="58" width="280" height="16" rx="8" fill="#3b82f6"/>
+  <text x="240" y="70" font-family="monospace" font-size="8" text-anchor="middle" fill="#fff">Text storycall to 844-961-2835</text>
+
+  <!-- commented out block -->
+  <rect x="100" y="78" width="280" height="16" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="1" stroke-dasharray="3"/>
+  <text x="240" y="89" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">What happens next? — commented out</text>
+
+  <text x="240" y="102" font-family="monospace" font-size="7" text-anchor="middle" fill="#888">SMS disclaimer (kept)</text>
+
+  <rect x="150" y="115" width="180" height="14" rx="5" fill="#e8f0fe" stroke="#4285f4" stroke-width="1"/>
+  <text x="240" y="125" font-family="monospace" font-size="8" text-anchor="middle" fill="#333">index.html</text>
+</svg>
