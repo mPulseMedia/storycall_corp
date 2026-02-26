@@ -8,15 +8,15 @@
       --scroll_padding_top_mobile : 74px;
 
       --main_padding_top   : var(--scroll_padding_top);
-      --main_padding_bottom : var(--space_large);
+      --main_padding_bottom : var(--margin_large);
 
       /* section */
-      --section_padding_y : var(--space_large);
+      --section_padding_y : var(--margin_large);
 
       /* components */
       --header_footer_padding_y : 22px;
-      --nav_padding_y          : var(--space_xsmall);
-      --nav_padding_x          : var(--space_small);
+      --nav_padding_y          : var(--margin_xsmall);
+      --nav_padding_x          : var(--margin_small);
 
       /* colors */
       --color_bg_primary  : #f3f3f3;
@@ -47,14 +47,14 @@
       --font_weight_bold : 600;
       --font_weight_heavy : 900;
 
-      --line_height_base : 1.35; /* overridden by legal.css */
+      --font_line_height_base : 1.35; /* overridden by legal.css */
 
       /* spacing */
-      --space_micro     : 6px;
-      --space_xsmall    : 8px;
-      --space_small     : 12px;
-      --space_medium    : 18px;
-      --space_large     : 26px;
+      --margin_micro     : 6px;
+      --margin_xsmall    : 8px;
+      --margin_small     : 12px;
+      --margin_medium    : 18px;
+      --margin_large     : 26px;
 
       /* radius */
       --radius_medium   : 18px;
@@ -85,7 +85,7 @@
       font-size         : var(--font_size_body);
       color             : var(--color_text_primary);
       background        : linear-gradient(180deg, var(--color_bg_primary), var(--color_bg_secondary));
-      line-height       : var(--line_height_base);
+      line-height       : var(--font_line_height_base);
     }
     b, strong{
       font-size         : inherit;

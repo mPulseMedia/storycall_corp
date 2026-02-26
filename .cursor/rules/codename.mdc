@@ -28,5 +28,16 @@ when selecting names for methods, files, and anything else you have influence ov
         3.  Update paul/codename_index.txt every time
             codenames are added, removed, or changed.
     C.  Create/maintain codenames
-        1.  Iterativly, in related groups, add commented lines
-            with a double-underscore before the codename related to that code
+        1.  Iterativly, in related groups, add commented
+            lines with a double-underscore before the
+            codename related to that code.
+
+4.  name_index (doc/codename_index.md)
+    A.  Keep lexicographic order by name.
+    B.  Insert blank line when root term changes
+        (first term before `_`).
+    C.  Use `name : type` format.
+    D.  Align `:` column vertically.
+    E.  Keep `type` short and lowercase (`css`,
+        `class`, `id`, `file`, `image`, `domain`,
+        `section`, `field`).

@@ -6,21 +6,21 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="About StoryCall, the team, and why it exists." />
   <title>About StoryCall</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="site.css" />
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="scenarios.css" />
   <style>
     .about_card{
-      margin: 0 0 var(--space_large);
-      padding: var(--space_medium);
+      margin: 0 0 var(--margin_large);
+      padding: var(--margin_medium);
       border-radius: var(--radius_medium);
       border: var(--border_default);
       background: rgba(var(--color_rgb_white),var(--opacity_heavy));
     }
     .about_row{
       display: flex;
-      gap: var(--space_medium);
+      gap: var(--margin_medium);
       align-items: flex-start;
     }
     .about_avatar{
@@ -62,7 +62,7 @@
       min-width: 0;
     }
     .about_name{
-      margin: 0 0 var(--space_micro);
+      margin: 0 0 var(--margin_micro);
       font-weight: var(--font_weight_heavy);
     }
     .about_copy{
@@ -86,9 +86,9 @@
     <div class="wrap">
       <div class="bar">
         <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
-          <img src="images/storycall-logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
+          <img src="image/storycall_logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
         </a>
-        <a class="cta" href="index.html">Back to home</a>
+        <a class="button_back" href="index.html">Back to home</a>
       </div>
     </div>
   </header>
@@ -100,7 +100,7 @@
       <p class="about_copy">
         StoryCall is a small team based in San Francisco and Florida.
       </p>
-      <p class="about_copy" style="margin-top: var(--space_small);">
+      <p class="about_copy" style="margin-top: var(--margin_small);">
         StoryCall.org is a service of <b>theMoment.tv, LLC</b>, located at 1640 Stockton #330186, San Francisco, CA 94133.
       </p>
     </section>
@@ -108,10 +108,10 @@
     <section class="about_card" aria-label="Founder">
       <div class="about_row">
         <div class="about_avatar" aria-label="Founder photo">
-          <!-- Put Paul’s photo at: images/paul.jpg (or change the src to match your filename). -->
+          <!-- Put Paul’s photo at: image/paul.jpg (or change the src to match your filename). -->
           <img
             class="about_avatar_img"
-            src="images/paul.png"
+            src="image/about_paul.png"
             alt="Paul Smith"
             onload="this.closest('.about_avatar')?.classList.add('has_photo')"
             onerror="this.style.display='none'"
@@ -130,9 +130,9 @@
 
   <footer>
     <div class="wrap">
-      <div class="foot">
+      <div class="footer_inner">
         <div class="copy">© <span id="year"></span> StoryCall</div>
-        <div class="foot_address">StoryCall is a service of theMoment.tv, LLC</div>
+        <div class="footer_address">StoryCall is a service of theMoment.tv, LLC</div>
       </div>
     </div>
   </footer>

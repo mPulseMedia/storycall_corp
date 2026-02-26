@@ -172,21 +172,38 @@ F.  SVG diagrams
     3.  The SVG should depict a diagram that
         explains the response in context of the
         chat: before/after, data flow, layout
-        change, or architecture as appropriate.
+        change, or architecture as appropriate. Indicate where in the architecture/files the changes happened.
     4.  Consider recent and related chat entries
         when composing the diagram. A richer
         context (showing how this change connects
         to prior work) produces a more useful and
-        sometimes more involved diagram.
+        sometimes more involved diagram. 
     5.  Keep diagrams simple and readable: use
         monospace text, labeled boxes, arrows,
         and color to convey the key change.
-    6.  Use a non-transparent background color
+    6.  SVG text sizing:
+        a.  Use font-size 10-11px maximum for
+            labels inside boxes. Never exceed
+            12px for any text element.
+        b.  Measure before you place: each
+            character is ~7px wide at 11px font.
+            Ensure total text width + 16px
+            padding fits inside the rectangle.
+        c.  If text would exceed 80% of the
+            box width, either shrink the font,
+            abbreviate the text, or widen the
+            box.
+        d.  Titles/headers outside boxes: 13px
+            max.
+        e.  Test mentally: assume text renders
+            50% larger than you expect. Size
+            accordingly.
+    7.  Use a non-transparent background color
         (e.g. white) on the root SVG element.
-    7.  After creating the numbered SVG, add its
-        filename to the `svgFiles` array in
+    8.  After creating the numbered SVG, append
+        its filename to the `svgFiles` array in
         `paul/chat_log_svg/current.html`.
-        The viewer auto-shows the last entry.
+        The viewer auto-reloads.
 
 G.  Spec maintenance (primary app features)
     1.  If a prompt creates or modifies a feature
