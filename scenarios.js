@@ -10,7 +10,7 @@ var SCENARIOS_DATA = {
       "group_scenarios"            : [
         {
           "scenario_title"         : "1A Perfect onboarding",
-          "scenario_precursor"     : "",
+          "scenario_precursor"     : "Precursor: Kid has not sent storycall keyword, or previously sent STOP keyword to end reset a prior interaction.",
           "scenario_steps"         : [
             {
               "id"                 : "1A1",
