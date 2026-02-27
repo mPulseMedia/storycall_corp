@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <rect x="0" y="0" width="500" height="250" fill="#fff"/>
+
+  <text x="250" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_54 dark_gray_revert</text>
+  <text x="250" y="36" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">scenarios.css background change</text>
+
+  <!-- Step 1: Original -->
+  <text x="80" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">ORIGINAL</text>
+  <rect x="20" y="66" width="120" height="50" rx="6" fill="#f7f7f7" stroke="#aaa" stroke-width="1"/>
+  <text x="80" y="88" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">#f7f7f7</text>
+  <text x="80" y="102" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">light gray</text>
+
+  <!-- Arrow 1 -->
+  <line x1="148" y1="91" x2="178" y2="91" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr1)"/>
+  <defs>
+    <marker id="arr1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Step 2: Changed -->
+  <text x="250" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#dc2626" font-weight="bold">CHANGED</text>
+  <rect x="186" y="66" width="128" height="50" rx="6" fill="#e0e0e0" stroke="#dc2626" stroke-width="1"/>
+  <text x="250" y="88" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">#e0e0e0</text>
+  <text x="250" y="102" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">darker gray</text>
+
+  <!-- Arrow 2 -->
+  <line x1="322" y1="91" x2="352" y2="91" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Step 3: Reverted -->
+  <text x="420" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">REVERTED</text>
+  <rect x="360" y="66" width="120" height="50" rx="6" fill="#f7f7f7" stroke="#16a34a" stroke-width="1"/>
+  <text x="420" y="88" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">#f7f7f7</text>
+  <text x="420" y="102" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">light gray</text>
+
+  <!-- Strikethrough / reverted indicator -->
+  <rect x="140" y="132" width="220" height="34" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="250" y="148" font-family="monospace" font-size="9" text-anchor="middle" fill="#dc2626">#f7f7f7 --&gt; #e0e0e0</text>
+  <line x1="175" y1="148" x2="325" y2="148" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="250" y="160" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">REVERTED</text>
+
+  <!-- Timeline -->
+  <text x="250" y="190" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">scenarios.css timeline</text>
+
+  <line x1="60" y1="208" x2="440" y2="208" stroke="#ccc" stroke-width="1"/>
+  <circle cx="80" cy="208" r="4" fill="#999"/>
+  <text x="80" y="228" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">#f7f7f7</text>
+
+  <circle cx="250" cy="208" r="4" fill="#dc2626"/>
+  <text x="250" y="228" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">#e0e0e0</text>
+
+  <circle cx="420" cy="208" r="4" fill="#16a34a"/>
+  <text x="420" y="228" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">#f7f7f7</text>
+
+  <text x="250" y="246" font-family="monospace" font-size="8" text-anchor="middle" fill="#888">net change: none</text>
+</svg>

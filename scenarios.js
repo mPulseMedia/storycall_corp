@@ -388,6 +388,32 @@ var SCENARIOS_DATA = {
               "format"             : "text"
             }
           ]
+        },
+        {
+          "scenario_title"         : "2D HELP: change the number",
+          "scenario_precursor"     : ["Precursor: Kid has submitted the keyword and phone number",
+                                      "correctly."],
+          "scenario_steps"         : [
+            {
+              "id"                 : "2D1",
+              "text"               : "HELP I need to change who you call",
+              "channel"            : "sms",
+              "from"               : "kid",
+              "to"                 : "storycall",
+              "format"             : "text"
+            },
+            {
+              "id"                 : "2D2",
+              "text"               : ["StoryCall: To change the call-to number, send the ",
+                                      "new phone number as an audio recording.\n",
+                                      "After I confirm it, I'll use that new ",
+                                      "number for your future messages."],
+              "channel"            : "sms",
+              "from"               : "storycall",
+              "to"                 : "kid",
+              "format"             : "text"
+            }
+          ]
         }
       ]
     },
@@ -925,32 +951,6 @@ var SCENARIOS_DATA = {
                                       "number), then tap Send.\n",
                                       "Tip: avoid speech-to-text dictation — ",
                                       "I need an actual audio recording."],
-              "channel"            : "sms",
-              "from"               : "storycall",
-              "to"                 : "kid",
-              "format"             : "text"
-            }
-          ]
-        },
-        {
-          "scenario_title"         : "4C HELP: change the number",
-          "scenario_precursor"     : ["Precursor: Kid has submitted the keyword and phone number",
-                                      "correctly."],
-          "scenario_steps"         : [
-            {
-              "id"                 : "4C1",
-              "text"               : "HELP I need to change who you call",
-              "channel"            : "sms",
-              "from"               : "kid",
-              "to"                 : "storycall",
-              "format"             : "text"
-            },
-            {
-              "id"                 : "4C2",
-              "text"               : ["StoryCall: To change the call-to number, send the ",
-                                      "new phone number as an audio recording.\n",
-                                      "After I confirm it, I'll use that new ",
-                                      "number for your future messages."],
               "channel"            : "sms",
               "from"               : "storycall",
               "to"                 : "kid",

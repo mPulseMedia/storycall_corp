@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <rect x="0" y="0" width="500" height="250" fill="#fff"/>
+
+  <text x="250" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_55 block_border</text>
+  <text x="250" y="36" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">.scenario renamed to .block</text>
+
+  <!-- BEFORE -->
+  <text x="125" y="56" font-family="monospace" font-size="10" text-anchor="middle" fill="#999" font-weight="bold">BEFORE</text>
+
+  <!-- Outer area representing no border -->
+  <rect x="30" y="62" width="190" height="120" rx="0" fill="#f7f7f7" stroke="none"/>
+  <text x="125" y="78" font-family="monospace" font-size="9" text-anchor="middle" fill="#b91c1c">.scenario</text>
+  <!-- Content inside with no border/padding visual -->
+  <rect x="40" y="84" width="170" height="28" rx="2" fill="#fff" stroke="#ddd" stroke-width="0.5"/>
+  <text x="48" y="100" font-family="monospace" font-size="8" fill="#555">scenario content</text>
+  <rect x="40" y="118" width="170" height="28" rx="2" fill="#fff" stroke="#ddd" stroke-width="0.5"/>
+  <text x="48" y="134" font-family="monospace" font-size="8" fill="#555">scenario content</text>
+
+  <text x="125" y="168" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">no border</text>
+  <text x="125" y="178" font-family="monospace" font-size="8" text-anchor="middle" fill="#999">no border-radius</text>
+
+  <!-- Arrow -->
+  <line x1="230" y1="120" x2="268" y2="120" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- AFTER -->
+  <text x="375" y="56" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">AFTER</text>
+
+  <!-- Outer area with border and radius -->
+  <rect x="280" y="62" width="190" height="120" rx="10" fill="#f7f7f7" stroke="#ccc" stroke-width="1"/>
+  <text x="375" y="78" font-family="monospace" font-size="9" text-anchor="middle" fill="#16a34a">.block</text>
+
+  <!-- Content inside with padding -->
+  <rect x="294" y="84" width="162" height="28" rx="2" fill="#fff" stroke="#ddd" stroke-width="0.5"/>
+  <text x="302" y="100" font-family="monospace" font-size="8" fill="#555">block content</text>
+  <rect x="294" y="118" width="162" height="28" rx="2" fill="#fff" stroke="#ddd" stroke-width="0.5"/>
+  <text x="302" y="134" font-family="monospace" font-size="8" fill="#555">block content</text>
+
+  <text x="375" y="168" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">border: 1px solid #ccc</text>
+  <text x="375" y="178" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">border-radius: 10px</text>
+
+  <!-- CSS properties box -->
+  <rect x="100" y="196" width="300" height="44" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="250" y="212" font-family="monospace" font-size="9" text-anchor="middle" fill="#1d4ed8" font-weight="bold">new .block CSS properties</text>
+  <text x="250" y="226" font-family="monospace" font-size="8" text-anchor="middle" fill="#3b82f6">border: 1px solid #ccc</text>
+  <text x="250" y="236" font-family="monospace" font-size="8" text-anchor="middle" fill="#3b82f6">border-radius: 10px  |  padding: 14px</text>
+</svg>

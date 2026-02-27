@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 11px; }
+    .small { font-size: 9px; fill: #666; }
+    .file { font-size: 10px; }
+  </style>
+
+  <!-- Title -->
+  <text x="250" y="24" text-anchor="middle" class="title">chat_60  simplicity_check</text>
+  <text x="250" y="40" text-anchor="middle" class="small">Architecture: 3 files, no build tools</text>
+
+  <!-- Box 1: scenarios.js (data) -->
+  <rect x="30" y="70" width="130" height="70" rx="5" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="95" y="92" text-anchor="middle" class="label" font-weight="bold" fill="#1976d2">scenarios.js</text>
+  <line x1="50" y1="100" x2="140" y2="100" stroke="#1976d2" stroke-width="0.5"/>
+  <text x="95" y="115" text-anchor="middle" class="file" fill="#1976d2">DATA</text>
+  <text x="95" y="128" text-anchor="middle" class="small">JSON scenarios</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="165" y1="105" x2="183" y2="105" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: scenarios.html (renderer) -->
+  <rect x="190" y="70" width="130" height="70" rx="5" fill="#fff3e0" stroke="#e65100" stroke-width="1.5"/>
+  <text x="255" y="92" text-anchor="middle" class="label" font-weight="bold" fill="#e65100">scenarios.html</text>
+  <line x1="210" y1="100" x2="300" y2="100" stroke="#e65100" stroke-width="0.5"/>
+  <text x="255" y="115" text-anchor="middle" class="file" fill="#e65100">RENDERER</text>
+  <text x="255" y="128" text-anchor="middle" class="small">inline script</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="325" y1="105" x2="343" y2="105" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: scenarios.css (styles) -->
+  <rect x="350" y="70" width="130" height="70" rx="5" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  <text x="415" y="92" text-anchor="middle" class="label" font-weight="bold" fill="#7b1fa2">scenarios.css</text>
+  <line x1="370" y1="100" x2="460" y2="100" stroke="#7b1fa2" stroke-width="0.5"/>
+  <text x="415" y="115" text-anchor="middle" class="file" fill="#7b1fa2">STYLES</text>
+  <text x="415" y="128" text-anchor="middle" class="small">layout + color</text>
+
+  <!-- Bottom label: No build tools -->
+  <rect x="140" y="170" width="220" height="36" rx="4" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.2"/>
+  <text x="250" y="192" text-anchor="middle" class="label" fill="#2e7d32" font-weight="bold">No build tools.</text>
+
+  <!-- Description -->
+  <text x="250" y="230" text-anchor="middle" class="small">Plain files. Open scenarios.html in browser.</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

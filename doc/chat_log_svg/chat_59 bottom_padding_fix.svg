@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 11px; }
+    .small { font-size: 9px; fill: #666; }
+    .code { font-size: 10px; fill: #444; }
+  </style>
+
+  <!-- Title -->
+  <text x="250" y="22" text-anchor="middle" class="title">chat_59  bottom_padding_fix</text>
+
+  <!-- Inheritance chain: 3 boxes connected by arrows -->
+
+  <!-- Box 1: index.css -->
+  <rect x="20" y="42" width="145" height="54" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="92" y="58" text-anchor="middle" class="label" font-weight="bold">index.css</text>
+  <text x="92" y="72" text-anchor="middle" class="code">section {</text>
+  <text x="92" y="84" text-anchor="middle" class="code">  padding: 26px 0</text>
+
+  <!-- Arrow 1->2 -->
+  <line x1="170" y1="69" x2="195" y2="69" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: <section> element inherits -->
+  <rect x="200" y="42" width="120" height="54" rx="4" fill="#fde8e8" stroke="#c44" stroke-width="1.5"/>
+  <text x="260" y="58" text-anchor="middle" class="label" font-weight="bold" fill="#c44">section</text>
+  <text x="260" y="72" text-anchor="middle" class="code">padding-bottom:</text>
+  <text x="260" y="84" text-anchor="middle" class="code" fill="#c44">26px (gap!)</text>
+
+  <!-- Arrow 2->3 -->
+  <line x1="325" y1="69" x2="350" y2="69" stroke="#333" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: .block inherits -->
+  <rect x="355" y="42" width="130" height="54" rx="4" fill="#fde8e8" stroke="#c44" stroke-width="1.5"/>
+  <text x="420" y="58" text-anchor="middle" class="label" font-weight="bold" fill="#c44">.block</text>
+  <text x="420" y="72" text-anchor="middle" class="code">inherits 26px</text>
+  <text x="420" y="84" text-anchor="middle" class="code" fill="#c44">bottom padding</text>
+
+  <!-- Divider line -->
+  <line x1="30" y1="115" x2="470" y2="115" stroke="#aaa" stroke-width="0.5" stroke-dasharray="4,3"/>
+  <text x="250" y="112" text-anchor="middle" class="small">--- debug journey -> fix ---</text>
+
+  <!-- Fix box -->
+  <rect x="130" y="130" width="240" height="50" rx="4" fill="#d4edda" stroke="#28a745" stroke-width="1.5"/>
+  <text x="250" y="148" text-anchor="middle" class="label" font-weight="bold" fill="#28a745">FIX: scenarios.css</text>
+  <text x="250" y="164" text-anchor="middle" class="code">.block { padding-bottom: 0 }</text>
+
+  <!-- Arrow from fix to .block -->
+  <line x1="250" y1="130" x2="420" y2="100" stroke="#28a745" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+  <!-- Result -->
+  <rect x="130" y="195" width="240" height="36" rx="4" fill="#e8f5e9" stroke="#28a745" stroke-width="1"/>
+  <text x="250" y="210" text-anchor="middle" class="label" fill="#28a745">Override removes 26px gap</text>
+  <text x="250" y="222" text-anchor="middle" class="small" fill="#28a745">bottom padding: 0</text>
+
+  <!-- Arrow fix -> result -->
+  <line x1="250" y1="180" x2="250" y2="192" stroke="#28a745" stroke-width="1.2" marker-end="url(#arrowG)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#28a745"/>
+    </marker>
+  </defs>
+</svg>

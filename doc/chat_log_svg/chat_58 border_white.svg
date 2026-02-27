@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 11px; }
+    .small { font-size: 9px; fill: #666; }
+  </style>
+
+  <!-- Title -->
+  <text x="250" y="24" text-anchor="middle" class="title">chat_58  border_white</text>
+  <text x="250" y="40" text-anchor="middle" class="small">.block { border-color: #ccc -> #fff }</text>
+
+  <!-- BEFORE -->
+  <text x="125" y="68" text-anchor="middle" class="label" fill="#b00">BEFORE  #ccc</text>
+
+  <!-- Before block with visible gray border -->
+  <rect x="35" y="80" width="180" height="120" rx="4" fill="#f7f7f7" stroke="#ccc" stroke-width="2"/>
+  <text x="50" y="104" class="label">.block</text>
+  <rect x="50" y="114" width="140" height="14" rx="2" fill="#ddd"/>
+  <rect x="50" y="134" width="120" height="14" rx="2" fill="#ddd"/>
+  <rect x="50" y="154" width="150" height="14" rx="2" fill="#ddd"/>
+
+  <!-- Border callout - before -->
+  <line x1="35" y1="140" x2="20" y2="140" stroke="#b00" stroke-width="1"/>
+  <line x1="20" y1="115" x2="20" y2="165" stroke="#b00" stroke-width="1"/>
+  <text x="8" y="108" class="small" fill="#b00" transform="rotate(-90,8,140)">visible border</text>
+
+  <!-- Arrow -->
+  <line x1="224" y1="140" x2="268" y2="140" stroke="#333" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- AFTER -->
+  <text x="375" y="68" text-anchor="middle" class="label" fill="#070">AFTER  #fff</text>
+
+  <!-- After block with white border (invisible on white) -->
+  <rect x="285" y="80" width="180" height="120" rx="4" fill="#f7f7f7" stroke="#fff" stroke-width="2"/>
+  <!-- Dashed outline to show where border is -->
+  <rect x="285" y="80" width="180" height="120" rx="4" fill="none" stroke="#ccc" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <text x="300" y="104" class="label">.block</text>
+  <rect x="300" y="114" width="140" height="14" rx="2" fill="#ddd"/>
+  <rect x="300" y="134" width="120" height="14" rx="2" fill="#ddd"/>
+  <rect x="300" y="154" width="150" height="14" rx="2" fill="#ddd"/>
+
+  <!-- Border callout - after -->
+  <text x="310" y="218" class="small" fill="#070">border hidden (matches bg)</text>
+
+  <!-- File label -->
+  <text x="250" y="240" text-anchor="middle" class="small">scenarios.css  .block { border-color }</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

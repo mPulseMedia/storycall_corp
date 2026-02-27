@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <rect x="0" y="0" width="500" height="250" fill="#fff"/>
+
+  <text x="250" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_66 codename_audit</text>
+
+  <text x="250" y="38" font-family="monospace" font-size="10" text-anchor="middle" fill="#555">6 dead entries removed + type fix</text>
+
+  <!-- Dead entries list -->
+  <rect x="30" y="50" width="260" height="120" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="40" y="66" font-family="monospace" font-size="10" fill="#dc2626" font-weight="bold">6 dead entries removed:</text>
+  <text x="40" y="82" font-family="monospace" font-size="9" fill="#b91c1c" text-decoration="line-through">app_storycall_org</text>
+  <text x="40" y="95" font-family="monospace" font-size="9" fill="#b91c1c" text-decoration="line-through">doc_index_md</text>
+  <text x="40" y="108" font-family="monospace" font-size="9" fill="#b91c1c" text-decoration="line-through">storycall_scenario_jason</text>
+  <text x="40" y="121" font-family="monospace" font-size="9" fill="#b91c1c" text-decoration="line-through">storycall_scenarios_index</text>
+  <text x="40" y="134" font-family="monospace" font-size="9" fill="#b91c1c" text-decoration="line-through">storycall_scenarios_meta</text>
+  <text x="40" y="160" font-family="monospace" font-size="9" fill="#999">no longer referenced in codebase</text>
+
+  <!-- Arrow -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <line x1="300" y1="100" x2="340" y2="100" stroke="#888" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Cleaned index box -->
+  <rect x="350" y="50" width="130" height="70" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="415" y="72" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">INDEX</text>
+  <text x="415" y="88" font-family="monospace" font-size="9" text-anchor="middle" fill="#14532d">codename_</text>
+  <text x="415" y="100" font-family="monospace" font-size="9" text-anchor="middle" fill="#14532d">index.txt</text>
+  <text x="415" y="114" font-family="monospace" font-size="9" text-anchor="middle" fill="#16a34a">cleaned</text>
+
+  <!-- Type fix section -->
+  <rect x="350" y="140" width="130" height="40" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="415" y="156" font-family="monospace" font-size="9" text-anchor="middle" fill="#1e40af" font-weight="bold">type fix</text>
+  <text x="415" y="170" font-family="monospace" font-size="9" text-anchor="middle" fill="#1e40af">id -&gt; class</text>
+
+  <!-- Summary -->
+  <rect x="60" y="200" width="380" height="36" rx="4" fill="#f5f3ff" stroke="#7c3aed" stroke-width="0.5"/>
+  <text x="250" y="215" font-family="monospace" font-size="10" text-anchor="middle" fill="#5b21b6">5 dead names purged from codename_index.txt</text>
+  <text x="250" y="228" font-family="monospace" font-size="9" text-anchor="middle" fill="#7c3aed">outline type corrected: id -&gt; class</text>
+</svg>

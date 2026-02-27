@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 10px; }
+  </style>
+
+  <text x="250" y="22" text-anchor="middle" class="title">chat_63: .block Border Thicken</text>
+  <text x="140" y="48" text-anchor="middle" class="label" fill="#888">BEFORE (1px)</text>
+  <text x="370" y="48" text-anchor="middle" class="label" fill="#888">AFTER (2px)</text>
+
+  <!-- Before: thin border block -->
+  <rect x="40" y="60" width="200" height="140" rx="6" fill="#f9f9f9" stroke="#555" stroke-width="1"/>
+  <text x="140" y="90" text-anchor="middle" class="label">.block {</text>
+  <text x="140" y="108" text-anchor="middle" class="label">  border: 1px solid;</text>
+  <text x="140" y="126" text-anchor="middle" class="label">}</text>
+  <rect x="60" y="148" width="160" height="30" rx="4" fill="#eee" stroke="#999" stroke-width="1"/>
+  <text x="140" y="167" text-anchor="middle" class="label" fill="#666">border-width: 1px</text>
+
+  <!-- Arrow -->
+  <line x1="248" y1="130" x2="262" y2="130" stroke="#666" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- After: thick border block -->
+  <rect x="270" y="60" width="200" height="140" rx="6" fill="#f0fff0" stroke="#555" stroke-width="2"/>
+  <text x="370" y="90" text-anchor="middle" class="label">.block {</text>
+  <text x="370" y="108" text-anchor="middle" class="label">  border: 2px solid;</text>
+  <text x="370" y="126" text-anchor="middle" class="label">}</text>
+  <rect x="290" y="148" width="160" height="30" rx="4" fill="#d4edda" stroke="#555" stroke-width="2"/>
+  <text x="370" y="167" text-anchor="middle" class="label" fill="#2a5" font-weight="bold">border-width: 2px</text>
+
+  <text x="250" y="232" text-anchor="middle" class="label" fill="#888">scenarios.css -- .block border change</text>
+</svg>

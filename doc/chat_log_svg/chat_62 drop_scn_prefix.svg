@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="280" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 10px; }
+    .old { fill: #fff3e0; stroke: #e88; stroke-width: 1.5; }
+    .new { fill: #e0f0ff; stroke: #48a; stroke-width: 1.5; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <text x="250" y="22" text-anchor="middle" class="title">chat_62: Drop scn_ Prefix</text>
+  <text x="110" y="42" text-anchor="middle" class="label" fill="#888">OLD (scn_ prefix)</text>
+  <text x="390" y="42" text-anchor="middle" class="label" fill="#888">NEW (no prefix)</text>
+
+  <!-- Row 1 -->
+  <rect x="20" y="50" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="66" text-anchor="middle" class="label">scn_text_get</text>
+  <line x1="205" y1="62" x2="285" y2="62" class="arrow"/>
+  <rect x="290" y="50" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="66" text-anchor="middle" class="label">text_get</text>
+
+  <!-- Row 2 -->
+  <rect x="20" y="82" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="98" text-anchor="middle" class="label">scn_html_escape</text>
+  <line x1="205" y1="94" x2="285" y2="94" class="arrow"/>
+  <rect x="290" y="82" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="98" text-anchor="middle" class="label">html_escape</text>
+
+  <!-- Row 3 -->
+  <rect x="20" y="114" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="130" text-anchor="middle" class="label">scn_id_get</text>
+  <line x1="205" y1="126" x2="285" y2="126" class="arrow"/>
+  <rect x="290" y="114" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="130" text-anchor="middle" class="label">id_get</text>
+
+  <!-- Row 4 -->
+  <rect x="20" y="146" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="162" text-anchor="middle" class="label">scn_msg_row_build</text>
+  <line x1="205" y1="158" x2="285" y2="158" class="arrow"/>
+  <rect x="290" y="146" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="162" text-anchor="middle" class="label">msg_row_build</text>
+
+  <!-- Row 5 -->
+  <rect x="20" y="178" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="194" text-anchor="middle" class="label">scn_call_render</text>
+  <line x1="205" y1="190" x2="285" y2="190" class="arrow"/>
+  <rect x="290" y="178" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="194" text-anchor="middle" class="label">call_render</text>
+
+  <!-- Row 6 -->
+  <rect x="20" y="210" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="226" text-anchor="middle" class="label">scn_block_render</text>
+  <line x1="205" y1="222" x2="285" y2="222" class="arrow"/>
+  <rect x="290" y="210" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="226" text-anchor="middle" class="label">block_render</text>
+
+  <text x="250" y="260" text-anchor="middle" class="label" fill="#888">scenarios.js -- 6 functions renamed</text>
+</svg>

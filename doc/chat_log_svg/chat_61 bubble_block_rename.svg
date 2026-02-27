@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <style>
+    text { font-family: monospace; fill: #222; }
+    .title { font-size: 13px; font-weight: bold; }
+    .label { font-size: 10px; }
+    .old { fill: #fce4e4; stroke: #c44; stroke-width: 1.5; }
+    .new { fill: #e4fce4; stroke: #4a4; stroke-width: 1.5; }
+    .arrow { stroke: #666; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#666"/>
+    </marker>
+  </defs>
+
+  <text x="250" y="22" text-anchor="middle" class="title">chat_61: CSS/JS Class Renames</text>
+  <text x="110" y="42" text-anchor="middle" class="label" fill="#888">OLD NAME</text>
+  <text x="390" y="42" text-anchor="middle" class="label" fill="#888">NEW NAME</text>
+
+  <!-- Row 1: .scenario -> .block -->
+  <rect x="20" y="50" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="66" text-anchor="middle" class="label">.scenario</text>
+  <line x1="205" y1="62" x2="285" y2="62" class="arrow"/>
+  <rect x="290" y="50" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="66" text-anchor="middle" class="label">.block</text>
+
+  <!-- Row 2: .sc_hdr -> .block_hdr -->
+  <rect x="20" y="84" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="100" text-anchor="middle" class="label">.sc_hdr</text>
+  <line x1="205" y1="96" x2="285" y2="96" class="arrow"/>
+  <rect x="290" y="84" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="100" text-anchor="middle" class="label">.block_hdr</text>
+
+  <!-- Row 3: .sc_nav -> .block_nav -->
+  <rect x="20" y="118" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="134" text-anchor="middle" class="label">.sc_nav</text>
+  <line x1="205" y1="130" x2="285" y2="130" class="arrow"/>
+  <rect x="290" y="118" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="134" text-anchor="middle" class="label">.block_nav</text>
+
+  <!-- Row 4: .sc_nav_arrow -> .block_nav_arrow -->
+  <rect x="20" y="152" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="168" text-anchor="middle" class="label">.sc_nav_arrow</text>
+  <line x1="205" y1="164" x2="285" y2="164" class="arrow"/>
+  <rect x="290" y="152" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="168" text-anchor="middle" class="label">.block_nav_arrow</text>
+
+  <!-- Row 5: scn_scenario_render -> scn_block_render -->
+  <rect x="20" y="186" width="180" height="24" rx="3" class="old"/>
+  <text x="110" y="202" text-anchor="middle" class="label">scn_scenario_render</text>
+  <line x1="205" y1="198" x2="285" y2="198" class="arrow"/>
+  <rect x="290" y="186" width="190" height="24" rx="3" class="new"/>
+  <text x="385" y="202" text-anchor="middle" class="label">scn_block_render</text>
+
+  <text x="250" y="238" text-anchor="middle" class="label" fill="#888">scenarios.css + scenarios.js</text>
+</svg>

@@ -1,3 +1,342 @@
+chat_71  move_4c_to_2d -- 2026-02-27 12:45:00 AM
+
+    A.  Prompt
+        1.  Move 4C to end of group 2.
+
+    B.  Response
+        1.  Moved 4C ("HELP: change the number")
+            to group 2 as 2D. Step IDs 4C1-4C2
+            → 2D1-2D2. Group 4 now has 4A-4B.
+            Group 2 now has 2A-2D.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_71%20move_4c_to_2d.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_70  move_to_group3 -- 2026-02-27 12:15:00 AM
+
+    A.  Prompt
+        1.  Move 6A to E to 3C and on.
+
+    B.  Response
+        1.  Moved 5 scenarios from group 6 to
+            group 3: 6A→3C, 6B→3D, 6C→3E,
+            6D→3F, 6E→3G. All step IDs
+            renumbered. Empty group 6 removed.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_70%20move_to_group3.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_69  trim_scenarios -- 2026-02-27 12:05:00 AM
+
+    A.  Prompt
+        1.  Delete "6C4" and "6D4" and all of
+            6E. And renumber.
+
+    B.  Response
+        1.  Removed step 6C4 and step 6D4.
+            Deleted entire scenario 6E (Two
+            kids same grandma). Renamed 6F→6E
+            (Grandma calls back). Group 6 now
+            has 5 scenarios (6A-6E).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_69%20trim_scenarios.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_68  group6_suggest -- 2026-02-26 11:55:00 PM
+
+    A.  Prompt
+        1.  Add group 6 called Suggestions, and
+            suggest another 6 scenarios that
+            should be covered. Populate them as
+            needed.
+
+    B.  Response
+        1.  Created group 6 "Suggestions" with
+            6 new scenarios: 6A Grandma declines,
+            6B Message queue, 6C Wrong attachment,
+            6D Unclear audio, 6E Two kids same
+            grandma, 6F Grandma calls back.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_68%20group6_suggest.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_67  precursor_indent -- 2026-02-26 11:50:00 PM
+
+    A.  Prompt
+        1.  Indent the precursor text as much as
+            you indent the title of each scenario.
+            And change the thin outline to a thin,
+            dark gray, but not black line.
+        2.  Make the line lighter gray.
+
+    B.  Response
+        1.  Added padding:0 12px to .precursor.
+            Changed .block border from #fff to
+            #bbb, then to #ddd per follow-up.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_67%20precursor_indent.svg
+
+    C.  Codenames
+        1.  precursor
+
+chat_66  codename_audit -- 2026-02-26 11:46:00 PM
+
+    A.  Prompt
+        1.  Were their names changed to something
+            else and are those in the index?
+        2.  Anything else obsolete in index?
+
+    B.  Response
+        1.  Confirmed unprefixed function names
+            are in the index. Audited all
+            remaining entries against codebase.
+        2.  Removed 6 dead entries and fixed
+            outline type from id to class.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_66%20codename_audit.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_65  dead_scn_purge -- 2026-02-26 11:42:00 PM
+
+    A.  Prompt
+        1.  A ton of codename entries start with
+            "scn_" and I think those are gone
+            now. Check.
+
+    B.  Response
+        1.  Confirmed 0 matches for scn_ in any
+            HTML/CSS/JS file. Removed all 212
+            dead scn_ entries from
+            codename_index.txt.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_65%20dead_scn_purge.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_64  unused_css_remove -- 2026-02-26 11:38:00 PM
+
+    A.  Prompt
+        1.  Remove any unused CSS.
+
+    B.  Response
+        1.  Removed 5 unused selectors from
+            scenarios.css: .outline_title,
+            .cell_kid, .cell_sc, .cell_gma,
+            .cell_es.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_64%20unused_css_remove.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_63  border_thicken -- 2026-02-26 11:36:00 PM
+
+    A.  Prompt
+        1.  Make the thin white line around the
+            scenarios twice as thick.
+
+    B.  Response
+        1.  Changed .block border from 1px to
+            2px solid #fff.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_63%20border_thicken.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_62  drop_scn_prefix -- 2026-02-26 11:33:00 PM
+
+    A.  Prompt
+        1.  My request to use "scn_" in codename
+            is wrong. It's so common it's not
+            useful. Can you drop it everywhere
+            but adjust names so things don't
+            mess up.
+
+    B.  Response
+        1.  Renamed 6 JS functions: scn_text_get
+            → text_get, scn_html_escape →
+            html_escape, scn_id_get → id_get,
+            scn_msg_row_build → msg_row_build,
+            scn_call_render → call_render,
+            scn_block_render → block_render.
+        2.  Updated codename index: removed old
+            scn_ entries, added unprefixed names.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_62%20drop_scn_prefix.svg
+
+    C.  Codenames
+        1.  block_render (new)
+        2.  call_render (new)
+        3.  html_escape (new)
+        4.  id_get (new)
+        5.  msg_row_build (new)
+        6.  text_get (new)
+
+chat_61  bubble_block_rename -- 2026-02-26 11:28:00 PM
+
+    A.  Prompt
+        1.  I like the term bubble to refer to
+            text or audio in an exchange and
+            block to refer to the sections that
+            contain multiple bubbles. Use those
+            terms in CSS, HTML, and JavaScript.
+            Update the codename index.
+
+    B.  Response
+        1.  CSS: renamed .scenario → .block,
+            .sc_hdr → .block_hdr, .sc_nav →
+            .block_nav, .sc_nav_arrow →
+            .block_nav_arrow.
+        2.  JS: renamed scn_scenario_render →
+            scn_block_render. Updated all class
+            references in HTML template.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_61%20bubble_block_rename.svg
+
+    C.  Codenames
+        1.  block (new)
+        2.  block_hdr (new)
+        3.  block_nav (new)
+        4.  block_nav_arrow (new)
+
+chat_60  simplicity_check -- 2026-02-26 11:25:00 PM
+
+    A.  Prompt
+        1.  Are things still pretty simple with
+            the HTML and the CSS and the scripts
+            that generate this page from the
+            JSON in the JavaScript file. I want
+            to keep it pretty straightforward.
+
+    B.  Response
+        1.  Confirmed architecture remains simple:
+            one data file (scenarios.js), one
+            HTML page with inline renderer
+            (scenarios.html), one CSS file
+            (scenarios.css). No build tools or
+            frameworks.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_60%20simplicity_check.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_59  bottom_padding_fix -- 2026-02-26 11:20:00 PM
+
+    A.  Prompt
+        1.  Remove the gray gap at the bottom.
+        2.  There is a buffer at the bottom of
+            each scenario, below the last bubble.
+            Remove that.
+        3.  Multiple follow-ups: identified 26px
+            padding from section { padding:
+            var(--section_padding_y) 0 } in
+            index.css. Overrode with
+            padding-bottom:0 on .block.
+
+    B.  Response
+        1.  After several attempts (last-child
+            cell fixes, lanes border-radius),
+            traced 26px bottom gap to
+            --section_padding_y applied to all
+            <section> elements via index.css.
+        2.  Added padding-bottom:0 to .block in
+            scenarios.css to override the
+            inherited section padding.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_59%20bottom_padding_fix.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_58  border_white -- 2026-02-26 11:12:00 PM
+
+    A.  Prompt
+        1.  Change thin black line to thin white
+            line.
+
+    B.  Response
+        1.  Changed .block border-color from
+            #ccc to #fff.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_58%20border_white.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_57  title_indent -- 2026-02-26 11:10:00 PM
+
+    A.  Prompt
+        1.  Indent the title.
+
+    B.  Response
+        1.  Added padding:0 12px to .block h2
+            in scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_57%20title_indent.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_56  block_overflow -- 2026-02-26 11:08:00 PM
+
+    A.  Prompt
+        1.  No margin within thin line.
+
+    B.  Response
+        1.  Replaced padding:14px with
+            overflow:hidden on .block
+            in scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_56%20block_overflow.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_55  block_border -- 2026-02-26 11:06:00 PM
+
+    A.  Prompt
+        1.  Put a thin dark line around
+            scenarios.
+
+    B.  Response
+        1.  Added border:1px solid #ccc,
+            border-radius:10px, and padding:14px
+            to .scenario (now .block) in
+            scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_55%20block_border.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_54  dark_gray_revert -- 2026-02-26 11:03:00 PM
+
+    A.  Prompt
+        1.  Make the light gray in the scenarios
+            into a dark gray.
+        2.  Undo that.
+
+    B.  Response
+        1.  Changed all #f7f7f7 to #e0e0e0 in
+            scenarios.css, then immediately
+            reverted per user request.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_54%20dark_gray_revert.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_53  reorder_fields -- 2026-02-26 11:00:00 PM
+
+    A.  Prompt
+        1.  Run the reorder script
+            (doc/_reorder.js) to put id and text
+            before metadata fields.
+
+    B.  Response
+        1.  Ran node doc/_reorder.js. Reordered
+            JSON fields so id and text come first
+            in every step. Validated JSON.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_53%20reorder_fields.svg
+
+    C.  Codenames
+        1.  None.
+
 chat_52  scenario_move_1b -- 2026-02-26 10:53:20 PM
 
     A.  Prompt
@@ -1008,12 +1347,11 @@ chat_1  chat_log_test -- 2026-02-26 10:09:47 AM
 
 ##  NEXT PROMPT
 
-A.  Codename_dual_type
-    a.  Update codename.mdc to formally define
-        both codename types: scraped (class,
-        css, file names) and tagged (manual
-        // __codename markers in code).
-    b.  Update index format to accommodate both.
+A.  Scenario_content_review
+    a.  Review all 17 scenario message texts
+        for consistency and realism.
+    b.  Ensure precursors accurately describe
+        each scenario's starting conditions.
 
 B.  Codename_scaffold
     a.  Add codenames to existing code blocks

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" style="background:#fff">
+  <rect x="0" y="0" width="500" height="250" fill="#fff"/>
+
+  <text x="250" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_71 move_4c_to_2d</text>
+  <text x="250" y="36" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">4C "HELP: change the number" moves to 2D</text>
+
+  <!-- Group 4 BEFORE -->
+  <text x="75" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#999" font-weight="bold">Group 4 (before)</text>
+  <rect x="15" y="66" width="120" height="60" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="25" y="82" font-family="monospace" font-size="9" fill="#555">4A</text>
+  <text x="25" y="96" font-family="monospace" font-size="9" fill="#555">4B</text>
+  <text x="25" y="110" font-family="monospace" font-size="9" fill="#dc2626" font-weight="bold">4C  HELP: change #</text>
+
+  <!-- Arrow from 4C to 2D -->
+  <defs>
+    <marker id="arrowM" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#6366f1"/>
+    </marker>
+  </defs>
+  <path d="M135,107 C200,107 200,170 265,170" stroke="#6366f1" stroke-width="1.5" fill="none" marker-end="url(#arrowM)"/>
+  <text x="210" y="130" font-family="monospace" font-size="8" text-anchor="middle" fill="#6366f1">4C -&gt; 2D</text>
+
+  <!-- Group 2 BEFORE -->
+  <text x="75" y="148" font-family="monospace" font-size="10" text-anchor="middle" fill="#999" font-weight="bold">Group 2 (before)</text>
+  <rect x="15" y="154" width="120" height="56" rx="5" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+  <text x="25" y="170" font-family="monospace" font-size="9" fill="#555">2A</text>
+  <text x="25" y="184" font-family="monospace" font-size="9" fill="#555">2B</text>
+  <text x="25" y="198" font-family="monospace" font-size="9" fill="#555">2C</text>
+
+  <!-- Group 4 AFTER -->
+  <text x="390" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">Group 4 (after)</text>
+  <rect x="330" y="66" width="120" height="46" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="340" y="82" font-family="monospace" font-size="9" fill="#555">4A</text>
+  <text x="340" y="96" font-family="monospace" font-size="9" fill="#555">4B</text>
+
+  <!-- Group 2 AFTER -->
+  <text x="390" y="130" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">Group 2 (after)</text>
+  <rect x="330" y="136" width="150" height="72" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="340" y="152" font-family="monospace" font-size="9" fill="#555">2A</text>
+  <text x="340" y="166" font-family="monospace" font-size="9" fill="#555">2B</text>
+  <text x="340" y="180" font-family="monospace" font-size="9" fill="#555">2C</text>
+  <text x="340" y="194" font-family="monospace" font-size="9" fill="#16a34a" font-weight="bold">2D  HELP: change #</text>
+
+  <!-- Arrows between before/after -->
+  <defs>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <line x1="135" y1="86" x2="325" y2="86" stroke="#888" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrowR)"/>
+  <line x1="135" y1="176" x2="325" y2="170" stroke="#888" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrowR)"/>
+
+  <!-- Annotation -->
+  <text x="250" y="232" font-family="monospace" font-size="8" text-anchor="middle" fill="#555">Step IDs 4C1-4C2 renumbered to 2D1-2D2</text>
+  <text x="250" y="245" font-family="monospace" font-size="8" text-anchor="middle" fill="#555">Group 4: 3 to 2 scenarios | Group 2: 3 to 4 scenarios</text>
+</svg>
