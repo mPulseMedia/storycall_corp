@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="170" style="background:#fff">
+  <rect x="0" y="0" width="480" height="170" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_48 back_arrow_plain</text>
+
+  <!-- BEFORE -->
+  <text x="120" y="44" font-family="monospace" font-size="11" text-anchor="middle" fill="#999" font-weight="bold">BEFORE</text>
+
+  <rect x="30" y="54" width="180" height="50" rx="6" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="120" y="70" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">header</text>
+
+  <rect x="45" y="78" width="120" height="18" rx="4" fill="#444" stroke="none"/>
+  <text x="105" y="90" font-family="monospace" font-size="8" text-anchor="middle" fill="#fff" text-decoration="underline">&lt; Back to scenarios</text>
+
+  <text x="120" y="122" font-family="monospace" font-size="8" text-anchor="middle" fill="#dc2626">dark bg + underline</text>
+
+  <!-- arrow -->
+  <text x="240" y="82" font-family="monospace" font-size="13" text-anchor="middle" fill="#888">&gt;</text>
+
+  <!-- AFTER -->
+  <text x="360" y="44" font-family="monospace" font-size="11" text-anchor="middle" fill="#16a34a" font-weight="bold">AFTER</text>
+
+  <rect x="270" y="54" width="180" height="50" rx="6" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="360" y="70" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">header</text>
+
+  <text x="295" y="90" font-family="monospace" font-size="9" fill="#555">&#x2196; scenarios</text>
+
+  <text x="360" y="122" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">plain text + &#x2196; arrow</text>
+  <text x="360" y="134" font-family="monospace" font-size="8" text-anchor="middle" fill="#16a34a">no bg, no underline</text>
+
+  <!-- CSS note -->
+  <text x="240" y="162" font-family="monospace" font-size="8" text-anchor="middle" fill="#888">.button_back { background:none; text-decoration:none; &#x2196; prefix }</text>
+</svg>

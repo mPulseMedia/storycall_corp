@@ -44,9 +44,7 @@ C.  Chat log
                 changed/done.
             2.  Include a local link to the SVG
                 diagram for this entry, e.g.:
-                file:///Users/pauldsmith/Desktop/
-                storycall_corp/doc/chat_log_svg/
-                chat_N short_label.svg
+                file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_N short_label.svg
         c.  C.  Codenames
             1.  List codenames involved in the
                 prompt effort, sorted.
@@ -177,12 +175,14 @@ F.  SVG diagrams
     3.  The SVG should depict a diagram that
         explains the response in context of the
         chat: before/after, data flow, layout
-        change, or architecture as appropriate. Indicate where in the architecture/files the changes happened.
+        change, or architecture as appropriate.
+        Indicate where in the architecture/files
+        the changes happened.
     4.  Consider recent and related chat entries
         when composing the diagram. A richer
         context (showing how this change connects
         to prior work) produces a more useful and
-        sometimes more involved diagram. 
+        sometimes more involved diagram.
     5.  Keep diagrams simple and readable: use
         monospace text, labeled boxes, arrows,
         and color to convey the key change.

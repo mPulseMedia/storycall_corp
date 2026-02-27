@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="260" style="background:#fff">
+  <rect x="0" y="0" width="480" height="260" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_46 tagline_embed</text>
+
+  <!-- OLD structure -->
+  <text x="120" y="42" font-family="monospace" font-size="11" text-anchor="middle" fill="#999" font-weight="bold">OLD (flat)</text>
+
+  <rect x="20" y="50" width="200" height="100" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="120" y="68" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">scenarios.js</text>
+
+  <rect x="30" y="76" width="85" height="28" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="0.5"/>
+  <text x="72" y="88" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">scenarios{}</text>
+  <text x="72" y="98" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">1A, 2A, 2B...</text>
+
+  <rect x="125" y="76" width="85" height="28" rx="3" fill="#fee2e2" stroke="#dc2626" stroke-width="0.5"/>
+  <text x="167" y="88" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">groups[]</text>
+  <text x="167" y="98" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">scenario_ids</text>
+
+  <text x="120" y="140" font-family="monospace" font-size="7" text-anchor="middle" fill="#999">groups ref ids in scenarios</text>
+
+  <!-- arrow -->
+  <line x1="230" y1="100" x2="250" y2="100" stroke="#888" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="240" y="92" font-family="monospace" font-size="11" fill="#888" text-anchor="middle">&gt;</text>
+
+  <!-- NEW structure -->
+  <text x="365" y="42" font-family="monospace" font-size="11" text-anchor="middle" fill="#16a34a" font-weight="bold">NEW (embedded)</text>
+
+  <rect x="260" y="50" width="200" height="140" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="360" y="68" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">scenarios.js</text>
+
+  <rect x="270" y="76" width="180" height="102" rx="4" fill="#f0fdf4" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="360" y="92" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d" font-weight="bold">groups[]</text>
+
+  <rect x="280" y="98" width="160" height="34" rx="3" fill="#fff" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="360" y="112" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">scenarios[] embedded</text>
+  <text x="360" y="122" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">{ id, title, msgs... }</text>
+
+  <rect x="280" y="138" width="160" height="16" rx="3" fill="#fff" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="360" y="150" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">tagline (NEW field)</text>
+
+  <rect x="280" y="158" width="160" height="14" rx="3" fill="#fef9c3" stroke="#ca8a04" stroke-width="0.5"/>
+  <text x="360" y="168" font-family="monospace" font-size="7" text-anchor="middle" fill="#854d0e">no separate scenarios{}</text>
+
+  <!-- summary -->
+  <text x="240" y="215" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">flat scenarios{} + groups w/ ids</text>
+  <text x="240" y="228" font-family="monospace" font-size="9" text-anchor="middle" fill="#16a34a">groups[] contain scenarios[] directly + tagline</text>
+  <text x="240" y="250" font-family="monospace" font-size="8" text-anchor="middle" fill="#888">no more scenario_ids lookups</text>
+</svg>

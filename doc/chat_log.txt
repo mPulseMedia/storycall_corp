@@ -1,13 +1,188 @@
-chat_41  bottom_gap_remove -- 2026-02-26 12:24:58 PM
+chat_52  scenario_move_1b -- 2026-02-26 10:53:20 PM
 
     A.  Prompt
-        1.  Remove the light gray gap at the bottom
-            of each scenario.
+        1.  Move 3B to become 1B and renumber 3C.
+            Rename it "Perfect message exchange."
 
     B.  Response
-        1.  Removed .lanes::after pseudo-element
-            (12px #f7f7f7 bar) from scenarios.css.
-        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_41%20bottom_gap_remove.svg
+        1.  Moved 3B ("Grandma: Call back") from
+            group 3 to group 1 as 1B, renamed to
+            "1.B. Perfect message exchange."
+            All step IDs 3B1-3B13 → 1B1-1B13.
+        2.  Renumbered 3C → 3B ("Grandma: No
+            answer"). All step IDs 3C1-3C12 →
+            3B1-3B12.
+        3.  Group 3 now has 2 scenarios (3A, 3B).
+            Group 1 now has 2 scenarios (1A, 1B).
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_52%20scenario_move_1b.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_51  mdc_audit -- 2026-02-26 10:47:28 PM
+
+    A.  Prompt
+        1.  Audit the .cursor/rules MDC files for
+            internal consistency and make sure they
+            are laid out according to outline.mdc
+            rules.
+        2.  Put a little gap beneath each scenario
+            title.
+        3.  Get rid of the rounded corners on the
+            gray message rows. Update the chat log.
+
+    B.  Response
+        1.  outline.mdc: swapped L1 from numeric
+            (1., 2...) to uppercase (A., B...) and
+            L2 from uppercase to numeric, matching
+            its own stated rules. Fixed implied ID
+            example from 3C2 to C2a.
+        2.  prompt.mdc: reflowed line 180 (over 60
+            chars), joined broken URL on lines
+            47-49, removed trailing space.
+        3.  codename.mdc: clean, no issues.
+        4.  Added 10px margin below .scenario h2.
+        5.  Removed border-radius and overflow from
+            .msg rows (undid chat_50 rounded corners
+            on gray cells).
+        6.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_51%20mdc_audit.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_50  scenario_css_tune -- 2026-02-26 10:30:00 PM
+
+    A.  Prompt
+        1.  Make the white border around each
+            scenario a little thinner and make the
+            white boxes that contain the
+            communication have rounded edges like
+            the speech bubbles.
+
+    B.  Response
+        1.  Changed .scenario border from solid #fff
+            to solid #eee, reduced padding from 18px
+            to 14px.
+        2.  Added border-radius:12px and
+            overflow:hidden to .msg rows.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_50%20scenario_css_tune.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_49  voice_icon -- 2026-02-26 10:20:00 PM
+
+    A.  Prompt
+        1.  Get rid of the 15s, 13s duration display
+            and replace the word "voice" with a small
+            icon indicating audio.
+
+    B.  Response
+        1.  Replaced voice_tag text+duration with
+            inline microphone SVG icon (12px).
+        2.  Simplified .voice_tag CSS from text badge
+            to inline icon with opacity.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_49%20voice_icon.svg
+
+    C.  Codenames
+        1.  voice_tag
+
+chat_48  back_arrow_plain -- 2026-02-26 10:10:00 PM
+
+    A.  Prompt
+        1.  The back-to-home link in the header has a
+            dark background and underline. Remove
+            both. Just say "Back to home" with a
+            simple upper-left arrow.
+
+    B.  Response
+        1.  Removed dark background and border from
+            .button_back in index.css and legal.css.
+            Set text-decoration:none.
+        2.  Added ↖ arrow entity before "Back to
+            home" in scenarios.html and about.html.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_48%20back_arrow_plain.svg
+
+    C.  Codenames
+        1.  button_back
+
+chat_47  scenario_border -- 2026-02-26 10:00:00 PM
+
+    A.  Prompt
+        1.  Put a white border around each scenario.
+
+    B.  Response
+        1.  Added background:#fff, border, padding,
+            border-radius:10px, and box-shadow to
+            .scenario in scenarios.css.
+        2.  Removed duplicate box-shadow from .lanes.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_47%20scenario_border.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_46  tagline_embed -- 2026-02-26 09:50:00 PM
+
+    A.  Prompt
+        1.  Restructure JSON to embed scenarios
+            within groups. Put the tagline into the
+            JSON.
+
+    B.  Response
+        1.  Restructured scenarios.js: scenarios now
+            embedded directly within their group
+            objects (no more flat scenarios object or
+            scenario_ids references).
+        2.  Added "tagline" array field to
+            SCENARIOS_DATA. Subtitle now reads from
+            data via scn_text_get().
+        3.  Updated scenarios.html renderer: GROUPS
+            iterates embedded scenario objects
+            directly, outline nav and rendering use
+            g.scenarios instead of ID lookups.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_46%20tagline_embed.svg
+
+    C.  Codenames
+        1.  tagline (new)
+
+chat_45  subtitle_add -- 2026-02-26 02:56:41 PM
+
+    A.  Prompt
+        1.  Insert a subtitle under StoryCall
+            Scenarios describing the purpose of the
+            scenarios. Reword it a little better.
+
+    B.  Response
+        1.  Added subtitle paragraph below h1:
+            "These scenarios illustrate typical
+            interactions between Kid, Grandma, and
+            StoryCall. They serve as a reference for
+            how the StoryCall application should
+            respond in each situation."
+        2.  Added .subtitle CSS (font-size .88rem,
+            color #666, margin 0 0 20px).
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_45%20subtitle_add.svg
+
+    C.  Codenames
+        1.  subtitle (new)
+
+chat_44  groups_to_json -- 2026-02-26 02:47:14 PM
+
+    A.  Prompt
+        1.  The JSON does not include the scenario
+            sections such as perfect path, setup
+            issues, message issues, etc. Insert
+            those into scenarios.js. Mind the indent
+            and wrap.
+
+    B.  Response
+        1.  Added "groups" array to SCENARIOS_DATA
+            with 5 entries (num, label, scenario_ids)
+            matching the existing GROUPS in the
+            renderer.
+        2.  Updated scenarios.html to read GROUPS
+            from the data instead of hardcoding.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_44%20groups_to_json.svg
 
     C.  Codenames
         1.  None.
@@ -44,6 +219,20 @@ chat_42  json_wrap_align -- 2026-02-26 12:31:00 PM
             Step-level moved from col 41, part-level
             from col 47. Also removed .lanes::after.
         3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_42%20json_wrap_align.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_41  bottom_gap_remove -- 2026-02-26 12:24:58 PM
+
+    A.  Prompt
+        1.  Remove the light gray gap at the bottom
+            of each scenario.
+
+    B.  Response
+        1.  Removed .lanes::after pseudo-element
+            (12px #f7f7f7 bar) from scenarios.css.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_41%20bottom_gap_remove.svg
 
     C.  Codenames
         1.  None.

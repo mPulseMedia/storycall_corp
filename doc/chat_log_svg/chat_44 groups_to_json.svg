@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" style="background:#fff">
+  <rect x="0" y="0" width="480" height="180" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_44 groups_to_json</text>
+
+  <!-- scenarios.js structure -->
+  <rect x="30" y="34" width="200" height="130" rx="6" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="130" y="50" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">scenarios.js</text>
+  <text x="45" y="66" font-family="monospace" font-size="8" fill="#888">schema_version</text>
+  <text x="45" y="78" font-family="monospace" font-size="8" fill="#888">scenario_ids</text>
+  <rect x="40" y="84" width="180" height="46" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="130" y="97" font-family="monospace" font-size="8" text-anchor="middle" fill="#14532d" font-weight="bold">groups (NEW)</text>
+  <text x="55" y="109" font-family="monospace" font-size="7" fill="#14532d">1. Perfect path    [1A]</text>
+  <text x="55" y="119" font-family="monospace" font-size="7" fill="#14532d">2. Setup issues    [2A,2B,2C]</text>
+  <text x="55" y="129" font-family="monospace" font-size="7" fill="#14532d">3-5. ...</text>
+  <text x="45" y="150" font-family="monospace" font-size="8" fill="#888">scenarios</text>
+
+  <!-- scenarios.html -->
+  <rect x="260" y="34" width="190" height="90" rx="6" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="355" y="50" font-family="monospace" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">scenarios.html</text>
+
+  <rect x="270" y="58" width="170" height="18" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="0.5"/>
+  <text x="355" y="70" font-family="monospace" font-size="7" text-anchor="middle" fill="#dc2626">const GROUPS = [...] (removed)</text>
+
+  <rect x="270" y="82" width="170" height="18" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="355" y="94" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">GROUPS = data.groups</text>
+
+  <!-- arrow -->
+  <line x1="230" y1="100" x2="260" y2="90" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr44)"/>
+  <defs><marker id="arr44" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#16a34a"/></marker></defs>
+
+  <text x="240" y="175" font-family="monospace" font-size="9" text-anchor="middle" fill="#555">data-driven groups: .js → .html reads from data</text>
+</svg>

@@ -16,13 +16,14 @@
         <a class="brand" href="https://storycall.org" aria-label="StoryCall home">
           <img src="image/storycall_logo.png" alt="StoryCall logo" class="brand_logo" width="253" height="59" />
         </a>
-        <a class="button_back" href="index.html">Back to home</a>
+        <a class="button_back" href="index.html">&#8598; Back to home</a>
       </div>
     </div>
   </header>
 
   <main class="page">
     <h1>StoryCall Scenarios</h1>
+    <p class="subtitle" id="subtitle"></p>
     <nav class="nav" id="nav"></nav>
     <div id="out"></div>
   </main>
@@ -39,32 +40,27 @@
 
   <script src="scenarios.js"></script>
   <script>
-  const scn_text_get = v => Array.isArray(v) ? v.join("") : (v ?? "");
-  const scn_html_escape = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const text_get = v => Array.isArray(v) ? v.join("") : (v ?? "");
+  const html_escape = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
   const NAMES = {kid:"Kid", storycall:"StoryCall", grandma:"Grandma"};
   const COL = {kid:0, storycall:1, grandma:2};
 
-  const GROUPS = [
-    { num:"1", label:"Perfect path",           ids:["1A"] },
-    { num:"2", label:"Setup issues",              ids:["2A","2B","2C"] },
-    { num:"3", label:"Message issues",            ids:["3A","3B","3C"] },
-    { num:"4", label:"Help",                     ids:["4A","4B","4C"] },
-    { num:"5", label:"Texting to stop",          ids:["5A","5B"] },
-  ];
-  const IDS = GROUPS.flatMap(g => g.ids);
+  const id_get = sc => sc.scenario_title.split(" ")[0];
+  const GROUPS = SCENARIOS_DATA.groups;
+  const ALL_SC = GROUPS.flatMap(g => g.group_scenarios);
 
-  function scn_msg_row_build(step, parentCls) {
+  function msg_row_build(step, parentCls) {
     const who = step.from || step.speaker || "storycall";
     const fmt = step.format || "text";
     const ch  = step.channel || "sms";
 
-    const voiceCls = fmt === "voice" ? " bubble_voice" : "";
-    const voiceTag = (fmt === "voice" && step.duration_s)
-      ? `<span class="voice_tag">voice \u00b7 ${step.duration_s}s</span>`
+    const voiceCls = fmt === "audio" ? " bubble_voice" : "";
+    const voiceTag = fmt === "audio"
+      ? `<span class="voice_tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span>`
       : "";
-    const body = scn_html_escape(scn_text_get(step.text));
+    const body = html_escape(text_get(step.text));
     const mistakeHTML = step.mistakes
-      ? step.mistakes.map(m => `<span class="mistake">\u26a0 ${scn_html_escape(m.message)}</span>`).join("")
+      ? step.mistakes.map(m => `<span class="mistake">\u26a0 ${html_escape(m.message)}</span>`).join("")
       : "";
     const numHTML = step.id != null ? `<span class="step_num">${step.id}</span>` : "";
 
@@ -107,12 +103,12 @@
     </div>`;
   }
 
-  function scn_call_render(call) {
+  function call_render(call) {
     /* Render all parts as stacked bubbles spanning storycall + grandma */
-    const parts = call.parts || [];
+    const parts = call.telephone_parts || [];
     let bubblesHTML = "";
     for (const part of parts) {
-      const body = scn_html_escape(scn_text_get(part.text));
+      const body = html_escape(text_get(part.text));
       const numHTML = part.id != null ? `<span class="step_num">${part.id}</span>` : "";
       /* relayed kid voice → darker green; storycall voice → darker blue */
       const relayed = part.derived_from && part.derived_from.via === "telephone_playback";
@@ -127,13 +123,13 @@
     </div>`;
   }
 
-  function scn_scenario_render(sc, nextId) {
-    const prec = scn_text_get(sc.precursor);
-    const precHTML = prec ? `<p class="precursor">${scn_html_escape(prec)}</p>` : "";
+  function block_render(sc, nextId) {
+    const prec = text_get(sc.scenario_precursor);
+    const precHTML = prec ? `<p class="precursor">${html_escape(prec)}</p>` : "";
 
     let rows = "";
     let prevZone = null;
-    for (const step of sc.steps) {
+    for (const step of sc.scenario_steps) {
       const zone = step.type === "event" ? null
         : step.channel === "telephone" ? "gma" : "kid";
       if (zone && prevZone && zone !== prevZone) {
@@ -143,22 +139,22 @@
 
       if (step.type === "event") {
         const evId = step.id != null ? `<span class="step_num">${step.id}</span>` : "";
-        rows += `<div class="event_row">${evId}${scn_html_escape(step.label)}</div>`;
-      } else if (step.channel === "telephone" && step.parts) {
-        rows += scn_call_render(step);
+        rows += `<div class="event_row">${evId}${html_escape(step.label)}</div>`;
+      } else if (step.channel === "telephone" && step.telephone_parts) {
+        rows += call_render(step);
       } else {
-        rows += scn_msg_row_build(step);
+        rows += msg_row_build(step);
       }
     }
 
     const downHTML = nextId
-      ? `<a class="sc_nav_arrow" href="#s_${nextId}" title="Next scenario">&darr;</a>`
+      ? `<a class="block_nav_arrow" href="#s_${nextId}" title="Next block">&darr;</a>`
       : "";
 
-    return `<section class="scenario" id="s_${sc.scenario_id}">
-      <div class="sc_hdr">
-        <h2>${scn_html_escape(sc.title)}</h2>
-        <span class="sc_nav">${downHTML}<a class="sc_nav_arrow" href="#" title="Back to top">&uarr;</a></span>
+    return `<section class="block" id="s_${id_get(sc)}">
+      <div class="block_hdr">
+        <h2>${html_escape(sc.scenario_title)}</h2>
+        <span class="block_nav">${downHTML}<a class="block_nav_arrow" href="#" title="Back to top">&uarr;</a></span>
       </div>
       ${precHTML}
       <div class="lanes">
@@ -170,24 +166,24 @@
     </section>`;
   }
 
-  const data = SCENARIOS_DATA;
+  /* subtitle from data */
+  document.getElementById("subtitle").textContent = text_get(SCENARIOS_DATA.purpose);
 
   /* outline nav */
   let navHTML = `<ul class="outline">`;
   for (const g of GROUPS) {
-    navHTML += `<li><span class="outline_group">${g.num}. ${scn_html_escape(g.label)}</span><ol type="A">`;
-    for (const id of g.ids) {
-      const sc = data.scenarios[id];
-      const shortTitle = sc.title.replace(/^\d+\.\w+\.\s*/, "");
-      navHTML += `<li><a href="#s_${id}">${scn_html_escape(shortTitle)}</a></li>`;
+    navHTML += `<li><span class="outline_group">${html_escape(g.group_title)}</span><ol type="A">`;
+    for (const sc of g.group_scenarios) {
+      const shortTitle = sc.scenario_title.replace(/^\w+\s+/, "");
+      navHTML += `<li><a href="#s_${id_get(sc)}">${html_escape(shortTitle)}</a></li>`;
     }
     navHTML += `</ol></li>`;
   }
   navHTML += `</ul>`;
   document.getElementById("nav").innerHTML = navHTML;
 
-  document.getElementById("out").innerHTML = IDS
-    .map((id, i) => scn_scenario_render(data.scenarios[id], IDS[i + 1])).join("");
+  document.getElementById("out").innerHTML = ALL_SC
+    .map((sc, i) => block_render(sc, ALL_SC[i + 1] ? id_get(ALL_SC[i + 1]) : null)).join("");
 
   document.getElementById("year").textContent = new Date().getFullYear();
 

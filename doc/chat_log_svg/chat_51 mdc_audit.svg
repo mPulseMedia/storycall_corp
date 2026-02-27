@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280" style="background:#fff">
+  <rect x="0" y="0" width="480" height="280" fill="#fff"/>
+
+  <text x="240" y="20" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_51 mdc_audit</text>
+
+  <!-- outline.mdc fix -->
+  <text x="240" y="42" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">outline.mdc marker fix</text>
+
+  <!-- BEFORE markers -->
+  <text x="120" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#999" font-weight="bold">BEFORE</text>
+
+  <rect x="30" y="66" width="180" height="60" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="40" y="82" font-family="monospace" font-size="8" fill="#dc2626">L1: 1. 2. 3. (numeric)</text>
+  <text x="40" y="96" font-family="monospace" font-size="8" fill="#dc2626">L2: A. B. C. (uppercase)</text>
+  <text x="40" y="110" font-family="monospace" font-size="7" fill="#999">L3: a. b. c.</text>
+  <text x="40" y="120" font-family="monospace" font-size="7" fill="#999">L4: 1. 2. 3.</text>
+
+  <!-- arrow -->
+  <text x="240" y="100" font-family="monospace" font-size="13" text-anchor="middle" fill="#888">&gt;</text>
+
+  <!-- AFTER markers -->
+  <text x="360" y="60" font-family="monospace" font-size="10" text-anchor="middle" fill="#16a34a" font-weight="bold">AFTER</text>
+
+  <rect x="270" y="66" width="180" height="60" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="280" y="82" font-family="monospace" font-size="8" fill="#16a34a">L1: A. B. C. (uppercase)</text>
+  <text x="280" y="96" font-family="monospace" font-size="8" fill="#16a34a">L2: 1. 2. 3. (numeric)</text>
+  <text x="280" y="110" font-family="monospace" font-size="7" fill="#555">L3: a. b. c.</text>
+  <text x="280" y="120" font-family="monospace" font-size="7" fill="#555">L4: 1. 2. 3.</text>
+
+  <!-- swap annotation -->
+  <text x="240" y="148" font-family="monospace" font-size="8" text-anchor="middle" fill="#6366f1">L1 and L2 markers swapped</text>
+
+  <!-- prompt.mdc line wrap fix -->
+  <text x="120" y="170" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">prompt.mdc</text>
+
+  <rect x="30" y="178" width="180" height="30" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="0.5"/>
+  <text x="40" y="192" font-family="monospace" font-size="7" fill="#dc2626">long lines exceeding ~60</text>
+  <text x="40" y="202" font-family="monospace" font-size="7" fill="#dc2626">char wrap target</text>
+
+  <text x="240" y="196" font-family="monospace" font-size="13" text-anchor="middle" fill="#888">&gt;</text>
+
+  <rect x="270" y="178" width="180" height="30" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="280" y="192" font-family="monospace" font-size="7" fill="#16a34a">lines reflowed to</text>
+  <text x="280" y="202" font-family="monospace" font-size="7" fill="#16a34a">~60 char target</text>
+
+  <!-- .scenario h2 title gap -->
+  <text x="240" y="230" font-family="monospace" font-size="10" text-anchor="middle" fill="#555" font-weight="bold">.scenario h2 title gap</text>
+
+  <rect x="140" y="238" width="200" height="30" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="0.5"/>
+  <text x="240" y="250" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">.scenario h2 { margin-top added }</text>
+  <text x="240" y="260" font-family="monospace" font-size="7" text-anchor="middle" fill="#14532d">visual gap above scenario title</text>
+
+  <text x="240" y="276" font-family="monospace" font-size="8" text-anchor="middle" fill="#888">3 fixes: marker swap, line reflow, title spacing</text>
+</svg>
