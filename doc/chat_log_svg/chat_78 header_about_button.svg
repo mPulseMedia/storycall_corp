@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="90" style="background:#fff">
+  <rect x="0" y="0" width="480" height="90" fill="#fff"/>
+  <text x="240" y="22" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_78 header_about_button</text>
+  <text x="240" y="40" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">About button in header top-right</text>
+  <rect x="20" y="52" width="440" height="32" rx="4" fill="#2d3748" stroke="#1a202c"/>
+  <text x="40" y="72" font-family="monospace" font-size="10" fill="#fff">StoryCall logo</text>
+  <rect x="380" y="58" width="70" height="20" rx="3" fill="#4a5568" stroke="#718096"/>
+  <text x="415" y="72" font-family="monospace" font-size="9" text-anchor="middle" fill="#fff">About</text>
+  <path d="M455,68 L470,68" stroke="#68d391" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5 Z" fill="#68d391"/></marker></defs>
+  <text x="415" y="86" font-family="monospace" font-size="8" text-anchor="middle" fill="#68d391">’ about.html</text>
+</svg>

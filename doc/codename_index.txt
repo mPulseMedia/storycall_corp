@@ -45,6 +45,7 @@ brand_text_size_mobile               : css
 
 button                               : class
 button_back                          : class
+button_about                         : class
 button_gap                           : css
 button_padding_x                     : css
 button_padding_y                     : css

@@ -1,3 +1,20 @@
+chat_78  header_about_button -- 2026-03-03 12:27:16 PM
+
+    A.  Prompt
+        1.  Put an About button in the top
+            right corner of the header that
+            goes to the about page.
+
+    B.  Response
+        1.  Added About button to index.html
+            header bar, links to about.html.
+        2.  Styled to match header (white
+            text, transparent).
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_78%20header_about_button.svg
+
+    C.  Codenames
+        1.  button_about (new).
+
 chat_77  about_email_paul_only -- 2026-03-03 12:23:39 PM
 
     A.  Prompt

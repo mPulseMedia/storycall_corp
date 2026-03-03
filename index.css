@@ -143,6 +143,18 @@
       background        : transparent !important;
       border            : none !important;
     }
+    .button_about{
+      color             : rgba(var(--color_rgb_white),var(--opacity_heavy));
+      background        : transparent;
+      border            : none;
+      font-weight       : var(--font_weight_heavy);
+      text-decoration   : none;
+    }
+    .button_about:hover{
+      opacity           : .7;
+      background        : transparent !important;
+      border            : none !important;
+    }
 
     main{
       padding           : var(--main_padding_top) 0 var(--main_padding_bottom);
