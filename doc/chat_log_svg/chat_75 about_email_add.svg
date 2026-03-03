@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="90" style="background:#fff">
+  <rect x="0" y="0" width="380" height="90" fill="#fff"/>
+  <text x="190" y="22" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_75 about_email_add</text>
+  <text x="190" y="40" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">Add paul@storycall.org to address block</text>
+  <rect x="40" y="52" width="300" height="32" rx="4" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="55" y="68" font-family="monospace" font-size="9" fill="#555">1640 Stockton #330186 | San Francisco, CA 94133</text>
+  <text x="55" y="78" font-family="monospace" font-size="9" fill="#555">844-961-2835 | </text>
+  <text x="130" y="78" font-family="monospace" font-size="9" fill="#16a34a" font-weight="bold">paul@storycall.org</text>
+</svg>

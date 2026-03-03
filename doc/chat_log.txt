@@ -1,3 +1,96 @@
+chat_77  about_email_paul_only -- 2026-03-03 12:23:39 PM
+
+    A.  Prompt
+        1.  Just show Paul's email in his
+            section. Remove Ryan's and
+            contact@.
+
+    B.  Response
+        1.  Removed contact@ and ryan@.
+            Paul's email remains under his
+            bio.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_77%20about_email_paul_only.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_76  about_email_reorg -- 2026-03-03 12:22:11 PM
+
+    A.  Prompt
+        1.  Paul email under Paul info. Add
+            ryan@storycall.org under Ryan
+            section. Put contact@storycall.org
+            in main about section.
+
+    B.  Response
+        1.  Main section: contact@storycall.org.
+        2.  Paul section: paul@storycall.org.
+        3.  Ryan section: ryan@storycall.org.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_76%20about_email_reorg.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_75  about_email_add -- 2026-03-03 12:21:21 PM
+
+    A.  Prompt
+        1.  Add email address paul@storycall.org.
+
+    B.  Response
+        1.  Added paul@storycall.org as mailto:
+            link in address block.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_75%20about_email_add.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_74  about_address_format -- 2026-03-03 12:19:46 PM
+
+    A.  Prompt
+        1.  Format the address to look like an
+            address on the about page. Add
+            phone number 844-961-2835.
+
+    B.  Response
+        1.  Moved address into block format
+            (street, city/state/zip, phone).
+        2.  Added 844-961-2835 as tel: link.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_74%20about_address_format.svg
+
+    C.  Codenames
+        1.  about_address_block (new).
+
+chat_73  ryan_image_use -- 2026-03-03 12:18:33 PM
+
+    A.  Prompt
+        1.  Use ryan image.
+
+    B.  Response
+        1.  Switched Ryan's section to
+            image/about_ryan.png.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_73%20ryan_image_use.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_72  ryan_kiel_section -- 2026-03-03 12:15:09 PM
+
+    A.  Prompt
+        1.  On the about page, add a section
+            about Ryan Kiel -- use Paul's
+            picture for now. He's lead
+            developer and passion dedicated
+            AI purpose driven etc etc.
+
+    B.  Response
+        1.  Added Lead Developer section for
+            Ryan Kiel on about.html, using
+            Paul's photo as placeholder.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_72%20ryan_kiel_section.svg
+
+    C.  Codenames
+        1.  about_ryan_section (new).
+
 chat_71  move_4c_to_2d -- 2026-02-27 12:45:00 AM
 
     A.  Prompt

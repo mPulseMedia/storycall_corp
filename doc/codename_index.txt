@@ -1,4 +1,5 @@
 about                                : section
+about_address_block                  : class
 about_avatar                         : class
 about_avatar_img                     : class
 about_avatar_initials                : class
@@ -8,6 +9,7 @@ about_copy                           : class
 about_html                           : file
 about_name                           : class
 about_row                            : class
+about_ryan_section                   : section
 
 back                                 : class
 background_control                   : css
