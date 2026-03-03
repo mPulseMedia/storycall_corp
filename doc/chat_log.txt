@@ -1,3 +1,20 @@
+chat_79  footer_privacy_terms -- 2026-03-03 12:30:55 PM
+
+    A.  Prompt
+        1.  Add privacy and terms to the
+            footer of each page.
+
+    B.  Response
+        1.  Added footer_nav with Privacy and
+            Terms links to index, about,
+            scenarios, legal_privacy,
+            legal_terms.
+        2.  Styled in index.css and legal.css.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_79%20footer_privacy_terms.svg
+
+    C.  Codenames
+        1.  footer_nav (new).
+
 chat_78  header_about_button -- 2026-03-03 12:27:16 PM
 
     A.  Prompt

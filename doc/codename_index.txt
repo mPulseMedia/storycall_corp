@@ -123,6 +123,7 @@ font_weight_regular                  : css
 footer_address                       : class
 footer_inner                         : class
 footer_inner_address                 : class
+footer_nav                           : class
 
 group_box                            : class
 

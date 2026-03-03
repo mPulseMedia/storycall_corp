@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="90" style="background:#fff">
+  <rect x="0" y="0" width="520" height="90" fill="#fff"/>
+  <text x="260" y="22" font-family="monospace" font-size="13" text-anchor="middle" fill="#333" font-weight="bold">chat_79 footer_privacy_terms</text>
+  <text x="260" y="40" font-family="monospace" font-size="10" text-anchor="middle" fill="#888">Privacy and Terms links in footer (all pages)</text>
+  <rect x="20" y="52" width="480" height="32" rx="4" fill="#2b56b3" stroke="#1a3a7a"/>
+  <text x="40" y="72" font-family="monospace" font-size="9" fill="rgba(255,255,255,.7)">© StoryCall</text>
+  <text x="220" y="72" font-family="monospace" font-size="9" fill="#fff">Privacy</text>
+  <text x="280" y="72" font-family="monospace" font-size="9" fill="#fff">Terms</text>
+  <text x="420" y="72" font-family="monospace" font-size="9" fill="rgba(255,255,255,.7)">theMoment.tv, LLC</text>
+</svg>

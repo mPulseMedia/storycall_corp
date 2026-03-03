@@ -146,6 +146,19 @@
       line-height       : 1;
       color             : rgba(var(--color_rgb_white),var(--opacity_medium));
     }
+    .footer_nav{
+      display           : flex;
+      align-items       : center;
+      gap               : var(--margin_medium);
+      line-height       : 1;
+    }
+    .footer_nav a{
+      color             : rgba(var(--color_rgb_white),var(--opacity_medium));
+      text-decoration   : none;
+    }
+    .footer_nav a:hover{
+      opacity           : .9;
+    }
 
     @media (max-width: 43.75rem){
       :root{
