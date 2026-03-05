@@ -10,8 +10,8 @@
       --button_padding_y : var(--margin_small);
       --button_padding_x : var(--margin_medium);
 
-      --brand_text_size       : 46px;
-      --brand_text_size_mobile : 36px;
+      --brand_text_size       : 41px;
+      --brand_text_size_mobile : 32px;
 
       /* hero */
       --hero_margin_top       : var(--margin_medium);
@@ -34,7 +34,7 @@
       --drawer_shadow_top      : 140px;
 
       /* typography */
-      --font_size_heading      : 32px;
+      --font_size_heading      : 29px;
 
       --font_weight_regular    : 400;
 
@@ -781,8 +781,8 @@
 
         --drawer_caret_size     : 36px;
 
-        --font_size_body        : 22px;
-        --font_size_heading      : 28px;
+        --font_size_body        : 20px;
+        --font_size_heading      : 25px;
 
         --face_size             : 10.8rem;
       }

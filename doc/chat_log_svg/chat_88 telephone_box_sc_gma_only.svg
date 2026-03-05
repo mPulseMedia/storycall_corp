@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+  <rect width="320" height="100" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_88 telephone_box_sc_gma_only</text>
+  <rect x="10" y="28" width="300" height="65" fill="#f8f8f8" stroke="#ccc"/>
+  <rect x="160" y="38" width="140" height="50" fill="#fff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="166" y="52" font-size="8" fill="#666">Telephone</text>
+  <text x="166" y="68" font-size="9">zone_block_telephone (3/7)</text>
+  <text x="166" y="80" font-size="9">SC + Grandma only</text>
+  <text x="24" y="55" font-size="9" fill="#888">Kid cols 1-2</text>
+  <text x="24" y="68" font-size="9" fill="#888">outside box</text>
+</svg>

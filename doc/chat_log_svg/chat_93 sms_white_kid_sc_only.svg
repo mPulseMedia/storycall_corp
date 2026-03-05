@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" width="300" height="90">
+  <rect width="300" height="90" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_93 sms_white_kid_sc_only</text>
+  <rect x="10" y="28" width="280" height="55" fill="#f5f5f5" stroke="#ccc"/>
+  <rect x="18" y="38" width="190" height="40" fill="#fff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="24" y="52" font-size="9">SMS</text>
+  <text x="24" y="68" font-size="9">zone_block_sms (1/5)</text>
+  <rect x="215" y="38" width="75" height="40" fill="#f5f5f5" stroke="#999"/>
+  <text x="225" y="68" font-size="9" fill="#666">Grandma gray</text>
+</svg>

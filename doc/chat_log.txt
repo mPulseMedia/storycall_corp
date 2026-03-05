@@ -1,3 +1,180 @@
+chat_100  undo_rounded_corners -- 2026-03-05 10:32:12 AM
+
+    A.  Prompt
+        1.  Undo that recent stuff about rounded
+            corners.
+
+    B.  Response
+        1.  Reverted chat_98, 99: removed
+            border-radius, overflow, borders,
+            msg_last_sms/msg_last_telephone.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_100%20undo_rounded_corners.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_97  zone_label_font_like_step_num -- 2026-03-05 10:28:39 AM
+
+    A.  Prompt
+        1.  Good. Now make the font of SMS and
+            Telephone look like the font of the
+            labels like 1A4.
+
+    B.  Response
+        1.  zone_label: font-size .5rem,
+            font-weight 400, color #666 (like
+            step_num).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_97%20zone_label_font_like_step_num.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_96  telephone_white_sc_gma_fix -- 2026-03-05 10:27:54 AM
+
+    A.  Prompt
+        1.  Nope. You moved the word telephone to
+            the SC column, but the white still
+            appears under the Kid.
+
+    B.  Response
+        1.  Wrapped Telephone label + filler in
+            zone_label_row_telephone sub-grid.
+        2.  Filler (1/3) and label (3/7) now
+            share one row; gray under Kid.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_96%20telephone_white_sc_gma_fix.svg
+
+    C.  Codenames
+        1.  zone_label_row_telephone (new).
+
+chat_95  telephone_label_sc_gma_only -- 2026-03-05 10:26:56 AM
+
+    A.  Prompt
+        1.  Correct. Now fix the Telephone to span
+            only across the SC and Grandma.
+
+    B.  Response
+        1.  zone_label_telephone: grid-column
+            3/7, background #fff.
+        2.  zone_label_kid_filler (1/3) gray
+            under Kid for Telephone label row.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_95%20telephone_label_sc_gma_only.svg
+
+    C.  Codenames
+        1.  zone_label_kid_filler (new).
+
+chat_94  sms_label_white_kid_sc_only -- 2026-03-05 10:25:47 AM
+
+    A.  Prompt
+        1.  BAD. you changed the span of the rest
+            of the block. undo and try again.
+
+    B.  Response
+        1.  Undid zone_block; kept .lanes #fff.
+        2.  zone_label_sms: grid-column 1/5,
+            background #fff.
+        3.  zone_label_gma_filler (5/7) gray
+            only for SMS label row.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_94%20sms_label_white_kid_sc_only.svg
+
+    C.  Codenames
+        1.  zone_label_gma_filler (new).
+
+chat_93  sms_white_kid_sc_only -- 2026-03-05 10:24:58 AM
+
+    A.  Prompt
+        1.  Nope. The white behind SMS spans all
+            columns.
+
+    B.  Response
+        1.  Wrapped SMS zone in zone_block_sms
+            (grid-column 1/5); white only under
+            Kid + StoryCall.
+        2.  .lanes background #f5f5f5; zone_block
+            white.
+        3.  zone_block_telephone (3/7) for
+            consistency.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_93%20sms_white_kid_sc_only.svg
+
+    C.  Codenames
+        1.  zone_block (new).
+        2.  zone_block_sms (new).
+        3.  zone_block_telephone (new).
+
+chat_92  sms_label_span_kid_sc -- 2026-03-05 10:24:15 AM
+
+    A.  Prompt
+        1.  Make the SMS zone label span only
+            Kid and SC.
+
+    B.  Response
+        1.  zone_label_sms: grid-column 1/5
+            (kid + storycall).
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_92%20sms_label_span_kid_sc.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_91  undo -- 2026-03-05 10:22:36 AM
+
+    A.  Prompt
+        1.  Undo.
+
+    B.  Response
+        1.  Reverted chat_90: removed
+            zone_block wrappers, .lanes
+            background back to #fff.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_91%20undo.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_89  undo_last_3_entries -- 2026-03-05 10:20:44 AM
+
+    A.  Prompt
+        1.  Undo the last 3 entries.
+
+    B.  Response
+        1.  Reverted chat_86, 87, 88: removed
+            zone_block wrappers, msg_telephone,
+            small gray zone labels.
+        2.  Restored state after chat_85:
+            zone_label full-width, .9rem 800,
+            call_render with cell_ek/cell_eg1.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_89%20undo_last_3_entries.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_85  zone_label_sms_telephone -- 2026-03-05 10:15:45 AM
+
+    A.  Prompt
+        1.  At the top of each white block that
+            contains text message exchanges
+            between kid and story call put a
+            small word SMS in the top left
+            corner using the same kind of font
+            as the bubble labels and in the
+            top left of the white box that
+            contains the exchanges between
+            story Call and grandma have that
+            word say telephone. Do that for
+            all of these boxes systematically
+            with the code.
+
+    B.  Response
+        1.  Added zone_label when entering kid
+            (SMS) or gma (Telephone) zones in
+            block_render.
+        2.  CSS: zone_label, zone_label_sms,
+            zone_label_telephone; same font
+            (.9rem, 800) as lane headers.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_85%20zone_label_sms_telephone.svg
+
+    C.  Codenames
+        1.  zone_label (new).
+        2.  zone_label_sms (new).
+        3.  zone_label_telephone (new).
+
 chat_84  try_it_cta_responsive -- 2026-03-04 5:40:46 PM
 
     A.  Prompt

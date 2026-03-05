@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60">
+  <rect width="260" height="60" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_97 zone_label_font_like_step_num</text>
+  <rect x="10" y="28" width="240" height="25" fill="#f8f8f8" stroke="#ccc"/>
+  <text x="18" y="45" font-size="8" fill="#666">SMS / Telephone: .5rem 400 #666</text>
+  <text x="18" y="55" font-size="8" fill="#666">like step_num (1A4)</text>
+</svg>

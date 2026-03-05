@@ -42,7 +42,7 @@
 
       /* typography */
       --font_family_base : ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      --font_size_body  : 24px;
+      --font_size_body  : 22px;
 
       --font_weight_bold : 600;
       --font_weight_heavy : 900;

@@ -6,10 +6,10 @@ var SCENARIOS_DATA = {
                                       "in each situation."],
   "groups"                         : [
     {
-      "group_title"                : "1 Perfect",
+      "group_title"                : "1 Ideal path",
       "group_scenarios"            : [
         {
-          "scenario_title"         : "1A Perfect onboarding",
+          "scenario_title"         : "1A Onboarding via SMS",
           "scenario_precursor"     : "Precursor: Kid has not sent storycall keyword, or previously sent STOP keyword to end reset a prior interaction.",
           "scenario_steps"         : [
             {
@@ -122,11 +122,39 @@ var SCENARIOS_DATA = {
           ]
         },
         {
-          "scenario_title"         : "1B Perfect message exchange",
-          "scenario_precursor"     : "",
+          "scenario_title"         : "1B Onboarding via Form",
+          "scenario_precursor"     : "Precursor: Kid opted in via form correctly.",
           "scenario_steps"         : [
             {
+              "type"               : "event",
               "id"                 : "1B1",
+              "label"              : "Kid opted in via form correctly."
+            },
+            {
+              "id"                 : "1B2",
+              "text"               : ["Hi. StoryCall will convert your voice recordings ",
+                                      "into scheduled phone calls.\n\n",
+                                      "To begin, text me the PHONE NUMBER to deliver ",
+                                      "your recording to.\n\n",
+                                      "Text STOP or HELP at any time."],
+              "channel"            : "sms",
+              "from"               : "storycall",
+              "to"                 : "kid",
+              "format"             : "text"
+            },
+            {
+              "type"               : "event",
+              "id"                 : "1B3",
+              "label"              : "Continue at 1A4."
+            }
+          ]
+        },
+        {
+          "scenario_title"         : "1C Ideal message exchange",
+          "scenario_precursor"     : "Precursor: Kid has not sent storycall keyword, or previously sent STOP keyword to end reset a prior interaction.",
+          "scenario_steps"         : [
+            {
+              "id"                 : "1C1",
               "text"               : ["Hi Grandma — what was it like on Christmas ",
                                       "morning?"],
               "channel"            : "sms",
@@ -142,25 +170,25 @@ var SCENARIOS_DATA = {
               "telephone_index"    : 1,
               "telephone_parts"    : [
                   {
-                    "id"              : "1B2",
+                    "id"              : "1C2",
                     "text"            : "You have a new message.",
                     "format"          : "audio",
                     "speaker"         : "storycall"
                   },
                   {
-                    "id"              : "1B3",
+                    "id"              : "1C3",
                     "text"            : ["Hi Grandma — what was it like on Christmas ",
                                       "morning?"],
                     "format"          : "audio",
                     "speaker"         : "kid",
                     "derived_from"    : {
-                      "utterance_id"  : "1B1",
+                      "utterance_id"  : "1C1",
                       "kind"          : "relay",
                       "via"           : "telephone_playback"
                     }
                   },
                   {
-                    "id"              : "1B4",
+                    "id"              : "1C4",
                     "text"            : ["Respond after the beep, or tell me when to ",
                                       "call back with this message."],
                     "format"          : "audio",
@@ -169,7 +197,7 @@ var SCENARIOS_DATA = {
               ]
             },
             {
-              "id"                 : "1B5",
+              "id"                 : "1C5",
               "text"               : "Can you call me back in about an hour?",
               "channel"            : "telephone",
               "from"               : "grandma",
@@ -178,7 +206,7 @@ var SCENARIOS_DATA = {
               "format"             : "audio"
             },
             {
-              "id"                 : "1B6",
+              "id"                 : "1C6",
               "text"               : "StoryCall: I'll try again in an hour.",
               "channel"            : "sms",
               "from"               : "storycall",
@@ -187,11 +215,11 @@ var SCENARIOS_DATA = {
             },
             {
               "type"               : "event",
-              "id"                 : "1B7",
+              "id"                 : "1C7",
               "label"              : "1 hour later",
               "seconds"            : 3600,
-              "after_utterance_id" : "1B6",
-              "before_utterance_id" : "1B8"
+              "after_utterance_id" : "1C6",
+              "before_utterance_id" : "1C8"
             },
             {
               "channel"            : "telephone",
@@ -201,25 +229,25 @@ var SCENARIOS_DATA = {
               "telephone_index"    : 2,
               "telephone_parts"    : [
                   {
-                    "id"              : "1B8",
+                    "id"              : "1C8",
                     "text"            : "Calling back with your new message.",
                     "format"          : "audio",
                     "speaker"         : "storycall"
                   },
                   {
-                    "id"              : "1B9",
+                    "id"              : "1C9",
                     "text"            : ["Hi Grandma — what was it like on Christmas ",
                                       "morning?"],
                     "format"          : "audio",
                     "speaker"         : "kid",
                     "derived_from"    : {
-                      "utterance_id"  : "1B1",
+                      "utterance_id"  : "1C1",
                       "kind"          : "relay",
                       "via"           : "telephone_playback"
                     }
                   },
                   {
-                    "id"              : "1B10",
+                    "id"              : "1C10",
                     "text"            : ["Respond after the beep, or tell me when to ",
                                       "call back with this message."],
                     "format"          : "audio",
@@ -228,7 +256,7 @@ var SCENARIOS_DATA = {
               ]
             },
             {
-              "id"                 : "1B11",
+              "id"                 : "1C11",
               "text"               : ["We got up early and we all sat at the top of ",
                                       "the steps and we opened the stockings first ",
                                       "and then ripped through every present\n",
@@ -240,7 +268,7 @@ var SCENARIOS_DATA = {
               "format"             : "audio"
             },
             {
-              "id"                 : "1B12",
+              "id"                 : "1C12",
               "text"               : ["We got up early and we all sat at the top of ",
                                       "the steps and we opened the stockings first ",
                                       "and then ripped through every present and then ",
@@ -250,13 +278,13 @@ var SCENARIOS_DATA = {
               "to"                 : "kid",
               "format"             : "audio",
               "derived_from"       : {
-                "utterance_id"     : "1B11",
+                "utterance_id"     : "1C11",
                 "kind"             : "relay",
                 "via"              : "sms_audio_relay"
               }
             },
             {
-              "id"                 : "1B13",
+              "id"                 : "1C13",
               "text"               : ["We got up early and we all sat at the top of ",
                                       "the steps and we opened the stockings first ",
                                       "and then ripped through every\n",
@@ -266,7 +294,7 @@ var SCENARIOS_DATA = {
               "to"                 : "kid",
               "format"             : "text",
               "derived_from"       : {
-                "utterance_id"     : "1B11",
+                "utterance_id"     : "1C11",
                 "kind"             : "transcript",
                 "via"              : "sms_text_transcript"
               }
@@ -280,7 +308,7 @@ var SCENARIOS_DATA = {
       "group_scenarios"            : [
         {
           "scenario_title"         : "2A Kid error: Keyword wrong",
-          "scenario_precursor"     : "",
+          "scenario_precursor"     : "Precursor: Kid has not sent storycall keyword, or previously sent STOP keyword to end reset a prior interaction.",
           "scenario_steps"         : [
             {
               "id"                 : "2A1",
@@ -319,8 +347,7 @@ var SCENARIOS_DATA = {
         },
         {
           "scenario_title"         : "2B Kid error: Phone number incomplete",
-          "scenario_precursor"     : ["Precursor: Kid has submitted the keyword ",
-                                      "correctly."],
+          "scenario_precursor"     : "Precursor: Kid opted-in correctly.",
           "scenario_steps"         : [
             {
               "id"                 : "2B1",
@@ -365,14 +392,12 @@ var SCENARIOS_DATA = {
           ]
         },
         {
-          "scenario_title"         : "2C Change the call-to number",
-          "scenario_precursor"     : ["Precursor: Kid has previously provided the ",
-                                      "phone number with area code 415–555–1234."],
+          "scenario_title"         : "2C HELP: change the number",
+          "scenario_precursor"     : "Precursor: Kid opted-in and provided phone number correctly.",
           "scenario_steps"         : [
             {
               "id"                 : "2C1",
-              "text"               : ["Actually from now on, can you deliver my ",
-                                      "messages to 650-555-1234"],
+              "text"               : "HELP I need to change who you call",
               "channel"            : "sms",
               "from"               : "kid",
               "to"                 : "storycall",
@@ -380,8 +405,10 @@ var SCENARIOS_DATA = {
             },
             {
               "id"                 : "2C2",
-              "text"               : ["StoryCall: I'll now call 650-555-1234 ",
-                                      "with your future messages."],
+              "text"               : ["StoryCall: To change the call-to number, send the ",
+                                      "new phone number as an audio recording.\n",
+                                      "After I confirm it, I'll use that new ",
+                                      "number for your future messages."],
               "channel"            : "sms",
               "from"               : "storycall",
               "to"                 : "kid",
@@ -390,13 +417,13 @@ var SCENARIOS_DATA = {
           ]
         },
         {
-          "scenario_title"         : "2D HELP: change the number",
-          "scenario_precursor"     : ["Precursor: Kid has submitted the keyword and phone number",
-                                      "correctly."],
+          "scenario_title"         : "2D Change the call-to number",
+          "scenario_precursor"     : "Precursor: Kid has previously provided the phone number with area code 212–555–1234.",
           "scenario_steps"         : [
             {
               "id"                 : "2D1",
-              "text"               : "HELP I need to change who you call",
+              "text"               : ["Actually from now on, can you deliver my ",
+                                      "messages to 650-555-1234"],
               "channel"            : "sms",
               "from"               : "kid",
               "to"                 : "storycall",
@@ -404,10 +431,8 @@ var SCENARIOS_DATA = {
             },
             {
               "id"                 : "2D2",
-              "text"               : ["StoryCall: To change the call-to number, send the ",
-                                      "new phone number as an audio recording.\n",
-                                      "After I confirm it, I'll use that new ",
-                                      "number for your future messages."],
+              "text"               : ["StoryCall: I'll now call 650-555-1234 ",
+                                      "with your future messages."],
               "channel"            : "sms",
               "from"               : "storycall",
               "to"                 : "kid",

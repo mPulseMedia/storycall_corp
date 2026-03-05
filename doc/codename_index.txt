@@ -268,3 +268,9 @@ wrap                                 : class
 year                                 : id
 
 zone_gap                             : class
+zone_label                           : class
+zone_label_gma_filler                : class
+zone_label_kid_filler                : class
+zone_label_row_telephone             : class
+zone_label_sms                       : class
+zone_label_telephone                 : class

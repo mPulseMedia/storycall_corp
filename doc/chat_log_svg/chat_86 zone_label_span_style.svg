@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
+  <rect width="320" height="120" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_86 zone_label_span_style</text>
+  <rect x="10" y="28" width="300" height="85" fill="#f8f8f8" stroke="#ccc"/>
+  <text x="18" y="44" font-size="8" fill="#666">SMS</text>
+  <rect x="18" y="48" width="140" height="22" fill="#fff" stroke="#ccc"/>
+  <text x="24" y="63" font-size="9">Kid + StoryCall (1-4)</text>
+  <text x="18" y="88" font-size="8" fill="#666">Telephone</text>
+  <rect x="160" y="82" width="140" height="22" fill="#fff" stroke="#ccc"/>
+  <text x="166" y="97" font-size="9">StoryCall + Grandma (3-6)</text>
+  <text x="18" y="115" font-size="9" fill="#666">.5rem #666 like step_num</text>
+</svg>

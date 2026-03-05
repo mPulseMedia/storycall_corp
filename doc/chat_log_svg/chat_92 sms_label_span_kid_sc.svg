@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" width="280" height="70">
+  <rect width="280" height="70" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_92 sms_label_span_kid_sc</text>
+  <rect x="10" y="28" width="260" height="35" fill="#f8f8f8" stroke="#ccc"/>
+  <rect x="18" y="38" width="180" height="18" fill="#fff" stroke="#16a34a" stroke-width="1"/>
+  <text x="24" y="51" font-size="9">SMS (1/5)</text>
+  <text x="24" y="62" font-size="8" fill="#666">Kid + StoryCall only</text>
+</svg>

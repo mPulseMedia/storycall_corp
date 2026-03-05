@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="260" height="70">
+  <rect width="260" height="70" fill="#fff"/>
+  <text x="10" y="18" font-size="11" font-weight="bold">chat_99 zone_rounded_corners_visible</text>
+  <rect x="10" y="28" width="240" height="35" fill="#f8f8f8" stroke="#ccc"/>
+  <rect x="18" y="38" width="100" height="18" rx="12" fill="#fff" stroke="#16a34a"/>
+  <text x="24" y="50" font-size="8">overflow:hidden 12px</text>
+  <text x="24" y="62" font-size="8" fill="#666">SMS + Telephone top & bottom</text>
+</svg>
