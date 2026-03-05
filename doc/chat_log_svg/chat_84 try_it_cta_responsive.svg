@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" width="360" height="120">
+  <rect width="360" height="100" fill="#ffffff"/>
+  <text x="180" y="18" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">Try it CTA: responsive mobile vs desktop</text>
+  <rect x="20" y="28" width="150" height="36" fill="#e8f5e9" stroke="#34c759" rx="4"/>
+  <text x="95" y="50" text-anchor="middle" font-family="monospace" font-size="9" fill="#333">Mobile: green button</text>
+  <rect x="190" y="28" width="150" height="36" fill="#e3f2fd" stroke="#2196f3" rx="4"/>
+  <text x="265" y="50" text-anchor="middle" font-family="monospace" font-size="9" fill="#333">Desktop: opt_in.png</text>
+  <text x="30" y="78" font-family="monospace" font-size="9" fill="#666">max-width 43.75rem = mobile</text>
+  <text x="30" y="92" font-family="monospace" font-size="9" fill="#666">min-width 43.75rem = laptop</text>
+  <text x="180" y="115" text-anchor="middle" font-family="monospace" font-size="9" fill="#666">index.html, index.css</text>
+</svg>

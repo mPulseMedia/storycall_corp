@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 200" width="420" height="200">
+  <rect width="420" height="200" fill="#ffffff"/>
+  <text x="210" y="18" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">Try it section: 3-part layout</text>
+  <rect x="20" y="28" width="380" height="38" fill="#f8f8f8" stroke="#ccc" rx="4"/>
+  <text x="30" y="50" font-family="monospace" font-size="10" fill="#333">1. SMS 844-961-2835 keyword &#39;storycall&#39; (new)</text>
+  <rect x="20" y="72" width="380" height="38" fill="#e8f5e9" stroke="#34c759" rx="4"/>
+  <text x="30" y="94" font-family="monospace" font-size="10" fill="#333">2. Green button: Text storycall to 844-961-2835</text>
+  <rect x="20" y="116" width="380" height="38" fill="#f8f8f8" stroke="#ccc" rx="4"/>
+  <text x="30" y="138" font-family="monospace" font-size="10" fill="#333">3. Disclaimer (font-size: 1em, matches hero)</text>
+  <text x="210" y="175" text-anchor="middle" font-family="monospace" font-size="9" fill="#666">index.html #try_it, index.css</text>
+</svg>

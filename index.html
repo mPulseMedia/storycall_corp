@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 
-<body>
+<body class="page_index">
+  <!-- __chat_81 __text_color_unify -->
   <header>
     <div class="wrap">
       <div class="bar">
@@ -61,35 +62,98 @@
     <section id="try_it">
       <h2>Try it</h2>
       <div class="box">
-        <div class="button_row">
-          <a class="button primary" href="sms:+18449612835?&body=storycall%20">Text storycall to 844-961-2835</a>
-        </div>
-        <!-- "What happens next?" block removed (chat_43) -->
-        <!--
-        <details class="try_it_see_how drawer_row">
-          <summary>
-            <span class="summary_text">What happens next?</span>
-            <span class="caret" aria-hidden="true">›</span>
-          </summary>
-          <div class="body_prose">
-            <p class="note">
-              After you send us a text with the key word storycall, we send you a welcome message.
-            </p>
-            <p class="note">
-              Reply with a <b>voice recording</b> of the phone number we should call with your future messages — not speech-to-text dictation, but an audio attachment. Here's how:
-            </p>
-            <ol class="mini">
-              <li>Tap the <b>+</b> attachment button.</li>
-              <li>Choose <b>Audio</b>/<b>Voice</b>.</li>
-              <li>Record the phone number we should call with your future messages and hit Send.</li>
-            </ol>
-            <img class="how_to_audio_image" src="image/how_to_audio.png" alt="Example of an SMS phone number to StoryCall" />
+        <!-- __chat_80 __try_it_opt_in_section -->
+        <p class="note try_it_opt_in try_it_opt_in_mobile">
+          To opt in to exchanging audio text messages with your loved ones.
+        </p>
+        <p class="note try_it_opt_in try_it_opt_in_desktop">
+          To opt into exchanging audio text messages with your loved ones.<br>
+          SMS 'storycall' to <span class="nowrap">844-961-2835</span>.
+        </p>
+        <!-- __chat_84 __try_it_cta_responsive -->
+        <div class="try_it_layout try_it_layout_mobile">
+          <div class="button_row">
+            <a class="button primary" href="sms:+18449612835?&body=storycall%20">Text storycall to <span class="nowrap">844-961-2835</span></a>
           </div>
-        </details>
-        -->
+          <div class="try_it_or_divider">
+            <p class="note try_it_or_text try_it_or_text_form" id="try_it_or_text_mobile">
+              Or fill out your name and phone number below.
+            </p>
+            <p class="note try_it_or_text try_it_or_text_success" id="try_it_or_text_success_mobile" hidden>
+              Welcome! You will receive a text message shortly with steps to connect with your loved one.
+            </p>
+          </div>
+          <div class="try_it_form_block" id="try_it_form_block_mobile">
+            <form class="contact_form try_it_form" id="try_it_form_mobile" action="#" method="post">
+              <div class="contact_field contact_field_indicator">
+                <label for="try_it_name_mobile">Name</label>
+                <div class="input_wrapper">
+                  <input id="try_it_name_mobile" name="name" type="text" autocomplete="name" required data-validate="name" />
+                  <span class="field_indicator" id="try_it_name_mobile_ind" aria-hidden="true"></span>
+                </div>
+                <span class="field_error" id="try_it_name_mobile_err"></span>
+              </div>
+              <div class="contact_field contact_field_indicator">
+                <label for="try_it_phone_mobile">Phone number</label>
+                <div class="input_wrapper">
+                  <input id="try_it_phone_mobile" name="phone" type="tel" autocomplete="tel" required data-validate="phone" />
+                  <span class="field_indicator" id="try_it_phone_mobile_ind" aria-hidden="true"></span>
+                </div>
+                <span class="field_error" id="try_it_phone_mobile_err"></span>
+              </div>
+              <div class="button_row">
+                <button class="button primary" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="try_it_success" id="try_it_success_mobile" hidden>
+            <div class="button_row">
+              <button class="button primary try_it_ok" type="button">OK</button>
+            </div>
+          </div>
+        </div>
+        <div class="try_it_layout try_it_layout_desktop">
+          <img src="image/opt_in.png" alt="New Message: text 'storycall' to 844-961-2835" class="try_it_opt_in_image" />
+          <div class="try_it_or_divider">
+            <p class="note try_it_or_text try_it_or_text_form" id="try_it_or_text_desktop">
+              Or provide your name and phone number below.
+            </p>
+            <p class="note try_it_or_text try_it_or_text_success" id="try_it_or_text_success_desktop" hidden>
+              Welcome! You will receive a text message shortly with steps to connect with your loved one.
+            </p>
+          </div>
+          <div class="try_it_form_block" id="try_it_form_block_desktop">
+            <form class="contact_form try_it_form" id="try_it_form_desktop" action="#" method="post">
+              <div class="contact_field contact_field_indicator">
+                <label for="try_it_name_desktop">Name</label>
+                <div class="input_wrapper">
+                  <input id="try_it_name_desktop" name="name" type="text" autocomplete="name" required data-validate="name" />
+                  <span class="field_indicator" id="try_it_name_desktop_ind" aria-hidden="true"></span>
+                </div>
+                <span class="field_error" id="try_it_name_desktop_err"></span>
+              </div>
+              <div class="contact_field contact_field_indicator">
+                <label for="try_it_phone_desktop">Phone number</label>
+                <div class="input_wrapper">
+                  <input id="try_it_phone_desktop" name="phone" type="tel" autocomplete="tel" required data-validate="phone" />
+                  <span class="field_indicator" id="try_it_phone_desktop_ind" aria-hidden="true"></span>
+                </div>
+                <span class="field_error" id="try_it_phone_desktop_err"></span>
+              </div>
+              <div class="button_row">
+                <button class="button primary" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+          <div class="try_it_success" id="try_it_success_desktop" hidden>
+            <div class="button_row">
+              <button class="button primary try_it_ok" type="button">OK</button>
+            </div>
+          </div>
+        </div>
         <div class="try_it_disclaimer">
           <p class="sms_disclaimer">
-            By texting this number, you consent to receive transactional SMS messages and automated voice calls from StoryCall related to message delivery. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out, HELP for help.
+            BY TEXTING STORYCALL TO 844-961-2835 OR SUBMITTING YOUR NAME AND PHONE NUMBER IN THE ABOVE FORM, YOU ARE AGREEING TO RECEIVE RECURRING TEXT MESSAGE UPDATES. MSG &amp; DATA RATES MAY APPLY. REPLY STOP TO OPT OUT.
           </p>
         </div>
       </div>
@@ -239,6 +303,90 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function(){
+      const MSG_FILL = "Please fill out this field";
+      function isValidPhone(s){
+        var t = (s || "").trim();
+        if (!t) return false;
+        var hasPlus = t.charAt(0) === "+";
+        var digits = t.replace(/\D/g, "");
+        if (hasPlus) return digits.length >= 10 && digits.length <= 15;
+        if (digits.length === 10) return digits.charAt(0) >= "2" && digits.charAt(0) <= "9";
+        if (digits.length === 11 && digits.charAt(0) === "1") return digits.charAt(1) >= "2" && digits.charAt(1) <= "9";
+        return false;
+      }
+      function updateIndicator(input, ind, err){
+        var val = (input.value || "").trim();
+        var type = input.getAttribute("data-validate");
+        ind.textContent = "";
+        ind.className = "field_indicator";
+        if (!val) { ind.style.visibility = "hidden"; err.textContent = ""; return; }
+        ind.style.visibility = "visible";
+        ind.textContent = "\u2713";
+        var valid = type === "name" ? val.length >= 1 : isValidPhone(val);
+        ind.classList.add(valid ? "valid" : "invalid");
+        err.textContent = "";
+      }
+      function validateField(input, err){
+        var val = (input.value || "").trim();
+        var type = input.getAttribute("data-validate");
+        if (!val) { input.setCustomValidity(MSG_FILL); err.textContent = MSG_FILL; return false; }
+        if (type === "name") { input.setCustomValidity(""); err.textContent = ""; return true; }
+        if (!isValidPhone(val)) { input.setCustomValidity(MSG_FILL); err.textContent = MSG_FILL; return false; }
+        input.setCustomValidity(""); err.textContent = ""; return true;
+      }
+      var pairs = [
+        { formId: "try_it_form_mobile", blockId: "try_it_form_block_mobile", successId: "try_it_success_mobile", textFormId: "try_it_or_text_mobile", textSuccessId: "try_it_or_text_success_mobile" },
+        { formId: "try_it_form_desktop", blockId: "try_it_form_block_desktop", successId: "try_it_success_desktop", textFormId: "try_it_or_text_desktop", textSuccessId: "try_it_or_text_success_desktop" }
+      ];
+      pairs.forEach(function(p){
+        var form = document.getElementById(p.formId);
+        if (!form) return;
+        form.querySelectorAll("[data-validate]").forEach(function(input){
+          var ind = document.getElementById(input.id + "_ind");
+          var err = document.getElementById(input.id + "_err");
+          if (!ind || !err) return;
+          input.addEventListener("input", function(){ updateIndicator(input, ind, err); });
+          input.addEventListener("blur", function(){ updateIndicator(input, ind, err); if (input.value) validateField(input, err); });
+        });
+      });
+      pairs.forEach(function(p){
+        const form = document.getElementById(p.formId);
+        const block = document.getElementById(p.blockId);
+        const success = document.getElementById(p.successId);
+        const textForm = document.getElementById(p.textFormId);
+        const textSuccess = document.getElementById(p.textSuccessId);
+        if (!form || !block || !success || !textForm || !textSuccess) return;
+        form.addEventListener("submit", function(e){
+          e.preventDefault();
+          form.querySelectorAll("[data-validate]").forEach(function(input){
+            var err = document.getElementById(input.id + "_err");
+            if (err) validateField(input, err);
+          });
+          if (!form.reportValidity()) return;
+          // TODO: POST to REST API with name + phone (encrypted). Set form.action or fetch() here.
+          textForm.hidden = true;
+          textSuccess.hidden = false;
+          block.hidden = true;
+          success.hidden = false;
+        });
+        success.querySelector(".try_it_ok").addEventListener("click", function(){
+          textSuccess.hidden = true;
+          textForm.hidden = false;
+          success.hidden = true;
+          block.hidden = false;
+          form.reset();
+          form.querySelectorAll("[data-validate]").forEach(function(input){
+            var ind = document.getElementById(input.id + "_ind");
+            var err = document.getElementById(input.id + "_err");
+            if (ind) { ind.textContent = ""; ind.className = "field_indicator"; ind.style.visibility = "hidden"; }
+            if (err) err.textContent = "";
+            input.setCustomValidity("");
+          });
+        });
+      });
+    })();
 
     (function(){
       const form = document.getElementById("contact_form");

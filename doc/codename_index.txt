@@ -76,8 +76,12 @@ color_text_primary                   : css
 
 contact_email                        : id
 contact_field                        : class
+contact_field_indicator              : class
 contact_form                         : id
 contact_message                      : id
+field_error                          : class
+field_indicator                      : class
+input_wrapper                        : class
 contact_name                         : id
 
 copy                                 : class
@@ -206,6 +210,7 @@ outline                              : class
 
 outline_mdc                          : file
 
+page_index                           : class
 page_title                           : class
 
 primary                              : class
@@ -246,6 +251,16 @@ text_get                             : function
 
 try_it                               : section
 try_it_disclaimer                    : class
+try_it_form                          : id
+try_it_layout                        : class
+try_it_layout_desktop                : class
+try_it_layout_mobile                 : class
+try_it_opt_in                        : class
+try_it_opt_in_desktop                : class
+try_it_opt_in_image                  : class
+try_it_opt_in_mobile                 : class
+try_it_or_divider                    : class
+try_it_or_text                       : class
 try_it_see_how                       : class
 
 wrap                                 : class

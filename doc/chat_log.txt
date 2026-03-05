@@ -1,3 +1,121 @@
+chat_84  try_it_cta_responsive -- 2026-03-04 5:40:46 PM
+
+    A.  Prompt
+        1.  Detect mobile vs laptop; on mobile
+            show Text storycall green button;
+            on laptop show opt_in.png image.
+
+    B.  Response
+        1.  Added try_it_cta_mobile (button) and
+            try_it_cta_desktop (opt_in.png).
+        2.  Media query: mobile shows button,
+            desktop (min-width 43.75rem) shows
+            image.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_84%20try_it_cta_responsive.svg
+
+    C.  Codenames
+        1.  try_it_cta_desktop (new).
+        2.  try_it_cta_mobile (new).
+        3.  try_it_opt_in_image (new).
+
+chat_83  try_it_or_divider_form_width -- 2026-03-04 5:30:25 PM
+
+    A.  Prompt
+        1.  Create separator line underneath
+            "Text storycall to 844" button.
+        2.  Insert text before form: "Or fill
+            out the following to opt in to
+            exchange audio text messages with
+            your loved ones."
+        3.  Form input width 80% of raised area
+            in both try-it and send-email
+            sections.
+
+    B.  Response
+        1.  Added try_it_or_divider with
+            border-top and try_it_or_text.
+        2.  Set contact_field input/textarea
+            width to 80%.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_83%20try_it_or_divider_form_width.svg
+
+    C.  Codenames
+        1.  try_it_or_divider (new).
+        2.  try_it_or_text (new).
+
+chat_82  try_it_form_add -- 2026-03-04 5:27:59 PM
+
+    A.  Prompt
+        1.  Create a new section in the tryout
+            drawer above the last section; make
+            it a form with two fields (name,
+            phone number) in separate rows; style
+            like the Send an email for help
+            form; user will add RESTful link
+            with encrypted data for app-side
+            trigger.
+
+    B.  Response
+        1.  Added try_it_form with Name and
+            Phone number fields above
+            disclaimer.
+        2.  Reused contact_form, contact_field
+            styling.
+        3.  Submit handler prevents default;
+            TODO for REST API integration.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_82%20try_it_form_add.svg
+
+    C.  Codenames
+        1.  try_it_form (new).
+
+chat_81  text_color_unify -- 2026-03-04 5:21:57 PM
+
+    A.  Prompt
+        1.  Make all regular sized text on the
+            index page the same color as the
+            hero paragraph ("First, you make a
+            voice recording..."); unify black,
+            dark gray, light gray to one
+            color. Keep drawer boldness change
+            when opening.
+
+    B.  Response
+        1.  Set body.page_index main and
+            summary to color_text_muted.
+        2.  Changed sms_disclaimer from .42
+            opacity to color_text_muted.
+        3.  Drawer font-weight (regular →
+            heavy when open) unchanged.
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_81%20text_color_unify.svg
+
+    C.  Codenames
+        1.  page_index (new).
+
+chat_80  try_it_opt_in_section -- 2026-03-04 5:15:20 PM
+
+    A.  Prompt
+        1.  On the main index page, work with a
+            tryout section: make the disclaimer
+            text the same font size as the text
+            up at the top of the page; add a
+            section above the section with the
+            green Storycall button; this first
+            of the now three sections should
+            say: SMS the Shortcode 844-961-2835
+            with the keyword 'storycall' to opt
+            in to receive recordings from your
+            loved ones.
+
+    B.  Response
+        1.  Added try_it_opt_in paragraph above
+            the green button with SMS opt-in
+            text.
+        2.  Set sms_disclaimer font-size to 1em
+            to match hero/top text.
+        3.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_80%20try_it_opt_in_section.svg
+
+    C.  Codenames
+        1.  try_it_opt_in (new).
+
 chat_79  footer_privacy_terms -- 2026-03-03 12:30:55 PM
 
     A.  Prompt
@@ -1474,19 +1592,18 @@ chat_1  chat_log_test -- 2026-02-26 10:09:47 AM
 
 ##  NEXT PROMPT
 
-A.  Scenario_content_review
+A.  Try_it_form_api
+    a.  Wire try_it_form to REST endpoint.
+    b.  Encrypt name + phone before POST.
+
+B.  Scenario_content_review
     a.  Review all 17 scenario message texts
         for consistency and realism.
     b.  Ensure precursors accurately describe
         each scenario's starting conditions.
 
-B.  Codename_scaffold
+C.  Codename_scaffold
     a.  Add codenames to existing code blocks
         across the primary app files.
     b.  Verify doc/codename_index.txt matches
         all discovered codenames.
-
-C.  Spec_bootstrap
-    a.  Create initial spec_*.txt files in
-        doc/ describing the current state of
-        the primary application.

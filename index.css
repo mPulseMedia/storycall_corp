@@ -159,6 +159,12 @@
     main{
       padding           : var(--main_padding_top) 0 var(--main_padding_bottom);
     }
+    body.page_index main{
+      color             : var(--color_text_muted);
+    }
+    body.page_index summary{
+      color             : var(--color_text_muted);
+    }
     .hero{
       position          : relative;
       margin-top        : var(--hero_margin_top);
@@ -287,13 +293,43 @@
     #try_it .button_row{
       margin-bottom     : var(--margin_small);
     }
+    #try_it .try_it_opt_in_desktop{
+      display           : none;
+    }
+    #try_it .try_it_layout_desktop{
+      display           : none;
+    }
+    #try_it .try_it_opt_in_image{
+      display           : none;
+      width             : min(320px, 100%);
+      height            : auto;
+      margin            : var(--margin_medium) auto 0;
+      border-radius     : var(--radius_medium);
+    }
+    @media (min-width: 43.75rem){
+      #try_it .try_it_opt_in_mobile{
+        display         : none;
+      }
+      #try_it .try_it_opt_in_desktop{
+        display         : block;
+      }
+      #try_it .try_it_layout_mobile{
+        display         : none;
+      }
+      #try_it .try_it_layout_desktop{
+        display         : block;
+      }
+      #try_it .try_it_opt_in_image{
+        display         : block;
+      }
+    }
     #try_it .sms_disclaimer{
       margin            : 0;
       max-width         : min(var(--font_measure_wide), 44rem);
       padding           : 0;
       text-align        : left;
-      color             : rgba(var(--color_rgb_black), .42);
-      font-size         : .72em;
+      color             : var(--color_text_muted);
+      font-size         : 1em;
       line-height       : 1.45;
       background        : transparent;
       border            : 0;
@@ -326,6 +362,23 @@
       padding-left      : .9em;
       font-style        : italic;
       font-size         : .92em;
+    }
+    #try_it .try_it_or_divider{
+      border-top        : var(--border_default);
+      margin-top        : var(--margin_medium);
+      padding-top       : var(--margin_medium);
+    }
+    #try_it .try_it_or_divider .try_it_or_text{
+      margin            : 0 0 var(--margin_medium);
+    }
+    #try_it .try_it_success{
+      margin-top        : var(--margin_medium);
+    }
+    #try_it .try_it_success_text{
+      margin            : 0 0 var(--margin_small);
+    }
+    #try_it .try_it_form{
+      margin-top        : 0;
     }
     #try_it .try_it_disclaimer{
       border-top        : var(--border_default);
@@ -615,13 +668,17 @@
     }
     .contact_field label{
       display           : block;
-      margin            : 0 0 var(--margin_micro);
+      margin            : 0 auto var(--margin_micro);
       font-size         : .85em;
       color             : var(--color_text_muted);
+      width             : 70%;
     }
     .contact_field input,
     .contact_field textarea{
-      width             : 100%;
+      width             : 70%;
+      margin-left       : auto;
+      margin-right      : auto;
+      display           : block;
       font-family       : inherit;
       font-size         : inherit;
       line-height       : inherit;
@@ -634,6 +691,40 @@
     .contact_field textarea{
       min-height        : 9rem;
       resize            : vertical;
+    }
+    .contact_field_indicator .input_wrapper{
+      position          : relative;
+      width             : 70%;
+      margin-left       : auto;
+      margin-right      : auto;
+    }
+    .contact_field_indicator .input_wrapper input{
+      width             : 100%;
+      padding-right     : 2.2em;
+      margin-left       : 0;
+      margin-right      : 0;
+    }
+    .contact_field_indicator .field_indicator{
+      position          : absolute;
+      right             : var(--margin_small);
+      top               : 50%;
+      transform         : translateY(-50%);
+      font-size         : 1rem;
+      line-height       : 1;
+      pointer-events    : none;
+    }
+    .contact_field_indicator .field_indicator.valid{
+      color             : #34c759;
+    }
+    .contact_field_indicator .field_indicator.invalid{
+      color             : rgba(var(--color_rgb_black), .35);
+    }
+    .contact_field_indicator .field_error{
+      display           : block;
+      width             : 70%;
+      margin            : var(--margin_micro) auto 0;
+      font-size         : .8em;
+      color             : rgba(var(--color_rgb_black), .35);
     }
     .contact_field input:focus,
     .contact_field textarea:focus{
