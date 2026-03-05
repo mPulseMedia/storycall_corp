@@ -392,12 +392,12 @@ var SCENARIOS_DATA = {
           ]
         },
         {
-          "scenario_title"         : "2C HELP: change the number",
-          "scenario_precursor"     : "Precursor: Kid opted-in and provided phone number correctly.",
+          "scenario_title"         : "2C Kids calls self",
+          "scenario_precursor"     : "Precursor: Kid opted-in correctly.",
           "scenario_steps"         : [
             {
               "id"                 : "2C1",
-              "text"               : "HELP I need to change who you call",
+              "text"               : "2125551234",
               "channel"            : "sms",
               "from"               : "kid",
               "to"                 : "storycall",
@@ -405,6 +405,96 @@ var SCENARIOS_DATA = {
             },
             {
               "id"                 : "2C2",
+              "text"               : ["StoryCall: Perfect. Now SMS me a voice recording ",
+                                      "and I'll deliver it to 212-555-1234.\n\n",
+                                      "Note: You're set up to message yourself, which is a great way to see how the service works.\n\n",
+                                      "To do this on iPhones, tap the attachment [+] button and choose Audio. ",
+                                      "On Android, hold down the microphone button.\n\n",
+                                      "For help, text VOICE."],
+              "channel"            : "sms",
+              "from"               : "storycall",
+              "to"                 : "kid",
+              "format"             : "text"
+            },
+            {
+              "id"                 : "2C3",
+              "text"               : ["Testing one two three."],
+              "channel"            : "sms",
+              "from"               : "kid",
+              "to"                 : "storycall",
+              "format"             : "audio"
+            },
+            {
+              "channel"            : "telephone",
+              "from"               : "storycall",
+              "to"                 : "grandma",
+              "speaker"            : "storycall",
+              "telephone_index"    : 1,
+              "telephone_parts"    : [
+                  {
+                    "id"              : "2C4",
+                    "text"            : "You have a new recorded message.",
+                    "format"          : "audio",
+                    "speaker"         : "storycall"
+                  },
+                  {
+                    "id"              : "2C5",
+                    "text"            : ["Testing one two three."],
+                    "format"          : "audio",
+                    "speaker"         : "kid",
+                    "derived_from"    : {
+                      "utterance_id"  : "2C3",
+                      "kind"          : "relay",
+                      "via"           : "telephone_playback"
+                    }
+                  },
+                  {
+                    "id"              : "2C6",
+                    "text"            : ["Respond after the beep, or tell me when to ",
+                                      "call back with this message."],
+                    "format"          : "audio",
+                    "speaker"         : "storycall"
+                  }
+              ]
+            },
+            {
+              "id"                 : "2C7",
+              "text"               : ["Got it, sounds good."],
+              "channel"            : "telephone",
+              "from"               : "grandma",
+              "to"                 : "storycall",
+              "speaker"            : "grandma",
+              "format"             : "audio"
+            },
+            {
+              "id"                 : "2C8",
+              "text"               : ["Got it, sounds good."],
+              "channel"            : "sms",
+              "from"               : "storycall",
+              "to"                 : "kid",
+              "format"             : "audio",
+              "derived_from"       : {
+                "utterance_id"     : "2C7",
+                "kind"             : "relay",
+                "via"              : "sms_audio_relay"
+              }
+            }
+          ]
+        },
+        {
+          "scenario_title"         : "2D HELP: change the number",
+          "scenario_precursor"     : "Precursor: Kid opted-in and provided phone number correctly.",
+          "scenario_steps"         : [
+            {
+              "id"                 : "2D1",
+              "text"               : "HELP I need to change who you call",
+              "channel"            : "sms",
+              "from"               : "kid",
+              "to"                 : "storycall",
+              "format"             : "text"
+            },
+            {
+              "id"                 : "2D2",
               "text"               : ["StoryCall: To change the call-to number, send the ",
                                       "new phone number as an audio recording.\n",
                                       "After I confirm it, I'll use that new ",
@@ -417,11 +507,11 @@ var SCENARIOS_DATA = {
           ]
         },
         {
-          "scenario_title"         : "2D Change the call-to number",
+          "scenario_title"         : "2E Change the call-to number",
           "scenario_precursor"     : "Precursor: Kid has previously provided the phone number with area code 212–555–1234.",
           "scenario_steps"         : [
             {
-              "id"                 : "2D1",
+              "id"                 : "2E1",
               "text"               : ["Actually from now on, can you deliver my ",
                                       "messages to 650-555-1234"],
               "channel"            : "sms",
@@ -430,7 +520,7 @@ var SCENARIOS_DATA = {
               "format"             : "text"
             },
             {
-              "id"                 : "2D2",
+              "id"                 : "2E2",
               "text"               : ["StoryCall: I'll now call 650-555-1234 ",
                                       "with your future messages."],
               "channel"            : "sms",

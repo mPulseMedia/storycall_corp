@@ -263,6 +263,7 @@ try_it_or_divider                    : class
 try_it_or_text                       : class
 try_it_see_how                       : class
 
+voice_tag_svg                         : var
 wrap                                 : class
 
 year                                 : id

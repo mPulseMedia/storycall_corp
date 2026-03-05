@@ -108,6 +108,9 @@
     </div>`;
   }
 
+  const voice_tag_svg = `<span class="voice_tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span>`;
+
+  // __chat_104 __telephone_sc_gma_voice_icon
   function call_render(call) {
     /* Render all parts as stacked bubbles spanning storycall + grandma */
     const parts = call.telephone_parts || [];
@@ -116,10 +119,10 @@
       const body = html_escape(text_get(part.text));
       const numHTML = part.id != null ? `<span class="step_num">${part.id}</span>` : "";
       const partId = part.id != null ? ` id="step_${part.id}"` : "";
-      /* relayed kid voice → darker green; storycall voice → darker blue */
+      /* relayed kid voice → darker green; storycall voice → darker blue; all audio → mic icon */
       const relayed = part.derived_from && part.derived_from.via === "telephone_playback";
       const cls = relayed ? "bubble bubble_kid bubble_voice" : "bubble bubble_sc bubble_voice";
-      bubblesHTML += `<div class="${cls}"${partId}>${numHTML}${body}</div>`;
+      bubblesHTML += `<div class="${cls}"${partId}>${numHTML}${voice_tag_svg}${body}</div>`;
     }
 
     return `<div class="msg">

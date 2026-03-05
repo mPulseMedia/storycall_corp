@@ -1,3 +1,73 @@
+chat_104  telephone_sc_gma_voice_icon -- 2026-03-05 1:31:50 PM
+
+    A.  Prompt
+        1.  For all of the communications going
+            from story call to grandma in each
+            of the segments insert the little
+            microphone icon that indicates it's
+            audio and not text.
+
+    B.  Response
+        1.  Added voice_tag (mic SVG) to all
+            telephone_parts in call_render.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_104%20telephone_sc_gma_voice_icon.svg
+
+    C.  Codenames
+        1.  voice_tag_svg (new).
+
+chat_103  scenario_2c_note_second_para -- 2026-03-05 11:32:50 AM
+
+    A.  Prompt
+        1.  Move the note to the 2nd paragraph.
+
+    B.  Response
+        1.  Moved self-message Note to 2nd
+            paragraph in 2C2.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_103%20scenario_2c_note_second_para.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_102  scenario_2c_remove_second_msg -- 2026-03-05 11:32:19 AM
+
+    A.  Prompt
+        1.  Remove second message parts.
+
+    B.  Response
+        1.  Removed 2C9–2C14 from Kids calls self;
+            one send/receive cycle only.
+        2.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_102%20scenario_2c_remove_second_msg.svg
+
+    C.  Codenames
+        1.  None.
+
+chat_101  scenario_2c_kids_calls_self -- 2026-03-05 11:31:08 AM
+
+    A.  Prompt
+        1.  Insert scenario after 2B called "Kids
+            calls self" and have kid put in his
+            own number as grandma. And have reply
+            say the other stuff, with a warning
+            that you're set up to message
+            yourself which is a great way to see
+            how the service works. and then have
+            the kid send and receive a message,
+            and replay and recieve a message.
+
+    B.  Response
+        1.  Added 2C Kids calls self: kid provides
+            own number; StoryCall confirms with
+            self-message warning.
+        2.  Two full cycles: send voice → call →
+            respond → relay; send again → call →
+            respond → relay.
+        3.  Renumbered 2C→2D (HELP), 2D→2E
+            (Change number).
+        4.  file:///Users/pauldsmith/Desktop/storycall_corp/doc/chat_log_svg/chat_101%20scenario_2c_kids_calls_self.svg
+
+    C.  Codenames
+        1.  None.
+
 chat_100  undo_rounded_corners -- 2026-03-05 10:32:12 AM
 
     A.  Prompt
